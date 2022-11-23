@@ -15,13 +15,14 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>Western Digital</h1>
+            <h1>Form Validations</h1>
             <h2>Welcome</h2>
             <p>Log in to your App to continue</p>
         </div>
         <form action="./server/server.php" method="POST">
+            <input type="text" name="firstName" id="firstName" placeholder="First Name">
             <input type="text" name="email" id="email" placeholder="some@email.com">
-            <input type="text" name="email" id="email" placeholder="Password">
+            <input type="text" name="password" id="password" placeholder="Password">
             <button type="submit" name="action" value="default" class="btnSubmit">Submit</button>
         </form>
     </div>
