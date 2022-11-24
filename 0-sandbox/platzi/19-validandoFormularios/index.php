@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="./reset.css">
     <!-- CSS: Custom Styles -->
     <link rel="stylesheet" href="./css/global.css">
-    <title>Functions: isset() is_null() empty()</title>
+    <title>Validando Formularios con PHP</title>
 </head>
 
 <body>
     <div class="container">
         <div class="title">
-            <h1>Sanitizing Forms</h1>
+            <h1>Validating Forms</h1>
             <h2>Welcome</h2>
             <p>Log in to your App to continue</p>
         </div>
