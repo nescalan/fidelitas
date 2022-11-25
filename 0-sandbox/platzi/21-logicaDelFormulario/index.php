@@ -4,7 +4,7 @@
 $status = "";
 function validate($name, $email, $subject, $message)
 {
-    return empty($name) && empty($email) && empty($subject) && empty($message);
+    return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
 }
 ;
 
@@ -12,10 +12,9 @@ if (isset($_POST["btnForm"])) {
 
 
     // Invocamos función para validar y con el unpacking array le pasamos los parametros solicitados a la función
-    $validatePost = [...$_POST];
     print_r($validatePost);
 
-    if (!validate($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
+    if (validate($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
 
 
         // Desconstrucción de variables y Sanitizando los datos
