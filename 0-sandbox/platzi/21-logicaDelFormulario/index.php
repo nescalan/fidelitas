@@ -1,30 +1,41 @@
 <?php
 
+// Variables
+$status = "";
 function validate($name, $email, $subject, $message)
 {
-    return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
+    return empty($name) && empty($email) && empty($subject) && empty($message);
 }
 ;
 
-if (isset($_POST["form"])) {
+if (isset($_POST["btnForm"])) {
 
-    if (validate(...$_POST)) {
 
-        // Desconstrucción de variables, despues de esto hay que sanitizar los datos
-        $name = $_POST["name"];
-        $email = $_POST["email"];
-        $subject = $_POST["subject"];
-        $message = $_POST["message"];
+    // Invocamos función para validar y con el unpacking array le pasamos los parametros solicitados a la función
+    $validatePost = [...$_POST];
+    print_r($validatePost);
 
-        // Sanitize: Crearlo en la casa
+    if (!validate($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
 
-        // Enviar mensaje al correo
+
+        // Desconstrucción de variables y Sanitizando los datos
+        $name = htmlentities($_POST['name']);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $subject = htmlentities($_POST['subject']);
+        $message = htmlentities($_POST['message']);
+
+        // Impresion por pantalla
+        print_r($name);
+
+        // MENSAJE: Enviado con exito!
+        echo "Todo bien";
         $status = "success";
-
     } else {
-        // No se envía el correo
-        $status = "danger";
+        // MENSAJE: Surgio un problema
+        echo "Formulario vacio";
+        $status = "error";
     }
+
 }
 
 
@@ -48,23 +59,29 @@ if (isset($_POST["form"])) {
 <body>
     <div class="container">
 
+        <!-- MESSAGE: Seccion de Mensaje Exitoso -->
+        <?php if ($status == "success"): ?>
         <div class="alert success">
-            <span>Mensaje enviado con exito!</span>
+            <span>Enviado con exito!</span>
         </div>
+        <?php endif ?>
 
+        <!-- MESSAGE: Seccion de Mensaje de Error -->
+        <?php if ($status == "danger"): ?>
         <div class="alert danger">
             <span>Surgió un problema</span>
         </div>
+        <?php endif ?>
 
-        <!-- Titulo del Formulario -->
+        <!-- TITLE: Formulario -->
         <div class="title">
-            <h1>Contactanos</h1>
-            <h2>Validating Forms</h2>
+            <h1>21 - Contactanos</h1>
+            <h2>Logica del Formulario</h2>
             <p>Completa el siguiete formulario.</p>
         </div>
 
         <!-- FORM: Inicio -->
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]) ?>" method="POST">
             <label for="name">Nombre:</label>
             <input type="text" name="name" id="name">
 
@@ -78,7 +95,7 @@ if (isset($_POST["form"])) {
             <label for="message">Mensaje:</label>
             <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
 
-            <button type="submit" name="form" value="default" class="btnSubmit">Submit</button>
+            <button type="submit" name="btnForm" class="btnSubmit">Submit</button>
         </form>
         <!-- FORM: Final -->
 
