@@ -2,6 +2,11 @@
 
 // Variables
 $status = "";
+// function validate($name, $email, $subject, $message)
+// {
+//     return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
+// }
+// ;
 function validate($name, $email, $subject, $message)
 {
     return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
@@ -11,9 +16,10 @@ function validate($name, $email, $subject, $message)
 if (isset($_POST["btnForm"])) {
 
 
-    // Invocamos función para validar y con el unpacking array le pasamos los parametros solicitados a la función
-    print_r($validatePost);
+    // Invocamos función para validar
+    // print_r($validatePost);
 
+    // if (validate($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
     if (validate($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
 
 
@@ -24,15 +30,15 @@ if (isset($_POST["btnForm"])) {
         $message = htmlentities($_POST['message']);
 
         // Impresion por pantalla
-        print_r($name);
 
         // MENSAJE: Enviado con exito!
-        echo "Todo bien";
+        echo "Todo bien -> ";
         $status = "success";
     } else {
         // MENSAJE: Surgio un problema
-        echo "Formulario vacio";
-        $status = "error";
+        echo "Completar todos los campos";
+        $status = "danger";
+        echo ($_POST['message']);
     }
 
 }
@@ -92,7 +98,7 @@ if (isset($_POST["btnForm"])) {
             <input type="text" name="subject" id="subject">
 
             <label for="message">Mensaje:</label>
-            <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+            <textarea name="message" id="" cols="30" rows="10"></textarea>
 
             <button type="submit" name="btnForm" class="btnSubmit">Submit</button>
         </form>
