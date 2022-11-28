@@ -1,19 +1,66 @@
 <?php
 
-if (isset($_POST['btnSubmit'])) {
-    echo "El formulario fue enviado con éxito";
-    echo "<br>";
+// Declaracion de variables
+$errores = "";
 
-    // Desconstrucción de $_POST
+if (isset($_POST["btnSubmit"])) {
+    // Deconstruccion de $_POST
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
 
-    echo "Hola $nombre, tu correo es: $correo";
+    if (!empty($nombre)) {
+
+        // Sanitizacion de Variables
+        $nombre = trim($nombre);
+        $nombre = htmlentities($nombre);
+        $nombre = stripslashes($nombre);
+
+        // Filtratdo de variables
+        $nombre = filter_var($nombre);
+
+        // Impresion por pantalla
+        echo "Hola $nombre, bienvenido a nuestra aplicacion";
+
+
+    } else {
+
+        // Impresion por pantalla
+        $errores .= "Por favor, completar el campo de nombre. <br>";
+    }
+
+    if (!empty($correo)) {
+
+        // Sanitizacion de Variables
+        $correo = trim($correo);
+        // $correo = htmlentities($correo);
+        // $correo = stripslashes($correo);
+
+        // Filtratdo de variables
+        $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+
+        if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            // Impresion por pantalla
+            $errores .= "Ingresa un correo valido";
+        } else {
+            // Impresion por pantalla
+            echo "Hola tu correo es: $correo";
+        }
+
+
+
+    } else {
+
+        // Impresion por pantalla  
+        $errores .= "Por favor, agrega el correo";
+
+    }
+
 
 } else {
-    echo "El formulario, está vacío";
-    echo ($_POST["btnSubmit"]);
+    // Impresion por pantalla
+    echo "Los campos no pueden quedar vacios";
 }
+
 
 
 
@@ -39,7 +86,7 @@ if (isset($_POST['btnSubmit'])) {
 
         <!-- TITLE: Titulo del Formulario -->
         <div class="title">
-            <h1>Leccion 45</h1>
+            <h1>Leccion 46</h1>
             <h2>Usando PHP y HTML</h2>
             <p>Comprobando Datos del Formulario </p>
         </div>
@@ -53,7 +100,14 @@ if (isset($_POST['btnSubmit'])) {
             <label for="correo">Correo:</label>
             <input type="email" name="correo" id="correo">
 
-            <button type="submit" name="btnForm" class="btnSubmit">Submit</button>
+
+            <?php if (!empty($errores)): ?>
+            <div class="error">
+                <?php echo $errores ?>
+            </div>
+            <?php endif ?>
+
+            <button class="btnSubmit" type="submit" name="btnSubmit">Submit</button>
         </form>
         <!-- FORM: Final -->
     </div>
