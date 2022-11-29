@@ -18,20 +18,23 @@
     <div class="wrap">
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-            <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre: " value="">
-            <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo: " value="">
+            <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre: ">
+            <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo: ">
 
             <textarea id="mensaje" class="form-control" name="mensaje"></textarea>
+
+            <?php if (!empty($errores)): ?>
             <div class="alert error">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste laboriosam, aliquam id quibusdam unde
-                sunt rerum quis consequatur itaque ex hic voluptatem totam facilis commodi aliquid dicta sed, error
-                sapiente!
+                <?php echo $errores ?>
             </div>
+            <?php elseif ($enviado): ?>
             <div class="alert success">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste laboriosam, aliquam id quibusdam unde
-                sunt rerum quis consequatur itaque ex hic voluptatem totam facilis commodi aliquid dicta sed, error
-                sapiente!
+                <p>Enviado correctamente.</p>
             </div>
+            <?php endif ?>
+
+
+
             <input id="btnSubmit" class="btn btn-primary" name="submit" type="submit" value="Enviar Correo">
         </form>
     </div>
