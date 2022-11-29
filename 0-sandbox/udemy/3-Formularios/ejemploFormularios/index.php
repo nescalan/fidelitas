@@ -4,7 +4,7 @@
 
 // Declaracion de variables
 $errores = "";
-$enviado = "";
+$enviado = false;
 
 // Beginig
 if (isset($_POST["submit"])) {
@@ -29,9 +29,10 @@ if (isset($_POST["submit"])) {
     if (!empty($correo)) {
 
         // Sanitización de la variable $correo
-        $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+        // $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
 
-        if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+
+        if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             $errores .= "Por favor, ingresa un correo válido <br>";
         }
 
@@ -54,8 +55,13 @@ if (isset($_POST["submit"])) {
     // Preguntar si existen errores
     if (!$errores) {
         $enviar_a = "$correo";
-    } else {
-        # code...
+        $asunto = "Mipagina.com";
+        $mensaje_preparado = "De: $nombre \n";
+        $mensaje_preparado .= "Correo: $correo \n";
+        $mensaje_preparado .= "Mensaje: " . "$";
+
+        // mail($enviar_a, $asunto, $mensaje_preparado);
+        $enviado = true;
     }
 
 

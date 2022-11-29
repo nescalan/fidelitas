@@ -21,7 +21,7 @@
             <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre: ">
             <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo: ">
 
-            <textarea id="mensaje" class="form-control" name="mensaje"></textarea>
+            <textarea id="mensaje" class="form-control" name="mensaje" placeholder="Mensaje:"></textarea>
 
             <?php if (!empty($errores)): ?>
             <div class="alert error">
