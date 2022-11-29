@@ -22,7 +22,16 @@
             <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo: " value="">
 
             <textarea id="mensaje" class="form-control" name="mensaje"></textarea>
-
+            <div class="alert error">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste laboriosam, aliquam id quibusdam unde
+                sunt rerum quis consequatur itaque ex hic voluptatem totam facilis commodi aliquid dicta sed, error
+                sapiente!
+            </div>
+            <div class="alert success">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste laboriosam, aliquam id quibusdam unde
+                sunt rerum quis consequatur itaque ex hic voluptatem totam facilis commodi aliquid dicta sed, error
+                sapiente!
+            </div>
             <input id="btnSubmit" class="btn btn-primary" name="submit" type="submit" value="Enviar Correo">
         </form>
     </div>
