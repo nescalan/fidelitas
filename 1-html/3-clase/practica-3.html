@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./practica-3.css">
     <title>Week 3:</title>
   </head>
   <body>
@@ -71,7 +71,13 @@
           <tr>
             <td>Notas:</td>
             <td>
-              <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+              <textarea 
+              id="notes"
+              name="notes"  
+              cols="30" 
+              rows="5" 
+              placeholder="Ingrese cualquier nota a considerar">
+            </textarea>
             </td>
           </tr>
         </table>
@@ -108,15 +114,30 @@
                   <option value="8 anio">8 anio</option>
                   <option value="9 anio">9 anio</option>
                   <option value="10 anio">10 anio</option>
-                  <option value="11 anio">511 nio</option>
+                  <option value="11 anio">11 anio</option>
                 </optgroup>
               </select>
             </td>
             <td>
-              <input type="radio" name="" id="" />
-              <label for="morning">Maniana</label>
+              <input id="morning" type="radio"  name="schedule" checked>
+              <label for="morning">Mañana</label>
+              <input id="evening" type="radio"  name="schedule" value="evening">
+              <label for="evening">Tarde</label>
             </td>
-            <td></td>
+            <td>  
+              <input id="1" type="checkbox" name="1" >
+              <label for="1">Informatica</label>
+              <input id="2" type="checkbox" name="2" >
+              <label for="2">Musica</label>
+              <input id="3" type="checkbox" name="3" >
+              <label for="3">Balet</label>
+              <input id="1" type="checkbox" name="1" >
+              <label for="1">Arte</label>
+              <input id="2" type="checkbox" name="2" >
+              <label for="2">Futbol</label>
+              <input id="3" type="checkbox" name="3" >
+              <label for="3">Judo</label>
+            </td>
           </tr>
         </table>
       </fieldset>
