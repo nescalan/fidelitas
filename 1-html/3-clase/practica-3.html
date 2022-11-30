@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Week 3:</title>
+  </head>
+  <body>
+    <h1>Prematricula Escolar 2023</h1>
+
+    <fieldset>
+      <legend>Datos Personales</legend>
+
+      <form action="./login.html">
+        <table>
+          <tr>
+            <td>Nombre del alumno:</td>
+            <td>
+              <input
+                type="text"
+                name="student-name"
+                id="student-name"
+                placeholder="Ingrese el nombre del alumno"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Fecha de nacimiento:</td>
+            <td><input type="date" /></td>
+          </tr>
+          <tr>
+            <td>Nombre del padre:</td>
+            <td>
+              <input
+                type="text"
+                name="father-name"
+                id="father-name"
+                placeholder="Ingrese el nombre del padre"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Nombre de la madre:</td>
+            <td>
+              <input
+                type="text"
+                name="mother-name"
+                id="mother-name"
+                placeholder="Ingrese el nombre de la madre"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Telefono:</td>
+            <td>
+              <input type="text" name="code" id="code" placeholder="codigo" />
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="Ingrese el numero de telefono"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Correo electronico:</td>
+            <td><input type="email" name="email" id="email" /></td>
+          </tr>
+          <tr>
+            <td>Notas:</td>
+            <td>
+              <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </fieldset>
+    <form action="./login.html">
+      <fieldset>
+        <legend>Informacion de Matricula:</legend>
+
+        <table>
+          <tr>
+            <td>Grado:</td>
+            <td>Turno:</td>
+            <td>Actividades:</td>
+          </tr>
+          <tr>
+            <td>
+              <select name="" id="">
+                <option value="">--- Seleccione ---</option>
+                <optgroup label="Preescolar">
+                  <option value="Pre Kinder">Pre Kinder</option>
+                  <option value="Kinder">Kinder</option>
+                </optgroup>
+                <optgroup label="Primaria">
+                  <option value="1 anio">1 anio</option>
+                  <option value="2 anio">2 anio</option>
+                  <option value="3 anio">3 anio</option>
+                  <option value="4 anio">4 anio</option>
+                  <option value="5 anio">5 anio</option>
+                  <option value="6 anio">6 anio</option>
+                </optgroup>
+                <optgroup label="Secundaria">
+                  <option value="7 anio">7 anio</option>
+                  <option value="8 anio">8 anio</option>
+                  <option value="9 anio">9 anio</option>
+                  <option value="10 anio">10 anio</option>
+                  <option value="11 anio">511 nio</option>
+                </optgroup>
+              </select>
+            </td>
+            <td>
+              <input type="radio" name="" id="" />
+              <label for="morning">Maniana</label>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+  </body>
+</html>

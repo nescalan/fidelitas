@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 3: </title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Week 3:</title>
+  </head>
+  <body>
+    <h1>Elementos de Formularios</h1>
+    <form action="./login.html">
+      <table>
+        <tr>
+          <td>
+            <label for="user">User:</label>
+          </td>
+          <td>
+            <input type="text" name="user" id="user" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="name">Name:</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Insert your name"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="user">User:</label>
+          </td>
+          <td>
+            <input type="text" name="user" id="user" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select name="" id="">
+              <option value="">--- Seleccione ---</option>
+              <optgroup label="Citricos">
+                <option value="Limon">Limon</option>
+                <option value="Naranja">Naranja</option>
+              </optgroup>
+              <optgroup label="Exoticos">
+                <option value="Coco">Coco</option>
+                <option value="Kiwi">Kiwi</option>
+              </optgroup>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <fieldset>
+            <td>
+                <input type="reset" value="Limpiar" />
+              </td>
+              <td>
+                <button type="submit">Submit</button>
+              </td>
+            </tr>
+          </fieldset>
+      </table>
+    </form>
+
+    <!-- <script src="./js/script.js"></script> -->
+  </body>
 </html>
