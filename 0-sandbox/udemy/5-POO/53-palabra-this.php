@@ -6,20 +6,20 @@ class Person
     // propiedades
     public $firstName, $edge, $country;
 
-    public function mostrarInformacion()
+    public function mostrarInformacion($firstName, $edge, $country)
     {
-        echo ($this->firstName . " has " . $this->edge . " years old and is from " . $this->country);
+        return ($this->firstName . " has " . $this->edge . " years old and is from " . $this->country);
     }
 }
 
 // Instanciación de Clases
-$carlos = new Person;
-$carlos->firstName = "Ing. Nelson González";
-$carlos->edge = 47;
-$carlos->country = "Italia";
+$carlos = new Person("Ing. Nelson González", 47, "Costa Rica");
+// $carlos->firstName = "Ing. Nelson González";
+// $carlos->edge = 47;
+// $carlos->country = "Italia";
 
 
 
 // Llamada a la funcion para mostrar informacion
-$carlos->mostrarInformacion();
+echo $carlos->mostrarInformacion();
 ?>
