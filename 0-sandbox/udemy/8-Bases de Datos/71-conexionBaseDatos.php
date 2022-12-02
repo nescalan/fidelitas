@@ -9,6 +9,10 @@ $password = "4u3p7px6";
 try {
     $conexion = new PDO($baseDatos, $user, $password);
     echo "Conexión Realizada";
+
+
+
+    
 } catch (PDOException $e) {
     //Mensaje de error
     echo "Error: " . $e->getmessage();
