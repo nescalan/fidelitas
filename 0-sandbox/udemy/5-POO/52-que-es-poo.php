@@ -12,7 +12,7 @@ class Persona
     // metodos
     public function mostrarInformacion()
     {
-        echo "Hola  Mundo";
+        return "Hola  Mundo";
     }
 }
 
@@ -23,7 +23,7 @@ $carlos->$nombre = "Carlos Arturo";
 $carlos->$edad = 23;
 $carlos->$pais = "Mexico";
 
-// $carlos->mostrarInformacion();
+echo $carlos->mostrarInformacion();
 
 // Instanciación
 $alejandro = new Persona;

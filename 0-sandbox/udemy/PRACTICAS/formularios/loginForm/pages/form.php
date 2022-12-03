@@ -18,13 +18,16 @@
 
     <!-- FORM: Beginig -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+
+        <!-- INPUT: name -->
         <div class="group">
             <input type="text" name="first-name"><span class="highlight"></span><span class="bar"></span>
             <label>Name</label>
         </div>
 
+        <!-- INPUT: email -->
         <div class="group">
-            <input type="email" name="email"><span class="highlight"></span><span class="bar"></span>
+            <input type="text" name="email"><span class="highlight"></span><span class="bar"></span>
             <label>Email</label>
         </div>
 
@@ -39,12 +42,20 @@
             <?php echo $errorMessage ?>
         </div>
         <?php endif ?>
+
+        <!-- SUCCESS: Validation -->
+        <?php if ($success): ?>
+        <div class="alert success">
+            <?php echo "Formulario enviado correctamente" ?>
+
+        </div>
+        <?php endif ?>
     </form>
     <!-- FORM: End -->
 
     <!-- FOOTER: Beginig -->
-    <footer><a href="http://www.polymer-project.org/" target="_blank"><img
-                src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
+    <footer>
+        <img src="https://www.polymer-project.org/images/logos/p-logo.svg">
         <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
     </footer>
 
