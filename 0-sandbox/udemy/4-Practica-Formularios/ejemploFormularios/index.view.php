@@ -33,8 +33,6 @@
             </div>
             <?php endif ?>
 
-
-
             <input id="btnSubmit" class="btn btn-primary" name="submit" type="submit" value="Enviar Correo">
         </form>
     </div>
