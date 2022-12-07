@@ -1,7 +1,7 @@
 <?php
 
 // Declaracion de variables
-$baseDatos = "mysql:host=127.0.0.1;dbname=prueba_datos";
+$baseDatos = "mysql:host=127.0.0.1; dbname=prueba_datos";
 $user = "root";
 $password = "4u3p7px6";
 
@@ -12,10 +12,10 @@ try {
 
 
 
-    
-} catch (PDOException $e) {
+
+} catch (PDOException $error) {
     //Mensaje de error
-    echo "Error: " . $e->getmessage();
+    echo "Error, no hay conexión: " . $error->getmessage();
 }
 
 
