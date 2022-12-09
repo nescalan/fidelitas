@@ -1,11 +1,10 @@
 <?php
 
+// DECLARACION; variables
 $servername = "localhost";
 $user = "nelson";
 $password = "4u3p7px6";
 $database = "prueba_datos";
-
-
 
 // CONNECTION
 $connection = new mysqli($servername, $user, $password, $database);
@@ -25,21 +24,6 @@ if ($connection->connect_errno) {
     // CONULSTA: precarga el slq
     $sql = "SELECT * FROM usuarios3 WHERE id_usuario = $id";
     $resultado = $connection->query($sql);
-
-    // CONDICIONAL: Verificar si tenemos usuarios
-    if ($resultado->num_rows) {
-
-        // CICLO: Para imprimir las filas en pantalla
-        while ($fila = $resultado->fetch_assoc()) {
-
-            // IMPRESION: de cada fila
-            echo "id: " . $fila["id_usuario"] . " Nombre: " . $fila["nombre"] . "<br>";
-        }
-
-    } else {
-        # code...
-    }
-
 
 }
 
