@@ -18,12 +18,14 @@ if ($connection->connect_errno) {
 
     echo "Conexión establecida <br>";
 
-    // CAPTURA: identificador desde el navegador
-    $id = isset($_GET["id"]) ? $_GET["id"] : 1;
-
     // CONULSTA: precarga el slq
-    $sql = "SELECT * FROM usuarios3 WHERE id_usuario = $id";
-    $resultado = $connection->query($sql);
+    $sql = "INSERT INTO usuarios3(id_usuario, nombre, edad) VALUES(null, 'Tita Patita', 69)";
+    $connection->query($sql);
+
+    // CONDICIONAL: Indica cuantas filas cambiaron
+    if ($connection->affected_rows >= 1) {
+        echo "Filas agregadas: " . $connection->affected_rows;
+    }
 
 }
 

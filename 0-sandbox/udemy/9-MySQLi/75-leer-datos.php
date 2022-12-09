@@ -23,7 +23,8 @@ if ($connection->connect_errno) {
     $id = isset($_GET["id"]) ? $_GET["id"] : 1;
 
     // CONULSTA: precarga el slq
-    $sql = "SELECT * FROM usuarios3 WHERE id_usuario = $id";
+    // $sql = "SELECT * FROM usuarios3 WHERE id_usuario = $id";
+    $sql = "SELECT * FROM usuarios3";
     $resultado = $connection->query($sql);
 
     // CONDICIONAL: Verificar si tenemos usuarios
