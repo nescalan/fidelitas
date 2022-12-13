@@ -6,19 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Universidad fidelitas Homework No 3" />
     <meta name="keywords" content="html css bootstrap php mysql" />
+    <link
+      rel="shortcut icon"
+      href="./media/myVectorialGraph.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Homework No. 3</title>
   </head>
   <body>
-    <h1>Examples: video and audio</h1>
-    <h2>First example: Video</h2>
-    <video width="640" height="480" controls poster="./media/myVideoPoster.png">
-      If you are reading this either the video didn't load or your browser is
-      way old!
-      <source src="./media/myVideoLoop.mp4" />
-      <p>
-        <b>Download video:</b> MP4 Format:
-        <a href="./media/myVideoLoop.mp4"></a>
-      </p>
-    </video>
+    <main>
+      <h1>Examples: video and audio</h1>
+      <section class="video">
+        <h2>First example: Video</h2>
+        <video
+          width="640"
+          height="480"
+          controls
+          poster="./media/myVideoPoster.png"
+        >
+          If you are reading this either the video didn't load or your browser
+          is way old!
+          <source src="./media/myVideoLoop.mp4" />
+        </video>
+      </section>
+      <h2>Second example: Audio</h2>
+      <div class="audio">
+        <audio src="./media/myAudio.mp3" controls></audio>
+      </div>
+    </main>
   </body>
 </html>
