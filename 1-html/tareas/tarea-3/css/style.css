@@ -4,17 +4,17 @@
   padding: 0;
 }
 body {
+  color: #fefefe;
   background-color: #121212;
 }
 main {
   width: 50%;
   margin: 0 auto;
 }
-h1 {
-  color: #fefefe;
-  margin-bottom: 30px;
+.video,
+.audio {
+  padding: 30px;
 }
 h2 {
   color: #a7a7a7;
-  margin-bottom: 15px;
 }
