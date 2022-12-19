@@ -78,7 +78,6 @@
   width: 50%;
 }
 .device .left h2 {
-  margin: 50px 0 0;
   font-size: 50px;
   font-weight: 700;
 }
@@ -89,8 +88,9 @@
   margin-bottom: 10px;
 }
 .device .left p {
-  font-size: 18px;
   margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 .device .right img {
   width: 80%;
