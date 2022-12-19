@@ -34,7 +34,29 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* CSS: Hero */
+/* SECTION: Hero */
 .hero{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url(https://cdn.pixabay.com/photo/2016/08/30/16/26/banner-1631295__340.jpg);
+}
+.hero span{
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+/* SECTION: mensaje */
+
+
+
+/* SECTION: horario */
+.horario{
+    margin-top: 30px;
+}
+.horario span{
+    color: #ff6600;
+    text-align: center;
 }
