@@ -1,0 +1,26 @@
+/* SECTION: baner-corporativo */
+.baner-corporativo {
+  height: 60vh;
+  background-color: #000;
+  display: flex;
+}
+.baner-corporativo .left,
+.baner-corporativo .right {
+  padding: 30px;
+  width: 50%;
+}
+.baner-corporativo .left img {
+  width: 100%;
+}
+.baner-corporativo .right {
+  padding-top: 60px;
+  color: #fff;
+}
+.baner-corporativo .right span {
+  font-size: 4.68rem;
+  font-weight: 800;
+}
+.baner-corporativo .right p {
+  margin-top: 30px;
+  font-size: 1.56rem;
+}
