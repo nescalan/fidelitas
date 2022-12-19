@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS: Header */
+header {
+    width: 80%;
+    margin: 30px auto ;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+nav li {
+    width: 200px;
+    padding: 15px 0;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid #edf1f5;
+    list-style: none;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+nav ul li a {
+    text-decoration: none;
+}
+
+/* CSS: Hero */
+.hero{
+    background-image: url(https://cdn.pixabay.com/photo/2016/08/30/16/26/banner-1631295__340.jpg);
+}
