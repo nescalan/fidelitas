@@ -21,7 +21,7 @@ try {
 
 
     // DATOS: Capturamos los datos de la BBDD
-    $resultados = $statement->fetchAll();
+    // $resultados = $statement->fetchAll();
     foreach ($resultados as $usuario) {
         print_r($usuario);
     }

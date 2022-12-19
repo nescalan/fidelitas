@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Contenido - Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/estilos.css">
+	<title>Contenido</title>
 </head>
-
 <body>
-    <h1>Contenido del sitio</h1>
-    <a href="cerrar.php">Cerrar Session</a>
-    <article>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos in, dicta repudiandae nostrum voluptatum hic.
-            Fuga quibusdam, illum minima libero totam consectetur officiis consequatur amet deserunt quis, corrupti
-            adipisci repudiandae!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis labore esse tempore ratione exercitationem
-            reiciendis eveniet, ipsa inventore omnis quae veniam, accusantium officiis quis laboriosam. Cum eum
-            doloremque ea officiis?
-        </p>
-    </article>
-</body>
+	<div class="contenedor">
+		<h1 class="titulo">Contenido del sitio</h1>
+		<a href="cerrar.php">Cerrar Sesion</a>
+		<hr class="border">
+		
+		<div class="contenido">
+			<article>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+		</div>
+
+
+	</div>
+</body>
 </html>
