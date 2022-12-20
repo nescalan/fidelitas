@@ -18,8 +18,8 @@
   align-items: center;
 }
 .productos .flex {
-  width: 390px;
-  height: 390px;
+  width: 350px;
+  height: 350px;
   padding: 20px;
   display: flex;
   flex-direction: column;

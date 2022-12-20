@@ -1,0 +1,70 @@
+h1 {
+  color: #fa8b0f;
+  margin-bottom: 30px;
+  font-size: 38px;
+  text-align: center;
+}
+hr {
+  width: 120px;
+  margin: auto;
+  border: 2px solid #fa8b0f;
+  background-color: #fa8b0f;
+}
+p {
+  text-align: center;
+}
+
+/* SECTION: contacto */
+.contacto {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+.contacto span {
+  font-size: 24px;
+}
+.contacto .formulario,
+.contacto .mapa {
+  width: 50%;
+}
+.contacto .formulario {
+  padding: 30px;
+}
+.contacto .formulario .datos {
+  margin: 14px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.contacto .formulario input[name="nombre"],
+.contacto .formulario input[name="correo"] {
+  width: 200px;
+}
+.contacto .formulario input[name="asunto"] {
+  width: 100%;
+  margin-bottom: 14px;
+}
+.contacto .formulario input[type="text"] {
+  height: 50px;
+  padding: 6px;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+.contacto .formulario textarea {
+  width: 100%;
+  padding: 6px;
+}
+.contacto .formulario button {
+  margin-top: 15px;
+  background-color: #1089ff;
+  border: 1px solid #1089ff;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px 16px;
+}
+.contacto .mapa {
+  padding: 30px;
+}
+.contacto .mapa iframe {
+  width: 100%;
+}
