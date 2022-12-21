@@ -2,7 +2,7 @@
 
 // Declaracion de variables
 $servername = "localhost";
-$username = "root";
+$username = "nelson";
 $password = "4u3p7px6";
 $dbname = "prueba_datos";
 $id = $_GET["id"];
@@ -21,7 +21,7 @@ try {
 
 
     // DATOS: Capturamos los datos de la BBDD
-    $resultados = $statement->fetchAll();
+    // $resultados = $statement->fetchAll();
     foreach ($resultados as $usuario) {
         print_r($usuario);
     }
