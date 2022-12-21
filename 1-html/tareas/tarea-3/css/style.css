@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #fefefe;
+  background-color: #121212;
+}
+main {
+  width: 375px;
+  margin: 0 auto;
+}
+.video,
+.audio {
+  padding: 30px 0;
+}
+h2 {
+  color: #a7a7a7;
+}
+h3,
+audio {
+  margin-top: 20px;
+}
+p,
+video {
+  margin-top: 10px;
+}

@@ -1,0 +1,98 @@
+/* SECTION: baner-corporativo */
+.baner-corporativo {
+  height: 60vh;
+  background-color: #000;
+  display: flex;
+}
+.baner-corporativo .left,
+.baner-corporativo .right {
+  padding: 30px;
+  width: 50%;
+}
+.baner-corporativo .left img {
+  width: 100%;
+}
+.baner-corporativo .right {
+  padding-top: 60px;
+  color: #fff;
+}
+.baner-corporativo .right span {
+  font-size: 4.68rem;
+  font-weight: 800;
+}
+.baner-corporativo .right p {
+  margin-top: 30px;
+  font-size: 1.56rem;
+}
+
+/* SECTION: nosotros */
+.nosotros {
+  padding: 30px 60px;
+  color: #fff;
+  background-color: #000;
+}
+.nosotros h1 {
+  margin-bottom: 15px;
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+}
+.nosotros h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.nosotros-parrafo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+}
+.nosotros-parrafo .izquierda,
+.nosotros-parrafo .derecha {
+  margin: 0 15px 0 15px;
+  font-size: 23px;
+  text-align: justify;
+}
+.nosotros-parrafo .izquierda {
+  padding: 5px 25px 25px 130px;
+}
+.nosotros-parrafo .derecha {
+  padding: 5px 130px 25px 25px;
+}
+.nosotros img {
+  display: block;
+  margin: auto;
+}
+
+/* SECTION: device */
+.device {
+  padding: 30px 60px;
+  height: 60vh;
+  display: flex;
+}
+.device .left,
+.device .right {
+  padding: 30px;
+  width: 50%;
+}
+.device .left h2 {
+  font-size: 50px;
+  font-weight: 700;
+}
+.device .left span {
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.device .left p {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.device .right img {
+  width: 80%;
+  /* margin: 80px 80px 0; */
+}
