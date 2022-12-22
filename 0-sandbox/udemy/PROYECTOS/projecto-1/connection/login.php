@@ -2,5 +2,5 @@
 $db_hostname = 'localhost';
 $db_database = 'paginacion';
 $db_username = 'nelson';
-$db_password = '4u3p7px6';
+$db_password = 'B*VH2tiop[)RakE8';
 ?>

@@ -2,8 +2,8 @@
 require_once "./connection/login.php";
 
 // DECLARACION: variables
-$pagina = isset($_GET["pagina"]) ? $_GET["pagina"] : 1;
-$postPorPagina = 5;
+// $pagina = isset($_GET["pagina"]) ? $_GET["pagina"] : 1;
+// $postPorPagina = 5;
 
 // Connecting to MySQL
 $connection = new mysqli($db_hostname, $db_username, $db_password, $db_database);
