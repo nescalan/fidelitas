@@ -1,0 +1,26 @@
+body{
+    background-color: brown;
+}
+h1{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* CSS: form */
+form{
+    width: 340px;
+    margin: 0 auto;
+}
+form div {
+    margin-bottom: 15px;
+}
+form div label {
+    width: 70px;
+    display: inline-flex;
+}
+form div input[type=text]{
+    width: 265px;
+}
+button{
+    margin-top: 30px;
+}

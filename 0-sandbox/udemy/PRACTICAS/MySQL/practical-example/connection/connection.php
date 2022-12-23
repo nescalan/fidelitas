@@ -1,6 +1,6 @@
 <?php // connection.php
 
-require_once "./login.php";
+require_once "./connection/login-udemy.php";
 
 $connection = new mysqli($db_hostname, $db_username, $db_password, $db_database);
 
@@ -9,5 +9,8 @@ if ($connection) {
 } else {
     echo "Good job...";
 }
+
+
+print_r($connection);
 
 ?>
