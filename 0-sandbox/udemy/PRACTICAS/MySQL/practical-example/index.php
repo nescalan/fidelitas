@@ -1,6 +1,6 @@
 <?php // index.php
 
-require_once "./connection/login-udemy.php";
+require_once "./connection/login-nelson.php";
 
 $connection = new mysqli(
     $db_hostname,
@@ -10,7 +10,7 @@ $connection = new mysqli(
 );
 
 if ($connection->connect_error) {
-    die("We are sorry, but is not possible to complete the requested task.");
+    die("We are sorry, but is not possible to complete the requested task .");
 } else {
     echo "Connection to the database made successfully";
 }
@@ -88,7 +88,7 @@ for ($j = 0; $j < $rows; $j++) {
     echo "Title" . $row[1] . "<br>";
     echo "Category" . $row[2] . "<br>";
     echo "Year" . $row[3] . "<br>";
-    echo "ISBN" . $row[4] . "<br>";
+    echo "ISBN" . $row[4] . "<br><br>";
 
 }
 
