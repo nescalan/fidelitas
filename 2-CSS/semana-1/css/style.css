@@ -1,0 +1,17 @@
+* {
+  background-color: #bebebe;
+}
+
+img[alt="android"] {
+  width: 200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+[data-type^="todo"] {
+  color: blue;
+}
+
+[data-list^="S"] {
+  color: blueviolet;
+}
