@@ -1,0 +1,58 @@
+/* CSS CUSTOM PROPERTIES */
+:root {
+  /* Widths */
+  --mobile: 340px;
+  --desktop: 1440px;
+
+  /* COLORS: Primary */
+  --soft-blue: #8bacda;
+  --cyan: #00fff7;
+
+  /* COLORS: Neutral */
+  --very-dark-blue-mainBG: hsl(217, 54%, 11%);
+  --very-dark-blue-cardBG: #14253d;
+  --very-dark-blue-line: #2f415b;
+  --white: hsl(0, 0%, 100%);
+
+  /* TYPOGRAPHY: Body Copy */
+  --paragraph: 18px;
+
+  /* TYPOGRAPHY: Font */
+  --outfit-font: "Outfit", sans-serif;
+}
+
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--soft-blue);
+  background-color: var(--very-dark-blue-mainBG);
+}
+
+/* MAIN STYLES */
+#body {
+  width: var(--mobile);
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: var(--very-dark-blue-cardBG);
+}
+@media (min-width: 576px) {
+  #body {
+    width: 550px;
+  }
+}
+#body .flex {
+  display: flex;
+  flex-direction: column;
+}
+#body .flex label:first-child {
+  margin-bottom: 6px;
+}
