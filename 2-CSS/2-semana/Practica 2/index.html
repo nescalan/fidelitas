@@ -21,26 +21,41 @@
     <title>Document</title>
   </head>
   <body>
-    <form id="body">
+    <form id="body" autocomplete="on">
       <div class="flex">
         <label for="name">Nombre:</label>
-        <input type="text" name="name" /><br />
+        <input
+          type="text"
+          name="name"
+          placeholder="Su nombre"
+          autofocus
+        /><br />
       </div>
       <div class="flex">
         <label for="last-name">Apellidos:</label>
-        <input type="text" name="last-name" /><br />
+        <input type="text" name="last-name" placeholder="Sus apellidos" /><br />
       </div>
       <div class="flex">
         <label for="direction">Dirección:</label>
-        <input type="text" name="direction" /><br />
+        <input
+          type="text"
+          name="direction"
+          placeholder="Dirección del trabajo"
+        /><br />
       </div>
       <div class="flex">
         <label for="email">Correo electrónico:</label>
-        <input type="text" name="email" /><br />
+        <input type="text" name="email" placeholder="nescalan@mail.com" /><br />
       </div>
       <div class="flex">
         <label for="phone">Teléfono:</label>
-        <input type="text" name="phone" /><br />
+        <input
+          type="text"
+          name="phone"
+          placeholder="1234-5678"
+          autocomplete="off"
+          required
+        /><br />
       </div>
       <hr />
       <button type="submit">Submit</button>
