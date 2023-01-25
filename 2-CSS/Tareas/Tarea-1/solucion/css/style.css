@@ -1,0 +1,33 @@
+/* CSS: Custom Properties */
+:root {
+  /* Layout */
+  --mobile: 375px;
+  /* Colors */
+  --dark-color: #1a1e21;
+  --blue: #3860ec;
+
+  /* Background Colors */
+  --primary-BG: linear-gradient(
+    to right,
+    #6a2eab,
+    #7d34a2,
+    #8b3c9a,
+    #954793,
+    #9c528e
+  );
+  --card-BG: #34acaf;
+
+  /* Font Colors */
+  --text-font-color: #d2dfe0;
+
+  /* Typograpy */
+  --roboto-font: "Roboto", sans-serif;
+}
+
+body {
+  background-image: var(--primary-BG);
+}
+.container {
+  width: var(--mobile);
+  margin: 10px auto;
+}
