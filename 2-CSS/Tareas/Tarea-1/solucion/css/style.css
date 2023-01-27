@@ -23,11 +23,64 @@
   /* Typograpy */
   --roboto-font: "Roboto", sans-serif;
 }
-
+html {
+  font-size: 62.5%;
+}
 body {
+  font-size: 1.3rem;
+  font-family: var(--roboto-font);
   background-image: var(--primary-BG);
 }
 .container {
   width: var(--mobile);
-  margin: 10px auto;
+  margin: 30px auto;
+}
+.container .titulo {
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.container .form_reg {
+  margin-top: 15px;
+  padding: 20px 10px;
+  border-radius: 3px;
+  color: var(--text-font-color);
+  font-weight: 500;
+  background-color: var(--card-BG);
+}
+.container .form_reg h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.container .form_reg div:nth-child(2) {
+  margin-top: 15px;
+}
+.container .form_reg .campo {
+  display: flex;
+  margin-bottom: 16px;
+  flex-direction: column;
+}
+.container .form_reg label {
+  margin-bottom: 8px;
+}
+.container .form_reg input {
+  height: 25px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 3px;
+}
+.container .form_reg div:nth-child(10) {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .form_reg input[type="submit"],
+.container .form_reg input[type="reset"] {
+  height: 34px;
+}
+.container .form_reg input[type="submit"] {
+  color: var(--text-font-color);
+  background-image: var(--primary-BG);
 }
