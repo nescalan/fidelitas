@@ -23,6 +23,8 @@
   /* Typograpy */
   --roboto-font: "Roboto", sans-serif;
 }
+
+/* GLOBAL STYLES */
 html {
   font-size: 62.5%;
 }
@@ -71,7 +73,7 @@ body {
   border-radius: 3px;
 }
 .container .form_reg div:nth-child(10) {
-  height: 60px;
+  height: 75px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
