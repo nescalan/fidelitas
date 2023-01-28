@@ -1,7 +1,13 @@
 /* CSS: Custom Properties */
 :root {
-  /* Layout */
-  --mobile: 375px;
+  /* Layout Widths */
+  --mobile: 340px;
+  --phone: 576px;
+  --tablet: 768px;
+  --laptop: 992px;
+  --desktop: 1200px;
+  --large-desktop: 1400px;
+
   /* Colors */
   --dark-color: #1a1e21;
   --blue: #3860ec;
@@ -37,11 +43,26 @@ body {
   width: var(--mobile);
   margin: 30px auto;
 }
+@media (min-width: 576px) {
+  .container {
+    width: var(--phone);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: var(--tablet);
+  }
+}
 .container .titulo {
   margin-bottom: 15px;
   text-align: center;
   font-weight: 700;
   font-size: 1.6rem;
+}
+@media (min-width: 768px) {
+  .container .titulo {
+    font-size: 1.8em;
+  }
 }
 .container .form_reg {
   margin-top: 15px;
@@ -51,6 +72,12 @@ body {
   font-weight: 500;
   background-color: var(--card-BG);
 }
+@media (min-width: 768px) {
+  .container .form_reg {
+    padding: 15px 30px;
+  }
+}
+
 .container .form_reg h2 {
   text-align: center;
   font-size: 1.5rem;
@@ -62,6 +89,12 @@ body {
   display: flex;
   margin-bottom: 16px;
   flex-direction: column;
+}
+@media (min-width: 992px) {
+  .container .form_reg .campo {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .container .form_reg label {
   margin-bottom: 8px;
