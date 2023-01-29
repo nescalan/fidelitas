@@ -1,10 +1,10 @@
 /* CSS: Custom Properties */
 :root {
   /* Layout Widths */
-  --mobile: 340px;
-  --phone: 576px;
-  --tablet: 768px;
-  --laptop: 992px;
+  --mobile-portrait: 375px;
+  --mobile-landscape: 576px;
+  --tablet-portrait: 768px;
+  --small-desktop: 992px;
   --desktop: 1200px;
   --large-desktop: 1400px;
 
@@ -49,19 +49,25 @@ body {
 /* CONTENEDOR */
 .container {
   /* Box Model */
-  width: var(--mobile);
+  width: var(--mobile-portrait);
   margin: 30px auto;
 }
 @media (min-width: 576px) {
   .container {
     /* Box Model */
-    width: var(--phone);
+    width: calc(var(--mobile-landscape) - 50px);
   }
 }
 @media (min-width: 768px) {
   .container {
     /* Box Model */
-    width: var(--tablet);
+    width: calc(var(--tablet-portrait) - 100px);
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    /* Box Model */
+    width: calc(var(--small-desktop) - 150px);
   }
 }
 
@@ -192,6 +198,15 @@ body {
   /* Misc */
   content: "Ingrese únicamente números";
 }
+@media (min-width: 992px) {
+  .container .form_reg input[name="cedula"]:focus:invalid + span::after,
+  .container .form_reg input[name="celular"]:focus:invalid + span::after {
+    /* Positioning */
+    position: fixed;
+    top: 12vh;
+    left: 60%;
+  }
+}
 
 /* FORMULARIO INPUTS: Correo */
 .container .form_reg input[name="correo"]:focus:invalid + span::after {
@@ -212,6 +227,14 @@ body {
 
   /* Misc */
   content: "Ingrese un correo válido";
+}
+@media (min-width: 992px) {
+  .container .form_reg input[name="correo"]:focus:invalid + span::after {
+    /* Positioning */
+    position: fixed;
+    top: 12vh;
+    left: 60%;
+  }
 }
 
 /* DIV DE LOS BOTONES */
@@ -235,20 +258,16 @@ body {
 }
 
 /* Botones del Formulario */
-.container .form_reg .btn_form,
 .container .form_reg .btn_form {
   width: 100%;
-  height: 44px;
+  height: 47px;
   padding: 1.3em 0;
 }
 @media (min-width: 992px) {
-  .container .form_reg .btn_form,
   .container .form_reg .btn_form {
-    /* Position */
     /* Box model */
     width: inherit;
-    height: 3.9rem;
-    padding: 1.3rem 2.6rem;
+    padding: 1.4rem 3rem;
   }
 }
 .container .form_reg input[type="submit"] {
