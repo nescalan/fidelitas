@@ -24,7 +24,8 @@
   --card-BG: #34acaf;
 
   /* Font Colors */
-  --text-font-color: #d2dfe0;
+  /* --text-font-color: #d2dfe0; */
+  --text-font-color: #fefefe;
 
   /* Typograpy */
   --roboto-font: "Roboto", sans-serif;
@@ -32,90 +33,234 @@
 
 /* GLOBAL STYLES */
 html {
+  /* Typographic */
   font-size: 62.5%;
 }
 body {
-  font-size: 1.3rem;
+  /* Typographic */
+  /* color: var(--text-font-color); */
+  color: white;
+  font-size: 1.4rem;
   font-family: var(--roboto-font);
+  /* Visual */
   background-image: var(--primary-BG);
 }
+
+/* CONTENEDOR */
 .container {
+  /* Box Model */
   width: var(--mobile);
   margin: 30px auto;
 }
 @media (min-width: 576px) {
   .container {
+    /* Box Model */
     width: var(--phone);
   }
 }
 @media (min-width: 768px) {
   .container {
+    /* Box Model */
     width: var(--tablet);
   }
 }
+
+/* TITULO: H1 DEL FORMULARIO */
 .container .titulo {
+  /* Box model */
   margin-bottom: 15px;
+  /* Typographic */
   text-align: center;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 @media (min-width: 768px) {
   .container .titulo {
-    font-size: 1.8em;
+    /* Box model */
+    font-size: 2.2em;
   }
 }
+
+/* CSS: Formulario */
 .container .form_reg {
+  /* Box model */
   margin-top: 15px;
   padding: 20px 10px;
-  border-radius: 3px;
+  /* Typographic */
   color: var(--text-font-color);
   font-weight: 500;
+  /* Visual */
+  border-radius: 10px;
   background-color: var(--card-BG);
 }
 @media (min-width: 768px) {
   .container .form_reg {
+    /* Box model */
     padding: 15px 30px;
   }
 }
 
+/* TITULO: H2 DEL FORMULARIO */
 .container .form_reg h2 {
+  /* Typographic */
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+}
+@media (min-width: 768px) {
+  .container .form_reg h2 {
+    /* Typographic */
+    font-size: 2rem;
+  }
 }
 .container .form_reg div:nth-child(2) {
+  /* Box model */
   margin-top: 15px;
 }
+
+/* DIV DE LOS CAMPORS DEL FORMULARIO */
 .container .form_reg .campo {
+  /* Positioning */
   display: flex;
-  margin-bottom: 16px;
   flex-direction: column;
+
+  /* Box model */
+  margin-bottom: 16px;
 }
 @media (min-width: 992px) {
   .container .form_reg .campo {
+    /* Positioning */
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 }
+
+/* FORMULARIO ETIQUETAS */
 .container .form_reg label {
+  /* Box model */
   margin-bottom: 8px;
 }
-.container .form_reg input {
-  height: 25px;
-  padding: 0 10px;
-  border: none;
-  border-radius: 3px;
+@media (min-width: 992px) {
+  .container .form_reg label {
+    /* Box model */
+    width: 20%;
+  }
 }
+
+/* FORMULARIO INPUTS */
+.container .form_reg input {
+  /* Box model */
+  height: 35px;
+  padding: 0 15px;
+  /* Visual */
+  border: none;
+  border-radius: 5px;
+}
+.container .form_reg input:hover {
+  /* Visual */
+  border: 2px solid var(--primary-BG);
+}
+.container .form_reg input:focus {
+  /* Visual */
+  background-color: #e3e3f4;
+  transition: ease-in-out, background-color 0.35s ease-in-out;
+}
+@media (min-width: 992px) {
+  .container .form_reg input {
+    /* Box model */
+    width: 80%;
+  }
+}
+/* FORMULARIO INPUTS: Cedula, Celular */
+.container .form_reg input[name="cedula"]:focus:invalid + span::after,
+.container .form_reg input[name="celular"]:focus:invalid + span::after {
+  /* Positioning */
+  position: relative;
+  top: 20px;
+
+  /* Box model */
+  padding: 8px;
+
+  /* Typographic */
+  color: red;
+
+  /* Visual */
+  color: #a94442;
+  border: 1px solid #a94442;
+  background-color: #f2dede;
+
+  /* Misc */
+  content: "Ingrese únicamente números";
+}
+
+/* FORMULARIO INPUTS: Correo */
+.container .form_reg input[name="correo"]:focus:invalid + span::after {
+  /* Positioning */
+  position: relative;
+  top: 20px;
+
+  /* Box model */
+  padding: 8px;
+
+  /* Typographic */
+  color: red;
+
+  /* Visual */
+  color: #a94442;
+  border: 1px solid #a94442;
+  background-color: #f2dede;
+
+  /* Misc */
+  content: "Ingrese un correo válido";
+}
+
+/* DIV DE LOS BOTONES */
 .container .form_reg div:nth-child(10) {
-  height: 75px;
+  /* Positioning */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  /* Box model */
+  height: 100px;
 }
-.container .form_reg input[type="submit"],
-.container .form_reg input[type="reset"] {
-  height: 34px;
+@media (min-width: 992px) {
+  .container .form_reg div:nth-child(10) {
+    /* Positioning  */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+/* Botones del Formulario */
+.container .form_reg .btn_form,
+.container .form_reg .btn_form {
+  width: 100%;
+  height: 44px;
+  padding: 1.3em 0;
+}
+@media (min-width: 992px) {
+  .container .form_reg .btn_form,
+  .container .form_reg .btn_form {
+    /* Position */
+    /* Box model */
+    width: inherit;
+    height: 3.9rem;
+    padding: 1.3rem 2.6rem;
+  }
 }
 .container .form_reg input[type="submit"] {
+  /* Typographic */
   color: var(--text-font-color);
+  /* Visual */
   background-image: var(--primary-BG);
+}
+
+/* General: placeholder de todos los input */
+::placeholder {
+  /* Typographic */
+  color: darkgray;
+  font-size: 1.25rem;
 }
