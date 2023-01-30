@@ -258,26 +258,37 @@ body {
 }
 
 /* Botones del Formulario */
-.container .form_reg .btn_form {
+.container .form_reg input[type="submit"],
+.container .form_reg input[type="reset"] {
+  /* Box model */
   width: 100%;
   height: 47px;
   padding: 1.3em 0;
+
+  /* Visual */
+  border-radius: 5px;
 }
 @media (min-width: 992px) {
-  .container .form_reg .btn_form {
+  .container .form_reg input[type="submit"],
+  .container .form_reg input[type="reset"] {
     /* Box model */
-    width: inherit;
+    width: 20%;
+    height: 47px;
+    padding: 1.3em 0;
+
+    /* width: inherit; */
     padding: 1.4rem 3rem;
   }
 }
 .container .form_reg input[type="submit"] {
   /* Typographic */
   color: var(--text-font-color);
+
   /* Visual */
   background-image: var(--primary-BG);
 }
 
-/* General: placeholder de todos los input */
+/* GLOBAL: placeholder de todos los input */
 ::placeholder {
   /* Typographic */
   color: darkgray;
