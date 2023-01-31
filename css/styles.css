@@ -48,47 +48,46 @@ body {
 /****** BEGIN: HEADER STYLES *****/
 header {
   /* Box model */
-  height: 119px;
+  height: 120px;
   border: 1px solid red;
-
-  /* Typographic */
-
-  /* Visual */
-
-  /* Misc */
-}
-header #btn-menu {
-  /* Box model */
-  display: none;
-}
-header #btn-menu:checked ~ nav {
-  margin-top: 0;
-}
-header #btn-menu header label {
-  /* Box model */
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-}
-header label:hover {
-  /* Misc */
-  cursor: pointer;
-  background-color: #f0f0f0;
 }
 
 /* BEGIN: Menu Mobile */
-header .menu-mobile {
+.menu-mobile {
   /* Box Model */
-  /* width: 90%; */
   margin: 0 auto;
+  height: 10vh;
 
   /* Positioning */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  border: 1px solid green;
 }
+.menu-mobile #btn-menu {
+  /* Box model */
+  display: none;
+}
+.menu-mobile #btn-menu:checked ~ nav {
+  margin-top: 118px;
+}
+.menu-mobile label {
+  /* Positioning */
+  position: absolute;
+  top: calc(100px - 65px);
+
+  right: 50px;
+  /* Box model */
+  width: 50px;
+  height: 50px;
+  padding: 13px;
+}
+.menu-mobile label:hover {
+  /* Misc */
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+
 
 /* BEGIN: Nav Styles */
 nav {
@@ -117,6 +116,7 @@ nav li a {
   /* Box Model */
   display: block;
   padding: 15px 20px;
+  text-align: center;
 
   /* Typographic */
   color: var(--text-font-color);

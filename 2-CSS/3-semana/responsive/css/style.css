@@ -1,0 +1,29 @@
+/* html {
+  font-size: 30px;
+}
+.texto {
+  font-size: 2rem;
+} */
+
+html {
+  font-size: 20px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.capa {
+  width: 100vw;
+  height: 50vh;
+  line-height: 50vh;
+  color: blue;
+  text-align: center;
+  font-size: 3rem;
+}
+#capa1 {
+  background-color: cadetblue;
+}
+#capa2 {
+  background-color: darkslategray;
+}
