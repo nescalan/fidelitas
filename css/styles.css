@@ -1,0 +1,135 @@
+/* CSS: Custom Properties */
+:root {
+  /* Layout Widths */
+  --mobile-portrait: 375px;
+  --mobile-landscape: 576px;
+  --tablet-portrait: 768px;
+  --small-desktop: 992px;
+  --desktop: 1200px;
+  --large-desktop: 1400px;
+
+  /* Colors */
+  --dark-color: #1a1e21;
+  --blue: #3860ec;
+
+  /* Background Colors */
+  --primary-BG: #222;
+  --card-BG: #34acaf;
+
+  /* BUTTONS: Colors */
+  --cta-button: #7d34a2;
+  --cta-hover-button: #6a2eab;
+
+  /***** Font Colors *****/
+  /* --text-font-color: #d2dfe0; */
+  --text-font-color: #fefefe;
+
+  /* Typograpy */
+  --font-lato-h1: "Lato", sans-serif;
+  --font-ntr-h2: "NTR", sans-serif;
+  --font-athiti-body: "Athiti", sans-serif;
+}
+
+/****** BEGIN: GLOBAL STYLES *****/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-athiti-body);
+}
+/****** END: GLOBAL STYLES *****/
+
+/****** BEGIN: HEADER STYLES *****/
+header {
+  /* Box model */
+  height: 119px;
+  border: 1px solid red;
+
+  /* Typographic */
+
+  /* Visual */
+
+  /* Misc */
+}
+header #btn-menu {
+  /* Box model */
+  display: none;
+}
+header #btn-menu:checked ~ nav {
+  margin-top: 0;
+}
+header #btn-menu header label {
+  /* Box model */
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+header label:hover {
+  /* Misc */
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+/* BEGIN: Menu Mobile */
+header .menu-mobile {
+  /* Box Model */
+  /* width: 90%; */
+  margin: 0 auto;
+
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  border: 1px solid green;
+}
+
+/* BEGIN: Nav Styles */
+nav {
+  /* Positioning */
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  /* Box Model */
+  width: 100%;
+  margin-top: -300px;
+  transition: 0.5s;
+
+  /* Visual */
+  background-color: var(--primary-BG);
+}
+nav ul {
+  /* Box Model */
+  margin: 0;
+  padding: 0;
+
+  /* Misc */
+  list-style: none;
+}
+nav li a {
+  /* Box Model */
+  display: block;
+  padding: 15px 20px;
+
+  /* Typographic */
+  color: var(--text-font-color);
+  font-size: 3rem;
+  text-decoration: none;
+}
+nav li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* END: Nav Styles */
+
+/* BEGIN: Menu Desktop */
+header .menu-desktop {
+  /* Box Model */
+  display: none;
+}
