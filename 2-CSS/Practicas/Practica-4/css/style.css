@@ -1,0 +1,18 @@
+/* GLOBALES */
+:root {
+  --primary: #3d76d1;
+  --primaryDark: #325ea6;
+  --secundary: #eddc42;
+  --secundaryDark: #dece3f;
+  --light: #f7f7f7;
+  --dark: #212121;
+  --fuentePrincipal: "Caveat", cursive;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  overflow: 0;
+}
+html {
+  font-size: 62.5%;
+}

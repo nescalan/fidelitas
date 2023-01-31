@@ -21,8 +21,8 @@
   --cta-hover-button: #6a2eab;
 
   /***** Font Colors *****/
-  /* --text-font-color: #d2dfe0; */
   --text-font-color: #fefefe;
+  --text-color-body: #1a1e21;
 
   /* Typograpy */
   --font-lato-h1: "Lato", sans-serif;
@@ -49,10 +49,13 @@ body {
 header {
   /* Box model */
   height: 120px;
-  border: 1px solid red;
 }
 
 /* BEGIN: Menu Mobile */
+.menu-desktop {
+  /* Box Model */
+  display: none;
+}
 .menu-mobile {
   /* Box Model */
   margin: 0 auto;
@@ -87,10 +90,8 @@ header {
   background-color: #f0f0f0;
 }
 
-
-
 /* BEGIN: Nav Styles */
-nav {
+.menu-mobile nav {
   /* Positioning */
   position: relative;
   display: flex;
@@ -104,7 +105,7 @@ nav {
   /* Visual */
   background-color: var(--primary-BG);
 }
-nav ul {
+.menu-mobile nav ul {
   /* Box Model */
   margin: 0;
   padding: 0;
@@ -112,7 +113,7 @@ nav ul {
   /* Misc */
   list-style: none;
 }
-nav li a {
+.menu-mobile nav li a {
   /* Box Model */
   display: block;
   padding: 15px 20px;
@@ -123,13 +124,57 @@ nav li a {
   font-size: 3rem;
   text-decoration: none;
 }
-nav li:hover {
+.menu-mobile nav li:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 /* END: Nav Styles */
 
 /* BEGIN: Menu Desktop */
-header .menu-desktop {
-  /* Box Model */
-  display: none;
+@media (min-width: 991px) {
+  .menu-mobile {
+    /* Box model */
+    display: none;
+  }
 }
+@media (min-width: 992px) {
+  header {
+    /* Positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-desktop {
+    /* Box model */
+    width: 50%;
+    display: block;
+
+    /* Typographic */
+    color: var(--text-color-body);
+  }
+  .menu-desktop nav ul {
+    /* Positioning */
+    display: flex;
+    justify-content: space-around;
+
+    /* Visual */
+    list-style: none;
+  }
+  .menu-desktop nav li a {
+    /* Typographic */
+    color: var(--text-color-body);
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+  }
+  .menu-desktop nav li a:hover {
+    /* Box model */
+    border-bottom: 2px solid red;
+  }
+}
+
+/* ****************************** */
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */
