@@ -1,7 +1,6 @@
 /* CSS: Custom Properties */
 :root {
   /* Layout Widths */
-  --mobile-portrait: 375px;
   --mobile-landscape: 576px;
   --tablet-portrait: 768px;
   --small-desktop: 992px;
@@ -14,7 +13,7 @@
 
   /* Background Colors */
   --primary-BG: #222;
-  --section-BG: #4ead77;
+  --section-BG: #f2f2f2;
 
   /* BUTTONS: Colors */
   --cta-button: #7d34a2;
@@ -41,8 +40,10 @@ html {
   font-size: 62.5%;
 }
 body {
+  /* Typographic */
   font-size: 1.6rem;
   font-family: var(--font-athiti-body);
+  line-height: 1.5;
 }
 /****** END: GLOBAL STYLES *****/
 
@@ -72,6 +73,7 @@ header {
   display: none;
 }
 .menu-mobile #btn-menu:checked ~ nav {
+  /* Box model */
   margin-top: 118px;
 }
 .menu-mobile label {
@@ -91,12 +93,10 @@ header {
   background-color: #f0f0f0;
 }
 
-/* BEGIN: Nav Styles */
+/** BEGIN: Nav Styles **/
 .menu-mobile nav {
   /* Positioning */
   position: relative;
-  display: flex;
-  justify-content: center;
 
   /* Box Model */
   width: 100%;
@@ -176,10 +176,94 @@ header {
   }
 }
 
-main {
+/***** BEGIN: MAIN STYLES *****/
+
+main .hero {
+  /* Box model */
+  padding: 60px 0px;
+
+  /* Misc */
   background-color: var(--section-BG);
 }
-
+main .hero-content {
+  /* Box model */
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--mobile-landscape) - 15%);
+  }
+}
+@media (min-width: 768px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--tablet-portrait) - 40%);
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 992px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--small-desktop) - 40%);
+    font-size: 2.1rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .hero-content {
+    /* Box model */
+    width: 550px;
+    /* width: calc(var(--desktop) - 40%); */
+  }
+}
+main .quote {
+  /* Box model */
+  margin-bottom: 30px;
+}
+main .quote-title {
+  /* Typographic */
+  font-weight: 500;
+  font-size: 2rem;
+}
+main .quote .quote-author {
+  display: block;
+  font-weight: 500;
+  text-align: right;
+}
+main .card-title {
+  /* Box Model */
+  margin-bottom: 30px;
+  /* Typographic */
+  font-weight: 300;
+  font-size: 3.5rem;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  main .card-title {
+    /* Typographic */
+    font-weight: 500;
+    font-size: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 4.5rem;
+  }
+}
+@media (min-width: 992px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 5.7rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 6rem;
+  }
+}
 /* ****************************** */
 /* Positioning */
 /* Box model */
