@@ -237,10 +237,9 @@ main .quote {
   /* Box model */
   margin-bottom: 30px;
 }
-main .quote-title {
+main .quote-content {
   /* Typographic */
-  font-weight: 500;
-  font-size: 2rem;
+  font-style: italic;
 }
 main .quote .quote-author {
   /* Box Model */
