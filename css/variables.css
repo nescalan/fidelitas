@@ -1,0 +1,47 @@
+/* CSS: Custom Properties */
+:root {
+  /* Layout Widths */
+  --mobile-landscape: 576px;
+  --tablet-portrait: 768px;
+  --small-desktop: 992px;
+  --desktop: 1200px;
+  --large-desktop: 1400px;
+
+  /* Colors */
+  --dark-color: #1a1e21;
+  --blue: #3860ec;
+
+  /* Background Colors */
+  --primary-BG: #222;
+  --section-BG: #f2f2f2;
+
+  /* BUTTONS: Colors */
+  --cta-button: #7d34a2;
+  --cta-hover-button: #6a2eab;
+
+  /***** Font Colors *****/
+  --text-font-color: #fefefe;
+  --text-color-body: #1a1e21;
+
+  /* Typograpy */
+  --font-menu: "Amatic SC", sans-serif;
+  --font-lato-h1: "Lato", sans-serif;
+  --font-ntr-h2: "NTR", sans-serif;
+  --font-athiti-body: "Athiti", sans-serif;
+}
+/****** BEGIN: GLOBAL STYLES *****/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  /* Typographic */
+  font-size: 1.6rem;
+  font-family: var(--font-athiti-body);
+  line-height: 1.5;
+}
+/****** END: GLOBAL STYLES *****/

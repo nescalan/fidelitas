@@ -1,0 +1,129 @@
+/****** BEGIN: HEADER STYLES *****/
+header {
+  /* Box model */
+  height: 120px;
+}
+
+/* BEGIN: Menu Mobile */
+.menu-desktop {
+  /* Box Model */
+  display: none;
+}
+.menu-mobile {
+  /* Box Model */
+  margin: 0 auto;
+  height: 10vh;
+
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.menu-mobile #btn-menu {
+  /* Box model */
+  display: none;
+}
+.menu-mobile #btn-menu:checked ~ nav {
+  /* Box model */
+  margin-top: 118px;
+}
+.menu-mobile label {
+  /* Positioning */
+  position: absolute;
+  top: calc(100px - 65px);
+
+  right: 50px;
+  /* Box model */
+  width: 50px;
+  height: 50px;
+  padding: 13px;
+}
+.menu-mobile label:hover {
+  /* Misc */
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+/** BEGIN: Nav Styles **/
+.menu-mobile nav {
+  /* Positioning */
+  position: relative;
+
+  /* Box Model */
+  width: 100%;
+  margin-top: -300px;
+  transition: 0.5s;
+
+  /* Visual */
+  background-color: var(--primary-BG);
+}
+.menu-mobile nav ul {
+  /* Box Model */
+  margin: 0;
+  padding: 0;
+
+  /* Misc */
+  list-style: none;
+}
+.menu-mobile nav li a {
+  /* Box Model */
+  display: block;
+  padding: 15px 20px;
+  text-align: center;
+
+  /* Typographic */
+  color: var(--text-font-color);
+  font-size: 3rem;
+  text-decoration: none;
+}
+.menu-mobile nav li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* END: Nav Styles */
+
+/* BEGIN: Menu Desktop */
+@media (min-width: 991px) {
+  .menu-mobile {
+    /* Box model */
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  header {
+    /* Positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-desktop {
+    /* Box model */
+    width: 50%;
+    display: block;
+
+    /* Typographic */
+    color: var(--text-color-body);
+  }
+  .menu-desktop nav ul {
+    /* Positioning */
+    display: flex;
+    justify-content: space-around;
+
+    /* Visual */
+    list-style: none;
+  }
+  .menu-desktop nav li a {
+    /* Typographic */
+    color: var(--text-color-body);
+    font-family: var(--font-menu);
+    font-size: 5rem;
+
+    /* font-family: var(--font-menu); */
+    letter-spacing: 0.3rem;
+    text-decoration: none;
+  }
+  .menu-desktop nav li a:hover {
+    /* Box model */
+    border-bottom: 2px solid red;
+  }
+}
+/****** END: HEADER STYLES *****/
