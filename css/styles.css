@@ -178,6 +178,7 @@ header {
 
 /***** BEGIN: MAIN STYLES *****/
 
+/***** BEGIN: Section Hero *****/
 main .hero {
   /* Box model */
   padding: 60px 0px;
@@ -187,7 +188,7 @@ main .hero {
 }
 main .hero-content {
   /* Box model */
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 @media (min-width: 576px) {
@@ -200,6 +201,8 @@ main .hero-content {
   main .hero-content {
     /* Box model */
     width: calc(var(--tablet-portrait) - 40%);
+
+    /* Typographic */
     font-size: 1.8rem;
   }
 }
@@ -207,14 +210,27 @@ main .hero-content {
   main .hero-content {
     /* Box model */
     width: calc(var(--small-desktop) - 40%);
+
+    /* Typographic */
     font-size: 2.1rem;
   }
 }
 @media (min-width: 1200px) {
   main .hero-content {
     /* Box model */
-    width: 550px;
-    /* width: calc(var(--desktop) - 40%); */
+    width: calc(var(--desktop) - 40%);
+
+    /* Typographic */
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--desktop) - 30%);
+
+    /* Typographic */
+    font-size: 2.5rem;
   }
 }
 main .quote {
@@ -227,7 +243,10 @@ main .quote-title {
   font-size: 2rem;
 }
 main .quote .quote-author {
+  /* Box Model */
   display: block;
+
+  /* Typographic */
   font-weight: 500;
   text-align: right;
 }
@@ -242,7 +261,7 @@ main .card-title {
 @media (min-width: 576px) {
   main .card-title {
     /* Typographic */
-    font-weight: 500;
+    font-weight: 400;
     font-size: 4rem;
   }
 }
@@ -261,12 +280,75 @@ main .card-title {
 @media (min-width: 1200px) {
   main .card-title {
     /* Typographic */
-    font-size: 6rem;
+    font-size: 6.3rem;
   }
+}
+/***** END: Section Hero *****/
+
+/***** BEGIN: Section Grid-Layout *****/
+main .layout {
+  padding: 60px 40px;
+}
+main .grid-layout {
+  /* Box Model */
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 10px;
+  grid-template-rows: repeat(5, 200px);
+  grid-template-columns: repeat(2, 1fr);
+}
+main .grid-item-1 {
+  grid-row: 1;
+  grid-column: 1;
+}
+main .grid-item-2 {
+  grid-row: 1;
+  grid-column: 2;
+}
+main .grid-item-3 {
+  grid-row: 2;
+  grid-column: 1;
+}
+main .grid-item-4 {
+  grid-row: 2;
+  grid-column: 2;
+}
+main .grid-item-5 {
+  grid-row: 3;
+  grid-column: 1;
+}
+main .grid-item-6 {
+  grid-row: 3;
+  grid-column: 2;
+}
+main .grid-item-7 {
+  grid-row: 4;
+  grid-column: 1;
+}
+main .grid-item-8 {
+  grid-row: 4;
+  grid-column: 2;
+}
+main .grid-item-9 {
+  grid-row: 5;
+  grid-column: 1;
+}
+[class^="grid-item"] {
+  /* Box Model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 3px dashed #f90;
+  font-size: 30px;
+  color: #333;
+
+  /* Visual */
+  background-color: #e4e4e4;
 }
 /* ****************************** */
 /* Positioning */
-/* Box model */
+/* Box Model */
 /* Typographic */
 /* Visual */
 /* Misc */
