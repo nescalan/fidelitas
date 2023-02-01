@@ -1,6 +1,7 @@
 /* CSS: Custom Properties */
 :root {
   /* Layout Widths */
+  --mobile-portrait: 480px;
   --mobile-landscape: 576px;
   --tablet-portrait: 768px;
   --small-desktop: 992px;
