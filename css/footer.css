@@ -1,0 +1,40 @@
+/* IMPORT ADITIONAL FILES */
+@import "./global.css";
+
+footer {
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Box Model */
+  height: 260px;
+  padding: 30px 30px;
+
+  /* Typographic */
+  color: var(--text-font-color);
+  font-family: var(--font-PTserif-h1);
+  font-size: 1.7rem;
+  font-weight: 500;
+
+  /* Visual */
+  background-color: var(--primary-BG);
+  border: 1px solid white;
+}
+
+footer .right-col {
+  /* Positioning */
+  display: flex;
+  align-items: center;
+}
+footer .right-col span {
+  margin-right: 10px;
+}
+
+/* ****************************** */
+/* Positioning */
+/* Box Model */
+/* Typographic */
+/* Visual */
+/* Misc */

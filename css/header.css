@@ -41,7 +41,7 @@ header {
 .menu-mobile label:hover {
   /* Misc */
   cursor: pointer;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0;*/
 }
 
 /** BEGIN: Nav Styles **/

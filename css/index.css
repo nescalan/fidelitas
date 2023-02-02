@@ -76,6 +76,7 @@ main .card-title {
   /* Box Model */
   margin-bottom: 30px;
   /* Typographic */
+  font-family: var(--font-PTserif-h1);
   font-weight: 300;
   font-size: 3.5rem;
   text-align: center;
@@ -116,7 +117,7 @@ main .grid-container {
 @media (min-width: 576px) {
   main .grid-container {
     /* Box Model */
-    width: calc(var(--mobile-landscape) - 50px);
+    width: calc(var(--mobile-landscape) - 175px);
   }
 }
 @media (min-width: 768px) {
