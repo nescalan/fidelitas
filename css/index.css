@@ -192,12 +192,16 @@ main .grid-layout {
   }
 }
 
+/* CSS: Grid Item Div */
 [class^="grid-item"] {
   /* Visual */
   border-radius: 10px;
   background: rgb(236, 236, 236);
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+  /* Misc */
+  overflow: hidden;
 }
 @media (min-width: 576px) {
   [class^="grid-item"] {
@@ -210,7 +214,6 @@ main .grid-layout {
     height: 30rem;
   }
 }
-
 @media (min-width: 992px) {
   [class^="grid-item"] {
     height: 40rem;
@@ -218,10 +221,11 @@ main .grid-layout {
 }
 @media (min-width: 1200px) {
   [class^="grid-item"] {
-    height: 50rem;
+    height: 45rem;
   }
 }
 
+/* CSS: Images */
 [class^="grid-item"] img {
   /* Box Model */
   height: 80%;
@@ -231,19 +235,24 @@ main .grid-layout {
   border-radius: 10px 10px 0 0;
 
   /* Misc */
-  transition: box-shadow 1s;
+  transition: all 2s;
 }
+
+/* HOVER: Images */
 [class^="grid-item"] img:hover {
   /* Misc */
-  box-shadow: outset 0 -3px 0 #cc3232;
+  transform: scale(1.1);
   cursor: pointer;
 }
+
+/* CSS: Card Description */
 [class^="grid-item"] p {
   /* Typographic */
   font-family: var(--font-ntr-h2);
   font-size: 2.3rem;
   text-align: center;
 }
+
 @media (min-width: 992px) {
   [class^="grid-item"] p {
     /* Typographic */
