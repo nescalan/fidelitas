@@ -1,0 +1,65 @@
+.section-avatar {
+  /* Positioning */
+  position: relative;
+
+  /* Box Model */
+  padding: 60px 0;
+  /* Visual */
+  background-color: var(--section-BG);
+}
+.section-avatar figure {
+  /* Box Model */
+  width: 80%;
+  margin: 0 auto;
+}
+.section-avatar figure img {
+  /* Positioning */
+  position: relative;
+  z-index: 100;
+
+  /* Box Model */
+  width: 100%;
+}
+/***** DIV: Rectangle *****/
+.section-avatar .rectangle {
+  /* Positioning */
+  position: absolute;
+  top: 250px;
+  /* Box Model */
+  width: 400px;
+  height: 228px;
+
+  /* Visual */
+  background-color: var(--color-red);
+}
+
+/***** CARD: Avatar *****/
+.section-avatar .about {
+  /* Visual */
+  border-radius: 10px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+  /* Box Model */
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px;
+
+  /* Typographic */
+  text-align: center;
+}
+.section-avatar .about span {
+  /* Typographic */
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+.section-avatar .about h2 {
+  /* Typographic */
+  margin-top: 1.8rem;
+}
+.section-avatar .about p {
+  /* Typographic */
+  margin-top: 2.8rem;
+}
