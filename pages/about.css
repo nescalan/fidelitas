@@ -55,6 +55,7 @@
 
     /* Misc */
     background-position: 0% 15%;
+    background-size: cover;
     background-color: #fff;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
       rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
@@ -68,6 +69,9 @@
 }
 @media (min-width: 1400px) {
   .section-avatar figure {
+    /* Positioning */
+    left: 60%;
+
     /* Box Model */
     width: 400px;
   }
@@ -116,7 +120,15 @@
   /* Typographic */
   text-align: center;
 }
+@media (min-width: 768px) {
+  .section-avatar .about {
+    /* Positioning */
+    top: 0;
 
+    /* Model Box */
+    width: 40%;
+  }
+}
 .section-avatar .about span {
   /* Typographic */
   font-size: 1.8rem;
