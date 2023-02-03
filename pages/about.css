@@ -5,7 +5,7 @@
   /* Visual */
   background-color: var(--section-BG);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .section-avatar {
     /* Positioning */
     display: flex;
@@ -34,17 +34,14 @@
 }
 @media (min-width: 768px) {
   .section-avatar figure {
-    /* Positioning */
-    left: 20%;
-
     /* Box Model */
-    width: 300px;
+    height: 100vh;
 
     /* Visual */
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
-      rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+    /* Misc  */
+    background-size: contain;
   }
 }
 @media (min-width: 992px) {
@@ -58,6 +55,9 @@
 
     /* Misc */
     background-position: 0% 15%;
+    background-color: #fff;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+      rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
   }
 }
 @media (min-width: 1200px) {
@@ -115,19 +115,6 @@
 
   /* Typographic */
   text-align: center;
-}
-@media (min-width: 768px) {
-  .section-avatar .about {
-    /* Positioning */
-    top: 0;
-
-    /* Model Box */
-    width: 40%;
-  }
-}
-@media (min-width: 768px) {
-  .section-avatar .about {
-  }
 }
 
 .section-avatar .about span {
