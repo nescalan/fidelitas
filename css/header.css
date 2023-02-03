@@ -10,14 +10,14 @@ header {
   display: none;
 }
 .menu-mobile {
-  /* Box Model */
-  margin: 0 auto;
-  height: 10vh;
-
   /* Positioning */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  /* Box Model */
+  margin: 0 auto;
+  height: 10vh;
 }
 .menu-mobile #btn-menu {
   /* Box model */
@@ -44,10 +44,11 @@ header {
   /* background-color: #f0f0f0;*/
 }
 
-/** BEGIN: Nav Styles **/
+/***** BEGIN: Nav Styles *****/
 .menu-mobile nav {
   /* Positioning */
   position: relative;
+  z-index: 2;
 
   /* Box Model */
   width: 100%;

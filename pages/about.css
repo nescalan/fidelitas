@@ -1,7 +1,4 @@
 .section-avatar {
-  /* Positioning */
-  position: relative;
-
   /* Box Model */
   padding: 60px 0;
   /* Visual */
@@ -15,7 +12,7 @@
 .section-avatar figure img {
   /* Positioning */
   position: relative;
-  z-index: 100;
+  z-index: 1;
 
   /* Box Model */
   width: 100%;
