@@ -3,6 +3,16 @@ header {
   /* Box model */
   height: 120px;
 }
+header h1 {
+  /* Positioning */
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  /* Typographic */
+  color: var(--text-color-body);
+  font-family: var(--font-menu);
+  font-size: 5rem;
+}
 
 /* BEGIN: Menu Mobile */
 .menu-desktop {
@@ -127,4 +137,5 @@ header {
     border-bottom: 2px solid red;
   }
 }
+
 /****** END: HEADER STYLES *****/
