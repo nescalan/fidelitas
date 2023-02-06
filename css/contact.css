@@ -121,6 +121,15 @@
   font-weight: 500;
   font-size: 1.8rem;
 }
+.contact-hero .contact-footer [class^="contact-item"] a {
+  /* Typographic */
+  color: var(--text-font-color);
+  text-decoration: none;
+}
+.contact-hero .contact-footer [class^="contact-item"] a:hover {
+  /* Typographic */
+  color: #cfcaca;
+}
 
 /* Positioning */
 /* Box model */
