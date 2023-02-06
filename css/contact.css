@@ -1,0 +1,102 @@
+/* SECTION: Contact Hero Styles */
+.contact-hero {
+  /* Positioning */
+  position: relative;
+}
+.contact-hero .contact-header {
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 264px;
+  left: 10%;
+
+  /* Typographic */
+  text-align: center;
+
+  /* Box Model */
+  width: calc(var(--mobile-portrait) - 140px);
+  height: 165px;
+  padding: 30px;
+
+  /* Typographic */
+  color: var(--text-font-color);
+
+  /* Misc */
+  background-color: var(--primary-BG);
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    width: calc(var(--mobile-landscape) - 36px);
+    height: 195px;
+  }
+}
+@media (min-width: 768px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    width: calc(var(--tablet-portrait) - 48px);
+  }
+}
+@media (min-width: 992px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    width: calc(var(--small-desktop) - 120px);
+  }
+}
+@media (min-width: 1200px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    max-width: calc(var(--desktop) - 327px);
+  }
+}
+
+.contact-hero .contact-header h1 {
+  /* Typographic */
+  font-weight: 500;
+  font-size: 4.8rem;
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header h1 {
+    /* Typographic */
+    font-size: 6rem;
+  }
+}
+.contact-hero .contact-header h2 {
+  /* Typographic */
+  font-size: 1.4rem;
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header h2 {
+    /* Typographic */
+    font-size: 1.8rem;
+  }
+}
+.contact-hero .contact-image {
+  /* Misc */
+  background-image: url("https://nescalan.github.io/nelson-portfolio/images/2cb8e5ff68bbfeae0b31620ce8f74f9d71f16a78087a50afa04dbdce025d4ea3521940305fa6b188dbdcf9babfb23f781618893ead00ee12ea1d37_1280.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 347px;
+}
+.contact-hero .contact-footer {
+  height: 600px;
+  padding: 120px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-red);
+}
+[class^="footer-"] {
+  width: 340px;
+  height: 190px;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */
