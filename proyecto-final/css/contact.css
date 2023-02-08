@@ -1,0 +1,317 @@
+/* SECTION: Contact Hero Styles */
+.contact-hero {
+  /* Positioning */
+  position: relative;
+}
+.contact-hero .contact-header {
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: -250px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  /* Typographic */
+  text-align: center;
+
+  /* Box Model */
+  width: calc(var(--mobile-portrait) - 140px);
+  height: 165px;
+  padding: 30px;
+
+  /* Typographic */
+  color: var(--text-font-color);
+
+  /* Misc */
+  background-color: var(--primary-BG);
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header {
+    /* Positioning */
+
+    /* Box Model */
+    width: calc(var(--mobile-landscape) - 36px);
+    height: 195px;
+  }
+}
+@media (min-width: 768px) {
+  .contact-hero .contact-header {
+    /* Positioning */
+    top: -50px;
+
+    /* Box Model */
+    width: calc(var(--tablet-portrait) - 48px);
+  }
+}
+@media (min-width: 992px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    width: calc(var(--small-desktop) - 120px);
+  }
+}
+@media (min-width: 1200px) {
+  .contact-hero .contact-header {
+    /* Box Model */
+    max-width: calc(var(--desktop) - 327px);
+  }
+}
+
+.contact-hero .contact-header h1 {
+  /* Typographic */
+  font-family: var(--font-PTserif-h1);
+  font-weight: 500;
+  font-size: 4.8rem;
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header h1 {
+    /* Typographic */
+    font-size: 6rem;
+  }
+}
+.contact-hero .contact-header p {
+  /* Typographic */
+  font-size: 1.6rem;
+}
+@media (min-width: 576px) {
+  .contact-hero .contact-header p {
+    /* Typographic */
+    font-size: 2rem;
+  }
+}
+.contact-hero .contact-image {
+  /* Misc */
+  background-image: url("https://nescalan.github.io/nelson-portfolio/images/2cb8e5ff68bbfeae0b31620ce8f74f9d71f16a78087a50afa04dbdce025d4ea3521940305fa6b188dbdcf9babfb23f781618893ead00ee12ea1d37_1280.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 347px;
+}
+.contact-hero .contact-footer {
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Box model */
+  height: 600px;
+  padding: 120px 60px;
+  text-align: center;
+
+  /* Typographic */
+  align-items: center;
+
+  /* Misc */
+  background-color: var(--color-red);
+}
+@media (min-width: 768px) {
+  .contact-hero .contact-footer {
+    /* Positioning */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Box model */
+    height: 300px;
+    padding: 0 5%;
+  }
+}
+@media (min-width: 992px) {
+  .contact-hero .contact-footer {
+    /* Box model */
+    padding: 0 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .contact-hero .contact-footer {
+    /* Box model */
+    padding: 0 15%;
+  }
+}
+@media (min-width: 1400px) {
+  .contact-hero .contact-footer {
+    /* Box model */
+    padding: 0 23%;
+  }
+}
+.contact-hero .contact-footer [class^="contact-item"] {
+  /* Box model */
+  width: 340px;
+  height: 190px;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .contact-hero .contact-footer [class^="contact-item"] {
+    /* Box model */
+    width: 300px;
+    height: 100px;
+    color: #fff;
+
+    border: 1px color white;
+  }
+}
+.contact-hero .contact-footer [class^="contact-item"] span {
+  /* Typographic */
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.contact-hero .contact-footer [class^="contact-item"] p {
+  /* Typographic */
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.contact-hero .contact-footer [class^="contact-item"] a {
+  /* Typographic */
+  color: var(--text-font-color);
+  text-decoration: none;
+}
+.contact-hero .contact-footer [class^="contact-item"] a:hover {
+  /* Typographic */
+  color: #cfcaca;
+}
+
+/***** SECTION: Form  *****/
+.section-form {
+  /* Box model */
+  padding: 60px 0;
+  /* Visual */
+  background-color: var(--section-BG);
+}
+.section-form form {
+  /* Box model */
+  margin: 0 auto;
+
+  width: calc(var(--mobile-portrait) - 100px);
+}
+@media (min-width: 576px) {
+  .section-form form {
+    /* Box model */
+    width: calc(var(--mobile-landscape) - 80px);
+  }
+}
+@media (min-width: 768px) {
+  .section-form form {
+    /* Box model */
+    max-width: calc(var(--tablet-portrait) - 100px);
+  }
+}
+.section-form fieldset {
+  /* Box Model */
+  padding: 0 10px;
+
+  /* Visual */
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+.section-form legend {
+  /* Typographic */
+  font-family: var(--font-ntr-h2);
+  font-weight: 500;
+  font-size: 2.6rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-form legend {
+    /* Typographic */
+    font-size: 3.4rem;
+  }
+}
+.section-form [class^="form-item"] {
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+
+  /* Box model */
+  margin-bottom: 15px;
+}
+.section-form [class^="form-item"] label {
+  /* Box model */
+  margin-bottom: 7.5px;
+
+  /* Typographic */
+  font-weight: 500;
+}
+.section-form [class^="form-item"] input {
+  /* Box model */
+  height: 45px;
+  padding: 0 15px;
+
+  /* Visual */
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  /* Misc */
+  caret-color: red;
+}
+.section-form [class^="form-item"] input:hover {
+  /* Visual */
+  border: 2px solid var(--primary-BG);
+}
+.section-form input[required]:focus:invalid + span::after,
+.section-form textarea:focus:invalid + span::after {
+  /* Positioning */
+  position: relative;
+  top: 20px;
+
+  /* Box model */
+  padding: 8px;
+
+  /* Typographic */
+  color: red;
+
+  /* Visual */
+  color: #a94442;
+  border: 1px solid #a94442;
+  background-color: #f2dede;
+
+  /* Misc */
+  content: "No cumple con el formato requerido";
+}
+.section-form [class^="form-item"] textarea {
+  /* Box model */
+  padding: 15px;
+  margin-bottom: 15px;
+
+  /* Visual */
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  /* Misc */
+  caret-color: red;
+}
+.section-form [class^="form-item"] textarea:hover {
+  /* Visual */
+  border: 2px solid var(--primary-BG);
+}
+.section-form button {
+  /* Box Model */
+  width: 100%;
+  height: 5.1rem;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 3px;
+
+  /* Typographic */
+  color: var(--text-font-color);
+  font-weight: 500;
+  font-size: 1.7rem;
+
+  /* Visual */
+  background-color: var(--color-red);
+}
+.section-form button:hover {
+  /* Visual */
+  background-color: #f0383e;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */

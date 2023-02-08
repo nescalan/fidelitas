@@ -1,0 +1,268 @@
+/* IMPORT ADITIONAL FILES */
+@import "./global.css";
+
+/***** BEGIN: Section Hero *****/
+main .hero {
+  /* Box model */
+  padding: 60px 0px;
+
+  /* Misc */
+  background-color: var(--section-BG);
+}
+main .hero-content {
+  /* Box model */
+  width: 80%;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--mobile-landscape) - 15%);
+  }
+}
+@media (min-width: 768px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--tablet-portrait) - 40%);
+
+    /* Typographic */
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 992px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--small-desktop) - 40%);
+
+    /* Typographic */
+    font-size: 2.1rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--desktop) - 40%);
+
+    /* Typographic */
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1400px) {
+  main .hero-content {
+    /* Box model */
+    width: calc(var(--desktop) - 30%);
+
+    /* Typographic */
+    font-size: 2.5rem;
+  }
+}
+main .quote {
+  /* Box model */
+  margin-bottom: 30px;
+}
+main .quote-content {
+  /* Typographic */
+  font-style: italic;
+}
+main .quote .quote-author {
+  /* Box Model */
+  display: block;
+
+  /* Typographic */
+  font-weight: 500;
+  text-align: right;
+}
+main .card-title {
+  /* Box Model */
+  margin-bottom: 30px;
+  /* Typographic */
+  font-family: var(--font-PTserif-h1);
+  font-weight: 300;
+  font-size: 3.5rem;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  main .card-title {
+    /* Typographic */
+    font-weight: 400;
+    font-size: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 4.5rem;
+  }
+}
+@media (min-width: 992px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 5.7rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .card-title {
+    /* Typographic */
+    font-size: 6.3rem;
+  }
+}
+/***** END: Section Hero *****/
+
+/***** BEGIN: Section Grid-Layout *****/
+main .grid-container {
+  /* Box Model */
+  width: calc(var(--mobile-portrait) - 140px);
+  margin: 60px auto;
+}
+@media (min-width: 576px) {
+  main .grid-container {
+    /* Box Model */
+    width: calc(var(--mobile-landscape) - 175px);
+  }
+}
+@media (min-width: 768px) {
+  /* Box Model */
+  main .grid-container {
+    width: calc(var(--tablet-portrait) - 75px);
+  }
+}
+@media (min-width: 992px) {
+  /* Box Model */
+  main .grid-container {
+    width: calc(var(--small-desktop) - 100px);
+  }
+}
+@media (min-width: 1200px) {
+  /* Box Model */
+  main .grid-container {
+    width: calc(var(--desktop) - 130px);
+  }
+}
+
+main .grid-layout {
+  /* Box Model */
+  display: grid;
+  gap: 50px;
+  grid-template-rows: repeat(5, 280px);
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  main .grid-layout {
+    /* Positioning */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    /* Box Model */
+    /* grid-gap: 50px; */
+    grid-template-rows: repeat(5, 0.4fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "one two"
+      "three four"
+      "five six"
+      "seven eight"
+      "nine ten";
+  }
+  main .grid-layout .grid-item-1 {
+    grid-area: one;
+  }
+  main .grid-layout .grid-item-2 {
+    grid-area: two;
+  }
+  main .grid-layout .grid-item-3 {
+    grid-area: three;
+  }
+  main .grid-layout .grid-item-4 {
+    grid-area: four;
+  }
+  main .grid-layout .grid-item-5 {
+    grid-area: five;
+  }
+  main .grid-layout .grid-item-6 {
+    grid-area: six;
+  }
+  main .grid-layout .grid-item-7 {
+    grid-area: seven;
+  }
+  main .grid-layout .grid-item-8 {
+    grid-area: eight;
+  }
+  main .grid-layout .grid-item-9 {
+    grid-area: nine;
+  }
+}
+
+/* CSS: Grid Item Div */
+[class^="grid-item"] {
+  /* Visual */
+  border-radius: 10px;
+  background: rgb(236, 236, 236);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+
+  /* Misc */
+  overflow: hidden;
+}
+@media (min-width: 576px) {
+  [class^="grid-item"] {
+    height: 27rem;
+    /* visual */
+  }
+}
+@media (min-width: 768px) {
+  [class^="grid-item"] {
+    height: 30rem;
+  }
+}
+@media (min-width: 992px) {
+  [class^="grid-item"] {
+    height: 40rem;
+  }
+}
+@media (min-width: 1200px) {
+  [class^="grid-item"] {
+    height: 45rem;
+  }
+}
+
+/* CSS: Images */
+[class^="grid-item"] img {
+  /* Box Model */
+  height: 80%;
+  width: 100%;
+
+  /* Visual */
+  border-radius: 10px 10px 0 0;
+
+  /* Misc */
+  transition: all 2s;
+}
+
+/* HOVER: Images */
+[class^="grid-item"] img:hover {
+  /* Misc */
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* CSS: Card Description */
+[class^="grid-item"] p {
+  /* Typographic */
+  font-family: var(--font-ntr-h2);
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  [class^="grid-item"] p {
+    /* Typographic */
+    font-size: 4rem;
+  }
+}
+/* ****************************** */
+/* Positioning */
+/* Box Model */
+/* Typographic */
+/* Visual */
+/* Misc */
