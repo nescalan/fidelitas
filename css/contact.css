@@ -242,16 +242,52 @@
   height: 45px;
   padding: 0 15px;
 
+  /* Visual */
+  border: 1px solid gray;
+  border-radius: 4px;
+
   /* Misc */
   caret-color: red;
+}
+.section-form [class^="form-item"] input:hover {
+  /* Visual */
+  border: 2px solid var(--primary-BG);
+}
+.section-form input[required]:focus:invalid + span::after,
+.section-form textarea:focus:invalid + span::after {
+  /* Positioning */
+  position: relative;
+  top: 20px;
+
+  /* Box model */
+  padding: 8px;
+
+  /* Typographic */
+  color: red;
+
+  /* Visual */
+  color: #a94442;
+  border: 1px solid #a94442;
+  background-color: #f2dede;
+
+  /* Misc */
+  content: "No cumple con el formato requerido";
 }
 .section-form [class^="form-item"] textarea {
   /* Box model */
   padding: 15px;
   margin-bottom: 15px;
 
+  /* Visual */
+  border: 1px solid gray;
+  border-radius: 4px;
+
   /* Misc */
   caret-color: red;
+}
+.section-form [class^="form-item"] textarea:hover {
+  /* Visual */
+  border: 2px solid var(--primary-BG);
 }
 .section-form button {
   /* Box Model */
@@ -267,6 +303,10 @@
 
   /* Visual */
   background-color: var(--color-red);
+}
+.section-form button:hover {
+  /* Visual */
+  background-color: #f0383e;
 }
 
 /* Positioning */
