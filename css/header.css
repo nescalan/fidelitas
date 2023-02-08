@@ -6,15 +6,23 @@ header {
 header h1 {
   /* Positioning */
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: 5%;
 
   /* Typographic */
   color: var(--text-color-body);
   font-family: var(--font-menu);
-  font-size: 4.5rem;
+  font-size: 3.5rem;
 }
+@media (min-width: 400px) {
+  header h1 {
+    /* Positioning */
+    top: 25px;
 
+    /* Typographic */
+    font-size: 5rem;
+  }
+}
 /* BEGIN: Menu Mobile */
 .menu-desktop {
   /* Box Model */
@@ -43,7 +51,7 @@ header h1 {
   position: absolute;
   top: calc(100px - 65px);
 
-  right: 25px;
+  right: 10px;
   /* Box model */
   width: 50px;
   height: 50px;
