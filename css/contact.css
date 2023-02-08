@@ -295,6 +295,7 @@
   height: 5.1rem;
   margin-bottom: 15px;
   border: none;
+  border-radius: 3px;
 
   /* Typographic */
   color: var(--text-font-color);
