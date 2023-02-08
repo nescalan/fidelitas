@@ -1,0 +1,315 @@
+/* GENERALES */
+
+:root {
+    --primario: #2eb4c3;
+    --gris: #e1e1e1;
+    --blanco: #fcfcfc;
+    --negro: #212121;
+
+    --fuenteTitulos: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: var(--fuenteParrafos);
+    line-height: 2;
+}
+
+/* GLOBALES */
+
+h1, h2, h3, h4 {
+    font-family: var(--fuenteTitulos);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    width: min(90%, 120rem);
+    margin: auto;
+}
+
+/* UTILIDADES */
+
+.no_margin {
+    margin: 0;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+.centrar_texto {
+    text-align: center;
+}
+
+/* HEADER */
+
+header {
+    background-image: url(../img/header2.jpg);
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header_transp {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.texto_header {
+    color: var(--blanco);
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.nav {
+    padding-top: 4rem;
+}
+
+.logo {
+    color: var(--blanco);
+    font-weight: normal;
+}
+
+.logo span {
+    font-weight: bold;
+}
+
+.navegacion a {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+    display: block;
+}
+
+/* ICONOS NOSOTROS */
+
+.iconos_grid {
+    text-align: center;
+}
+
+.iconos_grid img {
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primario);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+
+/* CONTENIDO PRINCIPAL HABITACIONES */
+/* línea entre habitaciones */
+article {
+    border-bottom: 0.1rem solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+/* botón entre habitaciones */
+.boton {
+    display: block;
+    font-family: var(--fuenteTitulos);
+    color: var(--blanco);
+    background-color: var(--primario);
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+/* CONTENIDO PRINCIPAL ACTIVIDADES */
+
+ul {
+    list-style: none;
+}
+
+.actividad {
+    border-bottom: 0.1rem solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+.actividad p {
+    font-family: var(--fuenteTitulos);
+    font-size: 2rem;
+}
+
+/* HEADER MEDIA */
+@media (min-width: 768px) {
+    .texto_header {
+        margin-top: 15rem;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navegacion {
+        display: flex;
+        column-gap: 2rem;
+    }
+}
+
+@media (min-width: 768px){
+    .contenido_principal{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.imagen:hover{
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+}
+
+.imagen{
+    transition: all 0.5s;
+}
+
+.container_img{
+    overflow: hidden;
+}
+
+@media (min-width: 768px){
+    article:last-of-type{
+        border: none;
+        margin: 0;
+    }
+    .boton{
+        display: inline-block;
+    }
+}
+
+@media (min-width: 768px){
+    .actividad:last-of-type{
+        border: none;
+        margin: 0;
+    }
+}
+
+/* página nosotros.html */
+
+/* testimonios */
+.testimonios{
+    margin-top: 1rem;
+    background-image: url(../img/header1.jpg);
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.testimonios_transp{
+    background-color: rgba(46, 180, 195, 0.8);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.testimonios_transp h3 {
+    color: var(--blanco);
+}
+.testimonio {
+    padding: 2rem;
+}
+
+.testimonio p {
+    color: var(--blanco);
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 2;
+}
+.testimonio h3 {
+    color: var(--blanco);
+    font-family: var(--fuenteParrafos);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.testimonio h4 {
+    color: var(--blanco);
+    font-family: var(--fuenteParrafos);
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+
+@media (min-width:768px){
+    .nosotros_grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+    .testimonios_grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+}
+
+
+.iconos_grid{
+    text-align: center;
+}
+
+.iconos_grid img{
+    width: 10rem;
+    height: 10rem;
+}
+
+@media (min-width:768px){
+    .iconos_grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 2rem;
+    }
+}
