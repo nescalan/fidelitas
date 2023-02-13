@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Sesión 1 - Introducción a jQuery</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/jquery.snippet.css" />
+	<link rel='icon' type='image/png' href='./../img/favicon.png' />
+	<script type='text/javascript' src='./../js/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='./../js/tabla_contenidos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.linkEjemplos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.snippet.js'></script>
+	<script type='text/javascript'>
+	pageConf	= {fileName:'/sesion01/index.html', sesion:1, num_sesiones:6};
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33125186-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id='head'>
+	<a href='http://www.adsl.org.mx/' id='logoADSL'>Academia de software libre</a>
+	<h1>
+		<a id='link_principal' href='./../index.html'>Manual básico de jQuery</a><br />
+		<span id='descripcion'>Compartiendo conocimientos</span>
+	</h1>
+</div>
+<div id='content'>
+<div id='tabla_contenidos'></div>
+<script  type="text/javascript">
+$(function() {
+    google_api = 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js';
+    $pre = $("pre");
+    console.log($pre);
+    $($pre[0]).snippet("html", {style:'darkness'});
+    $($pre[1]).snippet("javascript", {style:'darkness'});
+    $($pre[2]).snippet("javascript", {style:'darkness'});
+
+    $('#jqueryInput').val(google_api);
+    $('#jqueryInput').focus( function(google_api){
+        $(this).select();
+    }).blur(function(){
+        $(this).val(google_api);
+    });
+});
+</script>
+
+<h1>Sesión 1 - Introducción a jQuery</h1>
+
+<h2>Descripción de este manual</h2>
+
+<p>Este es un pequeño manual <em>básico de <strong>jQuery</strong></em>, el cual consta de 5 sesiones, cada una diseñada para una clase de 2 horas.</p>
+
+<p>El proposito de este manual es ser una ayuda en la comprensión de los conceptos básicos de esta libreria, al concluir la lectura de este manual se espera que el lector sea capaz: de comprender casi cualquier código en <strong>jQuery</strong> y continuar su aprendizaje por su cuenta.</p>
+
+<h3>Licencia</h3>
+
+<p>Esta documentación esta licenciada bajo <strong><em><a href="http://creativecommons.org/licenses/by/2.5/mx/">atribución creative commons</a></em></strong>, <em><strong>sientase libre de modificar, compartir y redistribuir</strong></em>, si desear colaborar te invito a que revises el <a href="https://github.com/mundoSICA/tutorial_hispano_jQuery">repositorio publico</a>.</p>
+
+<p><a class='button' href="https://github.com/mundoSICA/tutorial_hispano_jQuery/archive/gh-pages.zip">Descargar Manual</a></p>
+
+<h2>Breve referencia <strong>HTML</strong></h2>
+
+<p><strong>HTML</strong>, siglas de <em>HyperText Markup Language</em> («lenguaje de marcado de hipertexto»), hace referencia al <a href="http://es.wikipedia.org/wiki/Lenguaje_de_marcado">lenguaje de marcado</a> para la elaboración de páginas web. Se utiliza para describir la estructura y el contenido en forma de texto. El <strong>HTML</strong> se escribe en forma de «etiquetas», rodeadas por <em>corchetes angulares</em> (<code>&lt;</code>,<code>&gt;</code>). <strong>HTML</strong> también puede describir, hasta un cierto punto, la apariencia de un documento aunque resulta una practica más recomendable incluir hojas de estilos(<strong>CSS</strong>) para este proposito, tambien suele incluir scripts (como <a href="http://es.wikipedia.org/wiki/JavaScript">JavaScript</a>), el cual puede afectar el comportamiento de navegadores web. <em>fuente: <a href="http://es.wikipedia.org/wiki/HTML">http://es.wikipedia.org/wiki/HTML</a></em></p>
+
+<p>Un ducumento <strong>Html</strong> tiene mas o menos el siguiente aspecto:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;title&gt;Título&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Documento de ejemplo&lt;/h1&gt;
+  &lt;div&gt;
+      &lt;h1&gt;Contenido dentro del div&lt;/h1&gt;
+      &lt;h2&gt;sub título&lt;/h2&gt;
+      &lt;p&gt;parrafo 1&lt;/p&gt;
+      &lt;p&gt;parrafo 2&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Las primeras dos lineas describen el tipo de archivo en este caso es <strong>HTML 5</strong> y la lengua a utilizar en este caso español.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;</code></pre>
+
+<blockquote>
+  <p>A lo largo de esta manual se usara <strong>HTML 5</strong> almenos que se diga lo contrario.</p>
+</blockquote>
+
+<p>Posteriormente viene el head, el cual en este caso contiene solo el titulo del documento, pero aquí se suelen poner tanto información de indexación como solicitudes de archivos necesarios como hojas de estilos y funcionalidades en javascript.</p>
+
+<pre><code>&lt;head&gt;
+  &lt;title&gt;Título&lt;/title&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>Sí desea conocer un poco mas sobre etiquetas validas puedes ver el siguiente ejemplo: <a href="../ejemplos/01.01.Etiquetas_head.html">01.01.Etiquetas_head.html</a>.</p>
+
+<h2>Concepto <strong>DOM</strong></h2>
+
+<p>El <strong>Modelo en Objetos para la Representación de Documentos</strong> ó <strong>DOM</strong> (<em>Document Object Model</em>), es un estándar de objetos para representar documentos <strong>HTML</strong> y <strong>XML</strong>. A través de el, los programas pueden acceder y modificar el contenido, estructura y estilo.</p>
+
+<p>La siguiente imagen es una <strong>representación</strong> del <strong>DOM</strong>  del documento visto anteriormente:</p>
+
+<p><img src="../img/dom.png" alt="Imagen Dom" title="" /></p>
+
+<p>La imagen anterior muestra el documento <strong>Html</strong> en forma de un arbol. Esta representación es conocida como un arbol <strong>DOM</strong>.</p>
+
+<blockquote>
+  <p>El responsable del DOM es el <em>World Wide Web Consortium</em> (<a href="http://www.w3.org/DOM/"><strong>W3C</strong></a>).</p>
+</blockquote>
+
+<h2>Breve referencia <strong>CSS</strong></h2>
+
+<p><em>Cascading Style Sheets</em> (hojas de estilo en cascada). CSS es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML o XML (y por extensión en XHTML).</p>
+
+<blockquote>
+  <p>El responsable del CSS es tambien el <em>World Wide Web Consortium</em> (<a href="http://www.w3.org/Style/CSS/"><strong>W3C</strong></a>).</p>
+</blockquote>
+
+<h3>Anatomía CSS</h3>
+
+<p>Con <strong>CSS</strong> podemos hacer declaraciones de estilo sobre los elementos <strong>HTML</strong>, para esto el <a href="../recursos/selectores_css.html"><strong>W3C</strong> ha definido una serie de selectores</a> los cuales siguen el siguiente formato:</p>
+
+<p><img src="../img/anatomia_basica_css.png" alt="Imagen Dom" title="" /></p>
+
+<p><strong>JQuery</strong> hace uso de estos selectores para interactuar con el <strong>DOM</strong>, por esta razón es importante que el lector comprenda <strong>CSS</strong> lamentablemente el alcance de este manual no contempla la explicación detallada de <strong>CSS</strong>.</p>
+
+<blockquote>
+  <p>Para nuestros fines basta con que conozcamos bien el uso de <a href="../recursos/selectores_css.html">selectores <strong>CSS</strong></a>.</p>
+</blockquote>
+
+<h2>Software a usar</h2>
+
+<p>Para desarrollar sitios de Internet con <strong>jQuery</strong> basicamente necesitamos 4 cosas:</p>
+
+<ol>
+<li>Editor de texto</li>
+<li>Navegador web.</li>
+<li>La libreria jQuery.</li>
+<li>Servidor web(para la sección <code>ajax</code>, <code>json</code>).</li>
+</ol>
+
+<h2>1. Editor de texto:</h2>
+
+<p>El editor de texto es la herramienta básica para editar archivos: <strong>HTML<em>, _</em>javaScript</strong> y <strong>CSS</strong>. Hay muchos editores muy buenos y usted puede puede usar el editor de su agrado, entre los que recomendamos son los siguientes (<em>ordenados según mis preferencias</em>):</p>
+
+<ul>
+<li><a href="http://www.geany.org/Download/Releases">Geany</a></li>
+<li><a href="http://www.vim.org/download.php">Vim</a></li>
+<li><a href="http://www.gnu.org/software/emacs/">Emacs</a></li>
+<li><a href="http://kate-editor.org/">Kate</a></li>
+<li><a href="http://notepad-plus-plus.org/download/v6.1.3.html">Notepad++</a></li>
+<li><a href="http://kate-editor.org/">TextMate</a></li>
+<li><a href="http://www.sublimetext.com/">sublimeText</a></li>
+</ul>
+
+<p>Te recomiendo el <a href="http://www.geany.org/Download/Releases">geany</a> el cual esta disponible para multiples Sistema operativos, ademas de agregarle el <a href="http://mundosica.github.com/geany-web-ninja/">geany-web-ninja</a> el cual es una colección de archivos de configuración orientadas al desarrollo web. </p>
+
+<h2>2. Navegador web:</h2>
+
+<p>Por cuestiones de pruebas te recomiendo que tengas todos los navegadores que esten disponibles en tu <strong>S.O.</strong>, sin embargo para  desarrollar/depurar te comiendo el <a href="http://www.mozilla.org/en-US/firefox/all.html#es-MX"><strong>firefox</strong></a> con la extensión <a href="https://addons.mozilla.org/en-US/firefox/addon/firebug/?src=search"><strong>firebug</strong></a>.</p>
+
+<p><img src="../img/firefox_con_firebug.png" alt="Imagen firefox con el complemento firebug" title="" /></p>
+
+<p>Otra de las ventajas que tiene es que a partir de la <a href="http://arstechnica.com/business/2012/03/firefox-11-released-with-style-editor-and-3d-dom-viewer/">versión 11</a> de <strong>Mozilla Firefox</strong>, trae integrado el <em><strong>3D inspector</strong></em> que nos permite analizar la profundidad de las capas <strong>CSS</strong> desde una forma gráfica, como podemos ver a continuación:</p>
+
+<p><img src="../img/3d_inspector.png" alt="Imagen firefox con el complemento firebug" title="" /></p>
+
+<blockquote>
+  <p>Otra razón para usar firefox es que es un proyecto de codigo libre y abierto, distribuyendose bajo <a href="http://es.wikipedia.org/wiki/Mozilla_Firefox#Licencias">triple licencia</a>: <ul><li>Licencia Pública de Mozilla (MPL)</li><li>Licencia pública general de GNU (GPL)</li><li>Licencia pública general reducida de GNU (LGPL).</li></ul></p>
+</blockquote>
+
+<h2>3. La libreria jQuery.</h2>
+
+<p><strong>jQuery</strong>: biblioteca de <em>JavaScript</em>, fue creada por <a href="http://ejohn.org/">John Resig</a>, permite simplificar la manera de interactuar con los documentos <strong>HTML</strong>, manipular el árbol <strong>DOM</strong>, manejo de eventos, desarrollar animaciones y agregar interacción con la técnica <strong>AJAX</strong> en páginas web.</p>
+
+<h3>Evolución de jQuery</h3>
+
+<p><strong>JQuery</strong> es una libreria en constante cambio, es recomendable usar la <a href="http://docs.jquery.com/Downloading_jQuery">libreria estable más reciente</a>, ya que en cada nueva versión se integran caracteristicas nuevas al tiempo que se mejoran las anteriores, la imagen siguiente es una compativa en el rendimiento de <strong style='background:#36c;color:white;text-shadow:none'>jQuery 1.6.4</strong> vs <strong style='background:#dc3912;color:white;text-shadow:none'>jQuery 1.7</strong> en distintos navegadores:</p>
+
+<p><img src="../img/compartiva_jquery_1.6.4_vs_1.7.png" alt="compartiva jQuery1.6.4 vs Query1.7" title="" /></p>
+
+<blockquote>
+  <p><strong>Fuente:</strong> <a href="http://blog.jquery.com/2011/11/03/jquery-1-7-released/">http://blog.jquery.com/2011/11/03/jquery-1-7-released/</a></p>
+</blockquote>
+
+<h3>Cambios entre 1.7 y 1.8</h3>
+
+<p>Cuando <strong>jQuery</strong> migro a la versión <strong>1.8</strong> se hicieron algunos cambios importantes, por ejemplo la versión <strong>1.8</strong> es más pequeña que <strong>1.7</strong>, las funciones css() y animate() libres de prefijos(<code>-webkit</code>, <code>-moz</code>, <code>-ms</code>, <code>-o</code>), se repararon 160 errores, mayor flexibilidad en animaciones y se mejoraron las consultas.</p>
+
+<blockquote>
+  <p><strong>Fuente:</strong> <a href="http://blog.jquery.com/2012/08/09/jquery-1-8-released/">http://blog.jquery.com/2012/08/09/jquery-1-8-released/</a></p>
+</blockquote>
+
+<h3>Cambios entre 1.8 y 1.9</h3>
+
+<!-- Esto esta Pendiente -->
+
+<blockquote>
+  <p><strong>Fuente:</strong> <code>Agregar</code></p>
+</blockquote>
+
+<h3>Cambios en la futura versión 2.0</h3>
+
+<p>En estos momentos la libreia <strong>jQuery</strong> esta evolucionando a la versión 2.0, ....</p>
+
+<blockquote>
+  <p><strong>Fuente:</strong> <a href="http://blog.jquery.com/2013/04/09/jquery-2-0-beta-3-released/">http://blog.jquery.com/2013/04/09/jquery-2-0-beta-3-released/</a></p>
+</blockquote>
+
+<h3>Agregando <strong>jQuery</strong></h3>
+
+<p>Una vez que tenemos la libreria <a href="http://docs.jquery.com/Downloading_jQuery"><strong>jQuery</strong></a>, lo siguiente es incluir la libreria en nuestros documentos <strong>HTML</strong>, esto lo hacemos, agregando el script dentro de la cabecera del documento.</p>
+
+<pre><code>&lt;head&gt;
+    &lt;!-- agregando libreria jQuery --&gt;
+    &lt;script type='text/javascript' src='js/jquery1.9.js'&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+
+<p>Por otra parte tambien puedes agregar la libreria directo del servidor de <strong>google API</strong>:</p>
+
+<p><input id='jqueryInput' value=''></p>
+
+<h2>4. Servidor web.</h2>
+
+<p>Un servidor web es un equipo que esta en la escucha del puerto http(<code>80</code>), para nuestros fines nos es suficiente con instalar <a href="http://httpd.apache.org/"><strong>apache web server</strong></a>, sin embargo cuando se habla de servidor web casi siempre se incluye <strong>apache</strong>, <strong>php</strong> y <strong>msql</strong>,si deseas tener todos estos paquetes los cuales te seran utiles a futuro te recomiendo instalar un <a href="http://www.apachefriends.org/en/xampp.html"><strong>xampp</strong></a> el cual esta disponible para:</p>
+
+<ul>
+<li>GNU/Linux</li>
+<li>Mac &reg;</li>
+<li>Windows &reg;</li>
+</ul>
+
+<h2>Selectores con <strong>jQuery</strong></h2>
+
+<p>La propiedad más significativa de <strong>jQuery</strong> es su flexibilidad para hacer consultas a través del <strong>DOM</strong>(de ahí el nombre).</p>
+
+<p><strong>jQuery</strong> basicamente nos permite hacer 3 tipos de consultas:</p>
+
+<ul>
+<li>[Consultas <strong>CSS</strong>]</li>
+<li><a href="http://www.ibm.com/developerworks/xml/library/x-xpathjquery/">Consultas <strong>xPath</strong></a></li>
+<li>[Consultas <strong>Trasversales</strong>]</li>
+</ul>
+
+<p>Este manual explica las consultas <strong>CSS</strong> y algunos metodos <strong>trasversales</strong>, dejando un poco de lado las consultas <strong>xPath</strong> ya que casi no se usan, pero es bueno que el lector sepa que existen y que tambien son una forma de acceder a los elementos.</p>
+
+<h3>Trasversatilidad</h3>
+
+<p>Se ha explicado como funciona <a href="#breve-referencia-css">la anatomia <strong>CSS</strong></a>, falta explicar la <strong>transversatilidad</strong>, la cual  <a href="http://api.jquery.com/category/traversing/">es un conjunto de metodos definidos por <strong>jQuery</strong></a> para refinamiento de selectores, para explicar esto ocuparemos 2 funciones.</p>
+
+<ul>
+<li><strong>find</strong>: Nos permite realizar una consulta sobre un objeto jQuery.</li>
+<li><strong>filter</strong>: Nos permite realizar un filtrado, descartando elementos, sobre un objeto jQuery.</li>
+</ul>
+
+<p>Imaginemos que tenemos una <em>tabla</em> que tiene como atributo <strong>id</strong> el valor <strong>idTabla</strong>, el cual queremos accecer a todos sus elementos <code>th</code>, una forma de hacerlo seria:</p>
+
+<pre><code>$("#idTabla th").css('background', '#ddd');</code></pre>
+
+<p>Otra alternativa es usar el metodo <code>find</code> para buscar en un objeto de <strong>jQuery</strong> el cual me representa una sub-rama del <code>DOM</code> en <code>idTabla</code>.</p>
+
+<pre><code>$("#idTabla").find('th').css('background', '#ddd');
+</code></pre>
+
+<p>Si existe una alternativa mejor a otra ¿cual crees que sea la mejor?, ¿por que?.</p>
+
+<h2>Lista de ejemplos:</h2>
+
+<ol>
+<li><a href="ejemplos/selector_css.html">Selectores con <strong>CSS</strong></a></li>
+</ol>
+
+<h2>Enlaces externos recomendables:</h2>
+
+<ul>
+<li><a href="http://www.librosweb.es/css_avanzado/">Libro <strong>CSS</strong> Avanzado</a></li>
+<li><a href="http://mathiasbynens.be/notes/css-escapes">Secuencias de caracteres de escape <strong>CSS</strong></a></li>
+<li><a href="http://www.xanthir.com/blog/b4JF0">Como maneja <em>CSS</em> los errores.</a></li>
+<li><a href="http://jquery.com/"><strong>Sitio oficial jQuery</strong></a></li>
+<li><a href="http://forum.jquery.com/"><strong>Foro de jQuery</strong></a></li>
+<li><a href="http://api.jquery.com/"><strong>Documentación jQuery</strong></a></li>
+<li><a href="http://webchat.freenode.net/?channels=#jquery"><strong>IRC de freeNode canal jQuery</strong></a></li>
+</ul>
+</div><!-- end content -->
+<div id="pie_pagina">
+	<div id="agradecimientos">
+		<h2>Con especial agredecimiento a:</h2>
+		<ul>
+				<li><a href="http://mundosica.com">mundosica</a></li>
+				<li><a href="http://adsl.mx">ADSL</a></li>
+				<li><a href="https://github.com/mundosica/tutorial_hispano_jQuery/contributors">Colaboradores</a></li>
+		</ul>
+		<br/>
+		<a class="copy" rel="license" href="http://mundosica.github.com//tutorial_hispano_jQuery/copyright.html">&nbsp;</a>
+    <a class="xhtml-valido" href="http://validator.w3.org/check?uri=referer">&nbsp;</a>
+	</div>
+</div>
+</body>
+</html>

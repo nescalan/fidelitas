@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Sesión 3 - Manejo de eventos</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/jquery.snippet.css" />
+	<link rel='icon' type='image/png' href='./../img/favicon.png' />
+	<script type='text/javascript' src='./../js/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='./../js/tabla_contenidos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.linkEjemplos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.snippet.js'></script>
+	<script type='text/javascript'>
+	pageConf	= {fileName:'/sesion03/index.html', sesion:3, num_sesiones:6};
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33125186-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id='head'>
+	<a href='http://www.adsl.org.mx/' id='logoADSL'>Academia de software libre</a>
+	<h1>
+		<a id='link_principal' href='./../index.html'>Manual básico de jQuery</a><br />
+		<span id='descripcion'>Compartiendo conocimientos</span>
+	</h1>
+</div>
+<div id='content'>
+<div id='tabla_contenidos'></div>
+<script type="text/javascript">
+$(function() {
+    $("pre").snippet("javascript", {style:'darkness'});
+    //
+    //test enlaces.
+    $('a[href^="../ejemplos/"]').linkEjemplos();
+});
+</script>
+
+<h1>Sesión 3 - Manejo de eventos</h1>
+
+<h2>Introducción a los eventos.</h2>
+
+<p><strong>jQuery</strong> define una lista de eventos y funciones para la administración de los mismos, la sintaxis por defecto para un manejador de evento es de la siguiente forma <code>$.fn.nombreEvento</code>.</p>
+
+<pre><code>$('Selector').nombreEvento( function(event){
+    //funcion que administra el evento.
+    //this es el elemento que disparo el evento.
+}</code></pre>
+
+<p>Aquí es importante resaltar que <strong>this</strong> contendra la instancia del elemento que disparo el evento, por ejemplos si a los enlaces(<code>a</code>) le agregamos el evento <code>click</code>, this contendra la instancia del enlace especifo sobre del cual  hallamos hecho click, analice el siguiente codigo.</p>
+
+<p><strong>jQuery</strong> define varios eventos para agregar un manejador de dicho evento basta con agregar una función en la llamada de dicho evento esta función puede recibir un argumento <code>event</code> el cual es util para obtener información de dicho evento ó para cambiar el comportamiento del mismo.</p>
+
+<h2>Evento click</h2>
+
+<p>El evento <code>click</code> es disparado cuando con el mouse le hacemos le damos <strong>click</strong> sobre un elemento seleccionado, la forma que tiene este evento es la siguiente:</p>
+
+<pre><code>$("a.button").click(
+    function(event) {
+        console.log('Manejador para el evento click del enlace(a) con clase(.) button');
+        event.preventDefault();
+});
+</code></pre>
+
+<p>En el ejemplo anterior vemos como al evento <code>click</code> le agregamos una funcion como manejador de dicho evento, esta recibe el objeto <code>event</code> el cual ocupamos para ejecutar el metodo <code>preventDefault</code> este metodo detiene el comportamiento por defecto de dicho evento, en este caso tenemos un link(<code>a</code>) que al darle click lo comun seria que siguiera en enlace definido en el atributo <code>href</code>.</p>
+
+<p><a href="../ejemplos/03.ejemplo_click.html">Ejemplo - Click</a></p>
+
+<h2>Comportamiento en cola.</h2>
+
+<p><strong>jQuery</strong> tiene un comportamiento en cola(el primero en entrar es el 1ro en ejecutarse), para explicar esto observe el siguiente código:</p>
+
+<pre><code>    $("a")
+        .click(function() {
+            console.log('Ejecución del manejador1 para el evento click del enlace');
+        })
+        .click(function() {
+            console.log('Ejecución del manejador2 para el evento click del enlace');
+        });</code></pre>
+
+<p><strong>¿Que cree que suceda cuando le demos click a un enlace(<code>a</code>) en la página?.</strong></p>
+
+<p>La respuesta la podemos encontrar al reflexionar que sucede cuando mandamos a llamar miltiples veces el evento <code>document.onReady</code>.</p>
+
+<p>Lo que hace <strong>jQuery</strong> es ocupar una cola para administrar los eventos, de esta forma se pueden agregar multiples funciones sobre el mismo <code>evento/elemento</code>, por lo cual el resultado en la consola seria:</p>
+
+<pre><code>Ejecución del manejador1 para el evento click del enlace
+Ejecución del manejador2 para el evento click del enlace</code></pre>
+
+<h2>Evento hover</h2>
+
+<p>El evento <code>hand over</code> o <code>hover</code> es disparado cuando pasamos el cursor por encima de algun elemento, la sintaxis basica es la siguiente.</p>
+
+<pre><code>$("a").hover(function() {
+    console.log('Ejecución del manejador para el evento hover del enlace');
+});
+</code></pre>
+
+<p>Cabe mensionar que este evento puede soportar 2 manejadores, el primero es ejecutado cuando el cursor pase por encima del elemento y el segundo es ejecutado cuando el cursor se quita de dicho elemento, p.e.:</p>
+
+<pre><code>$("a").hover(
+    function() {
+        $(this).css('color', 'red');
+    },
+    function() {
+        $(this).css('color', 'blue');
+    }
+);
+</code></pre>
+
+<p>En este caso estamos agregando 2 manejadores el resultado sera que cuando pasemos el mouse por encima de un enlace el color de la fuente se cambiara a rojo y cuando quitemos el cursor el color sera azul, veamos otro ejemplo:</p>
+
+<p><a href="../ejemplos/03.ejemplo_hover.html">Ejemplo - Hover</a></p>
+
+<h2>Eventos del teclado</h2>
+
+<p>jQuery define un conjunto de <a href="http://api.jquery.com/category/events/keyboard-events/">eventos para el teclado</a> los eventos que definen son los siguientes.</p>
+
+<h3>focusout</h3>
+
+<p>Vincula a los inputs sobre el evento <code>out Focus</code>.</p>
+
+<blockquote>
+  <p>Mayor información: <a href="http://api.jquery.com/focusout/">http://api.jquery.com/focusout/</a></p>
+</blockquote>
+
+<h3>keypress</h3>
+
+<p>El evento es disparado cuando una tecla es presionada.</p>
+
+<blockquote>
+  <p>Mayor información:   <a href="http://api.jquery.com/keypress/">http://api.jquery.com/keypress/</a></p>
+</blockquote>
+
+<h3>keyup</h3>
+
+<p>El evento es disparado cuando una tecla deja de estar presionada.</p>
+
+<blockquote>
+  <p>Mayor información:   <a href="http://api.jquery.com/keyup/">http://api.jquery.com/keyup/</a></p>
+</blockquote>
+
+<h3>keydown</h3>
+
+<p>El evento es disparado cuando se encuentra una tecla presionada.</p>
+
+<blockquote>
+  <p>Mayor información:   <a href="http://api.jquery.com/keydown/">http://api.jquery.com/keydown/</a></p>
+</blockquote>
+
+<h3>Ejemplo de eventos de teclado:</h3>
+
+<p>Como podemos ver las funciones <code>keyup</code>, <code>keydown</code> y <code>keypress</code>, veamos un simple ejemplo:</p>
+
+<pre><code>$('#target').keyup(function(event) {
+    var msg = 'El evento keyup() fue llamado para la tecla ' + event.which;
+    console.log(msg);
+}).keydown(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+    }
+});
+</code></pre>
+
+<p><a href="../ejemplos/03.evento_teclado.html">Ejemplo - Evento Teclado</a></p>
+
+<h2>Borrando eventos función off.</h2>
+
+<p>Podemos desvincular los eventos con la función <code>off</code> po ejemplo para eliminar el evento click en H1 podriamos hacer.</p>
+
+<pre><code>$("h1").off('click');</code></pre>
+
+<p>Con esto eliminariamos todos los eventos click del <code>h1</code>, si quisieramos eliminar un unico evento click, podriamos hacer uso de los espacios de nombres.</p>
+
+<p>Desde la versión <code>1.7</code> de <strong>jQuery</strong>, </p>
+
+<h2>Enlaces recomendados.</h2>
+
+<ul>
+<li><a href="http://www.quirksmode.org/js/events_order.html#link1">Dos formas de propagación de un evento</a></li>
+</ul>
+</div><!-- end content -->
+<div id="pie_pagina">
+	<div id="agradecimientos">
+		<h2>Con especial agredecimiento a:</h2>
+		<ul>
+				<li><a href="http://mundosica.com">mundosica</a></li>
+				<li><a href="http://adsl.mx">ADSL</a></li>
+				<li><a href="https://github.com/mundosica/tutorial_hispano_jQuery/contributors">Colaboradores</a></li>
+		</ul>
+		<br/>
+		<a class="copy" rel="license" href="http://mundosica.github.com//tutorial_hispano_jQuery/copyright.html">&nbsp;</a>
+    <a class="xhtml-valido" href="http://validator.w3.org/check?uri=referer">&nbsp;</a>
+	</div>
+</div>
+</body>
+</html>

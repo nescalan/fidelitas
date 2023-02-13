@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Ejemplo load con la API de flicker</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/jquery.snippet.css" />
+	<link rel='icon' type='image/png' href='./../img/favicon.png' />
+	<script type='text/javascript' src='./../js/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='./../js/tabla_contenidos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.linkEjemplos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.snippet.js'></script>
+	<script type='text/javascript'>
+	pageConf	= {fileName:'/ejemplos/05.get_json.html', sesion:0, num_sesiones:6};
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33125186-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id='head'>
+	<a href='http://www.adsl.org.mx/' id='logoADSL'>Academia de software libre</a>
+	<h1>
+		<a id='link_principal' href='./../index.html'>Manual básico de jQuery</a><br />
+		<span id='descripcion'>Compartiendo conocimientos</span>
+	</h1>
+</div>
+<div id='content'>
+<div id='tabla_contenidos'></div>
+<script>$(document).ready(function(){
+$("pre").snippet("javascript", {style:'darkness'});
+
+var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+$('a.button').one('click', function(e){
+    $.getJSON( flickerAPI, {
+        tags: "fitorec",
+        tagmode: "any",
+        format: "json"
+    }).done(function( data ) {
+        $.each( data.items, function( i, item ) {
+            $( "<img/>" ).attr( "src", item.media.m ).appendTo( "#imagenes" );
+            if ( i === 3 ) {
+            return false;
+            }
+        });// Fin each
+    });// Fin done de getJSON
+    e.preventDefault();
+    });
+});
+</script>
+
+<p><style type="text/css" media="all">#imagenes {
+    color: #131A04;
+    background: #CFEC99
+} #imagenes img{
+    margin: 10px auto;
+}</style></p>
+
+<h1>Ejemplo load con la API de flicker</h1>
+
+<h2>Código HTML</h2>
+
+<pre><code>&lt;a class='button' href="#"&gt;Cargar info de Flicker&lt;/a&gt;
+&lt;div id="images"&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>Código CSS:</h2>
+
+<pre><code>#imagenes {
+    color: #131A04;
+    background: #CFEC99
+}
+#imagenes img{
+    margin: 10px auto;
+}</code></pre>
+
+<h2>Código jQuery</h2>
+
+<pre><code>var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+$('a.button').one('click', function(e){
+    $.getJSON( flickerAPI, {
+        tags: "fitorec",
+        tagmode: "any",
+        format: "json"
+    }).done(function( data ) {
+        $.each( data.items, function( i, item ) {
+            $( "&lt;img/&gt;" ).attr( "src", item.media.m ).appendTo( "#imagenes" );
+            if ( i === 3 ) {
+            return false;
+            }
+        });// Fin each
+    });// Fin done de getJSON
+    e.preventDefault();
+});
+</code></pre>
+
+<h2>Resultado</h2>
+
+<p><a class='button' href="#">Cargar info de Flicker</a></p>
+
+<div id="imagenes"></div>
+</div><!-- end content -->
+<div id="pie_pagina">
+	<div id="agradecimientos">
+		<h2>Con especial agredecimiento a:</h2>
+		<ul>
+				<li><a href="http://mundosica.com">mundosica</a></li>
+				<li><a href="http://adsl.mx">ADSL</a></li>
+				<li><a href="https://github.com/mundosica/tutorial_hispano_jQuery/contributors">Colaboradores</a></li>
+		</ul>
+		<br/>
+		<a class="copy" rel="license" href="http://mundosica.github.com//tutorial_hispano_jQuery/copyright.html">&nbsp;</a>
+    <a class="xhtml-valido" href="http://validator.w3.org/check?uri=referer">&nbsp;</a>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+header,
+footer {
+  /* Box Model */
+  width: 95%;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 10px;
+
+  /* Visual */
+  background-color: rgb(209, 211, 221);
+}
+header nav ul {
+  /* Box Model */
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Typography */
+  list-style: none;
+}
+header nav a {
+  /* Box Model */
+  padding: 20px;
+}
+section {
+  height: 20vh;
+  text-align: center;
+}
+aside {
+  height: 20vh;
+  text-align: center;
+}

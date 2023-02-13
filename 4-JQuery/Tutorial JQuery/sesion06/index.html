@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Sesión 6 - Organización de código.</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/jquery.snippet.css" />
+	<link rel='icon' type='image/png' href='./../img/favicon.png' />
+	<script type='text/javascript' src='./../js/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='./../js/tabla_contenidos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.linkEjemplos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.snippet.js'></script>
+	<script type='text/javascript'>
+	pageConf	= {fileName:'/sesion06/index.html', sesion:6, num_sesiones:6};
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33125186-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id='head'>
+	<a href='http://www.adsl.org.mx/' id='logoADSL'>Academia de software libre</a>
+	<h1>
+		<a id='link_principal' href='./../index.html'>Manual básico de jQuery</a><br />
+		<span id='descripcion'>Compartiendo conocimientos</span>
+	</h1>
+</div>
+<div id='content'>
+<div id='tabla_contenidos'></div>
+<script  type="text/javascript">
+$(function() {
+    //mostrando la info del pre
+    $("pre").snippet("javascript", {style:'darkness'});
+    $('a[href^="../ejemplos/"]').linkEjemplos();
+});
+</script>
+
+<h1>Sesión 6 - Organización de código.</h1>
+
+<h2>Organizando el código en archivos.</h2>
+
+<p>Como sabemos con <strong>jQuery</strong> podemos agregar multiples funciones para manejar un evento, y estas funciones se van a ir ejecutando en formato de cola.</p>
+
+<p>Ahora imagine que tiene 2 documentos, uno con el nombre <strong>titulos.js</strong> con el siguiente contenido:</p>
+
+<pre><code>$(document).ready(function(){
+    //Cambiamos el color para el titulo nivel 2
+    $('h2').css('color', 'green');
+
+    //Agregamos un evento para h1
+    $('h1').hover( function(){
+        $(this).css('color', 'red');
+    },function(){
+        $(this).css('color', '#222');
+    });
+});</code></pre>
+
+<p>Por otra parte tenemos el archivo con el nombre <strong>enlaces.js</strong> con el siguiente contenido:</p>
+
+<pre><code>$(document).ready(function(){
+    //Obliga abrir los enlaces en una pestaña nueva
+    $('a').attr('target', 'blank');
+});</code></pre>
+
+<p>Si mandamos a llamar ambos documentos de la manera siguiente:</p>
+
+<pre><code>&lt;script src="js/titulos.js"&gt;&lt;/script&gt;
+&lt;script src="js/enlaces.js"&gt;&lt;/script&gt;</code></pre>
+
+<p>¿Que crees que pase?.</p>
+
+<p>Es una practica bastante comun separar la logica en archivos distintos de esta manera tenemos mas ordenado nuestro código, de echo así es como funciona este manual donde tenemos un archivo que se encarga de manejar la tabla de los contenidos.</p>
+
+<p><a href="../ejemplos/06.tabla_contenidos.html">Ejemplo - tabla de contenidos</a></p>
+
+<h2>jQuery Plugins.</h2>
+
+<p>Observe el siguiente código:</p>
+
+<pre><code>(function($){
+    $.yourPluginName = function(el, radius, options){
+        // To avoid scope issues, use 'base' instead of 'this'
+        // to reference this class from internal events and functions.
+        var base = this;
+
+        // Access to jQuery and DOM versions of element
+        base.$el = $(el);
+        base.el = el;
+
+        // Add a reverse reference to the DOM object
+        base.$el.data("yourPluginName", base);
+
+        base.init = function(){
+            if( typeof( radius ) === "undefined" || radius === null ) radius = "20px";
+
+            base.radius = radius;
+
+            base.options = $.extend({},$.yourPluginName.defaultOptions, options);
+
+            // Put your initialization code here
+        };
+
+        // Sample Function, Uncomment to use
+        // base.functionName = function(paramaters){
+        // 
+        // };
+
+        // Run initializer
+        base.init();
+    };
+
+    $.yourPluginName.defaultOptions = {
+        radius: "20px"
+    };
+
+    $.fn.yourPluginName = function(radius, options){
+        return this.each(function(){
+            (new $.yourPluginName(this, radius, options));
+
+           // HAVE YOUR PLUGIN DO STUFF HERE
+
+
+           // END DOING STUFF
+
+        });
+    };
+
+})(jQuery);
+</code></pre>
+
+<h3>Uso.</h3>
+
+<pre><code>$(function() {
+    $("#round-me").yourPluginName("20px");
+});</code></pre>
+
+<p><a href="../ejemplos/06.ejemplo_plugin.html">Ejemplo - plugin jQuery</a></p>
+
+<blockquote>
+  <p><strong>Fuente:</strong> <a href="http://css-tricks.com/snippets/jquery/jquery-plugin-template/">http://css-tricks.com/snippets/jquery/jquery-plugin-template/</a></p>
+</blockquote>
+</div><!-- end content -->
+<div id="pie_pagina">
+	<div id="agradecimientos">
+		<h2>Con especial agredecimiento a:</h2>
+		<ul>
+				<li><a href="http://mundosica.com">mundosica</a></li>
+				<li><a href="http://adsl.mx">ADSL</a></li>
+				<li><a href="https://github.com/mundosica/tutorial_hispano_jQuery/contributors">Colaboradores</a></li>
+		</ul>
+		<br/>
+		<a class="copy" rel="license" href="http://mundosica.github.com//tutorial_hispano_jQuery/copyright.html">&nbsp;</a>
+    <a class="xhtml-valido" href="http://validator.w3.org/check?uri=referer">&nbsp;</a>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Ejemplo hover</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="./../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./../css/jquery.snippet.css" />
+	<link rel='icon' type='image/png' href='./../img/favicon.png' />
+	<script type='text/javascript' src='./../js/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='./../js/tabla_contenidos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.linkEjemplos.js'></script>
+	<script type='text/javascript' src='./../js/jquery.snippet.js'></script>
+	<script type='text/javascript'>
+	pageConf	= {fileName:'/ejemplos/03.ejemplo_hover.html', sesion:0, num_sesiones:6};
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33125186-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id='head'>
+	<a href='http://www.adsl.org.mx/' id='logoADSL'>Academia de software libre</a>
+	<h1>
+		<a id='link_principal' href='./../index.html'>Manual básico de jQuery</a><br />
+		<span id='descripcion'>Compartiendo conocimientos</span>
+	</h1>
+</div>
+<div id='content'>
+<div id='tabla_contenidos'></div>
+<script  type="text/javascript">
+$(function() {
+    $("pre").snippet("javascript", {style:'darkness'});
+    $("#box").hover(
+        function (){
+            $(this).animate({ 'width': "300px", "height" : "300px"});
+        },
+        function (){
+            $(this).animate({ 'width': "100px", "height" : "100px"});
+        }
+    );
+});
+</script>
+
+<p><style>#box{
+    width: 100px;
+    height: 100px;
+    background: orange;
+    display: block;
+    border-radius: 5px;
+}
+</style></p>
+
+<h1>Ejemplo hover</h1>
+
+<h2>código HTML:</h2>
+
+<pre><code>&lt;div id='box'&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>CSS</h2>
+
+<pre><code>#box{
+    width: 100px;
+    height: 100px;
+    background: orange;
+    display: block;
+    border-radius: 5px;
+}</code></pre>
+
+<h2>código JS:</h2>
+
+<pre><code>$("#box").hover(
+    function (){
+        $(this).animate({ 'width': "300px", "height" : "300px"});
+    },
+    function (){
+        $(this).animate({ 'width': "100px", "height" : "100px"});
+    }
+);</code></pre>
+
+<h2>Resultado</h2>
+
+<div id='box'></div>
+</div><!-- end content -->
+<div id="pie_pagina">
+	<div id="agradecimientos">
+		<h2>Con especial agredecimiento a:</h2>
+		<ul>
+				<li><a href="http://mundosica.com">mundosica</a></li>
+				<li><a href="http://adsl.mx">ADSL</a></li>
+				<li><a href="https://github.com/mundosica/tutorial_hispano_jQuery/contributors">Colaboradores</a></li>
+		</ul>
+		<br/>
+		<a class="copy" rel="license" href="http://mundosica.github.com//tutorial_hispano_jQuery/copyright.html">&nbsp;</a>
+    <a class="xhtml-valido" href="http://validator.w3.org/check?uri=referer">&nbsp;</a>
+	</div>
+</div>
+</body>
+</html>
