@@ -1,0 +1,20 @@
+body {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.highlighted {
+  color: blue;
+  background-color: red;
+  line-height: 1.5;
+}
