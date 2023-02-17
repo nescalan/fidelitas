@@ -14,11 +14,25 @@ $(document).ready(function () {
     let resultFirst = $("#animals")
       .children()
       .first()
-      .children()
-      .first()
-      .next()
+      .children(".creature")
+      .last()
       .text("Cambio el gato por un perro");
     console.log("Resulst of first() function: ");
     console.log(resultFirst);
   }, 2000);
+
+  // Elementos Padre
+  let resultParent = $("#cat").parent();
+  console.log("Resulst of PARENT: ");
+  console.log(resultParent);
+
+  // Elementos Padres
+  let resultParents = $("#cat").parents();
+  console.log("Resulst of PARENTS: ");
+  console.log(resultParents);
+
+  // closest()
+  let resultClosest = $("#cat").closest(".category");
+  console.log("Resulst of CLOSEST: ");
+  console.log(resultClosest);
 });
