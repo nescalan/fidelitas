@@ -9,5 +9,16 @@ $(document).ready(function () {
   console.log("Resulst of the Children search: ");
   console.log(resultChildren);
 
-  // Metodos first(), last(), prev(), next()
+  setTimeout(function () {
+    // Metodos first(), last(), prev(), next()
+    let resultFirst = $("#animals")
+      .children()
+      .first()
+      .children()
+      .first()
+      .next()
+      .text("Cambio el gato por un perro");
+    console.log("Resulst of first() function: ");
+    console.log(resultFirst);
+  }, 2000);
 });
