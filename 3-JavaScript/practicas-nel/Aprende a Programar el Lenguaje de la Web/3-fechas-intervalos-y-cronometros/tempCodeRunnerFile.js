@@ -1,5 +1,7 @@
-let timeOutMessage = setTimeout(() => {
-  console.log("Here I am after three seconds...");
-}, 3000);
+let birthDate = new Date(1975);
+let actualDate = new Date();
 
-console.log(timeOutMessage);
+actualDate = actualDate.getFullYear();
+
+let age = birthDate - actualDate;
+console.log(`The age is: ${age}`);
