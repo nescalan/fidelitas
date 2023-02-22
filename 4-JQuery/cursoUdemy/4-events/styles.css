@@ -66,3 +66,13 @@
 .highlighted {
   background-color: #e17bba;
 }
+
+#secSelector {
+  display: flex;
+  flex-direction: column;
+}
+#secSelector .btn {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 10px;
+}
