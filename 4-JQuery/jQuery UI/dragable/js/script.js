@@ -2,7 +2,6 @@ $(document).ready(function () {
   $("div.finderDirectory")
     .mousedown(function () {
       $("div.finderIconSelected").removeClass("finderIconSelected");
-
       $("span.finderDirectoryNameSelected").removeClass(
         "finderDirectoryNameSelected"
       );
