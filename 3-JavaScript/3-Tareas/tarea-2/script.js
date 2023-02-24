@@ -1,6 +1,6 @@
 "use strict";
 // Variables
-let discount, finalPrice, promotionCode, response, totalInvoice;
+let finalPrice, promotionCode, response, spanElement, alertMessage;
 const TICKET_PRICE = 50;
 
 // Information Request
@@ -10,23 +10,30 @@ response = confirm(
 
 // Condicional If Statement
 if (!response) {
-  totalInvoice = `Total Invoice: ${TICKET_PRICE}`;
+  alertMessage = "NO PROMO CODE: you have to pay the full price!!!";
+  spanElement = document.getElementById("alert");
+  spanElement.innerHTML = `${alertMessage}`;
+  finalPrice = TICKET_PRICE;
 } else {
+  // Promotional Code Request
   promotionCode = prompt("Insert the promotional code: ").toLowerCase();
-  alert(promotionCode);
-  // Price discount
-  if (promotionCode === "web15") {
-    totalInvoice = TICKET_PRICE * 0.85;
-  }
-}
-document.write(totalInvoice);
 
-function myFunction() {
-  var txt;
-  if (confirm("Press a button!")) {
-    txt = "You pressed OK!";
+  // Price discount (15%, 10% or 5%)
+  if (promotionCode === "web15") {
+    finalPrice = TICKET_PRICE * 0.85;
+  } else if (promotionCode === "web10") {
+    finalPrice = TICKET_PRICE * 0.9;
+  } else if (promotionCode === "web5") {
+    finalPrice = TICKET_PRICE * 0.95;
   } else {
-    txt = "You pressed Cancel!";
+    alertMessage =
+      "PLEASE ENTER A VALID CODE: This error message is displayed when the user enters an promotional code that is not correct.";
+    spanElement = document.getElementById("alert");
+    spanElement.innerHTML = `${alertMessage}`;
+    finalPrice = TICKET_PRICE;
   }
-  document.getElementById("demo").innerHTML = txt;
 }
+
+// DOM Manipulation
+spanElement = document.getElementById("promo");
+spanElement.innerHTML = `$ ${finalPrice}`;
