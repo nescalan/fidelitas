@@ -5,17 +5,17 @@ const TICKET_PRICE = 50;
 
 // Information Request
 response = confirm(
-  "Do you have any promotional code? \nPress 'Cancel' to say NO  'Ok' to say YES"
+  "Do you have any promotional code? \nPress 'Cancel' to say NO or Press 'Ok' to say YES"
 );
 
 // Condicional If Statement
 if (!response) {
   totalInvoice = `Total Invoice: ${TICKET_PRICE}`;
 } else {
-  promotionCode = prompt("Insert the promotional code: ");
-  promotionCode = promotionCode.toLowerCase;
+  promotionCode = prompt("Insert the promotional code: ").toLowerCase();
+  alert(promotionCode);
   // Price discount
-  if (promotionCode === "Web15") {
+  if (promotionCode === "web15") {
     totalInvoice = TICKET_PRICE * 0.85;
   }
 }
