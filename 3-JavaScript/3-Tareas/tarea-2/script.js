@@ -52,4 +52,4 @@ if (listPrice) {
 
 // DOM: Promotional price manipulation
 spanElement = document.getElementById("promo");
-spanElement.innerHTML = `$ ${finalPrice}`;
+spanElement.innerHTML = `$ ${regularPrice}`;
