@@ -46,7 +46,7 @@ if (!response) {
 
 if (listPrice) {
   // DOM: List price manipulation
-  listPriceElement = document.getElementById("list-price");
+  listPriceElement = document.getElementById("regular-price");
   listPriceElement.innerHTML = `List Price: $ ${TICKET_PRICE}`;
 }
 
