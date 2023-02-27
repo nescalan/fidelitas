@@ -1,6 +1,12 @@
-"use strict";
+// "use strict";
 // Variables
-let finalPrice, promotionCode, response, spanElement, alertMessage;
+let listPrice,
+  finalPrice,
+  promotionCode,
+  response,
+  spanElement,
+  listPriceElement,
+  alertMessage;
 const TICKET_PRICE = 50;
 
 // Information Request
@@ -21,19 +27,29 @@ if (!response) {
   // Price discount (15%, 10% or 5%)
   if (promotionCode === "web15") {
     finalPrice = TICKET_PRICE * 0.85;
+    listPrice = true;
   } else if (promotionCode === "web10") {
     finalPrice = TICKET_PRICE * 0.9;
+    listPrice = true;
   } else if (promotionCode === "web5") {
     finalPrice = TICKET_PRICE * 0.95;
+    listPrice = true;
   } else {
     alertMessage =
       "PLEASE ENTER A VALID CODE: This error message is displayed when the user enters an promotional code that is not correct.";
     spanElement = document.getElementById("alert");
     spanElement.innerHTML = `${alertMessage}`;
     finalPrice = TICKET_PRICE;
+    listPrice = false;
   }
 }
 
-// DOM Manipulation
+if (listPrice) {
+  // DOM: List price manipulation
+  listPriceElement = document.getElementById("list-price");
+  listPriceElement.innerHTML = `List Price: $ ${TICKET_PRICE}`;
+}
+
+// DOM: Promotional price manipulation
 spanElement = document.getElementById("promo");
 spanElement.innerHTML = `$ ${finalPrice}`;
