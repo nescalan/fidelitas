@@ -31,20 +31,21 @@ h1 {
 .content {
   padding: 20px;
 }
-
+.content #list-price {
+  font-size: 20px;
+  text-decoration: line-through;
+}
 .content .price {
   color: white;
   font-weight: 800;
   font-size: 50px;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
 }
-
 .content .description {
   color: rgba(255, 255, 255, 0.6);
   margin-top: 10px;
   font-size: 14px;
 }
-
 .content .title {
   font-weight: 800;
   text-transform: uppercase;
@@ -53,7 +54,6 @@ h1 {
   font-size: 25px;
   letter-spacing: 1px;
 }
-
 button {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -77,6 +77,7 @@ button {
   display: block;
   color: red;
   text-align: center;
+  font-size: 1.3rem;
   /* border: 1px solid red; */
   /* background-color: rgb(230, 132, 132); */
 }
