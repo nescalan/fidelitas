@@ -1,6 +1,6 @@
 // "use strict";
 // Variables
-let listPrice,
+let regularPrice,
   finalPrice,
   promotionCode,
   response,
@@ -19,27 +19,27 @@ if (!response) {
   alertMessage = "NO PROMO CODE: you have to pay the full price!!!";
   spanElement = document.getElementById("alert");
   spanElement.innerHTML = `${alertMessage}`;
-  finalPrice = TICKET_PRICE;
+  regularPrice = TICKET_PRICE;
 } else {
   // Promotional Code Request
   promotionCode = prompt("Insert the promotional code: ").toLowerCase();
 
   // Price discount (15%, 10% or 5%)
   if (promotionCode === "web15") {
-    finalPrice = TICKET_PRICE * 0.85;
+    regularPrice = TICKET_PRICE * 0.85;
     listPrice = true;
   } else if (promotionCode === "web10") {
-    finalPrice = TICKET_PRICE * 0.9;
+    regularPrice = TICKET_PRICE * 0.9;
     listPrice = true;
   } else if (promotionCode === "web5") {
-    finalPrice = TICKET_PRICE * 0.95;
+    regularPrice = TICKET_PRICE * 0.95;
     listPrice = true;
   } else {
     alertMessage =
       "PLEASE ENTER A VALID CODE: This error message is displayed when the user enters an promotional code that is not correct.";
     spanElement = document.getElementById("alert");
     spanElement.innerHTML = `${alertMessage}`;
-    finalPrice = TICKET_PRICE;
+    regularPrice = TICKET_PRICE;
     listPrice = false;
   }
 }

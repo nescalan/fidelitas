@@ -31,7 +31,7 @@ h1 {
 .content {
   padding: 20px;
 }
-.content #list-price {
+.content #regular-price {
   font-size: 1.7rem;
   font-weight: 400;
   text-decoration: line-through;
