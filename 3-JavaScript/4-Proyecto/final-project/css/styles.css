@@ -31,15 +31,34 @@ body {
   font-size: 1.8rem;
 }
 
+/* CSS: Navbar Styles */
+nav {
+  /* Box model */
+  width: 80%;
+  min-width: 375px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img:first-child {
+  /* Box model */
+  width: 80px;
+}
+nav img:last-child {
+  /* Box model */
+  width: 40px;
+}
+
 /* CSS: Header Styles */
 header {
   /* Box model */
   width: 80%;
   min-width: 375px;
   margin: 0 auto;
-  padding: 60px 0 0;
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 @media (min-width: 992px) {
   header {
