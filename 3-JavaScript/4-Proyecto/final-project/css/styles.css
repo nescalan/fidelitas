@@ -12,7 +12,11 @@
   --font-open-sans: "Open Sans", sans-serif;
   --font-roboto-condensed: "Roboto Condensed", sans-serif;
 
-  /* Typography */
+  /* Misc */
+  --theme-width-xl: 1140px;
+  --theme-width-lg: 940px;
+  --theme-width-md: 720px;
+  --theme-width-sm: 540px;
 }
 
 * {
@@ -34,7 +38,7 @@ body {
 /* CSS: Navbar Styles */
 nav {
   /* Box model */
-  width: 80%;
+  width: 90%;
   min-width: 375px;
   height: 80px;
   margin: 0 auto;
@@ -42,6 +46,27 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+@media (min-width: 576px) {
+  nav {
+    width: var(--theme-width-sm);
+  }
+}
+@media (min-width: 768px) {
+  nav {
+    width: var(--theme-width-md);
+  }
+}
+@media (min-width: 992px) {
+  nav {
+    width: var(--theme-width-lg);
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    width: var(--theme-width-xl);
+  }
+}
+
 nav img:first-child {
   /* Box model */
   width: 80px;
@@ -54,23 +79,38 @@ nav img:last-child {
 /* CSS: Header Styles */
 header {
   /* Box model */
-  width: 80%;
+  width: 90%;
   min-width: 375px;
   margin: 0 auto;
-
-  /* border: 1px solid red; */
+  padding-top: 45px;
+}
+@media (min-width: 576px) {
+  header {
+    /* Box Model */
+    width: var(--theme-width-sm);
+  }
+}
+@media (min-width: 768px) {
+  header {
+    width: var(--theme-width-md);
+  }
 }
 @media (min-width: 992px) {
   header {
     /* Box Model */
+    width: var(--theme-width-lg);
     display: flex;
+  }
+}
+@media (min-width: 1200px) {
+  header {
+    /* Box Model */
+    width: var(--theme-width-xl);
   }
 }
 header .header-left {
   /* Box model */
   padding: 30px 10px;
-
-  border: 1px solid blue;
 }
 @media (min-width: 992px) {
   header .header-left {
@@ -86,27 +126,29 @@ header .header-left h5 {
   text-transform: uppercase;
   letter-spacing: 4px;
 }
-header .header-left h1,
-header .header-left h6 {
-  /* Box model */
-  margin-top: 20px;
-}
+
 header .header-left h1 {
+  /* Box Model */
+  margin: 40px 0 20px;
+
   /* Typographic */
   font-family: var(--font-catamaran);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 6rem;
   line-height: 1.1;
   letter-spacing: 4px;
 }
 header .header-left h6 {
   /* Box model */
+  height: 40px;
   display: flex;
+  align-items: center;
+
   /* Typographic */
   font-family: var(--font-catamaran);
   font-weight: 600;
   font-size: 1.8rem;
-  line-height: 1.2;
+  line-height: 5rem;
 }
 header .header-left h6 span {
   margin-right: 3px;
@@ -153,8 +195,6 @@ header .header-right {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  border: 1px solid green;
 }
 @media (min-width: 576px) {
   header .header-right {
@@ -179,7 +219,7 @@ header .header-right {
   }
 }
 
-/*********** SECTION STYLES */
+/*********** SECTION STYLES ************/
 
 /* Positioning */
 /* Box model */
