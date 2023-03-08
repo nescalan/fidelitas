@@ -293,16 +293,24 @@ section .icons-grid h4 {
 /*********** SECTION HERO ************/
 section.sec-hero {
   /* Box model */
-  padding-top: 30px;
-  position: static;
+  padding-top: 120px;
+  position: relative;
 
   /* Misc */
   background-color: #000;
 }
+@media (min-width: 992px) {
+  section.sec-hero {
+    /* Box model */
+    padding-top: 0;
+  }
+}
 section.sec-hero h1 {
   /* Box model */
-  position: relative;
+  position: absolute;
   top: 150px;
+  left: 0;
+  right: 0;
   text-align: center;
 
   /* Typographic */
