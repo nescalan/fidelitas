@@ -293,10 +293,29 @@ section .icons-grid h4 {
 /*********** SECTION HERO ************/
 section.sec-hero {
   /* Box model */
-  padding-top: 160px;
+  padding-top: 30px;
+  position: static;
 
   /* Misc */
   background-color: #000;
+}
+section.sec-hero h1 {
+  /* Box model */
+  position: relative;
+  top: 150px;
+  text-align: center;
+
+  /* Typographic */
+  color: #fff;
+  font-family: var(--font-catamaran);
+  font-weight: 600;
+  font-size: 4rem;
+}
+@media (min-width: 768px) {
+  section.sec-hero h1 {
+    /* Typographic */
+    font-size: 6rem;
+  }
 }
 section .hero-img {
   /* Box Model */
