@@ -220,7 +220,93 @@ header .header-right {
 }
 
 /*********** SECTION STYLES ************/
+section.sec-icons {
+  /* Box model */
+  width: 90%;
+  min-width: 375px;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  section.sec-icons {
+    width: var(--theme-width-sm);
+  }
+}
+@media (min-width: 768px) {
+  section.sec-icons {
+    width: var(--theme-width-md);
+  }
+}
+@media (min-width: 992px) {
+  section.sec-icons {
+    width: var(--theme-width-lg);
+  }
+}
+@media (min-width: 1200px) {
+  section.sec-icons {
+    width: var(--theme-width-xl);
+  }
+}
 
+section .icons-grid {
+  /* Box Model */
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 576px) {
+  section .icons-grid {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  section .icons-grid {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+section [class^="icon-"] {
+  /* Box model */
+  padding: 60px 0;
+
+  /* Typographic */
+  color: #333;
+  font-size: 30px;
+  text-align: center;
+}
+section .icons-grid img {
+  /* Box model */
+  width: 70px;
+  height: 70px;
+}
+section .icons-grid h4 {
+  /* Box model */
+  margin-top: 20px;
+
+  /* Typographic */
+  font-family: var(--font-roboto-condensed);
+  font-weight: 300;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+/*********** SECTION HERO ************/
+section.sec-hero {
+  /* Box model */
+  padding-top: 160px;
+
+  /* Misc */
+  background-color: #000;
+}
+section .hero-img {
+  /* Box Model */
+  padding-top: 500px;
+  /* Misc */
+  background-image: url(/images/jhjh54-min.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 /* Positioning */
 /* Box model */
 /* Typographic */
