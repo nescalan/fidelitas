@@ -342,21 +342,22 @@ section .hero-img {
 /*********** SECTION MENU ************/
 section.sec-menu {
   /* Box model */
-
   padding-top: 120px;
-  position: relative;
 
   /* Misc */
   background-color: #000;
 }
 section .menu-grid {
+  /* Positioning */
+  position: relative;
+
   /* Box Model */
   width: 340px;
   margin: 0 auto;
   display: grid;
   gap: 15px;
   grid-template-rows: 700px;
-  /* grid-template-columns: 300px; */
+
   border: 1px solid red;
 }
 @media (min-width: 768px) {
@@ -366,13 +367,14 @@ section .menu-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
-.menu {
+section .menu {
   /* Positioning */
-  position: relative;
+  /* position: relative; */
+  top: -250px;
 
   /* Box Model */
   width: 340px;
-  /* height: 254px; */
+  height: 454px;
   padding: 0.8em;
 
   /* Visual */
@@ -381,25 +383,31 @@ section .menu-grid {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.menu .menu-img {
-  background-color: #ffcaa6;
-
-  width: 100%;
-  height: 50%;
+section .menu .menu-img {
+  /* Box Model */
   border-radius: 0.5rem;
+
+  /* Misc */
   transition: 0.3s ease;
 }
+section .menu .menu-img img {
+  /* Box Model */
+  border-radius: inherit;
+}
 
-.menu-info {
+section .menu .menu-info {
+  /* Box model */
   padding-top: 10%;
 }
 
-svg {
+section .menu svg {
+  /* Box model */
   width: 20px;
   height: 20px;
 }
 
-.menu-footer {
+section .menu .menu-footer {
+  /* Box model */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -408,20 +416,25 @@ svg {
   border-top: 1px solid #ddd;
 }
 
-/*Text*/
-.text-title {
-  font-weight: 900;
-  font-size: 1.2em;
+/*CSS: Menu Text Styles*/
+section .menu .text-title {
+  /* Typographic */
+  font-family: var(--font-palanquin-dark);
+  font-weight: 400;
+  font-size: 1.24em;
   line-height: 1.5;
 }
 
-.text-body {
-  font-size: 0.9em;
+section .menu .text-body {
+  /* Typographic */
+  font-family: var(--font-open-sans);
+  font-size: 1.8rem;
   padding-bottom: 10px;
+  font-style: italic;
 }
 
 /*Button*/
-.card-button {
+section .menu .card-button {
   border: 1px solid #252525;
   display: flex;
   padding: 0.3em;
@@ -431,13 +444,13 @@ svg {
 }
 
 /*Hover*/
-.card-img:hover {
+section .menu .card-img:hover {
   transform: translateY(-25%);
   box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
     rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
 }
 
-.card-button:hover {
+section .menu .card-button:hover {
   border: 1px solid #ffcaa6;
   background-color: #ffcaa6;
 }
