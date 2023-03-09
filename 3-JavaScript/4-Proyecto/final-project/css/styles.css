@@ -8,7 +8,7 @@
   /* Font Colors */
 
   /* Typography */
-  --font-catamaran: "Catamaran", sans-serif;
+  --font-palanquin-dark: "Palanquin Dark";
   --font-open-sans: "Open Sans", sans-serif;
   --font-roboto-condensed: "Roboto Condensed", sans-serif;
 
@@ -120,7 +120,7 @@ header .header-left {
 }
 header .header-left h5 {
   /* Typographic */
-  font-family: var(--font-catamaran);
+  font-family: var(--font-palanquin-dark);
   font-weight: 600;
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -132,7 +132,7 @@ header .header-left h1 {
   margin: 40px 0 20px;
 
   /* Typographic */
-  font-family: var(--font-catamaran);
+  font-family: var(--font-palanquin-dark);
   font-weight: 700;
   font-size: 6rem;
   line-height: 1.1;
@@ -145,7 +145,7 @@ header .header-left h6 {
   align-items: center;
 
   /* Typographic */
-  font-family: var(--font-catamaran);
+  font-family: var(--font-palanquin-dark);
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 5rem;
@@ -191,7 +191,7 @@ header .header-right {
   border-radius: 50px;
 
   /* Misc */
-  background-image: url(/images/girl.jpg);
+  background-image: url(/images/pizza-cheese.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -319,7 +319,7 @@ section.sec-hero h1 {
 
   /* Typographic */
   color: #fff;
-  font-family: var(--font-catamaran);
+  font-family: var(--font-palanquin-dark);
   font-weight: 600;
   font-size: 4rem;
 }
