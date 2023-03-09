@@ -191,7 +191,7 @@ header .header-right {
   border-radius: 50px;
 
   /* Misc */
-  background-image: url(/images/pizza-cheese.jpg);
+  background-image: url(../images/girl.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -333,7 +333,7 @@ section .hero-img {
   /* Box Model */
   padding-top: 500px;
   /* Misc */
-  background-image: url(/images/hero-min.jpg);
+  background-image: url(../images/hero-min.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
