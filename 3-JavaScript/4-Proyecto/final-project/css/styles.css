@@ -185,7 +185,7 @@ header button:hover {
 }
 header .header-right {
   /* Box Model */
-  padding-top: 800px;
+  padding-top: 450px;
 
   /* Visual */
   border-radius: 50px;
@@ -205,17 +205,21 @@ header .header-right {
 @media (min-width: 768px) {
   header .header-right {
     /* Box Model */
-    padding-top: 650px;
+    padding-top: 800px;
   }
 }
 @media (min-width: 992px) {
   header .header-right {
     /* Box Model */
     width: 50%;
-    padding-top: 450px;
-
-    /* Misc */
-    /* background-size: 100% 150%; */
+    padding-top: 510px;
+  }
+}
+@media (min-width: 1200px) {
+  header .header-right {
+    /* Box Model */
+    width: 50%;
+    padding-top: 625px;
   }
 }
 
