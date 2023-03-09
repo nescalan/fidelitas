@@ -341,9 +341,6 @@ section .hero-img {
 
 /*********** SECTION MENU ************/
 section.sec-menu {
-  /* Box model */
-  padding-top: 120px;
-
   /* Misc */
   background-color: #000;
 }
@@ -356,25 +353,41 @@ section .menu-grid {
   margin: 0 auto;
   display: grid;
   gap: 15px;
-  grid-template-rows: 700px;
-
-  border: 1px solid red;
 }
 @media (min-width: 768px) {
   section .menu-grid {
     /* Box Model */
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    width: var(--theme-width-md);
+
+    /* Box Model */
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  section .menu-grid {
+    /* Box Model */
+    width: var(--theme-width-xl);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  section .menu-grid {
+    /* Box Model */
+    width: var(--theme-width-xl);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 section .menu {
   /* Positioning */
-  /* position: relative; */
-  top: -250px;
+  position: relative;
+  top: -120px;
 
   /* Box Model */
   width: 340px;
-  height: 454px;
+  height: 500px;
   padding: 0.8em;
 
   /* Visual */
@@ -412,7 +425,7 @@ section .menu .menu-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 20px;
   border-top: 1px solid #ddd;
 }
 
