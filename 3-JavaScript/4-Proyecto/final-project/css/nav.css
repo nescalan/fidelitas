@@ -1,0 +1,46 @@
+/* CSS: Navbar Styles */
+nav {
+  /* Box model */
+  width: 90%;
+  min-width: 375px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 576px) {
+  nav {
+    width: var(--theme-width-sm);
+  }
+}
+@media (min-width: 768px) {
+  nav {
+    width: var(--theme-width-md);
+  }
+}
+@media (min-width: 992px) {
+  nav {
+    width: var(--theme-width-lg);
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    width: var(--theme-width-xl);
+  }
+}
+
+nav a:first-child img {
+  /* Box model */
+  width: 80px;
+}
+nav a:last-child img {
+  /* Box model */
+  width: 40px;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */

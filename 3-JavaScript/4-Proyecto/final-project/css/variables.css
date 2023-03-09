@@ -1,0 +1,21 @@
+:root {
+  /* Colors */
+  --color-orange: #e73d0c;
+  --color-hover: #000;
+  --color-pressed: #181818;
+
+  /* Background Colors */
+  --bgc-lighy-gray: #f7f7f7;
+  /* Font Colors */
+
+  /* Typography */
+  --font-palanquin-dark: "Palanquin Dark";
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-roboto-condensed: "Roboto Condensed", sans-serif;
+
+  /* Misc */
+  --theme-width-xl: 1140px;
+  --theme-width-lg: 940px;
+  --theme-width-md: 720px;
+  --theme-width-sm: 540px;
+}
