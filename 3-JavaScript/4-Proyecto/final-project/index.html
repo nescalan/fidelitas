@@ -32,9 +32,69 @@
       <a href="/">
         <img src="./images/pizza-logo.jpg" alt="pizza-logo" />
       </a>
-      <a href="./pages/cart.html">
-        <img src="./images/shopping-cart.svg" alt="shopping-cart" />
-      </a>
+      <div>
+        <input id="btn-menu" type="checkbox" name="shopping-cart" />
+        <label for="btn-menu">
+          <img src="./images/shopping-cart.svg" alt="shopping-cart" />
+        </label>
+        <section id="sec-shopping-cart">
+          <div class="container">
+            <h1>Shopping Cart</h1>
+            <span id="quantity"></span>
+
+            <!-- Shopping Cart -->
+            <div class="cart">
+              <!-- First Cart Item -->
+              <div class="cart-item">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Product Image"
+                />
+                <div class="item-details">
+                  <h3 id="1-product-name">Product Name</h3>
+                  <p>Price: $10.00</p>
+                  <input type="number" value="1" />
+                  <button class="remove">Remove</button>
+                </div>
+              </div>
+
+              <!-- Second Cart Item -->
+              <div class="cart-item">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Product Image"
+                />
+                <div class="item-details">
+                  <h3 id="2-product-name">Product Name</h3>
+                  <p>Price: $15.00</p>
+                  <input type="number" value="1" />
+                  <button class="remove">Remove</button>
+                </div>
+              </div>
+
+              <!-- Third Cart Item -->
+              <div class="cart-item">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Product Image"
+                />
+                <div class="item-details">
+                  <h3 id="3-product-name">Product Name</h3>
+                  <p>Price: $20.00</p>
+                  <input type="number" value="1" />
+                  <button class="remove">Remove</button>
+                </div>
+              </div>
+              <div class="cart-total">
+                <p>Total: $45.00</p>
+              </div>
+              <div class="checkout">
+                <button>Checkout</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </nav>
 
     <header>
@@ -256,36 +316,40 @@
       </div>
     </section>
 
-    <section>
+    <section id="sec-shopping-cart">
       <div class="container">
         <h1>Shopping Cart</h1>
         <span id="quantity"></span>
 
         <!-- Shopping Cart -->
         <div class="cart">
-          <!-- Cart Item -->
+          <!-- First Cart Item -->
           <div class="cart-item">
             <img src="https://via.placeholder.com/150" alt="Product Image" />
             <div class="item-details">
-              <h3 id="0-product-name">Product Name</h3>
+              <h3 id="1-product-name">Product Name</h3>
               <p>Price: $10.00</p>
               <input type="number" value="1" />
               <button class="remove">Remove</button>
             </div>
           </div>
+
+          <!-- Second Cart Item -->
           <div class="cart-item">
             <img src="https://via.placeholder.com/150" alt="Product Image" />
             <div class="item-details">
-              <h3>Product Name</h3>
+              <h3 id="2-product-name">Product Name</h3>
               <p>Price: $15.00</p>
               <input type="number" value="1" />
               <button class="remove">Remove</button>
             </div>
           </div>
+
+          <!-- Third Cart Item -->
           <div class="cart-item">
             <img src="https://via.placeholder.com/150" alt="Product Image" />
             <div class="item-details">
-              <h3>Product Name</h3>
+              <h3 id="3-product-name">Product Name</h3>
               <p>Price: $20.00</p>
               <input type="number" value="1" />
               <button class="remove">Remove</button>
