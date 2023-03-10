@@ -21,7 +21,7 @@ h1 {
   padding: 20px;
   border: 1px solid #ccc;
   /* Visual */
-  background-color: var(--bgc-lighy-gray);
+  background-color: var(--bgc-light-gray);
 }
 
 .cart-item {

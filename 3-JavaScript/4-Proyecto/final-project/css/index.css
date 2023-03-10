@@ -368,6 +368,16 @@ section .menu .menu-footer {
   padding-top: 20px;
   border-top: 1px solid #ddd;
 }
+section .menu .menu-button {
+  /* Box Model */
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+}
+section .menu .menu-button:hover {
+  /* Visual */
+  background-color: #d7d7d7;
+}
 
 /*CSS: Menu Text Styles*/
 section .menu .text-title {
