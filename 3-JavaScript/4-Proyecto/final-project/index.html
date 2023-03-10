@@ -52,7 +52,7 @@
                 />
                 <div class="item-details">
                   <h3 id="1-product-name">Product Name</h3>
-                  <p>Price: $10.00</p>
+                  <p>Price: $<span id="1-product-price">0.00</span></p>
                   <input type="number" value="1" />
                   <button class="remove">Remove</button>
                 </div>
@@ -66,7 +66,7 @@
                 />
                 <div class="item-details">
                   <h3 id="2-product-name">Product Name</h3>
-                  <p>Price: $15.00</p>
+                  <p>Price: $<span id="2-product-price">0.00</span></p>
                   <input type="number" value="1" />
                   <button class="remove">Remove</button>
                 </div>
@@ -80,7 +80,7 @@
                 />
                 <div class="item-details">
                   <h3 id="3-product-name">Product Name</h3>
-                  <p>Price: $20.00</p>
+                  <p>Price: $<span id="3-product-price">0.00</span></p>
                   <input type="number" value="1" />
                   <button class="remove">Remove</button>
                 </div>
@@ -285,7 +285,12 @@
           <div class="menu-footer">
             <span class="text-title">$15.95</span>
             <div class="menu-button">
-              <span class="material-symbols-outlined"> add_shopping_cart </span>
+              <span
+                onclick="buyDeliciousPizza()"
+                class="material-symbols-outlined"
+              >
+                add_shopping_cart
+              </span>
             </div>
           </div>
         </div>
@@ -309,57 +314,13 @@
           <div class="menu-footer">
             <span class="text-title">$13.95</span>
             <div class="menu-button">
-              <span class="material-symbols-outlined"> add_shopping_cart </span>
+              <span
+                onclick="buyTomatoPizza()"
+                class="material-symbols-outlined"
+              >
+                add_shopping_cart
+              </span>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-shopping-cart">
-      <div class="container">
-        <h1>Shopping Cart</h1>
-        <span id="quantity"></span>
-
-        <!-- Shopping Cart -->
-        <div class="cart">
-          <!-- First Cart Item -->
-          <div class="cart-item">
-            <img src="https://via.placeholder.com/150" alt="Product Image" />
-            <div class="item-details">
-              <h3 id="1-product-name">Product Name</h3>
-              <p>Price: $10.00</p>
-              <input type="number" value="1" />
-              <button class="remove">Remove</button>
-            </div>
-          </div>
-
-          <!-- Second Cart Item -->
-          <div class="cart-item">
-            <img src="https://via.placeholder.com/150" alt="Product Image" />
-            <div class="item-details">
-              <h3 id="2-product-name">Product Name</h3>
-              <p>Price: $15.00</p>
-              <input type="number" value="1" />
-              <button class="remove">Remove</button>
-            </div>
-          </div>
-
-          <!-- Third Cart Item -->
-          <div class="cart-item">
-            <img src="https://via.placeholder.com/150" alt="Product Image" />
-            <div class="item-details">
-              <h3 id="3-product-name">Product Name</h3>
-              <p>Price: $20.00</p>
-              <input type="number" value="1" />
-              <button class="remove">Remove</button>
-            </div>
-          </div>
-          <div class="cart-total">
-            <p>Total: $45.00</p>
-          </div>
-          <div class="checkout">
-            <button>Checkout</button>
           </div>
         </div>
       </div>
