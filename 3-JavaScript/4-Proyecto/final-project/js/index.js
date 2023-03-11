@@ -144,12 +144,15 @@ function newCartItem() {
 
 // DELETE ARTICLE
 function deleteCartItem(index) {
+  console.log("INDES");
+  console.log(index);
+
   console.log("Antes");
   console.log(orderedPizzas);
 
-  orderedPizzas.pop(pizzaOptions[index]);
-  orderedPrices.pop(priceList[index]);
-  orderedImages.pop(pizzaImages[index]);
+  orderedPizzas.splice(index, 1);
+  orderedPrices.splice(index, 1);
+  orderedImages.splice(index, 1);
 
   console.log("Despues");
   console.log(orderedPizzas);
