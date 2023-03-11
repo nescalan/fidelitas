@@ -21,9 +21,8 @@ let orderedPizzas = [];
 let orderedPrices = [];
 let orderedImages = [];
 let shoppingCartOrders, cartPrice;
-let rusticaPizza;
 
-// FUNCTIONS:
+// FUNCTIONS: Buying Pizzas
 function buyCheesePizza() {
   orderedPizzas.push(pizzaOptions[0]);
   orderedPrices.push(priceList[0]);
@@ -111,16 +110,11 @@ function getImage() {
   }
 }
 
-// function getImage() {
-//   let image = document.getElementById("product-img");
-//   image.src = pizzaImages[0];
-// }
-
 function printShoppingCart() {
-  for (let index = 0; index < orderedPizzas.length; index++) {
-    console.log(`Nombre de la Pizza: ${orderedPizzas[index]}`);
-    console.log(index);
+  let quantityId = (document.getElementById("quantity").innerText =
+    orderedPizzas.length);
 
+  for (let index = 0; index < orderedPizzas.length; index++) {
     switch (index) {
       case 0:
         shoppingCartOrders = document.getElementById(
