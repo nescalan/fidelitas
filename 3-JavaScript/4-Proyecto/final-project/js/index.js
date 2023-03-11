@@ -28,7 +28,7 @@ function buyCheesePizza() {
   orderedPrices.push(priceList[0]);
   orderedImages.push(pizzaImages[0]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
 function buyPepperoniPizza() {
@@ -36,7 +36,7 @@ function buyPepperoniPizza() {
   orderedPrices.push(priceList[1]);
   orderedImages.push(pizzaImages[1]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
 function buyVegetarianPizza() {
@@ -44,7 +44,7 @@ function buyVegetarianPizza() {
   orderedPrices.push(priceList[2]);
   orderedImages.push(pizzaImages[2]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
 function buyRusticaPizza() {
@@ -52,7 +52,7 @@ function buyRusticaPizza() {
   orderedPrices.push(priceList[3]);
   orderedImages.push(pizzaImages[3]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
 function buyDeliciousPizza() {
@@ -60,7 +60,7 @@ function buyDeliciousPizza() {
   orderedPrices.push(priceList[4]);
   orderedImages.push(pizzaImages[4]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
 function buyTomatoPizza() {
@@ -68,89 +68,111 @@ function buyTomatoPizza() {
   orderedPrices.push(priceList[5]);
   orderedImages.push(pizzaImages[5]);
 
-  printShoppingCart();
+  newCartItem();
 }
 
-function getImage() {
-  let allImages = document.getElementsByTagName("img");
-  let imagesAlt;
-  let image;
+// function getImage() {
+//   let allImages = document.getElementsByTagName("img");
+//   let imagesAlt;
+//   let image;
 
-  for (let i = 0; i < allImages.length; i++) {
-    // console.log(`The alt text is: ${allImages[i].alt}`);
-    // if (allImages[i].alt == "cheese") {
-    //   let image = document.getElementById("1-product-img");
-    //   image.src = pizzaImages[0];
-    // }
-    imagesAlt = allImages[i].alt;
-    console.log(`The alt text into imagesAlt is: ${imagesAlt}`);
+//   for (let i = 0; i < allImages.length; i++) {
+//     imagesAlt = allImages[i].alt;
+//     console.log(`The alt text into imagesAlt is: ${imagesAlt}`);
 
-    switch (imagesAlt) {
-      case "cheese":
-        image = document.getElementById("product-one");
-        image.src = pizzaImages[0];
-        console.log(`Option Cheese: ${imagesAlt}`);
-        break;
+//     switch (imagesAlt) {
+//       case "cheese":
+//         image = document.getElementById("product-one");
+//         image.src = pizzaImages[0];
+//         console.log(`Option Cheese: ${imagesAlt}`);
+//         break;
 
-      case "pepperoni":
-        image = document.getElementById("product-two");
-        image.src = pizzaImages[1];
-        console.log(`Option Peperoni: ${imagesAlt}`);
+//       case "pepperoni":
+//         image = document.getElementById("product-two");
+//         image.src = pizzaImages[1];
+//         console.log(`Option Peperoni: ${imagesAlt}`);
 
-        break;
+//         break;
 
-      case "pepperoni":
-        image = document.getElementById("product-two");
-        image.src = pizzaImages[1];
-        break;
+//       case "pepperoni":
+//         image = document.getElementById("product-two");
+//         image.src = pizzaImages[1];
+//         break;
 
-      default:
-        break;
-    }
-  }
-}
+//       default:
+//         break;
+//     }
+//   }
+// }
 
-function printShoppingCart() {
+// function printShoppingCart() {
+//   let quantityId = (document.getElementById("quantity").innerText =
+//     orderedPizzas.length);
+
+//   for (let index = 0; index < orderedPizzas.length; index++) {
+//     switch (index) {
+//       case 0:
+//         shoppingCartOrders = document.getElementById(
+//           "1-product-name"
+//         ).innerText = orderedPizzas[index];
+//         shoppingCartOrders = document.getElementById(
+//           "1-product-price"
+//         ).innerText = orderedPrices[index];
+//         shoppingCartOrders = document.getElementById("1-product-img");
+//         shoppingCartOrders.src = orderedImages[index];
+//         break;
+
+//       case 1:
+//         shoppingCartOrders = document.getElementById(
+//           "2-product-name"
+//         ).innerText = orderedPizzas[index];
+//         shoppingCartOrders = document.getElementById(
+//           "2-product-price"
+//         ).innerText = orderedPrices[index];
+//         shoppingCartOrders = document.getElementById("2-product-img");
+//         shoppingCartOrders.src = orderedImages[index];
+//         break;
+
+//       case 2:
+//         shoppingCartOrders = document.getElementById(
+//           "3-product-name"
+//         ).innerText = orderedPizzas[index];
+//         shoppingCartOrders = document.getElementById(
+//           "3-product-price"
+//         ).innerText = orderedPrices[index];
+//         shoppingCartOrders = document.getElementById("3-product-img");
+//         shoppingCartOrders.src = orderedImages[index];
+//         break;
+
+//       default:
+//         break;
+//     }
+//   }
+// }
+
+function newCartItem() {
   let quantityId = (document.getElementById("quantity").innerText =
     orderedPizzas.length);
+  let cart = document.getElementById("cart");
+  cart.innerHTML = "";
+  console.log(cart);
 
-  for (let index = 0; index < orderedPizzas.length; index++) {
-    switch (index) {
-      case 0:
-        shoppingCartOrders = document.getElementById(
-          "1-product-name"
-        ).innerText = orderedPizzas[index];
-        shoppingCartOrders = document.getElementById(
-          "1-product-price"
-        ).innerText = orderedPrices[index];
-        shoppingCartOrders = document.getElementById("1-product-img");
-        shoppingCartOrders.src = orderedImages[index];
-        break;
-
-      case 1:
-        shoppingCartOrders = document.getElementById(
-          "2-product-name"
-        ).innerText = orderedPizzas[index];
-        shoppingCartOrders = document.getElementById(
-          "2-product-price"
-        ).innerText = orderedPrices[index];
-        shoppingCartOrders = document.getElementById("2-product-img");
-        shoppingCartOrders.src = orderedImages[index];
-        break;
-
-      case 2:
-        shoppingCartOrders = document.getElementById(
-          "3-product-name"
-        ).innerText = orderedPizzas[index];
-        shoppingCartOrders = document.getElementById(
-          "3-product-price"
-        ).innerText = orderedPrices[index];
-        shoppingCartOrders = document.getElementById("3-product-img");
-        shoppingCartOrders.src = orderedImages[index];
-        break;
-
-      default:
-        break;
-    }
+  for (let i = 0; i < orderedPizzas.length; i++) {
+    let cartItemTemplate = `
+      <div class="cart-item">
+        <img
+          id="1-product-img"
+          width="150px"
+          src="${orderedImages[i]}"
+          alt="Product Image"
+        />
+        <div class="item-details">
+          <h3 id="1-product-name">${orderedPizzas[i]}</h3>
+          <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
+          <input type="number" value="1" />
+          <button class="remove">Remove</button>
+        </div>
+      </div>`;
+    cart.innerHTML += cartItemTemplate;
   }
 }
