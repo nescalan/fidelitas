@@ -22,7 +22,7 @@ let orderedPrices = [];
 let orderedImages = [];
 let shoppingCartOrders, cartPrice;
 
-// FUNCTIONS: Buying Pizzas
+// FUNCTIONS: For Buying Pizzas
 function buyCheesePizza() {
   if (orderedPizzas.includes("Cheese Pizza")) {
     alert("This product is allready in the shoppong cart");
@@ -97,6 +97,62 @@ function buyTomatoPizza() {
     orderedPrices.push(priceList[5]);
     orderedImages.push(pizzaImages[5]);
   }
+
+  newCartItem();
+}
+
+// ADD NEW CART
+function newCartItem() {
+  let quantityId = (document.getElementById("quantity").innerText =
+    orderedPizzas.length);
+  let cart = document.getElementById("cart");
+  cart.innerHTML = "";
+  console.log(cart);
+
+  if (orderedPizzas.length === 0) {
+    const emptyCartMessage = `
+    <div>
+      <h2>¡Hay un carrito por llenar!</h2>
+      <br />
+      <p>
+        Actualmente no tienes productos en tu carrito de compras.
+      </p>
+    </div>
+    `;
+    cart.innerHTML = emptyCartMessage;
+  }
+
+  for (let i = 0; i < orderedPizzas.length; i++) {
+    let cartItemTemplate = `
+      <div class="cart-item">
+        <img
+          id="1-product-img"
+          width="150px"
+          src="${orderedImages[i]}"
+          alt="Product Image"
+        />
+        <div class="item-details">
+          <h3 id="1-product-name">${orderedPizzas[i]}</h3>
+          <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
+          <input type="number" value="1" />
+          <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
+        </div>
+      </div>`;
+    cart.innerHTML += cartItemTemplate;
+  }
+}
+
+// DELETE ARTICLE
+function deleteCartItem(index) {
+  console.log("Antes");
+  console.log(orderedPizzas);
+
+  orderedPizzas.pop(pizzaOptions[index]);
+  orderedPrices.pop(priceList[index]);
+  orderedImages.pop(pizzaImages[index]);
+
+  console.log("Despues");
+  console.log(orderedPizzas);
 
   newCartItem();
 }
@@ -179,30 +235,3 @@ function buyTomatoPizza() {
 //     }
 //   }
 // }
-
-function newCartItem() {
-  let quantityId = (document.getElementById("quantity").innerText =
-    orderedPizzas.length);
-  let cart = document.getElementById("cart");
-  cart.innerHTML = "";
-  console.log(cart);
-
-  for (let i = 0; i < orderedPizzas.length; i++) {
-    let cartItemTemplate = `
-      <div class="cart-item">
-        <img
-          id="1-product-img"
-          width="150px"
-          src="${orderedImages[i]}"
-          alt="Product Image"
-        />
-        <div class="item-details">
-          <h3 id="1-product-name">${orderedPizzas[i]}</h3>
-          <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
-          <input type="number" value="1" />
-          <button class="remove">Remove</button>
-        </div>
-      </div>`;
-    cart.innerHTML += cartItemTemplate;
-  }
-}
