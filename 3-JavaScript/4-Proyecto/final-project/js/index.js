@@ -24,49 +24,79 @@ let shoppingCartOrders, cartPrice;
 
 // FUNCTIONS: Buying Pizzas
 function buyCheesePizza() {
-  orderedPizzas.push(pizzaOptions[0]);
-  orderedPrices.push(priceList[0]);
-  orderedImages.push(pizzaImages[0]);
+  if (orderedPizzas.includes("Cheese Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[0]);
+    orderedPrices.push(priceList[0]);
+    orderedImages.push(pizzaImages[0]);
+  }
 
   newCartItem();
 }
 
 function buyPepperoniPizza() {
-  orderedPizzas.push(pizzaOptions[1]);
-  orderedPrices.push(priceList[1]);
-  orderedImages.push(pizzaImages[1]);
+  if (orderedPizzas.includes("Pepperoni Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[1]);
+    orderedPrices.push(priceList[1]);
+    orderedImages.push(pizzaImages[1]);
+  }
 
   newCartItem();
 }
 
 function buyVegetarianPizza() {
-  orderedPizzas.push(pizzaOptions[2]);
-  orderedPrices.push(priceList[2]);
-  orderedImages.push(pizzaImages[2]);
+  if (orderedPizzas.includes("Vegetarian Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[2]);
+    orderedPrices.push(priceList[2]);
+    orderedImages.push(pizzaImages[2]);
+  }
 
   newCartItem();
 }
 
 function buyRusticaPizza() {
-  orderedPizzas.push(pizzaOptions[3]);
-  orderedPrices.push(priceList[3]);
-  orderedImages.push(pizzaImages[3]);
+  if (orderedPizzas.includes("Rustica Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[3]);
+    orderedPrices.push(priceList[3]);
+    orderedImages.push(pizzaImages[3]);
+  }
 
   newCartItem();
 }
 
 function buyDeliciousPizza() {
-  orderedPizzas.push(pizzaOptions[4]);
-  orderedPrices.push(priceList[4]);
-  orderedImages.push(pizzaImages[4]);
+  if (orderedPizzas.includes("Delicious Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[4]);
+    orderedPrices.push(priceList[4]);
+    orderedImages.push(pizzaImages[4]);
+  }
 
   newCartItem();
 }
 
 function buyTomatoPizza() {
-  orderedPizzas.push(pizzaOptions[5]);
-  orderedPrices.push(priceList[5]);
-  orderedImages.push(pizzaImages[5]);
+  if (orderedPizzas.includes("Tomato Pizza")) {
+    alert("This product is allready in the shoppong cart");
+  } else {
+    alert("Thanks for buying a pizza");
+    orderedPizzas.push(pizzaOptions[5]);
+    orderedPrices.push(priceList[5]);
+    orderedImages.push(pizzaImages[5]);
+  }
 
   newCartItem();
 }
