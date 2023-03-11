@@ -46,10 +46,12 @@ nav #quantity {
   top: -30px;
 
   /* Box model */
-  padding: 3px 10px;
+  padding: 3px 7px;
 
   /* Typographic */
   color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
 
   /* Visual */
   border: 1px solid var(--color-orange);

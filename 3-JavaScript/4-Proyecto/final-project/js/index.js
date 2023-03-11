@@ -145,6 +145,8 @@ function printShoppingCart() {
         shoppingCartOrders = document.getElementById(
           "3-product-price"
         ).innerText = orderedPrices[index];
+        shoppingCartOrders = document.getElementById("3-product-img");
+        shoppingCartOrders.src = orderedImages[index];
         break;
 
       default:
