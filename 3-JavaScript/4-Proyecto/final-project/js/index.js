@@ -180,7 +180,6 @@ function setTotalPay(prices) {
   `;
 
   if (orderedPrices.length === 0) {
-    alert("no tiene articlos");
     orderSummary.innerHTML = totalPay;
   } else {
     orderSummary.innerHTML = totalPay;
@@ -193,4 +192,9 @@ function setUnitPrices(index) {
   console.log(
     `El precio es: ${orderedPrices[index]} y la cantidad: ${productQty} `
   );
+
+  if (productQty < 1) {
+    console.log("La cantidad es menor a uno");
+    deleteCartItem(index);
+  }
 }
