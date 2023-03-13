@@ -196,5 +196,6 @@ function setUnitPrices(index) {
   if (productQty < 1) {
     console.log("La cantidad es menor a uno");
     deleteCartItem(index);
+  } else {
   }
 }
