@@ -120,27 +120,28 @@ function newCartItem() {
     </div>
     `;
     cart.innerHTML = emptyCartMessage;
+  } else {
+    for (let i = 0; i < orderedPizzas.length; i++) {
+      let cartItemTemplate = `
+        <div class="cart-item">
+          <img
+            id="1-product-img"
+            width="150px"
+            src="${orderedImages[i]}"
+            alt="Product Image"
+          />
+          <div class="item-details">
+            <h3 id="1-product-name">${orderedPizzas[i]}</h3>
+            <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
+            <input type="number" value="1" />
+            <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
+          </div>
+        </div>`;
+      cart.innerHTML += cartItemTemplate;
+      totalPrices.push(orderedPrices[i]);
+    }
   }
 
-  for (let i = 0; i < orderedPizzas.length; i++) {
-    let cartItemTemplate = `
-      <div class="cart-item">
-        <img
-          id="1-product-img"
-          width="150px"
-          src="${orderedImages[i]}"
-          alt="Product Image"
-        />
-        <div class="item-details">
-          <h3 id="1-product-name">${orderedPizzas[i]}</h3>
-          <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
-          <input type="number" value="1" />
-          <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
-        </div>
-      </div>`;
-    cart.innerHTML += cartItemTemplate;
-    totalPrices.push(orderedPrices[i]);
-  }
   setTotalPay(totalPrices);
 }
 
@@ -169,7 +170,7 @@ function setTotalPay(prices) {
   // SUM
   for (let i = 0; i < prices.length; i++) {
     const value = prices[i];
-    total = total + value;
+    total += value;
   }
 
   // TOFIXED: Set to decimal
