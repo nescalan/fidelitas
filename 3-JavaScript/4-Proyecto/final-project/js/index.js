@@ -133,7 +133,7 @@ function newCartItem() {
           <div class="item-details">
             <h3 id="1-product-name">${orderedPizzas[i]}</h3>
             <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
-            <input type="number" value="1" />
+            <input id="quantity-id" type="number" value="1" onchange="setUnitPrices(${i})" />
             <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
           </div>
         </div>`;
@@ -147,12 +147,6 @@ function newCartItem() {
 
 // DELETE ARTICLE
 function deleteCartItem(index) {
-  console.log("INDES");
-  console.log(index);
-
-  console.log("Antes");
-  console.log(orderedPizzas);
-
   orderedPizzas.splice(index, 1);
   orderedPrices.splice(index, 1);
   orderedImages.splice(index, 1);
@@ -192,4 +186,11 @@ function setTotalPay(prices) {
     orderSummary.innerHTML = totalPay;
     checkout.innerHTML = checkoutInfo;
   }
+}
+// CHANGE PRICE: Allows you to make individual price changes
+function setUnitPrices(index) {
+  let productQty = document.getElementById("quantity-id").value;
+  console.log(
+    `El precio es: ${orderedPrices[index]} y la cantidad: ${productQty} `
+  );
 }
