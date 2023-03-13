@@ -157,9 +157,6 @@ function deleteCartItem(index) {
   orderedPrices.splice(index, 1);
   orderedImages.splice(index, 1);
 
-  console.log("Despues");
-  console.log(orderedPizzas);
-
   newCartItem();
 }
 
@@ -175,20 +172,23 @@ function setTotalPay(prices) {
 
   // TOFIXED: Set to decimal
   let totalInvoice = total.toFixed(2);
+  let orderSummary = document.getElementById("total-pay");
+  let checkout = document.getElementById("checkout");
+  const totalPay = `
+  <div class="cart-total">
+    <p>Total: $${totalInvoice}</p>
+  </div>
+  `;
+  let checkoutInfo = `
+  <div class="checkout">
+    <button>Checkout</button>
+  </div>
+  `;
 
-  if (orderedPrices.length != 0) {
-    let orderSummary = document.getElementById("total-pay");
-    let checkout = document.getElementById("checkout");
-    const totalPay = `
-    <div class="cart-total">
-      <p>Total: $${totalInvoice}</p>
-    </div>
-    `;
-    let checkoutInfo = `
-    <div class="checkout">
-      <button>Checkout</button>
-    </div>
-    `;
+  if (orderedPrices.length === 0) {
+    alert("no tiene articlos");
+    orderSummary.innerHTML = totalPay;
+  } else {
     orderSummary.innerHTML = totalPay;
     checkout.innerHTML = checkoutInfo;
   }
