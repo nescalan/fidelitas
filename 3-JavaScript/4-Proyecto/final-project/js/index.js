@@ -106,16 +106,16 @@ function newCartItem() {
   let quantityId = (document.getElementById("quantity").innerText =
     orderedPizzas.length);
   let cart = document.getElementById("cart");
+  let totalPrices = [];
   cart.innerHTML = "";
-  console.log(cart);
 
-  if (orderedPizzas.length === 0) {
+  if (orderedPizzas.length == 0) {
     const emptyCartMessage = `
     <div>
-      <h2>¡Hay un carrito por llenar!</h2>
+      <h2>¡There's a cart to fill !</h2>
       <br />
       <p>
-        Actualmente no tienes productos en tu carrito de compras.
+      You currently have no products in your shopping cart.
       </p>
     </div>
     `;
@@ -139,7 +139,9 @@ function newCartItem() {
         </div>
       </div>`;
     cart.innerHTML += cartItemTemplate;
+    totalPrices.push(orderedPrices[i]);
   }
+  setTotalPay(totalPrices);
 }
 
 // DELETE ARTICLE
@@ -160,81 +162,33 @@ function deleteCartItem(index) {
   newCartItem();
 }
 
-// function getImage() {
-//   let allImages = document.getElementsByTagName("img");
-//   let imagesAlt;
-//   let image;
+// ADD SHOPPING CART TOTAL
+function setTotalPay(prices) {
+  let total = 0;
 
-//   for (let i = 0; i < allImages.length; i++) {
-//     imagesAlt = allImages[i].alt;
-//     console.log(`The alt text into imagesAlt is: ${imagesAlt}`);
+  // SUM
+  for (let i = 0; i < prices.length; i++) {
+    const value = prices[i];
+    total = total + value;
+  }
 
-//     switch (imagesAlt) {
-//       case "cheese":
-//         image = document.getElementById("product-one");
-//         image.src = pizzaImages[0];
-//         console.log(`Option Cheese: ${imagesAlt}`);
-//         break;
+  // TOFIXED: Set to decimal
+  let totalInvoice = total.toFixed(2);
 
-//       case "pepperoni":
-//         image = document.getElementById("product-two");
-//         image.src = pizzaImages[1];
-//         console.log(`Option Peperoni: ${imagesAlt}`);
-
-//         break;
-
-//       case "pepperoni":
-//         image = document.getElementById("product-two");
-//         image.src = pizzaImages[1];
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }
-// }
-
-// function printShoppingCart() {
-//   let quantityId = (document.getElementById("quantity").innerText =
-//     orderedPizzas.length);
-
-//   for (let index = 0; index < orderedPizzas.length; index++) {
-//     switch (index) {
-//       case 0:
-//         shoppingCartOrders = document.getElementById(
-//           "1-product-name"
-//         ).innerText = orderedPizzas[index];
-//         shoppingCartOrders = document.getElementById(
-//           "1-product-price"
-//         ).innerText = orderedPrices[index];
-//         shoppingCartOrders = document.getElementById("1-product-img");
-//         shoppingCartOrders.src = orderedImages[index];
-//         break;
-
-//       case 1:
-//         shoppingCartOrders = document.getElementById(
-//           "2-product-name"
-//         ).innerText = orderedPizzas[index];
-//         shoppingCartOrders = document.getElementById(
-//           "2-product-price"
-//         ).innerText = orderedPrices[index];
-//         shoppingCartOrders = document.getElementById("2-product-img");
-//         shoppingCartOrders.src = orderedImages[index];
-//         break;
-
-//       case 2:
-//         shoppingCartOrders = document.getElementById(
-//           "3-product-name"
-//         ).innerText = orderedPizzas[index];
-//         shoppingCartOrders = document.getElementById(
-//           "3-product-price"
-//         ).innerText = orderedPrices[index];
-//         shoppingCartOrders = document.getElementById("3-product-img");
-//         shoppingCartOrders.src = orderedImages[index];
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }
-// }
+  if (orderedPrices.length != 0) {
+    let orderSummary = document.getElementById("total-pay");
+    let checkout = document.getElementById("checkout");
+    const totalPay = `
+    <div class="cart-total">
+      <p>Total: $${totalInvoice}</p>
+    </div>
+    `;
+    let checkoutInfo = `
+    <div class="checkout">
+      <button>Checkout</button>
+    </div>
+    `;
+    orderSummary.innerHTML = totalPay;
+    checkout.innerHTML = checkoutInfo;
+  }
+}
