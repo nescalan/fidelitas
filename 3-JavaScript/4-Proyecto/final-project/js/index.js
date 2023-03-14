@@ -1,101 +1,49 @@
-// Variables
-const pizzaOptions = [
-  "Cheese Pizza",
-  "Pepperoni Pizza",
-  "Vegetarian Pizza",
-  "Rustica Pizza",
-  "Delicious Pizza",
-  "Tomato Pizza",
-];
-const priceList = [11.95, 14.95, 12.95, 15.95, 15.95, 13.95];
-const pizzaImages = [
-  "./images/pizza-cheese.jpg",
-  "./images/pizza-pepperoni.jpg",
-  "./images/pizza-vegetarian.jpg",
-  "./images/pizza-rustica.jpg",
-  "./images/pizza-delicious.jpg",
-  "./images/pizza-tomato.jpg",
-];
-
 let orderedPizzas = [];
 let orderedPrices = [];
 let orderedImages = [];
 let shoppingCartOrders, cartPrice;
 
-// FUNCTIONS: For Buying Pizzas
-function buyCheesePizza() {
+// DOM: Menu Options
+document.addEventListener("DOMContentLoaded", function () {
+  const domMenu = document.getElementById("menu");
+  domMenu.innerText = "Listo";
+  for (let i = 0; i < pizzaOptions.length; i++) {
+    const menuTemplate = `
+    <div class="menu">
+    <div class="menu-img">
+      <img src="${pizzaImages[i]}" alt="cheese" width="100%" />
+    </div>
+    <div class="menu-info">
+      <p class="text-title">${pizzaOptions[i]}</p>
+      <p class="text-body">
+        ${descriptions[i]}
+      </p>
+    </div>
+    <div class="menu-footer">
+      <span class="text-title">$${priceList[i]}</span>
+      <div class="menu-button">
+        <span
+          class="material-symbols-outlined"
+          onclick="getProduct(${i})"
+        >
+          add_shopping_cart
+        </span>
+      </div>
+    </div>`;
+    domMenu.innerHTML += menuTemplate;
+  }
+});
+
+// FUNCTION: For Buying Pizzas
+function getProduct(index) {
+  alert(`getroduct ${index}`);
   if (orderedPizzas.includes("Cheese Pizza")) {
-    alert("This product is allready in the shoppong cart");
+    setPurchasedProduct();
   } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[0]);
-    orderedPrices.push(priceList[0]);
-    orderedImages.push(pizzaImages[0]);
-  }
-
-  newCartItem();
-}
-
-function buyPepperoniPizza() {
-  if (orderedPizzas.includes("Pepperoni Pizza")) {
-    alert("This product is allready in the shoppong cart");
-  } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[1]);
-    orderedPrices.push(priceList[1]);
-    orderedImages.push(pizzaImages[1]);
-  }
-
-  newCartItem();
-}
-
-function buyVegetarianPizza() {
-  if (orderedPizzas.includes("Vegetarian Pizza")) {
-    alert("This product is allready in the shoppong cart");
-  } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[2]);
-    orderedPrices.push(priceList[2]);
-    orderedImages.push(pizzaImages[2]);
-  }
-
-  newCartItem();
-}
-
-function buyRusticaPizza() {
-  if (orderedPizzas.includes("Rustica Pizza")) {
-    alert("This product is allready in the shoppong cart");
-  } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[3]);
-    orderedPrices.push(priceList[3]);
-    orderedImages.push(pizzaImages[3]);
-  }
-
-  newCartItem();
-}
-
-function buyDeliciousPizza() {
-  if (orderedPizzas.includes("Delicious Pizza")) {
-    alert("This product is allready in the shoppong cart");
-  } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[4]);
-    orderedPrices.push(priceList[4]);
-    orderedImages.push(pizzaImages[4]);
-  }
-
-  newCartItem();
-}
-
-function buyTomatoPizza() {
-  if (orderedPizzas.includes("Tomato Pizza")) {
-    alert("This product is allready in the shoppong cart");
-  } else {
-    alert("Thanks for buying a pizza");
-    orderedPizzas.push(pizzaOptions[5]);
-    orderedPrices.push(priceList[5]);
-    orderedImages.push(pizzaImages[5]);
+    setThanks();
+    orderedPizzas.push(pizzaOptions[index]);
+    orderedPrices.push(priceList[index]);
+    orderedImages.push(pizzaImages[index]);
   }
 
   newCartItem();
@@ -103,9 +51,9 @@ function buyTomatoPizza() {
 
 // ADD NEW CART
 function newCartItem() {
+  let cart = document.getElementById("cart");
   let quantityId = (document.getElementById("quantity").innerText =
     orderedPizzas.length);
-  let cart = document.getElementById("cart");
   let totalPrices = [];
   cart.innerHTML = "";
 
