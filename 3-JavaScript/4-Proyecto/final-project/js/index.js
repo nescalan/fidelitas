@@ -36,8 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FUNCTION: For Buying Pizzas
 function getProduct(index) {
-  alert(`getroduct ${index}`);
-  if (orderedPizzas.includes("Cheese Pizza")) {
+  alert(`getProduct ${index}`);
+
+  if (orderedPizzas.includes(pizzaOptions[index])) {
     setPurchasedProduct();
   } else {
     setThanks();
@@ -88,7 +89,7 @@ function newCartItem() {
           </div>
         </div>`;
       cart.innerHTML += cartItemTemplate;
-      totalPrices.push(orderedPrices[i]);
+      // totalPrices.push(orderedPrices[i]);
     }
   }
 
@@ -163,6 +164,17 @@ function deleteCartItem(index) {
 
   newCartItem();
 }
+
+// FUNCTION BUTTON: Chekout
+function setPurchase() {
+  const checkout = document.getElementById("checkout");
+
+  orderedPizzas.length = 0;
+
+  alert("Purchased");
+  newCartItem();
+}
+
 // FUNCTION: suma de precios
 // function sumaPrecios(index) {
 //   let domProductQty = [];
