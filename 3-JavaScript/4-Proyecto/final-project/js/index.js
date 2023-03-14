@@ -117,12 +117,17 @@ function setShoppingCart(prices, contador) {
   </div>
   `;
 
-  if (orderedPrices.length === 0) {
-    orderSummary.innerHTML = domTotalPay;
-  } else {
+  if (orderedPrices.length != 0) {
     orderSummary.innerHTML = domTotalPay;
     checkout.innerHTML = domCheckoutInfo;
   }
+
+  // if (orderedPrices.length === 0) {
+  //   orderSummary.innerHTML = domTotalPay;
+  // } else {
+  //   orderSummary.innerHTML = domTotalPay;
+  //   checkout.innerHTML = domCheckoutInfo;
+  // }
   setTotalPrices(contador);
 }
 
