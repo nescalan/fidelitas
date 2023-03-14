@@ -293,8 +293,6 @@ section .menu-grid {
   margin: 0 auto;
   display: grid;
   gap: 15px;
-
-  border: 1px solid white;
 }
 @media (min-width: 768px) {
   section .menu-grid {
