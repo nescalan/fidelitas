@@ -81,9 +81,36 @@ h1 {
 .cart-total p {
   font-weight: bold;
 }
-/* 
-button .checkout {
-} */
+#checkout {
+  text-align: center;
+}
+#checkout button {
+  /* Box model */
+  width: 150px;
+  height: 35px;
+  padding: 0.6em 4.3rem;
+  display: flex;
+
+  /* Typographic */
+  color: #fff;
+  font-weight: 600;
+
+  /* Visual */
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #000;
+  transition: 0.3s ease-in-out;
+}
+#checkout button:hover {
+  /* Typographic */
+  color: #000;
+
+  /* Visual */
+  border: 1px solid #000;
+  background-color: #fff;
+  transition: 0.3s ease-in-out;
+}
 
 /* Positioning */
 /* Box model */

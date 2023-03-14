@@ -25,8 +25,16 @@
     />
     <!-- CSS: Custom Styles -->
     <link rel="stylesheet" href="./css/global.css" />
+
+    <!-- SCRIPT: JavaScript Files -->
+    <script src="./js/products.js"></script>
+    <script src="./js/messages.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/index.js"></script>
+
     <title>John's Pizzeria</title>
   </head>
+
   <body>
     <nav>
       <a href="#">
@@ -59,7 +67,7 @@
               <span id="total-pay">total</span>
 
               <!-- Checkout Button -->
-              <span id="checkout"></span>
+              <span id="checkout" onclick="setPurchase()"></span>
             </div>
           </div>
         </section>
@@ -120,170 +128,8 @@
     <section class="sec-menu">
       <div id="menu" class="menu-grid">
         <!-- MENU: Cheese -->
-        <div class="menu">
-          <div class="menu-img">
-            <img src="./images/pizza-cheese.jpg" alt="cheese" width="100%" />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Cheese Pizza</p>
-            <p class="text-body">
-              Get our Manhattan Classic Cheese Pizza with your choice of sauce
-              and crust.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$11.95</span>
-            <div class="menu-button">
-              <span
-                class="material-symbols-outlined"
-                onclick="buyCheesePizza()"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENU: Pepperoni -->
-        <div class="menu">
-          <div class="menu-img">
-            <img
-              src="./images/pizza-pepperoni.jpg"
-              alt="pepperoni"
-              width="100%"
-            />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Pepperoni Pizza</p>
-            <p class="text-body">
-              Get our classic and Delicious Pepperoni pizza with your choice of
-              sauce and crust.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$14.95</span>
-            <div class="menu-button">
-              <span
-                class="material-symbols-outlined"
-                onclick="buyPepperoniPizza()"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENU: Vegetarian -->
-        <div class="menu">
-          <div class="menu-img">
-            <img
-              src="./images/pizza-vegetarian.jpg"
-              alt="vegetarian"
-              width="100%"
-            />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Vegetarian Pizza</p>
-            <p class="text-body">
-              Tomato Sauce, Mozzarella, Green Pepper, Onions, Fresh Mushrooms,
-              Tomatoes, and Black Olives.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$12.95</span>
-            <div class="menu-button">
-              <span
-                onclick="buyVegetarianPizza()"
-                class="material-symbols-outlined"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENU: Rustica -->
-        <div class="menu">
-          <div class="menu-img">
-            <img src="./images/pizza-rustica.jpg" alt="rustica" width="100%" />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Rustica Pizza</p>
-            <p class="text-body">
-              Tomato sauce, mozzarella, sausage, crispy bacon, roasted red
-              peppers, and black olives.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$15.95</span>
-            <div class="menu-button">
-              <span
-                onclick="buyRusticaPizza()"
-                class="material-symbols-outlined"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENU: Delicious -->
-        <div class="menu">
-          <div class="menu-img">
-            <img
-              src="./images/pizza-delicious.jpg"
-              alt="delicious"
-              width="100%"
-            />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Delicious Pizza</p>
-            <p class="text-body">
-              A mix of Porcini Mushrooms and Truffle Paste, Mozzarella, Fresh
-              Mushrooms, Caramelized Onions.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$15.95</span>
-            <div class="menu-button">
-              <span
-                onclick="buyDeliciousPizza()"
-                class="material-symbols-outlined"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENU: Tomato -->
-        <div class="menu">
-          <div class="menu-img">
-            <img src="./images/pizza-tomato.jpg" alt="tomato" width="100%" />
-          </div>
-          <div class="menu-info">
-            <p class="text-title">Tomato Pizza</p>
-            <p class="text-body">
-              The Classic Marinara Sauce, Fresh Tomatoes, Mozzarella, Fresh
-              Basil, and an Extra Virgin Olive Oil drizzle.
-            </p>
-          </div>
-          <div class="menu-footer">
-            <span class="text-title">$13.95</span>
-            <div class="menu-button">
-              <span
-                onclick="buyTomatoPizza()"
-                class="material-symbols-outlined"
-              >
-                add_shopping_cart
-              </span>
-            </div>
-          </div>
-        </div>
+        <div class="menu"></div>
       </div>
     </section>
-
-    <!-- SCRIPT: JavaScript Files -->
-    <script src="./js/index.js"></script>
   </body>
 </html>
