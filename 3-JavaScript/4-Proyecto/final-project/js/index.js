@@ -132,8 +132,10 @@ function newCartItem() {
           />
           <div class="item-details">
             <h3 id="1-product-name">${orderedPizzas[i]}</h3>
-            <p>Price: $<span id="1-product-price">${orderedPrices[i]}</span></p>
-            <input id="quantity-id" type="number" value="1" onchange="setUnitPrices(${i})" />
+            <p>Price: $<span id="1-product-price-${i}">${orderedPrices[i]}</span></p>
+            <p>Subtotal: $<span id="subtotal"> --</span></p>
+
+            <input id="quantity-${i}" type="number" value="1" onchange="setUnitPrices(${i})" />
             <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
           </div>
         </div>`;
@@ -143,15 +145,6 @@ function newCartItem() {
   }
 
   setTotalPay(totalPrices);
-}
-
-// DELETE ARTICLE
-function deleteCartItem(index) {
-  orderedPizzas.splice(index, 1);
-  orderedPrices.splice(index, 1);
-  orderedImages.splice(index, 1);
-
-  newCartItem();
 }
 
 // ADD SHOPPING CART TOTAL
@@ -168,6 +161,7 @@ function setTotalPay(prices) {
   let totalInvoice = total.toFixed(2);
   let orderSummary = document.getElementById("total-pay");
   let checkout = document.getElementById("checkout");
+
   const totalPay = `
   <div class="cart-total">
     <p>Total: $${totalInvoice}</p>
@@ -186,16 +180,77 @@ function setTotalPay(prices) {
     checkout.innerHTML = checkoutInfo;
   }
 }
-// CHANGE PRICE: Allows you to make individual price changes
+
+// FUNCTION CHANGE PRICE: Allows you to make individual price changes
 function setUnitPrices(index) {
-  let productQty = document.getElementById("quantity-id").value;
+  let domProductQty = document.getElementById(`quantity-${index}`).value;
+
+  let domProductPrice = document.getElementById(
+    `1-product-price-${index}`
+  ).innerText;
+
+  let subtotal = domProductPrice * domProductQty;
+
+  subtotal = subtotal.toFixed(2);
+
+  let domSubtotal = (document.getElementById("subtotal").innerText = subtotal);
+
   console.log(
-    `El precio es: ${orderedPrices[index]} y la cantidad: ${productQty} `
+    `domProductPrice: ${domProductPrice} | 
+    Cantidad: ${domProductQty} | 
+    Subtotal: ${subtotal} `
   );
 
-  if (productQty < 1) {
+  if (domProductQty < 1) {
     console.log("La cantidad es menor a uno");
     deleteCartItem(index);
-  } else {
   }
 }
+
+// FUNCTION: Delete Article
+function deleteCartItem(index) {
+  orderedPizzas.splice(index, 1);
+  orderedPrices.splice(index, 1);
+  orderedImages.splice(index, 1);
+
+  newCartItem();
+}
+// FUNCTION: suma de precios
+// function sumaPrecios(index) {
+//   let domProductQty = [];
+//   let result = [];
+//   let subtotal = [];
+//   let total = 0;
+//   let totalPrices = [];
+
+//   // DOM: Manipulation
+//   domProductQty[index] = document.getElementById(`quantity-${index}`).value;
+//   let domSubtotal = (document.getElementById("subtotal").innerText = subtotal);
+
+//   if (domProductQty < 1) {
+//     console.log("La cantidad es menor a uno");
+//     deleteCartItem(index);
+//   } else {
+//     console.log("---------------------------");
+//     // console.log(
+//     //   `Index: ${index} | Ordered Prices ${orderedPrices[index]} | length ${orderedPrices.length} `
+//     // );
+
+//     // Recorre el arreglo y suma los elementos
+//     for (var i = 0; i < orderedPrices.length; i++) {
+//       console.log(`Index: ${index} | Product Quantity:  ${domProductQty[index]}`);
+//       console.log(`Index: ${index} | Ordered Prices ${orderedPrices[index]}`);
+//       subtotal[index] = domProductQty[index] * orderedPrices[index];
+//       subtotal[index];
+//       console.log(`Index: ${index} | Subtotal ${subtotal[index]}`);
+//     }
+
+//     const numbers = [1.2345, 2.3456, 3.4567, 4.5678];
+
+//     const roundedNumbers = numbers.map((number) => {
+//       return Number(number.toFixed(2));
+//     });
+
+//     console.log(`Ejemplo ${roundedNumbers}`); // Output: [1.23, 2.35, 3.46, 4.57]
+//   }
+// }
