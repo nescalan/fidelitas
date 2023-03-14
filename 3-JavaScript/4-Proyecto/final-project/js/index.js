@@ -1,7 +1,6 @@
 let orderedPizzas = [];
 let orderedPrices = [];
 let orderedImages = [];
-let subTotalPrices = [];
 let shoppingCartOrders, cartPrice;
 
 // DOM: Menu Options
@@ -129,8 +128,6 @@ function setShoppingCart(prices, contador) {
 
 // FUNCTION CHANGE UNIT PRICES: Allows you to make individual price changes
 function setUnitPrices(index) {
-  let indice = index;
-  console.log(`Index: ${indice}`);
   const domPrice = document.getElementById(
     `1-product-price-${index}`
   ).innerText;
@@ -151,19 +148,19 @@ function setUnitPrices(index) {
 
 // FUNCTION SET TOTAL PRICES:
 function setTotalPrices(index) {
-  let indice = index;
   let totalInvoice;
   const domTotalPrices = document.getElementById("total-prices");
   const domSubtotal = document.getElementById(`subtotal${index}`).innerText;
   const domQuantity = document.getElementById(`quantity-${index}`).value;
 
-  console.log(
-    `i: ${index} | Qty: ${domQuantity} | Subtotal: ${domSubtotal[index]}`
-  );
+  console.log(`Qty: ${domQuantity} | Subtotal: ${domSubtotal}`);
 
   totalInvoice = domQuantity[index] * priceList[index];
   totalInvoice = totalInvoice.toFixed(2);
+
   domTotalPrices.innerText = totalInvoice;
+
+  // console.log(`And the big total is: ${totalInvoice}`);
 }
 
 // FUNCTION: Delete Article
