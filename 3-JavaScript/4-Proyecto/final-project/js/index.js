@@ -1,6 +1,7 @@
 let orderedPizzas = [];
 let orderedPrices = [];
 let orderedImages = [];
+let subTotalPrices = [];
 let shoppingCartOrders, cartPrice;
 
 // DOM: Menu Options
@@ -128,6 +129,8 @@ function setShoppingCart(prices, contador) {
 
 // FUNCTION CHANGE UNIT PRICES: Allows you to make individual price changes
 function setUnitPrices(index) {
+  let indice = index;
+  console.log(`Index: ${indice}`);
   const domPrice = document.getElementById(
     `1-product-price-${index}`
   ).innerText;
