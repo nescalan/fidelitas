@@ -6,7 +6,7 @@ let shoppingCartOrders, cartPrice;
 // DOM: Menu Options
 document.addEventListener("DOMContentLoaded", function () {
   const domMenu = document.getElementById("menu");
-  domMenu.innerText = "Listo";
+  domMenu;
   for (let i = 0; i < pizzaOptions.length; i++) {
     const menuTemplate = `
     <div class="menu">
@@ -53,7 +53,6 @@ function getProduct(index) {
 // ADD NEW CART
 function newCartItem() {
   let contador;
-  let totalPrices = [];
   var sum = 0;
   let cart = document.getElementById("cart");
   let quantityId = (document.getElementById("quantity").innerText =
@@ -73,6 +72,7 @@ function newCartItem() {
     cart.innerHTML = emptyCartMessage;
   } else {
     for (let i = 0; i < orderedPizzas.length; i++) {
+      contador = i;
       let cartItemTemplate = `
         <div class="cart-item">
           <img
@@ -84,13 +84,12 @@ function newCartItem() {
           <div class="item-details">
             <h3 id="1-product-name">${orderedPizzas[i]}</h3>
             <p>Price: $<span id="1-product-price-${i}">${orderedPrices[i]}</span></p>
-            <p>Subtotal: $<span id="subtotal${i}"> --</span></p>
+            <p>Subtotal: $<span id="subtotal${i}">${orderedPrices[i]}</span></p>
             <input id="quantity-${i}" type="number" value="1" onchange="setUnitPrices(${i})" />
             <button class="remove" onclick="deleteCartItem(${i})">Remove</button>
           </div>
         </div>`;
       cart.innerHTML += cartItemTemplate;
-      totalPrices.push(orderedPrices[i]);
     }
 
     // Recorre el arreglo y suma los elementos
@@ -99,17 +98,17 @@ function newCartItem() {
     }
   }
 
-  setTotalPay(sum);
+  setShoppingCart(sum, contador);
 }
 
 // ADD SHOPPING CART TOTAL
-function setTotalPay(prices) {
+function setShoppingCart(prices, contador) {
   let orderSummary = document.getElementById("total-pay");
   let checkout = document.getElementById("checkout");
 
   const domTotalPay = `
   <div class="cart-total">
-    <p>Total: $${prices}</p>
+    <p >Total: $<span id="total-prices">${prices}</span></p>
   </div>
   `;
   let domCheckoutInfo = `
@@ -124,9 +123,10 @@ function setTotalPay(prices) {
     orderSummary.innerHTML = domTotalPay;
     checkout.innerHTML = domCheckoutInfo;
   }
+  setTotalPrices(contador);
 }
 
-// FUNCTION CHANGE PRICE: Allows you to make individual price changes
+// FUNCTION CHANGE UNIT PRICES: Allows you to make individual price changes
 function setUnitPrices(index) {
   const domPrice = document.getElementById(
     `1-product-price-${index}`
@@ -137,6 +137,30 @@ function setUnitPrices(index) {
   let pricePerLine = domPrice * domQuantity;
   pricePerLine = pricePerLine.toFixed(2);
   domSubtotal.innerText = pricePerLine;
+
+  if (domQuantity < 1) {
+    console.log("La cantidad es menor a uno");
+    deleteCartItem(index);
+  }
+
+  setTotalPrices(index);
+}
+
+// FUNCTION SET TOTAL PRICES:
+function setTotalPrices(index) {
+  let indice = index;
+  let totalInvoice;
+  const domTotalPrices = document.getElementById("total-prices");
+  const domSubtotal = document.getElementById(`subtotal${index}`).innerText;
+  const domQuantity = document.getElementById(`quantity-${index}`).value;
+
+  console.log(
+    `i: ${index} | Qty: ${domQuantity} | Subtotal: ${domSubtotal[index]}`
+  );
+
+  totalInvoice = domQuantity[index] * priceList[index];
+  totalInvoice = totalInvoice.toFixed(2);
+  domTotalPrices.innerText = totalInvoice;
 }
 
 // FUNCTION: Delete Article
