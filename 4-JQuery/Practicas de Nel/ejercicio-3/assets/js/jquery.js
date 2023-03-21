@@ -58,16 +58,10 @@ $(document).ready(function () {
 
   for (let index = 0; index < productsList.length; index++) {
     const domProductListItem = `
-    <div class="product-item">
-      <img src="${productsList[index].image}" alt="${productsList[index].description}" />
-      <h3>${productsList[index].title}</h3>
-      <p>${productsList[index].description}</p>
-      <p>${productsList[index].price}</p>
-      <button>Add to Cart</button>
-    </div>
-  `;
+    <p>This is ${productsList[index].description}</p>    
+    `;
     // DOM: Manipulation
-    $(".product-list").html(domProductListItem[index]);
+    $(".product-list").html(domProductListItem);
   }
 
   // FUNCTION; Paint Card Into The Dom
@@ -119,7 +113,7 @@ $(document).ready(function () {
   if (flag) {
     $("#new-button").html(domBtnCreate);
     // BUTTON: function
-    $("#new-button").click(() => {
+    $("#new-button").click(function () {
       createCard();
     });
   } else {
