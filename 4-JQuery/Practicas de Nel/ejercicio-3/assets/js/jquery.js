@@ -58,10 +58,17 @@ $(document).ready(function () {
 
   for (let index = 0; index < productsList.length; index++) {
     const domProductListItem = `
-    <p>This is ${productsList[index].description}</p>    
+    <div class="product-item">
+      <p> Combo: ${productsList[index].id}</p>
+      <img src="${productsList[index].image}" alt="${productsList[index].description}" />
+      <h3>${productsList[index].title}</h3>
+      <p>${productsList[index].description}</p>
+      <p>${productsList[index].price}</p>
+      <button>Add to Cart</button>
+    </div>
     `;
     // DOM: Manipulation
-    $(".product-list").html(domProductListItem);
+    $(".product-list").append(domProductListItem);
   }
 
   // FUNCTION; Paint Card Into The Dom
