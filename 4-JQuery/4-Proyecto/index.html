@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS: Local Styles -->
+    <link rel="stylesheet" href="./assets/css/imported-style.css" />
+    <title>jQuery | Final Project</title>
+  </head>
+  <body>
+    <header>
+      <div id="router">
+        <a href="#form">Formulario</a>
+        <a href="#primera">Primera Pregunta</a>
+        <a href="#segunda">Segunda Pregunta</a>
+        <a href="#tercera">Tercera Pregunta</a>
+        <a href="#cuarta">Cuarta Pregunta</a>
+        <a href="#quinta">Quinta Pregunta</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- FOMR: User Form -->
+      <section id="form" class="page">
+        <h2>Login Form</h2>
+        <p>Primera Pregunta.</p>
+        <form>
+          <div class="imgcontainer">
+            <img
+              src="./assets/img/img_avatar2.png"
+              alt="Avatar"
+              class="avatar"
+            />
+          </div>
+
+          <div class="container">
+            <label for="first-name"><b>Nombre:</b></label>
+            <input type="text" name="name" required />
+
+            <label for="last-name"><b>Apellidos:</b></label>
+            <input type="text" name="apellidos" required />
+
+            <label for="age"><b>Edad:</b></label>
+            <input type="text" name="name" required />
+
+            <label for="year"><b>Año de Nacimiento:</b></label>
+            <input type="text" name="apellidos" required />
+
+            <button type="submit">Enviar</button>
+          </div>
+
+          <div class="container" style="background-color: #f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span id="error-message">Forgot </span>
+          </div>
+        </form>
+      </section>
+      <section id="primera" class="page">
+        <h1>Proyecto Final</h1>
+        <p>Primera Pregunta.</p>
+      </section>
+
+      <section id="segunda" class="page">
+        <h1>Proyecto Final</h1>
+        <p>Segunda Pregunta.</p>
+      </section>
+
+      <section id="tercera" class="page">
+        <h1>Proyecto Final</h1>
+        <p>Tercera Pregunta.</p>
+      </section>
+
+      <section id="cuarta" class="page">
+        <h1>Proyecto Final</h1>
+        <p>Cuarta Pregunta.</p>
+      </section>
+
+      <section id="quinta" class="page">
+        <h1>Proyecto Final</h1>
+        <p>Quinta Pregunta.</p>
+      </section>
+    </main>
+
+    <!-- SCRIPT: JQUERY GOOGLE CDN  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- SCRIPT: Local JavaScript File -->
+    <script src="./assets/js/router.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
