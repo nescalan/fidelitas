@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS: Google Fonts -->
+    <!-- CSS: Google Fonts and jQuery -->
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,7 +36,7 @@
       <section id="form" class="page">
         <h2>Login Form</h2>
         <p>Primera Pregunta.</p>
-        <form>
+        <form class="form-container">
           <div class="imgcontainer">
             <img
               src="./assets/img/img_avatar2.png"
@@ -41,28 +45,29 @@
             />
           </div>
 
-          <div class="container">
-            <label for="first-name"><b>Nombre:</b></label>
-            <input type="text" name="name" required />
+          <div id="input-forms" class="container">
+            <label for="first-name">Nombre:</label>
+            <input id="first-name" class="form-input" type="text" name="name" required />
 
-            <label for="last-name"><b>Apellidos:</b></label>
-            <input type="text" name="apellidos" required />
+            <label for="last-name">Apellidos:</label>
+            <input id="last-name" class="form-input" type="text" name="apellidos" required />
 
-            <label for="age"><b>Edad:</b></label>
-            <input type="text" name="name" required />
+            <label for="age">Edad:</label>
+            <input id="age" class="form-input" type="number" name="name" required />
 
-            <label for="year"><b>Año de Nacimiento:</b></label>
-            <input type="text" name="apellidos" required />
+            <label for="year">Año de Nacimiento:</label>
+            <input id="datepicker" class="form-input" ></input>
+            <div id="message">  </div>
 
             <button type="submit">Enviar</button>
           </div>
 
           <div class="container" style="background-color: #f1f1f1">
             <button type="button" class="cancelbtn">Cancel</button>
-            <span id="error-message">Forgot </span>
           </div>
         </form>
       </section>
+
       <section id="primera" class="page">
         <h1>Proyecto Final</h1>
         <p>Primera Pregunta.</p>
@@ -89,8 +94,10 @@
       </section>
     </main>
 
-    <!-- SCRIPT: JQUERY GOOGLE CDN  -->
+    <!-- SCRIPT: jQuery Google CDN and jQuery UI -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
     <!-- SCRIPT: Local JavaScript File -->
     <script src="./assets/js/router.js"></script>
     <script src="./assets/js/script.js"></script>
