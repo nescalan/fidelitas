@@ -1,0 +1,18 @@
+body {
+  background-color: #e8e8e8;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
