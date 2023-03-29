@@ -26,12 +26,6 @@
     <!-- CSS: Custom Styles -->
     <link rel="stylesheet" href="./css/global.css" />
 
-    <!-- SCRIPT: JavaScript Files -->
-    <script src="./js/products.js"></script>
-    <script src="./js/messages.js"></script>
-    <script src="./js/functions.js"></script>
-    <script src="./js/index.js"></script>
-
     <title>John's Pizzeria</title>
   </head>
 
@@ -74,17 +68,56 @@
       </div>
     </nav>
 
-    <!-- SECTION: Hero Image -->
-    <section class="sec-hero">
-      <h1>Italy Pizza Menu</h1>
-      <div class="hero-img"></div>
-    </section>
+    <!-- SECTION: Primera del Router -->
+    <section id="carrito" class="page">
+      <div class="container">
+        <h1>Shopping Cart</h1>
 
-    <!-- SECTION: Pizzas Menu -->
-    <section class="sec-menu">
-      <div id="menu" class="menu-grid">
-        <!-- MENU: Cheese -->
+        <!-- Shopping Cart -->
+        <div class="cart">
+          <div id="cart">
+            <div>
+              <h2>¡There's a cart to fill !</h2>
+              <br />
+              <p>You currently have no products in your shopping cart.</p>
+            </div>
+          </div>
+
+          <!-- Shopping Cart Total -->
+
+          <span id="total-pay">total</span>
+
+          <!-- Checkout Button -->
+          <span id="checkout" onclick="setPurchase()"></span>
+        </div>
       </div>
     </section>
+
+    <section id="main-page">
+      <!-- SECTION: Hero Image -->
+      <section class="sec-hero">
+        <h1>Italy Pizza Menu</h1>
+        <div class="hero-img"></div>
+      </section>
+
+      <!-- SECTION: Pizzas Menu -->
+      <section class="sec-menu">
+        <div id="menu" class="menu-grid">
+          <!-- MENU: Cheese -->
+        </div>
+      </section>
+    </article>
+
+    <!-- SCRIPT: JavaScript Files -->
+    <script src="./js/products.js"></script>
+    <script src="./js/messages.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/index.js"></script>
+
+    <!-- SCRIPT jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- SCRIPT: Local jquery con javascript -->
+    <script src="./js/jquery-script.js"></script>
+    <script src="./js/router.js"></script>
   </body>
 </html>
