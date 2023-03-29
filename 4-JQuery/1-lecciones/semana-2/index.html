@@ -1,118 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
-    <title id="titulo">JQuery Clase2</title>
-  </head>
 
-  <body class="container">
-    <p>JQuery-Clase2</p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <div class="row mb-4">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input id="nombre" type="text" class="form-control" />
-      </div>
-    </div>
+</head>
 
-    <div class="row mb-4">
-      <div class="form-group">
-        <label for="clave">Contraseña:</label>
-        <input type="text" class="form-control" id="clave" />
-      </div>
-    </div>
+<body>
+    <h2>Trabajo en clase</h2>
 
-    <div class="row mb-4">
-      <div class="form-group">
-        <label for="tipo">Tipo cliente:</label>
-        <select class="form-select" id="tipo">
-          <option value="">---Seleccione un tipo de cliente---</option>
-          <option value="1">Normal</option>
-          <option value="2">Plata</option>
-          <option value="3">Oro</option>
-          <option value="4">VIP</option>
-        </select>
-      </div>
-    </div>
+    <div class="container">
 
-    <div class="row mb-4">
-      <div class="form-group">
-        <label for="tipo">Gerente:</label>
-        <select class="form-select" id="usuarios">
-          <option value="">---Seleccione un usuario---</option>
-        </select>
-      </div>
-    </div>
+        <div class="form">
+            <div class="row">
+                <div class="form-group">
+                    <label id="nuevaFruta" for="fruta" class="form-label mt-4">Nueva frutas</label>
+                    <input type="text" class="form-control" id="fruta">
+                </div>
+            </div>
+            <button id="btnAgregar" type="button" class="btn btn-success mt-1">Agregar</button>
+        </div>
 
-    <div class="row mb-4">
-      <div class="form-group">
-        <label for="pasatiempos">Pasatiempos:</label>
-        <textarea class="form-control" id="pasatiempos" rows="3"></textarea>
-      </div>
-    </div>
+        <div class="frutas">
+            <div class="header">
+                <h3>Frutas</h3>
+                <button id="btnEliminar" type="button" class="btn btn-primary">Eliminar</button>
+            </div>
+            <ol id="lista">
+                <li class="elemento" value="1">Mazana</li>
+                <li class="elemento" value="1">Pera</li>
+                <li class="elemento" value="1">Piña</li>
+                <li class="elemento" value="1">Frambuesa</li>
+                <li class="elemento" value="1">Fresa</li>
+                <li class="elemento" value="1">Uva</li>
+            </ol>
+        </div>
 
-    <div class="row mb-4">
-      <div class="col">
-        <button id="enviarTexto" type="button" class="btn btn-success botones">
-          Enviar Texto
-        </button>
-      </div>
-      <div class="col">
-        <button id="enviarHTML" type="button" class="btn btn-success botones">
-          Enviar HTML
-        </button>
-      </div>
-      <div class="col">
-        <button id="cargarDatos" type="button" class="btn btn-success botones">
-          Cargar Datos
-        </button>
-      </div>
-      <div class="col">
-        <button id="limpiarCampos" type="button" class="btn btn-success borra">
-          Limpiar Campos
-        </button>
-      </div>
-    </div>
+</body>
+<!-- PUNTO 1 -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="js/code.js"></script>
 
-    <div class="row mb-4" id="contenido"></div>
-
-    <hr />
-
-    <div class="d-flex justify-content-between mb-4">
-      <button id="prependTitulo" class="btn btn-success">Prepend Titulo</button>
-      <h2>Conejo</h2>
-      <button id="appendTitulo" class="btn btn-success">Append Titulo</button>
-    </div>
-
-    <div class="d-flex justify-content-between mb-4">
-      <button id="prependLista" class="btn btn-success">Prepend Lista</button>
-      <ol>
-        <li>Leopardo</li>
-        <li>Aguila</li>
-        <li>Oso Polar</li>
-      </ol>
-      <button id="appendLista" class="btn btn-success">Append Lista</button>
-    </div>
-
-    <hr />
-
-    <div class="d-flex justify-content-between mb-4">
-      <button id="hide" class="btn btn-success">Hidee</button>
-      <h2 id="mani">Mani</h2>
-      <button id="show" class="btn btn-success">Show</button>
-    </div>
-
-    <hr />
-
-    <button id="remove" class="btn btn-success mb-4">Remove</button>
-
-    <footer>
-      <p>JQuery-Clase1 @ 2022</p>
-    </footer>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="codigo.js"></script>
 </html>
