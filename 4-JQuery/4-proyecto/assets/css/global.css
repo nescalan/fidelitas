@@ -1,5 +1,6 @@
 @import "../css/variables.css";
 @import "../css/nav.css";
+@import "./product-list.css";
 @import "../css/index.css";
 @import "../css/cart.css";
 @import "./router.css";
