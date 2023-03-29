@@ -54,7 +54,7 @@ section .hero-img {
   /* Box Model */
   padding-top: 500px;
   /* Misc */
-  background-image: url(../img/hero-min.jpg);
+  background-image: url(../images/hero-min.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
