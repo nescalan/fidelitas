@@ -1,0 +1,42 @@
+h3 {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+h5 {
+    text-align: center;
+    color: lightseagreen;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    margin-bottom: 2px;
+}
+
+.frutas ol {
+    border: cornflowerblue solid 2px;
+    padding: 3px;
+    padding-bottom: 2px;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 2px;
+    text-align: center;
+    border: lightseagreen solid 2px;
+    list-style-type: none;
+    color: cornflowerblue;
+    font-weight: 700;
+}
+
+#contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+}
