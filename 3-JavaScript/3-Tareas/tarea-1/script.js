@@ -22,7 +22,7 @@ response = confirm(
 
 // Conditional IF Statement
 if (response) {
-  alert("The data is valid, thanks for the confirmation.");
+  alert("Los datos son validos, gracias por la confirmacion.");
 } else {
   alert("Lastimosamente, los datos contiene uno o mas errores.");
 }
