@@ -1,13 +1,14 @@
 /* CSS: Navbar Styles */
+section.nav {
+  /* height: 80px; */
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+  background-color: #fff;
+}
 nav {
   /* Box model */
-  width: 80%;
-  min-width: 375px;
-  height: 80px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 @media (min-width: 576px) {
   nav {
@@ -37,6 +38,7 @@ nav a:last-child img {
   /* Box model */
   width: 40px;
 }
+
 /* nav div {
   position: inherit;
 } */
@@ -62,27 +64,19 @@ nav #quantity {
 #btn-menu {
   display: none;
 }
-#btn-menu:checked ~ #sec-shopping-cart {
-  margin: 0;
-}
-#sec-shopping-cart {
-  /* Positioning */
-  position: absolute;
-  right: 0;
-  z-index: 5;
 
-  /* Box model */
-  width: 100%;
-  /* height: 100vh; */
-  margin: -250% auto;
-
-  background-color: #fff;
-
-  /* Misc */
-  transition: 0.5s;
-}
 /* Positioning */
 /* Box model */
 /* Typographic */
 /* Visual */
 /* Misc */
+.start-hidden {
+  display: none;
+}
+nav #router {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

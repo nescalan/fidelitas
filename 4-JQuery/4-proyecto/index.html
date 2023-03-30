@@ -30,43 +30,44 @@
   </head>
 
   <body>
-    <nav>
-      <a href="#">
-        <img src="./assets/images/pizza-logo.jpg" alt="pizza-logo" />
-      </a>
-      <div>
-        <input id="btn-menu" type="checkbox" name="shopping-cart" />
-        <label for="btn-menu">
-          <span id="quantity">0</span>
-          <img src="./assets/images/shopping-cart.svg" alt="shopping-cart" />
-        </label>
+    <section class="nav">
+      <nav>
+        <div id="router">
+          <a href="#main-menu">
+            <img src="./assets/images/pizza-logo.png" alt="pizza-logo" />
+          </a>
+          <a href="#sec-shopping-cart">
+            <span id="quantity">0</span>
+            <img src="./assets/images/shopping-cart.svg" alt="shopping-cart" />
+          </a>
+        </div>
+      </nav>
+    </section>
 
-        <!-- SECTION: Shopping Cart -->
-        <section id="sec-shopping-cart">
-          <div class="container">
-            <h1>Shopping Cart</h1>
+    <!-- SECTION: Shopping Cart -->
+    <section id="sec-shopping-cart" class="page">
+      <div class="container">
+        <h1>Shopping Cart</h1>
 
-            <!-- Shopping Cart -->
-            <div class="cart">
-              <div id="cart">
-                <div>
-                  <h2>¡There's a cart to fill !</h2>
-                  <br />
-                  <p>You currently have no products in your shopping cart.</p>
-                </div>
-              </div>
-
-              <!-- Shopping Cart Total -->
-
-              <span id="total-pay">total</span>
-
-              <!-- Checkout Button -->
-              <span id="checkout" onclick="setPurchase()"></span>
+        <!-- Shopping Cart -->
+        <div class="cart">
+          <div id="cart">
+            <div>
+              <h2>¡There's a cart to fill !</h2>
+              <br />
+              <p>You currently have no products in your shopping cart.</p>
             </div>
           </div>
-        </section>
+
+          <!-- Shopping Cart Total -->
+
+          <span id="total-pay">total</span>
+
+          <!-- Checkout Button -->
+          <span id="checkout" onclick="setPurchase()"></span>
+        </div>
       </div>
-    </nav>
+    </section>
 
     <!-- SECTION: Primera del Router -->
     <section id="carrito" class="page">
@@ -94,7 +95,7 @@
     </section>
 
     <!-- SECTION: Main Page -->
-    <article id="main-page">
+    <article id="main-menu">
       <!-- SECTION: Hero Image -->
       <section class="sec-hero">
         <h1>Italy Pizza Menu</h1>
