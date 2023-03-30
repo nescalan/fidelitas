@@ -113,10 +113,10 @@ $(document).ready(function () {
   // TOGGLE: Function toggle()
   $("#btn").click(() => {
     $(".product-item").toggle(
+      () => {},
       () => {
         $("#btn").html("Mostrar");
-      },
-      () => {}
+      }
     );
   });
 });
