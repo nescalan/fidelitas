@@ -1,13 +1,17 @@
 $(document).ready(() => {
-  // TOGGLE: Shopping cart toggle
-  $("nav label")
+  $("nav label") // TOGGLE: Shopping cart toggle
     .children()
     .last()
     .click(() => {
       // TOGGLE: Function toggle()
       $("#main-page").toggle(
-        () => {},
-        () => {}
+        () => {
+          alert("First handler");
+        },
+        () => {
+          alert("second handler");
+          $(".sec-shopping-cart").attr({ display: "block" });
+        }
       );
     });
 

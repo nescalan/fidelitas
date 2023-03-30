@@ -31,42 +31,41 @@
 
   <body>
     <nav>
-      <a href="#">
-        <img src="./assets/images/pizza-logo.jpg" alt="pizza-logo" />
-      </a>
-      <div>
-        <input id="btn-menu" type="checkbox" name="shopping-cart" />
-        <label for="btn-menu">
-          <span id="quantity">0</span>
-          <img src="./assets/images/shopping-cart.svg" alt="shopping-cart" />
-        </label>
-
-        <!-- SECTION: Shopping Cart -->
-        <section id="sec-shopping-cart">
-          <div class="container">
-            <h1>Shopping Cart</h1>
-
-            <!-- Shopping Cart -->
-            <div class="cart">
-              <div id="cart">
-                <div>
-                  <h2>¡There's a cart to fill !</h2>
-                  <br />
-                  <p>You currently have no products in your shopping cart.</p>
-                </div>
-              </div>
-
-              <!-- Shopping Cart Total -->
-
-              <span id="total-pay">total</span>
-
-              <!-- Checkout Button -->
-              <span id="checkout" onclick="setPurchase()"></span>
-            </div>
-          </div>
-        </section>
+      <div id="router">
+        <a href="#menu">
+          <img src="./assets/images/pizza-logo.jpg" alt="pizza-logo" />
+        </a>
+        <a href="">Menu</a>
+        <a href=""
+          ><img src="./assets/images/shopping-cart.svg" alt="shopping-cart"
+        /></a>
       </div>
     </nav>
+
+    <!-- SECTION: Shopping Cart -->
+    <section id="sec-shopping-cart" class="page">
+      <div class="container">
+        <h1>Shopping Cart</h1>
+
+        <!-- Shopping Cart -->
+        <div class="cart">
+          <div id="cart">
+            <div>
+              <h2>¡There's a cart to fill !</h2>
+              <br />
+              <p>You currently have no products in your shopping cart.</p>
+            </div>
+          </div>
+
+          <!-- Shopping Cart Total -->
+
+          <span id="total-pay">total</span>
+
+          <!-- Checkout Button -->
+          <span id="checkout" onclick="setPurchase()"></span>
+        </div>
+      </div>
+    </section>
 
     <!-- SECTION: Primera del Router -->
     <section id="carrito" class="page">
