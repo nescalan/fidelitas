@@ -1,13 +1,14 @@
 /* CSS: Navbar Styles */
+section.nav {
+  /* height: 80px; */
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+  background-color: #fff;
+}
 nav {
   /* Box model */
-  width: 80%;
-  min-width: 375px;
-  height: 80px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 @media (min-width: 576px) {
   nav {
@@ -37,6 +38,7 @@ nav a:last-child img {
   /* Box model */
   width: 40px;
 }
+
 /* nav div {
   position: inherit;
 } */
@@ -70,4 +72,11 @@ nav #quantity {
 /* Misc */
 .start-hidden {
   display: none;
+}
+nav #router {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
