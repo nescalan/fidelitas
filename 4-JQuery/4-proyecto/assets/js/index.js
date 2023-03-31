@@ -81,11 +81,18 @@ $(document).ready(() => {
 
       <!-- SELECT -->
       <div class="product-prices">
-        <label for="cars">Select a method:</label>
         <select name="cars" id="cars">
-          <option value="">--- Choose option ---</option>
-          <option value="delivery">Delivery</option>
-          <option value="carryout">Carryout</option>
+          <option value=""> Qty: 1 </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
       </div>
       <div class="description">
