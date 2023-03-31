@@ -2,6 +2,8 @@ $(document).ready(function () {
   // get the router links
   let $links = $("#router a");
 
+  $("#main-menu").show(); // show the selected page
+
   // handle the click events of the links
   $links.click(function (e) {
     e.preventDefault(); // prevent the default link behavior

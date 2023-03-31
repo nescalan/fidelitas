@@ -30,12 +30,14 @@
   </head>
 
   <body>
+    <!-- SECTION: jQuery router  -->
     <section class="nav">
       <nav>
         <div id="router">
           <a href="#main-menu">
             <img src="./assets/images/pizza-logo.png" alt="pizza-logo" />
           </a>
+          <a href="#main-menu">Menu</a>
           <a href="#sec-shopping-cart">
             <span id="quantity">0</span>
             <img src="./assets/images/shopping-cart.svg" alt="shopping-cart" />
@@ -45,32 +47,7 @@
     </section>
 
     <!-- SECTION: Shopping Cart -->
-    <section id="sec-shopping-cart" class="page">
-      <div class="container">
-        <h1>Shopping Cart</h1>
-
-        <!-- Shopping Cart -->
-        <div class="cart">
-          <div id="cart">
-            <div>
-              <h2>¡There's a cart to fill !</h2>
-              <br />
-              <p>You currently have no products in your shopping cart.</p>
-            </div>
-          </div>
-
-          <!-- Shopping Cart Total -->
-
-          <span id="total-pay">total</span>
-
-          <!-- Checkout Button -->
-          <span id="checkout" onclick="setPurchase()"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: Primera del Router -->
-    <section id="carrito" class="page">
+    <section id="sec-shopping-cart" class="page active">
       <div class="container">
         <h1>Shopping Cart</h1>
 
@@ -95,7 +72,7 @@
     </section>
 
     <!-- SECTION: Main Page -->
-    <article id="main-menu">
+    <article id="main-menu" class="page">
       <!-- SECTION: Hero Image -->
       <section class="sec-hero">
         <h1>Italy Pizza Menu</h1>

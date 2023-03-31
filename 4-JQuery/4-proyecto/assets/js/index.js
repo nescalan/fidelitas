@@ -21,26 +21,26 @@ $(document).ready(() => {
 
     const menuTemplate = `
       <div class="menu">
-      <div class="menu-img">
-      <p class="text-title">Combo: ${[i + 1]}</p>
-      <img src="${productsList[i].image}" alt="cheese" width="100%" />
-      </div>
-      <div class="menu-info">
-        <p class="text-title">${productsList[i].title}</p>
-        <p class="text-body">
-          ${productsList[i].description}
-        </p>
-      </div>
-      <div class="menu-footer">
-        <span class="text-title">$${productsList[i].price}</span>
-        <div class="menu-button">
-          <span
-            class="material-symbols-outlined"
-            onclick="getProduct(${i})"
-          >
-            add_shopping_cart
-          </span>
+        <div class="menu-img">
+          <p class="text-title">Combo: ${[i + 1]}</p>
+          <img src="${productsList[i].image}" alt="cheese" width="100%" />
         </div>
+        <div class="menu-info">
+          <p class="text-title">${productsList[i].title}</p>
+          <p class="text-body">
+            ${productsList[i].description}
+          </p>
+        </div>
+        <div class="menu-footer">
+          <span class="text-title">$${productsList[i].price}</span>
+          <div class="menu-button">
+            <span
+              class="material-symbols-outlined"
+              onclick="getProduct(${i})"
+            >
+              add_shopping_cart
+            </span>
+          </div>
       </div>`;
     domPizzaMenu.append(menuTemplate);
   }
