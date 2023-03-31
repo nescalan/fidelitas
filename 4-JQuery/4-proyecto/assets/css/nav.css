@@ -1,0 +1,82 @@
+/* CSS: Navbar Styles */
+section.nav {
+  /* height: 80px; */
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+  background-color: #fff;
+}
+nav {
+  /* Box model */
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  nav {
+    width: var(--theme-width-sm);
+  }
+}
+@media (min-width: 768px) {
+  nav {
+    width: var(--theme-width-md);
+  }
+}
+@media (min-width: 992px) {
+  nav {
+    width: var(--theme-width-lg);
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    width: var(--theme-width-xl);
+  }
+}
+nav a:first-child img {
+  /* Box model */
+  width: 80px;
+}
+nav a:last-child img {
+  /* Box model */
+  width: 40px;
+}
+
+/* nav div {
+  position: inherit;
+} */
+nav #quantity {
+  /* Positioning */
+  position: relative;
+  top: -30px;
+
+  /* Box model */
+  padding: 3px 7px;
+
+  /* Typographic */
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+
+  /* Visual */
+  border: 1px solid var(--color-orange);
+  border-radius: 50%;
+  background-color: var(--color-orange);
+}
+
+#btn-menu {
+  display: none;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */
+.start-hidden {
+  display: none;
+}
+nav #router {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
