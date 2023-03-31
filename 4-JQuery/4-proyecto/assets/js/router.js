@@ -2,8 +2,6 @@ $(document).ready(function () {
   // get the router links
   let $links = $("#router a");
 
-  $("#main-menu").show(); // show the selected page
-
   // handle the click events of the links
   $links.click(function (e) {
     e.preventDefault(); // prevent the default link behavior
@@ -11,6 +9,7 @@ $(document).ready(function () {
     $(this).addClass("active"); // add the active class to the clicked link
     let page = $(this).attr("href"); // get the page name from the link's href attribute
     $(".page").not(page).hide(); // hide all pages except the selected one
+    $("#card-product").hide(); // hide the selected page
 
     $(page).show(); // show the selected page
   });

@@ -1,4 +1,7 @@
 $(document).ready(() => {
+  $("#main-menu").show(); // show the selected page
+  $("#card-product").hide(); // hide the selected page
+
   $("nav label") // TOGGLE: Shopping cart toggle
     .children()
     .last()
@@ -20,7 +23,7 @@ $(document).ready(() => {
     const domPizzaMenu = $("#menu");
 
     const menuTemplate = `
-      <div class="menu">
+      <div  class="menu">
         <div class="menu-img">
           <p class="text-title">Combo: ${[i + 1]}</p>
           <img src="${productsList[i].image}" alt="cheese" width="100%" />
@@ -35,7 +38,7 @@ $(document).ready(() => {
           <span class="text-title">$${productsList[i].price}</span>
           <div class="menu-button">
             <span
-              class="material-symbols-outlined"
+              class="material-symbols-outlined products-description"
               onclick="getProduct(${i})"
             >
               add_shopping_cart
@@ -44,4 +47,9 @@ $(document).ready(() => {
       </div>`;
     domPizzaMenu.append(menuTemplate);
   }
+
+  $(".products-description").click(() => {
+    $("#main-menu").hide(); // show the selected page
+    $("#card-product").show(); // show the selected page
+  });
 });
