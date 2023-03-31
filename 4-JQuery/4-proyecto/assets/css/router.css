@@ -29,11 +29,11 @@ header {
 }
 
 #router a:hover {
-  background-color: #ddd;
+  background-color: #e29d8b;
 }
 
 #router a.active {
-  background-color: #999;
+  background-color: #df2d00;
   color: #fff;
 }
 .page {

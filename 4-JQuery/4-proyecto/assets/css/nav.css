@@ -1,10 +1,13 @@
 /* CSS: Navbar Styles */
 section.nav {
-  /* height: 80px; */
+  height: 80px;
   position: sticky;
   top: -1px;
   z-index: 1;
   background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px; */
 }
 nav {
   /* Box model */
