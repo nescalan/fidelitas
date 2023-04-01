@@ -10,7 +10,7 @@ const productsList = [
   },
   {
     id: 2,
-    image: "./assets/images/pizza-cheese.jpg",
+    image: "./assets/images/pizza-pepperoni.jpg",
     title: "Pepperoni Pizza",
     description:
       "Get our classic and Delicious Pepperoni pizza with your choice of sauce and crust.",
