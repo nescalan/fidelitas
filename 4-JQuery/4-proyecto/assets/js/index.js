@@ -1,4 +1,6 @@
 $(document).ready(() => {
+  // ENLARGE PIZZA:
+
   $("#main-menu").show(); // show the selected page
   $("#card-product").hide(); // hide the selected page
 
@@ -63,11 +65,11 @@ $(document).ready(() => {
       <!-- SELECT -->
       <div class="product-options">
         <label for="pizza-options">Choose an option:</label>
-        <select name="pizza-options" id="pizza-options">
+        <select id="pizza-options" name="pizza-options" >
           <option value="">--- Choose option ---</option>
-          <option value="medium">Medium: 8 slice pizza</option>
-          <option value="large">Large: 12 slice pizza</option>
-          <option value="poersonal">Personal: 4 slice pizza</option>
+          <option value="11.95">Medium: 8 slice pizza</option>
+          <option value="19.95">Large: 12 slice pizza</option>
+          <option value="8.95">Personal: 4 slice pizza</option>
         </select>
       </div>
       </div>
@@ -101,14 +103,18 @@ $(document).ready(() => {
           </p>
         </div>
 
-        <button class="buy-btn">ADD TO CART</button>
+        <button id="buy-btn" class="buy-btn">ADD TO CART</button>
       </div>
     </div>
     `;
 
     domMainMenu.hide(); // Hide the main menu
     domCardProduct.append(domProductContent).show();
-  });
 
-  // ENLARGE PIZZA:
+    // CALCULO DE PRECIOS: Cantidad por precio unitario
+    $("pizza-options").click(function () {
+      // do your stuff
+      alert("works");
+    });
+  });
 });
