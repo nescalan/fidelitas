@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.3rem;
+}
+section {
+  width: 80%;
+  margin: 0 auto;
+}
+section h1 {
+  margin-bottom: 60px;
+  padding: 30px 30px;
+}
+button {
+  padding: 1rem 3rem;
+  margin: 15px 15px 15px 0;
+}
