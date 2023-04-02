@@ -109,12 +109,96 @@ $(document).ready(() => {
     `;
 
     domMainMenu.hide(); // Hide the main menu
-    domCardProduct.append(domProductContent).show();
+    domCardProduct.show();
+    // domCardProduct.append(domProductContent).show();
+  });
 
-    // CALCULO DE PRECIOS: Cantidad por precio unitario
-    $("pizza-options").click(function () {
-      // do your stuff
-      alert("works");
+  // ANIMACION IMAGEN: Cantidad por precio unitario
+  $(".product-image-container").mouseenter(function () {
+    // do your stuff
+    $(this).animate({
+      width: "420px",
+      height: "340px",
     });
+  });
+  $(".product-image-container").mouseleave(function () {
+    // do your stuff
+    $(this).animate({
+      width: "345px",
+      height: "280px",
+    });
+  });
+
+  // CALCULO DE PRECIOS: Cantidad por precio unitario
+  $("#pizza-options").change(function () {
+    let pizzaPrice = $(this).val();
+    let pizzaQty = $("#pizza-quantity").val();
+    let result = pizzaPrice * pizzaQty;
+    let domErrorMessage = $("#message").html();
+    const domSubtotal = $("#subtotal").html();
+    const errorMessage = `
+    <div>
+      <p>"How many pizzas are you going to buy?"</p>
+    </div>
+    `;
+    $("#subtotal").html(result);
+    $("#pizza-price").text(pizzaPrice);
+
+    if (pizzaQty == 0) {
+      if (domErrorMessage == "") {
+        // Crear elemento message en pantalla
+        const domMessage = $("#message");
+        domMessage.css({
+          margin: "0px 0px 20px",
+          padding: "15px 35px 15px 15px",
+          color: "#b94a48",
+          "font-size": "14px",
+          "line-height": "20px",
+          "border-color": "#eed3d7",
+          "border-radius": "4px",
+          "border-style": "solid",
+          "border-width": "1px",
+          backgroundColor: "#f2dede",
+        });
+        domMessage.append(errorMessage);
+      }
+    } else {
+      domMessage.hide();
+    }
+  });
+
+  // CALCULO DEL SUBTOTAL
+  $("#pizza-quantity").change(function () {
+    let pizzaPrice = $("#pizza-price").html();
+    let domErrorMessage = $("#message").html();
+    const errorMessage = `
+    <div>
+      <p>"What size pizza are you going to buy?"</p>
+    </div>
+    `;
+
+    if (pizzaPrice == 0) {
+      if (domErrorMessage == "") {
+        // Crear elemento message en pantalla
+        const domMessage = $("#message");
+        domMessage.css({
+          margin: "0px 0px 20px",
+          padding: "15px 35px 15px 15px",
+          color: "#b94a48",
+          "font-size": "14px",
+          "line-height": "20px",
+          "border-color": "#eed3d7",
+          "border-radius": "4px",
+          "border-style": "solid",
+          "border-width": "1px",
+          backgroundColor: "#f2dede",
+        });
+        domMessage.append(errorMessage);
+      }
+    } else {
+      let pizzaQty = $(this).val();
+      let result = pizzaPrice * pizzaQty;
+      $("#subtotal").html(result);
+    }
   });
 });
