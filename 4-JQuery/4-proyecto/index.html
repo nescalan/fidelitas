@@ -71,9 +71,6 @@
       </div>
     </section>
 
-    <!-- SECTION: Card Product Description -->
-    <section id="card-product"></section>
-
     <!-- SECTION: Main Page and Pizzas Menu-->
     <article id="main-menu" class="page">
       <!-- SECTION: Hero Image -->
@@ -89,6 +86,67 @@
         </div>
       </section>
     </article>
+
+    <!-- SECTION: Card Product Description -->
+    <section id="card-product">
+      <div class="product">
+        <!-- LEFT COLUMN -->
+        <div class="product-left">
+          <div class="product-image-container">
+            <img
+              id="product-img"
+              src="./assets/images/pizza-delicious.jpg"
+              alt="product-image"
+              width="100%"
+            />
+          </div>
+
+          <!-- SELECT -->
+          <div class="product-options">
+            <label for="pizza-options">Choose an option:</label>
+            <select id="pizza-options" name="pizza-options">
+              <option value="">--- Choose option ---</option>
+              <option value="11.95">Medium: 8 slice pizza</option>
+              <option value="19.95">Large: 12 slice pizza</option>
+              <option value="8.95">Personal: 4 slice pizza</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="product-right">
+          <h3>${productsList[0].title}</h3>
+          <h6>Combo: No1</h6>
+          <p>Price: $ <span id="pizza-price">0</span></p>
+
+          <!-- SELECT -->
+          <div class="product-quantity">
+            <select id="pizza-quantity" name="cars">
+              <option value="0">Qty: 0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <p>Subtotal: $ <span id="subtotal">0</span></p>
+          </div>
+          <div id="message"></div>
+
+          <div class="description">
+            <p>Description:</p>
+            <p>${productsList[0].description}</p>
+          </div>
+
+          <button id="buy-btn" class="buy-btn">ADD TO CART</button>
+        </div>
+      </div>
+    </section>
 
     <!-- SCRIPT: JavaScript Files -->
     <script src="./assets/js/products.js"></script>

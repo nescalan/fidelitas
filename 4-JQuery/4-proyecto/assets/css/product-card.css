@@ -3,7 +3,7 @@
   position: static;
   /* Box model */
   width: 80%;
-  max-width: 600px;
+  max-width: 768px;
   margin: 3rem auto;
   padding: 10px;
   display: flex;
@@ -28,9 +28,12 @@
   /* Box model */
   width: 100%;
 }
-
+.product .product-image-container {
+  position: static;
+}
 .product .product-image-container img {
   border-radius: 6px 6px 0 0;
+  position: relative;
 }
 .product .product-options {
   /* Box model */
@@ -49,8 +52,10 @@
 .product .product-right h6 {
   margin: 10px 0 30px;
 }
-.product .product-prices {
+.product .product-quantity {
   margin: 30px 0 30px;
+  display: flex;
+  gap: 30px;
 }
 .product .description p:last-child {
   font-size: 13px;
@@ -58,7 +63,7 @@
 
 /* BUTTON */
 .product button {
-  --bg: #e74c3c;
+  --bg: red;
   --text-color: #fff;
   position: relative;
   width: 150px;
