@@ -144,6 +144,7 @@ $(document).ready(() => {
     $("#subtotal").html(result);
     $("#pizza-price").text(pizzaPrice);
 
+    // QUANTITY ERROR MESSAGE ----------------------
     if (pizzaQty == 0) {
       if (domErrorMessage == "") {
         // Crear elemento message en pantalla
@@ -167,6 +168,7 @@ $(document).ready(() => {
     }
   });
 
+  // PRICE ERROR MESSAGE ----------------------
   // CALCULO DEL SUBTOTAL
   $("#pizza-quantity").change(function () {
     let pizzaPrice = $("#pizza-price").html();
