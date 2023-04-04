@@ -129,78 +129,87 @@ $(document).ready(() => {
     });
   });
 
-  // CALCULO DE PRECIOS: Cantidad por precio unitario
+  // DOM: Error Messages
   $("#pizza-options").change(function () {
-    let pizzaPrice = $(this).val();
-    let pizzaQty = $("#pizza-quantity").val();
-    let result = pizzaPrice * pizzaQty;
-    let domErrorMessage = $("#message").html();
-    const domSubtotal = $("#subtotal").html();
-    const errorMessage = `
-    <div>
-      <p>"How many pizzas are you going to buy?"</p>
-    </div>
-    `;
-    $("#subtotal").html(result);
-    $("#pizza-price").text(pizzaPrice);
+    const domPizzaOptions = $("#pizza-options").val();
+    $("#pizza-price").html(domPizzaOptions);
+    const domPizzaQty = $("#pizza-quantity").val();
+    const domErrorMessage = $("#message");
 
-    // QUANTITY ERROR MESSAGE ----------------------
-    if (pizzaQty == 0) {
-      if (domErrorMessage == "") {
-        // Crear elemento message en pantalla
-        const domMessage = $("#message");
-        domMessage.css({
-          margin: "0px 0px 20px",
-          padding: "15px 35px 15px 15px",
-          color: "#b94a48",
-          "font-size": "14px",
-          "line-height": "20px",
-          "border-color": "#eed3d7",
-          "border-radius": "4px",
-          "border-style": "solid",
-          "border-width": "1px",
-          backgroundColor: "#f2dede",
-        });
-        domMessage.append(errorMessage);
-      }
-    } else {
-      domMessage.hide();
+    if (domPizzaOptions == 0 && domPizzaQty == 0) {
+      domMessage = "Select a size of pizza and the quantity to buy";
+      domErrorMessage.fadeIn();
+      result = 0;
     }
+    if (domPizzaOptions == 0 && domPizzaQty != 0) {
+      domMessage = "What size pizza are you going to buy?";
+      domErrorMessage.fadeIn();
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty == 0) {
+      domMessage = "How many pizzas are you going to buy?";
+      domErrorMessage.fadeIn();
+
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty != 0) {
+      let result = domPizzaOptions * domPizzaQty;
+      $("#subtotal").html(result);
+      domErrorMessage.fadeOut();
+    }
+    domErrorMessage.html(domMessage).css({
+      margin: "0px 0px 20px",
+      padding: "15px 35px 15px 15px",
+      color: "#b94a48",
+      "font-size": "14px",
+      "line-height": "20px",
+      "border-color": "#eed3d7",
+      "border-radius": "4px",
+      "border-style": "solid",
+      "border-width": "1px",
+      backgroundColor: "#f2dede",
+    });
   });
 
-  // PRICE ERROR MESSAGE ----------------------
-  // CALCULO DEL SUBTOTAL
+  // DOM: Error Messages
   $("#pizza-quantity").change(function () {
-    let pizzaPrice = $("#pizza-price").html();
-    let domErrorMessage = $("#message").html();
-    const errorMessage = `
-    <div>
-      <p>"What size pizza are you going to buy?"</p>
-    </div>
-    `;
+    const domPizzaOptions = $("#pizza-options").val();
+    $("#pizza-price").html(domPizzaOptions);
+    const domPizzaQty = $("#pizza-quantity").val();
+    const domErrorMessage = $("#message");
 
-    if (pizzaPrice == 0) {
-      if (domErrorMessage == "") {
-        // Crear elemento message en pantalla
-        const domMessage = $("#message");
-        domMessage.css({
-          margin: "0px 0px 20px",
-          padding: "15px 35px 15px 15px",
-          color: "#b94a48",
-          "font-size": "14px",
-          "line-height": "20px",
-          "border-color": "#eed3d7",
-          "border-radius": "4px",
-          "border-style": "solid",
-          "border-width": "1px",
-          backgroundColor: "#f2dede",
-        });
-        domMessage.append(errorMessage);
-      }
-    } else {
-      let pizzaQty = $(this).val();
-      let result = pizzaPrice * pizzaQty;
-      $("#subtotal").html(result);
+    if (domPizzaOptions == 0 && domPizzaQty == 0) {
+      domMessage = "Select a size of pizza and the quantity to buy";
+      domErrorMessage.fadeIn();
+      result = 0;
     }
+    if (domPizzaOptions == 0 && domPizzaQty != 0) {
+      domMessage = "What size pizza are you going to buy?";
+      domErrorMessage.fadeIn();
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty == 0) {
+      domMessage = "How many pizzas are you going to buy?";
+      domErrorMessage.fadeIn();
+
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty != 0) {
+      let result = domPizzaOptions * domPizzaQty;
+      $("#subtotal").html(result);
+      domErrorMessage.fadeOut();
+    }
+    domErrorMessage.html(domMessage).css({
+      margin: "0px 0px 20px",
+      padding: "15px 35px 15px 15px",
+      color: "#b94a48",
+      "font-size": "14px",
+      "line-height": "20px",
+      "border-color": "#eed3d7",
+      "border-radius": "4px",
+      "border-style": "solid",
+      "border-width": "1px",
+      backgroundColor: "#f2dede",
+    });
   });
 });
