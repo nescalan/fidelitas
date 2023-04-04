@@ -171,7 +171,45 @@ $(document).ready(() => {
     });
   });
 
+  // DOM: Error Messages
   $("#pizza-quantity").change(function () {
+    const domPizzaOptions = $("#pizza-options").val();
+    $("#pizza-price").html(domPizzaOptions);
     const domPizzaQty = $("#pizza-quantity").val();
+    const domErrorMessage = $("#message");
+
+    if (domPizzaOptions == 0 && domPizzaQty == 0) {
+      domMessage = "Select a size of pizza and the quantity to buy";
+      domErrorMessage.fadeIn();
+      result = 0;
+    }
+    if (domPizzaOptions == 0 && domPizzaQty != 0) {
+      domMessage = "What size pizza are you going to buy?";
+      domErrorMessage.fadeIn();
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty == 0) {
+      domMessage = "How many pizzas are you going to buy?";
+      domErrorMessage.fadeIn();
+
+      result = 0;
+    }
+    if (domPizzaOptions != 0 && domPizzaQty != 0) {
+      let result = domPizzaOptions * domPizzaQty;
+      $("#subtotal").html(result);
+      domErrorMessage.fadeOut();
+    }
+    domErrorMessage.html(domMessage).css({
+      margin: "0px 0px 20px",
+      padding: "15px 35px 15px 15px",
+      color: "#b94a48",
+      "font-size": "14px",
+      "line-height": "20px",
+      "border-color": "#eed3d7",
+      "border-radius": "4px",
+      "border-style": "solid",
+      "border-width": "1px",
+      backgroundColor: "#f2dede",
+    });
   });
 });
