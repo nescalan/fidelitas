@@ -1,0 +1,26 @@
+:root {
+  --bg-primary: #316acc;
+
+  /* font */
+  --font-roboto: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  /* Typographic */
+  font-size: 62.5%;
+}
+body {
+  /* Typographic */
+  font-family: var(--font-roboto);
+  font-size: 1.3rem;
+}
+header {
+  /* box model */
+  height: 50px;
+  background-color: var(--bg-primary);
+}
