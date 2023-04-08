@@ -1,8 +1,17 @@
 :root {
-  --bg-primary: #316acc;
+  /* COLORS */
+
+  /* BACKGROUND COLORS */
+  --bg-primary: #0082c8;
+  --bg-secondary: #cee7f4;
+  --bg-terciary: #ededed;
 
   /* font */
   --font-roboto: "Roboto", sans-serif;
+  --font-color-titles: #fafafa;
+  --font-color-body: #222;
+  --font-size-titles: 2.2rem;
+  --font-size-subtitles: 1.9rem;
 }
 
 * {
@@ -16,11 +25,96 @@ html {
 }
 body {
   /* Typographic */
+  color: var(--font-color-body);
   font-family: var(--font-roboto);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 header {
   /* box model */
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Typographic */
+  color: var(--font-color-titles);
+  font-size: var(--font-size-titles);
   background-color: var(--bg-primary);
+}
+main {
+  /* box model */
+  display: flex;
+}
+/* SECTION LEFT COLUMN */
+#sec-left-col {
+  /* box model */
+  width: 450px;
+  height: 100vh;
+  padding: 60px 15px;
+  /* Visual */
+  background-color: var(--bg-secondary);
+}
+
+#sec-left-col .navigation-link {
+  /* box model */
+  padding: 0;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 750ms;
+}
+#sec-left-col .navigation-link:hover {
+  /* Visual */
+  border-radius: 50px;
+  background-color: #fff;
+}
+
+#sec-left-col .navigation-link span:nth-child(1) {
+  /* box model */
+  margin-left: 10px;
+  /* Typographic */
+  text-align: left;
+}
+#sec-left-col .navigation-link span:nth-child(2) {
+  /* box model */
+  width: 80%;
+  /* Typographic */
+  text-align: left;
+}
+#sec-left-col .navigation-link span:nth-child(3) {
+  /* box model */
+  margin-right: 15px;
+}
+
+/* SECTION RIGHT COLUMN */
+#sec-right-col {
+  /* box model */
+  width: 100%;
+  padding: 60px 30px;
+
+  /* Visual */
+  background-color: var(--bg-terciary);
+}
+#sec-right-col .input {
+  /* box model */
+  width: 100%;
+  /* max-width: 200px; */
+  padding: 15px;
+
+  /* Typographic */
+  color: var(--font-color-body);
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  font-size: medium;
+
+  /* Visual */
+  border: none;
+  border-radius: 15px;
+  background-color: #e8e8e8;
+  box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+}
+
+#sec-right-col .input:focus {
+  outline-color: white;
+  place-content: "Enter your message!";
 }
