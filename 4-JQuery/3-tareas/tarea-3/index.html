@@ -29,35 +29,56 @@
       <p>Tarea 3 - Aplicación Lista de Tareas</p>
     </header>
     <main>
+      <!-- LEFT COLUMN -->
       <section id="sec-left-col">
         <div class="navigation-link">
           <span class="material-symbols-outlined"> circle </span>
           <span>Todas las Tareas</span>
-          <span>1</span>
+          <span id="all-tasks">1</span>
         </div>
         <div class="navigation-link">
           <span class="material-symbols-outlined"> circle </span>
           <span>Tareas Pendientes</span>
-          <span>1</span>
+          <span id="pending-tasks">0</span>
         </div>
         <div class="navigation-link">
           <span class="material-symbols-outlined"> circle </span>
           <span>Tareas Terminadas</span>
-          <span>1</span>
+          <span id="completed-tasks">0</span>
         </div>
       </section>
+      <!-- RIGHT COLUMN -->
       <section id="sec-right-col">
         <input
           id="new-task"
           type="text"
           name="text"
           class="input"
-          placeholder="Agregue una tarea!"
+          placeholder="Agregue una tarea ..."
         />
+        <hr />
         <div id="added-task"></div>
       </section>
+
+      <!-- TERCERA SECTION -->
+      <section>
+        <input type="checkbox" class="CheckedAK" />
+        <input type="checkbox" class="CheckedAK" />
+        <input type="checkbox" class="CheckedAK" />
+        <input type="checkbox" class="CheckedAK" />
+        <input type="checkbox" class="CheckedAK" />
+        <input type="checkbox" checked class="CheckedAK" />
+        <p></p>
+      </section>
     </main>
+
+    <!-- SCRIPT: JavaScript Files -->
+    <script src="./assets/js/tasks.js"></script>
+
+    <!-- SCRIPT jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- SCRIPT: Local jquery con javascript -->
     <script src="./assets/js/scritp.js"></script>
   </body>
 </html>

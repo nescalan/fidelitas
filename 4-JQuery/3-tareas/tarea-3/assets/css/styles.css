@@ -47,7 +47,7 @@ main {
 /* SECTION LEFT COLUMN */
 #sec-left-col {
   /* box model */
-  width: 450px;
+  width: 350px;
   height: 100vh;
   padding: 60px 15px;
   /* Visual */
@@ -71,7 +71,7 @@ main {
 
 #sec-left-col .navigation-link span:nth-child(1) {
   /* box model */
-  margin-left: 10px;
+  margin: 0 5px;
   /* Typographic */
   text-align: left;
 }
@@ -95,11 +95,15 @@ main {
   /* Visual */
   background-color: var(--bg-terciary);
 }
-#sec-right-col .input {
+#sec-right-col .input,
+#sec-right-col .grouped-tasks {
   /* box model */
   width: 100%;
-  /* max-width: 200px; */
-  padding: 15px;
+  height: 50px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 
   /* Typographic */
   color: var(--font-color-body);
@@ -108,13 +112,25 @@ main {
   font-size: medium;
 
   /* Visual */
-  border: none;
-  border-radius: 15px;
-  background-color: #e8e8e8;
-  box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+  border: 1px solid var(--bg-secondary);
+  border-radius: 10px;
+  background-color: #fefefe;
+  /* box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5; */
 }
-
 #sec-right-col .input:focus {
   outline-color: white;
   place-content: "Enter your message!";
 }
+#sec-right-col hr {
+  margin-bottom: 30px;
+}
+#sec-right-col .grouped-tasks input {
+  /* Box model */
+  margin-right: 10px;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */
