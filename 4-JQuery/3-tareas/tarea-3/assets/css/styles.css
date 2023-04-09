@@ -108,7 +108,7 @@ main {
   /* Typographic */
   color: var(--font-color-body);
   font-family: var(--font-roboto);
-  font-weight: 500;
+  font-weight: 400;
   font-size: medium;
 
   /* Visual */
@@ -127,6 +127,9 @@ main {
 #sec-right-col .grouped-tasks input {
   /* Box model */
   margin-right: 10px;
+}
+#sec-right-col .grouped-tasks:hover {
+  background-color: var(--bg-secondary);
 }
 
 /* Positioning */
