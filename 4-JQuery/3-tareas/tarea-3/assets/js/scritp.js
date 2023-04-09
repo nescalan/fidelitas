@@ -20,32 +20,45 @@ $(document).ready(function () {
     domAddedTask.empty();
   }
 
+  function calculateTasks() {
+    // Set the number of tasks on left column
+    let tasksListLength = tasksList.length;
+    console.log(tasksListLength);
+    $("#all-tasks").text(tasksListLength);
+
+    // Select if the task is pending or not
+    let pendingTasks = tasksList.filter((task) => !task.completed).length;
+    $("#pending-tasks").text(pendingTasks);
+
+    // Select if the task is pending or not
+    const completedTasks = tasksList.filter((task) => task.completed).length;
+    $("#completed-tasks").text(completedTasks);
+  }
   // LEFT COLUMN **************************************************
   renderTasks();
-  // Set the number of tasks on left column
-  let tasksListLength = tasksList.length;
-  $("#all-tasks").text(tasksListLength);
 
-  // Select if the task is pending or not
-  let pendingTasks = tasksList.filter((task) => !task.completed).length;
-  $("#pending-tasks").text(pendingTasks);
-
-  // Select if the task is pending or not
-  const completedTasks = tasksList.filter((task) => task.completed).length;
-  $("#completed-tasks").text(completedTasks);
-
-  // RIGHT COLUMN **************************************************
-  // RENDER TASK ITEM INTO THE DOM WITH MAP FUNCTION
-
+  //  ******************** RIGHT COLUMN ******************************
   // ADD NEW TASK INTO THE ARRAY
-  //Bind keypress event to input
   $("#new-task").keypress(function (event) {
-    var keycode = event.keyCode ? event.keyCode : event.which;
+    let keycode = event.keyCode ? event.keyCode : event.which;
     if (keycode == "13") {
       //   CAPTURA NUEVA TAREA
       let domNewTask = $("#new-task").val();
+      let newTask = {
+        description: domNewTask,
+        completed: false,
+      };
       let domAddedTask = $("#added-task");
+
+      tasksList.unshift(newTask);
+      console.log(tasksList);
+
       domAddedTask.append(domNewTask);
+
+      $("#new-task").val("");
+      clearUnusedElements();
+      renderTasks();
+      calculateTasks();
     }
     //Stop the event from propogation to other handlers
     event.stopPropagation();
@@ -58,27 +71,7 @@ $(document).ready(function () {
       (task) => task.description == domTaskDescription
     );
     tasksList[taskIndex].completed = true;
-    // alert(taskIndex);
     clearUnusedElements();
     renderTasks();
   });
-
-  // COMPLETE A TASK
-  function completeTask(text) {
-    const taskIndex = tasksList.findIndex((task) => task.description == text);
-    tasksList[taskIndex].completed = true;
-  }
-
-  // ************************************************************************
-
-  $(document)
-    //Creamos la Funcion del Click
-    .click(function () {
-      //Creamos una Variable y Obtenemos el Numero de Checkbox que esten Seleccionados
-      var checked = $("#checkbox:checked").length;
-      $("p").text(
-        "Tienes Actualmente " + checked + " Checkbox " + "Seleccionado(s)"
-      ); //Asignamos a la Etiqueta <p> el texto de cuantos Checkbox ahi Seleccionados(Combinando la Variable)
-    })
-    .trigger("click"); //Simulamos el Evento Click(Desde el Principio, para que muestre cuantos ahi Seleccionados)
 });
