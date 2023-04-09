@@ -36,6 +36,7 @@ $(document).ready(function () {
   }
   // LEFT COLUMN **************************************************
   renderTasks();
+  calculateTasks();
 
   //  ******************** RIGHT COLUMN ******************************
   // ADD NEW TASK INTO THE ARRAY
