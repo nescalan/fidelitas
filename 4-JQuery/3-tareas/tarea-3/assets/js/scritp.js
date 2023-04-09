@@ -1,8 +1,10 @@
 $(document).ready(function () {
+  $("#tareas-terminadas").hide();
   // FUNCTIONS
   function renderTasks() {
     tasksList.map((task, index) => {
       const domAddedTask = $("#added-task");
+      const domCompletedTasks = $("#tareas-terminadas");
       const groupedTasks = `
         <div id="grouped-tasks" class="grouped-tasks">
           <input class="checkbox" type="checkbox" name="checkbox"  />
@@ -13,6 +15,11 @@ $(document).ready(function () {
         domAddedTask.append(groupedTasks);
       }
     });
+  }
+
+  function clearUnusedTasks() {
+    const domAddedTask = $("#tareas-terminadas");
+    domAddedTask.empty();
   }
 
   function clearUnusedElements() {
@@ -51,7 +58,7 @@ $(document).ready(function () {
       let domAddedTask = $("#added-task");
 
       tasksList.unshift(newTask);
-      console.log(tasksList);
+      // console.log(tasksList);
 
       domAddedTask.append(domNewTask);
 
@@ -75,5 +82,32 @@ $(document).ready(function () {
     clearUnusedElements();
     renderTasks();
     calculateTasks();
+  });
+
+  $("#menu-pending-tasks").on("click", function () {
+    $("#added-task").show();
+    $("#tareas-terminadas").hide();
+  });
+
+  $("#menu-completed-tasks").on("click", function () {
+    clearUnusedTasks();
+    let filteredTasks = tasksList.filter((task) => task.completed == true);
+    console.log(filteredTasks);
+
+    const domCompletedTasks = $("#tareas-terminadas");
+    filteredTasks.map((task) => {
+      const groupedTasks = `
+        <div id="grouped-tasks" class="grouped-tasks">
+          <input class="checkbox" type="checkbox" name="checkbox"  />
+          <div id="task-description" class="task-description">${task.description}</div>
+        </div>
+      `;
+      domCompletedTasks
+        .append(groupedTasks)
+        .css({ "text-decoration": "line-through" });
+    });
+
+    $("#added-task").hide();
+    $("#tareas-terminadas").show();
   });
 });
