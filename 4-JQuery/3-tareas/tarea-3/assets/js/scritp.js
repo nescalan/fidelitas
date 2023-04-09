@@ -1,11 +1,11 @@
 $(document).ready(function () {
   // FUNCTIONS
   function renderTasks() {
-    tasksList.map((task) => {
+    tasksList.map((task, index) => {
       const domAddedTask = $("#added-task");
       const groupedTasks = `
-        <div class="grouped-tasks">
-          <input id="checkbox" type="checkbox" name="checkbox" onclick />
+        <div id="grouped-tasks" class="grouped-tasks">
+          <input class="checkbox" type="checkbox" name="checkbox"  />
           <div id="task-description" class="task-description">${task.description}</div>
         </div>
       `;
@@ -23,7 +23,6 @@ $(document).ready(function () {
   function calculateTasks() {
     // Set the number of tasks on left column
     let tasksListLength = tasksList.length;
-    console.log(tasksListLength);
     $("#all-tasks").text(tasksListLength);
 
     // Select if the task is pending or not
@@ -66,13 +65,15 @@ $(document).ready(function () {
   });
 
   // MARK TASK AS COMPLETED
-  $("#checkbox").change(function () {
-    const domTaskDescription = $("#task-description").text();
+  $("#added-task").on("click", ".checkbox", function () {
+    const self = $(this).closest("div");
+    const domTaskDescription = self.find(".task-description").text();
     const taskIndex = tasksList.findIndex(
       (task) => task.description == domTaskDescription
     );
     tasksList[taskIndex].completed = true;
     clearUnusedElements();
     renderTasks();
+    calculateTasks();
   });
 });
