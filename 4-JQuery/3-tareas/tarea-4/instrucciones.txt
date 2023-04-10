@@ -1,0 +1,3 @@
+Un título en negrita que muestre el nombre de la fruta seleccionada.
+Una imagen de la fruta seleccionada, utilizando la etiqueta "img" y el atributo "src".
+Un enlace a la página de Wikipedia de la fruta seleccionada, utilizando la etiqueta "a" y el atributo "href".
