@@ -65,79 +65,73 @@ $(document).ready(() => {
     // PRODUCT DESCRIPTION: Shows product before shopping cart
     let domMainMenu = $("#main-menu");
     let domCardProduct = $("#card-product");
-    let domProductContent = `
-    <div class="product">
-      <!-- LEFT COLUMN -->
-      <div class="product-left">
-        <div class="product-image-container">
-        <img src="${productsList[pizzaIndex].image}" alt="${productsList[pizzaIndex].description}" width="100%" />
-      </div>
 
-      <!-- SELECT -->
-      <div class="product-options">
-        <label for="pizza-options">Choose an option:</label>
-        <select id="pizza-options" name="pizza-options" >
-          <option value="">--- Choose option ---</option>
-          <option value="11.95">Medium: 8 slice pizza</option>
-          <option value="19.95">Large: 12 slice pizza</option>
-          <option value="8.95">Personal: 4 slice pizza</option>
-        </select>
-      </div>
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="product-right">
-        <h3>Este producto esta a la venta</h3>
-        <h6>Combo: No1</h6>
-        <span>Price: $${productsList[pizzaIndex].price}</span>
-
+    if (pizzaIndex.length != 0) {
+      let domProductContent = `
+      <div class="product">
+        <!-- LEFT COLUMN -->
+        <div class="product-left">
+          <div class="product-image-container">
+          <img src="${productsList[pizzaIndex].image}" alt="${
+        productsList[pizzaIndex].description
+      }" width="100%" />
+        </div>
+  
         <!-- SELECT -->
-        <div class="product-prices">
-          <select name="cars" id="cars">
-            <option value=""> Qty: 1 </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+        <div class="product-options">
+          <label for="pizza-options">Choose an option:</label>
+          <select id="pizza-options" name="pizza-options" >
+            <option value="">--- Choose option ---</option>
+            <option value="11.95">Medium: 8 slice pizza</option>
+            <option value="19.95">Large: 12 slice pizza</option>
+            <option value="8.95">Personal: 4 slice pizza</option>
           </select>
         </div>
-        <div class="description">
-          <p>Description:</p>
-          <p>
-          ${productsList[pizzaIndex].description}
-          </p>
         </div>
+  
+        <!-- RIGHT COLUMN -->
+        <div class="product-right">
+        <h3>${productsList[pizzaIndex].title}</h3>
+        <h4>Combo: No ${pizzaIndex + 1}</h4>
+          <span>Price: $${productsList[pizzaIndex].price}</span>
+  
+          <!-- SELECT -->
+          <div class="product-prices">
+            <select name="cars" id="cars">
+              <option value=""> Qty: 1 </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div id="message"></div>
 
-        <button id="buy-btn" class="buy-btn">ADD TO CART</button>
+          
+          <div class="description">
+            <p>Description:</p>
+            <p>
+            ${productsList[pizzaIndex].description}
+            </p>
+          </div>
+  
+          <p>Subtotal: $ <span id="subtotal">0</span></p>
+
+          <button id="buy-btn" class="buy-btn">ADD TO CART</button>
+        </div>
       </div>
-    </div>
-    `;
+      `;
 
-    domMainMenu.hide(); // Hide the main menu
-    domCardProduct.show();
-    // domCardProduct.append(domProductContent).show();
-  });
-
-  // ANIMACION IMAGEN: Cantidad por precio unitario
-  $(".product-image-container").mouseenter(function () {
-    // do your stuff
-    $(this).animate({
-      width: "420px",
-      height: "340px",
-    });
-  });
-  $(".product-image-container").mouseleave(function () {
-    // do your stuff
-    $(this).animate({
-      width: "345px",
-      height: "280px",
-    });
+      domMainMenu.hide(); // Hide the main menu
+      domCardProduct.show();
+      domCardProduct.append(domProductContent).show();
+    }
   });
 
   // DOM: Error Messages
