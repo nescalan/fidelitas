@@ -4,22 +4,6 @@ $(document).ready(() => {
   $("#main-menu").show(); // show the selected page
   $("#card-product").hide(); // hide the selected page
 
-  $("nav label") // TOGGLE: Shopping cart toggle
-    .children()
-    .last()
-    .click(() => {
-      // TOGGLE: Function toggle()
-      $("#main-page").toggle(
-        () => {
-          alert("First handler");
-        },
-        () => {
-          alert("second handler");
-          $(".sec-shopping-cart").attr({ display: "block" });
-        }
-      );
-    });
-
   // MAIN MENU: paint menu on screen
   for (let i = 0; i < productsList.length; i++) {
     const domPizzaMenu = $("#menu");
@@ -129,12 +113,11 @@ $(document).ready(() => {
       `;
 
       domMainMenu.hide(); // Hide the main menu
-      domCardProduct.show();
       domCardProduct.append(domProductContent).show();
     }
   });
 
-  // DOM: Error Messages
+  // ERROR: Show Error Messages in the options select element
   $("#pizza-options").change(function () {
     const domPizzaOptions = $("#pizza-options").val();
     $("#pizza-price").html(domPizzaOptions);
@@ -176,7 +159,7 @@ $(document).ready(() => {
     });
   });
 
-  // DOM: Error Messages
+  // ERROR: Show Error Messages in the quantity select element
   $("#pizza-quantity").change(function () {
     const domPizzaOptions = $("#pizza-options").val();
     $("#pizza-price").html(domPizzaOptions);
