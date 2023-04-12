@@ -68,11 +68,6 @@ nav #quantity {
   display: none;
 }
 
-/* Positioning */
-/* Box model */
-/* Typographic */
-/* Visual */
-/* Misc */
 .start-hidden {
   display: none;
 }
@@ -83,3 +78,19 @@ nav #router {
   justify-content: space-between;
   align-items: center;
 }
+nav .sec-shopping-cart {
+  width: 200px;
+  align-items: center;
+}
+
+nav #quantity {
+  position: relative;
+  top: -3px;
+  left: -5px;
+}
+
+/* Positioning */
+/* Box model */
+/* Typographic */
+/* Visual */
+/* Misc */
