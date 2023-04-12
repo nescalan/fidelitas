@@ -31,20 +31,22 @@ $(document).ready(() => {
           <img src="${productsList[i].image}" alt="${productsList[i].description}" width="100%" />
         </div>
         <div class="menu-info">
-          <p class="text-title">${productsList[i].title}</p>
+          <p id="text-title" class="text-title">${productsList[i].title}</p>
           <p class="text-body">
             ${productsList[i].description}
           </p>
-        </div>
-        <div class="menu-footer">
-          <span class="text-title">$${productsList[i].price}</span>
-          <div class="menu-button">
+          <span  class="text-title">$${productsList[i].price}</span>
+          <span class="menu-button">
             <span
             id="add-to-cart"
               class="material-symbols-outlined products-description"
             >
               add_shopping_cart
             </span>
+          </span>
+
+          <div class="menu-footer">
+
           </div>
       </div>`;
     domPizzaMenu.append(menuTemplate);
@@ -52,9 +54,13 @@ $(document).ready(() => {
 
   // BUYING PIZZA: Send pizza information to cart
   $("#menu").on("click", "#add-to-cart", function () {
-    const self = $(this).closest("p");
-    const domPizzaDescription = self.find("text-body").text();
+    const self = $(this).closest("div");
+    const domPizzaDescription = self.find("#text-title").text();
+    const pizzaIndex = productsList.findIndex(
+      (product) => product.title == domPizzaDescription
+    );
     console.log(domPizzaDescription);
+    console.log(pizzaIndex);
   });
 
   // PRODUCT DESCRIPTION: Shows product before shopping cart
