@@ -153,6 +153,7 @@ section .menu .menu-button {
   /* Box Model */
   width: 30px;
   height: 30px;
+  margin-left: 210px;
   padding: 3px;
 }
 section .menu .menu-button:hover {

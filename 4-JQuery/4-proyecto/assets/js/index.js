@@ -31,20 +31,22 @@ $(document).ready(() => {
           <img src="${productsList[i].image}" alt="${productsList[i].description}" width="100%" />
         </div>
         <div class="menu-info">
-          <p class="text-title">${productsList[i].title}</p>
+          <p id="text-title" class="text-title">${productsList[i].title}</p>
           <p class="text-body">
             ${productsList[i].description}
           </p>
-        </div>
-        <div class="menu-footer">
-          <span class="text-title">$${productsList[i].price}</span>
-          <div class="menu-button">
+          <span  class="text-title">$${productsList[i].price}</span>
+          <span class="menu-button">
             <span
             id="add-to-cart"
               class="material-symbols-outlined products-description"
             >
               add_shopping_cart
             </span>
+          </span>
+
+          <div class="menu-footer">
+
           </div>
       </div>`;
     domPizzaMenu.append(menuTemplate);
@@ -52,13 +54,15 @@ $(document).ready(() => {
 
   // BUYING PIZZA: Send pizza information to cart
   $("#menu").on("click", "#add-to-cart", function () {
-    const self = $(this).closest("p");
-    const domPizzaDescription = self.find("text-body").text();
+    const self = $(this).closest("div");
+    const domPizzaDescription = self.find("#text-title").text();
+    const pizzaIndex = productsList.findIndex(
+      (product) => product.title == domPizzaDescription
+    );
     console.log(domPizzaDescription);
-  });
+    console.log(pizzaIndex);
 
-  // PRODUCT DESCRIPTION: Shows product before shopping cart
-  $(".products-description").click(() => {
+    // PRODUCT DESCRIPTION: Shows product before shopping cart
     let domMainMenu = $("#main-menu");
     let domCardProduct = $("#card-product");
     let domProductContent = `
@@ -66,7 +70,7 @@ $(document).ready(() => {
       <!-- LEFT COLUMN -->
       <div class="product-left">
         <div class="product-image-container">
-        <img src="${productsList[0].image}" alt="${productsList[0].description}" width="100%" />
+        <img src="${productsList[pizzaIndex].image}" alt="${productsList[pizzaIndex].description}" width="100%" />
       </div>
 
       <!-- SELECT -->
@@ -83,9 +87,9 @@ $(document).ready(() => {
 
       <!-- RIGHT COLUMN -->
       <div class="product-right">
-        <h3>${productsList[0].title}</h3>
+        <h3>Este producto esta a la venta</h3>
         <h6>Combo: No1</h6>
-        <span>Price: $${productsList[0].price}</span>
+        <span>Price: $${productsList[pizzaIndex].price}</span>
 
         <!-- SELECT -->
         <div class="product-prices">
@@ -106,7 +110,7 @@ $(document).ready(() => {
         <div class="description">
           <p>Description:</p>
           <p>
-          ${productsList[0].description}
+          ${productsList[pizzaIndex].description}
           </p>
         </div>
 
