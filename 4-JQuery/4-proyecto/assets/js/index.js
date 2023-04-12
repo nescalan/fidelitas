@@ -44,7 +44,6 @@ $(document).ready(() => {
       (product) => product.title == domPizzaDescription
     );
     console.log(domPizzaDescription);
-    console.log(pizzaIndex);
 
     // PRODUCT DESCRIPTION: Shows product before shopping cart
     let domMainMenu = $("#main-menu");
@@ -62,28 +61,27 @@ $(document).ready(() => {
         </div>
   
         <!-- SELECT -->
-        <div class="product-options">
-          <label for="pizza-options">Choose an option:</label>
-          <select id="pizza-options" name="pizza-options" >
-            <option value="">--- Choose option ---</option>
-            <option value="11.95">Medium: 8 slice pizza</option>
-            <option value="19.95">Large: 12 slice pizza</option>
-            <option value="8.95">Personal: 4 slice pizza</option>
-          </select>
-        </div>
+          <div class="product-options">
+            <label for="pizza-options">Choose an option:</label>
+            <select id="pizza-options" name="pizza-options" >
+              <option value="">--- Choose option ---</option>
+              <option value="11.95">Medium: 8 slice pizza</option>
+              <option value="19.95">Large: 12 slice pizza</option>
+              <option value="8.95">Personal: 4 slice pizza</option>
+            </select>
+          </div>
         </div>
   
         <!-- RIGHT COLUMN -->
         <div class="product-right">
         <h3>${productsList[pizzaIndex].title}</h3>
         <h4>Combo: No ${pizzaIndex + 1}</h4>
-          <span>Price: $${productsList[pizzaIndex].price}</span>
+          <span><b>Price</b>: $${productsList[pizzaIndex].price}</span>
   
           <!-- SELECT -->
           <div class="product-prices">
-            <select name="cars" id="cars">
-              <option value=""> Qty: 1 </option>
-              <option value="1">1</option>
+            <select name="qty" id="qty">
+              <option value="1"> Qty: 1 </option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -99,13 +97,13 @@ $(document).ready(() => {
 
           
           <div class="description">
-            <p>Description:</p>
+            <p><b>Description</b>:</p>
             <p>
             ${productsList[pizzaIndex].description}
             </p>
           </div>
   
-          <p>Subtotal: $ <span id="subtotal">0</span></p>
+          <p><b>Subtotal</b>: $ <span id="subtotal">0</span></p>
 
           <button id="buy-btn" class="buy-btn">ADD TO CART</button>
         </div>
@@ -114,90 +112,16 @@ $(document).ready(() => {
 
       domMainMenu.hide(); // Hide the main menu
       domCardProduct.append(domProductContent).show();
-    }
-  });
 
-  // ERROR: Show Error Messages in the options select element
-  $("#pizza-options").change(function () {
-    const domPizzaOptions = $("#pizza-options").val();
-    $("#pizza-price").html(domPizzaOptions);
-    const domPizzaQty = $("#pizza-quantity").val();
-    const domErrorMessage = $("#message");
-
-    if (domPizzaOptions == 0 && domPizzaQty == 0) {
-      domMessage = "Select a size of pizza and the quantity to buy";
-      domErrorMessage.fadeIn();
-      result = 0;
+      // PIZZA PRICES: price calculation
+      $("#card-product").on("click", "#pizza-options", function () {
+        const selfOption = $(this).val();
+        const domPizzaQty = $(this).parents().find("#qty").val();
+        let result = selfOption * domPizzaQty;
+        console.log("Opcion: " + selfOption);
+        console.log("Cantidad: " + domPizzaQty);
+        console.log("Total: " + result);
+      });
     }
-    if (domPizzaOptions == 0 && domPizzaQty != 0) {
-      domMessage = "What size pizza are you going to buy?";
-      domErrorMessage.fadeIn();
-      result = 0;
-    }
-    if (domPizzaOptions != 0 && domPizzaQty == 0) {
-      domMessage = "How many pizzas are you going to buy?";
-      domErrorMessage.fadeIn();
-
-      result = 0;
-    }
-    if (domPizzaOptions != 0 && domPizzaQty != 0) {
-      let result = domPizzaOptions * domPizzaQty;
-      $("#subtotal").html(result);
-      domErrorMessage.fadeOut();
-    }
-    domErrorMessage.html(domMessage).css({
-      margin: "0px 0px 20px",
-      padding: "15px 35px 15px 15px",
-      color: "#b94a48",
-      "font-size": "14px",
-      "line-height": "20px",
-      "border-color": "#eed3d7",
-      "border-radius": "4px",
-      "border-style": "solid",
-      "border-width": "1px",
-      backgroundColor: "#f2dede",
-    });
-  });
-
-  // ERROR: Show Error Messages in the quantity select element
-  $("#pizza-quantity").change(function () {
-    const domPizzaOptions = $("#pizza-options").val();
-    $("#pizza-price").html(domPizzaOptions);
-    const domPizzaQty = $("#pizza-quantity").val();
-    const domErrorMessage = $("#message");
-
-    if (domPizzaOptions == 0 && domPizzaQty == 0) {
-      domMessage = "Select a size of pizza and the quantity to buy";
-      domErrorMessage.fadeIn();
-      result = 0;
-    }
-    if (domPizzaOptions == 0 && domPizzaQty != 0) {
-      domMessage = "What size pizza are you going to buy?";
-      domErrorMessage.fadeIn();
-      result = 0;
-    }
-    if (domPizzaOptions != 0 && domPizzaQty == 0) {
-      domMessage = "How many pizzas are you going to buy?";
-      domErrorMessage.fadeIn();
-
-      result = 0;
-    }
-    if (domPizzaOptions != 0 && domPizzaQty != 0) {
-      let result = domPizzaOptions * domPizzaQty;
-      $("#subtotal").html(result);
-      domErrorMessage.fadeOut();
-    }
-    domErrorMessage.html(domMessage).css({
-      margin: "0px 0px 20px",
-      padding: "15px 35px 15px 15px",
-      color: "#b94a48",
-      "font-size": "14px",
-      "line-height": "20px",
-      "border-color": "#eed3d7",
-      "border-radius": "4px",
-      "border-style": "solid",
-      "border-width": "1px",
-      backgroundColor: "#f2dede",
-    });
   });
 });
