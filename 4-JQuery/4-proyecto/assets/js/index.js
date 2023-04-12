@@ -40,8 +40,8 @@ $(document).ready(() => {
           <span class="text-title">$${productsList[i].price}</span>
           <div class="menu-button">
             <span
+            id="add-to-cart"
               class="material-symbols-outlined products-description"
-              onclick="getProduct(${i})"
             >
               add_shopping_cart
             </span>
@@ -49,6 +49,13 @@ $(document).ready(() => {
       </div>`;
     domPizzaMenu.append(menuTemplate);
   }
+
+  // BUYING PIZZA: Send pizza information to cart
+  $("#menu").on("click", "#add-to-cart", function () {
+    const self = $(this).closest("p");
+    const domPizzaDescription = self.find("text-body").text();
+    console.log(domPizzaDescription);
+  });
 
   // PRODUCT DESCRIPTION: Shows product before shopping cart
   $(".products-description").click(() => {
