@@ -1,0 +1,19 @@
+.arrastrable {
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+}
+
+.soltable-vacio {
+    width: 250px;
+    height: 250px;
+    background-color: lightgoldenrodyellow;
+}
+
+.soltable-lleno {
+    background-color: lightcoral;
+}
+
+.item {
+    border: tan 1px solid;
+}
