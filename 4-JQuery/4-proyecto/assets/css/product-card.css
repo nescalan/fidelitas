@@ -35,14 +35,10 @@
   border-radius: 6px 6px 0 0;
   position: relative;
 }
-.product .product-options {
-  /* Box model */
+.product .select-container {
+  margin-top: 7px;
   display: flex;
-  flex-direction: column;
-  grid-template: 10px;
-}
-.product .product-options select {
-  margin: 15px 0 30px;
+  justify-content: space-between;
 }
 
 /* RIGHT COLUMN */
@@ -53,11 +49,7 @@
 .product .product-right h4 {
   margin: 10px 0;
 }
-.product .product-prices {
-  margin: 10px 0 20px;
-  display: flex;
-  gap: 30px;
-}
+
 .product .description p:last-child {
   margin: 10px 0;
   font-size: 13px;
