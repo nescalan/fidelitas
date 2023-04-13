@@ -95,6 +95,9 @@ $(document).ready(() => {
             </div>
           </div>
 
+          <br>
+          <div id="message"></div>
+          
         </div>
   
         <!-- RIGHT COLUMN -->
@@ -106,7 +109,6 @@ $(document).ready(() => {
             <span id="id-price">${productsList[pizzaIndex].price}</span>
           </span>
     
-          <div id="message"></div>
           
           <div class="description">
             <p><b>Description</b>:</p>
@@ -116,29 +118,108 @@ $(document).ready(() => {
           </div>
   
           <p><b>Subtotal</b>: $ <span id="subtotal">0</span></p>
-          <button id="buy-btn" class="buy-btn">ADD TO CART</button>
+          <button id="buy-btn" class="buy-btn">Delete</button>
         </div>
       </div>
       `;
 
       domMainMenu.hide(); // Hide the main menu
       domCardProduct.append(domProductContent).show();
+    }
+    // PIZZA PRICES: price calculation with product options
+    $("#card-product").on("change", "#pizza-options", function () {
+      const parent = $(this).parent().parent();
+      const selfOption = $(this).val();
+      const domPizzaQty = parent.find("#qty").val();
+      const domErrorMessage = parent.parent().find("#message");
+      let domMessage;
 
-      // PIZZA PRICES: price calculation
-      $("#card-product").on("change", "#pizza-options", function () {
-        const selfOption = $(this).val();
-        const parent = $(this).parent().parent();
-        const domPizzaQty = parent.find("#qty").val();
+      console.log(domErrorMessage);
+
+      // ERROR MESSAGES: Option and Quantity
+      if (selfOption == 0 && domPizzaQty == 0) {
+        domMessage = "Select a size of pizza and the quantity to buy";
+        domErrorMessage.fadeIn();
+        result = 0;
+      }
+      if (selfOption == 0 && domPizzaQty != 0) {
+        domMessage = "What size pizza are you going to buy?";
+        domErrorMessage.fadeIn();
+        result = 0;
+      }
+      if (selfOption != 0 && domPizzaQty == 0) {
+        domMessage = "How many pizzas are you going to buy?";
+        domErrorMessage.fadeIn();
+
+        result = 0;
+      }
+      if (selfOption != 0 && domPizzaQty != 0) {
         let result = selfOption * domPizzaQty;
+        result = result.toFixed(2);
         parent.parent().parent().find("#id-price").text(selfOption);
         parent.parent().parent().find("#subtotal").text(result);
-
-        console.log(
-          `Opt: ${selfOption} | Qty: ${domPizzaQty} | Res: ${result}`
-        );
-
-        // ERROR MESSAGES: Option and Quantity
+        domErrorMessage.fadeOut();
+      }
+      domErrorMessage.html(domMessage).css({
+        margin: "0px 0px 20px",
+        padding: "15px 35px 15px 15px",
+        color: "#b94a48",
+        "font-size": "14px",
+        "line-height": "20px",
+        "border-color": "#eed3d7",
+        "border-radius": "4px",
+        "border-style": "solid",
+        "border-width": "1px",
+        backgroundColor: "#f2dede",
       });
-    }
+
+      console.log(`Opt: ${selfOption} | Qty: ${domPizzaQty} | Res: ${result}`);
+    });
+
+    // PIZZA PRICES: price calculation with product Quantity
+    $("#card-product").on("change", "#qty", function () {
+      const parent = $(this).parent().parent();
+      const selfQty = $(this).val();
+      const domPizzaOption = parent.find("#pizza-options").val();
+      const domErrorMessage = parent.parent().find("#message");
+      let domMessage;
+
+      // ERROR MESSAGES: Quantity
+      if (domPizzaOption == 0 && selfQty == 0) {
+        domMessage = "Select a size of pizza and the quantity to buy";
+        domErrorMessage.fadeIn();
+        result = 0;
+      }
+      if (domPizzaOption == 0 && selfQty != 0) {
+        domMessage = "What size pizza are you going to buy?";
+        domErrorMessage.fadeIn();
+        result = 0;
+      }
+      if (domPizzaOption != 0 && selfQty == 0) {
+        domMessage = "How many pizzas are you going to buy?";
+        domErrorMessage.fadeIn();
+
+        result = 0;
+      }
+      if (domPizzaOption != 0 && selfQty != 0) {
+        let result = selfQty * domPizzaOption;
+        result = result.toFixed(2);
+        parent.parent().parent().find("#id-price").text(domPizzaOption);
+        parent.parent().parent().find("#subtotal").text(result);
+        domErrorMessage.fadeOut();
+      }
+      domErrorMessage.html(domMessage).css({
+        margin: "0px 0px 20px",
+        padding: "15px 35px 15px 15px",
+        color: "#b94a48",
+        "font-size": "14px",
+        "line-height": "20px",
+        "border-color": "#eed3d7",
+        "border-radius": "4px",
+        "border-style": "solid",
+        "border-width": "1px",
+        backgroundColor: "#f2dede",
+      });
+    });
   });
 });
