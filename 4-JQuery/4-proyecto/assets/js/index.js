@@ -124,4 +124,5 @@ $(document).ready(() => {
       });
     }
   });
+  // ERROR MESSAGES: Option and Quantity
 });
