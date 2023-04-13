@@ -62,12 +62,18 @@ $(document).ready(() => {
   
         <!-- SELECT -->
           <div class="product-options">
-            <label for="pizza-options">Choose an option:</label>
+            <label for="pizza-options">Select Size:</label>
             <select id="pizza-options" name="pizza-options" >
-              <option value="">--- Choose option ---</option>
-              <option value="11.95">Medium: 8 slice pizza</option>
-              <option value="19.95">Large: 12 slice pizza</option>
-              <option value="8.95">Personal: 4 slice pizza</option>
+              <option value="0">--- Select Size ---</option>
+              <option value="${
+                productsList[pizzaIndex].price
+              }">Medium: 8 slice pizza</option>
+              <option value="${
+                productsList[pizzaIndex].large
+              }">Large: 12 slice pizza</option>
+              <option value="${
+                productsList[pizzaIndex].personal
+              }">Personal: 4 slice pizza</option>
             </select>
           </div>
         </div>
@@ -80,8 +86,9 @@ $(document).ready(() => {
   
           <!-- SELECT -->
           <div class="product-prices">
-            <select name="qty" id="qty">
-              <option value="1"> Qty: 1 </option>
+            <select name="qty" id="pizza-quantity">
+              <option value="0"> Qty: 0 </option>
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -114,15 +121,54 @@ $(document).ready(() => {
       domCardProduct.append(domProductContent).show();
 
       // PIZZA PRICES: price calculation
-      $("#card-product").on("click", "#pizza-options", function () {
-        const selfOption = $(this).val();
-        const domPizzaQty = $(this).parents().find("#qty").val();
-        let result = selfOption * domPizzaQty;
-        console.log("Opcion: " + selfOption);
-        console.log("Cantidad: " + domPizzaQty);
-        console.log("Total: " + result);
+      $("#card-product").on("change", "#pizza-options", function () {
+        const self = $(this).parents();
+        console.log(this);
+        const domPizzaOptions = self.find("#pizza-options").val();
+        const domPizzaQty = $(this).parents().find("#pizza-quantity").val();
+        const domErrorMessage = $(this).parents().find("#message");
+        let result = domPizzaOptions * domPizzaQty;
+        let domMessage;
+
+        // console.log(
+        //   `Opcion: ${domPizzaOptions} | Cantidad: ${domPizzaQty} | Total: ${result}  `
+        // );
+
+        // ERROR MESSAGES: Select Size Options
+        if (domPizzaOptions == 0 && domPizzaQty == 0) {
+          domMessage = "Select a size of pizza and the quantity to buy";
+          domErrorMessage.fadeIn();
+          result = 0;
+        }
+        if (domPizzaOptions == 0 && domPizzaQty != 0) {
+          domMessage = "What size pizza are you going to buy?";
+          domErrorMessage.fadeIn();
+          result = 0;
+        }
+        if (domPizzaOptions != 0 && domPizzaQty == 0) {
+          domMessage = "How many pizzas are you going to buy?";
+          domErrorMessage.fadeIn();
+          result = 0;
+        }
+        if (domPizzaOptions != 0 && domPizzaQty != 0) {
+          let result = domPizzaOptions * domPizzaQty;
+          $("#subtotal").html(result);
+          domErrorMessage.fadeOut();
+        }
+        domErrorMessage.html(domMessage).css({
+          margin: "0px 0px 20px",
+          padding: "15px 35px 15px 15px",
+          color: "#b94a48",
+          "font-size": "14px",
+          "line-height": "20px",
+          "border-color": "#eed3d7",
+          "border-radius": "4px",
+          "border-style": "solid",
+          "border-width": "1px",
+          backgroundColor: "#f2dede",
+        });
       });
     }
+    // ERROR MESSAGES: Select Pizza Quantity
   });
-  // ERROR MESSAGES: Option and Quantity
 });
