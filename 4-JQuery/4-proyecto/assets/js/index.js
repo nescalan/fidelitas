@@ -95,6 +95,9 @@ $(document).ready(() => {
             </div>
           </div>
 
+          <br>
+          <div id="message"></div>
+          
         </div>
   
         <!-- RIGHT COLUMN -->
@@ -106,7 +109,6 @@ $(document).ready(() => {
             <span id="id-price">${productsList[pizzaIndex].price}</span>
           </span>
     
-          <div id="message"></div>
           
           <div class="description">
             <p><b>Description</b>:</p>
@@ -124,18 +126,75 @@ $(document).ready(() => {
       domMainMenu.hide(); // Hide the main menu
       domCardProduct.append(domProductContent).show();
 
-      // PIZZA PRICES: price calculation
+      // PIZZA PRICES: price calculation with product options
       $("#card-product").on("change", "#pizza-options", function () {
-        const selfOption = $(this).val();
         const parent = $(this).parent().parent();
+        const selfOption = $(this).val();
         const domPizzaQty = parent.find("#qty").val();
+        const domErrorMessage = parent.parent().find("#message");
+        let domMessage;
+
         let result = selfOption * domPizzaQty;
+        result = result.toFixed(2);
+        console.log(domErrorMessage);
+
+        if (selfOption == 0 && domPizzaQty == 0) {
+          domMessage = "Select a size of pizza and the quantity to buy";
+          domErrorMessage.fadeIn();
+          result = 0;
+        }
+        if (selfOption == 0 && domPizzaQty != 0) {
+          domMessage = "What size pizza are you going to buy?";
+          domErrorMessage.fadeIn();
+          result = 0;
+        }
+        if (selfOption != 0 && domPizzaQty == 0) {
+          domMessage = "How many pizzas are you going to buy?";
+          domErrorMessage.fadeIn();
+
+          result = 0;
+        }
+        if (selfOption != 0 && domPizzaQty != 0) {
+          let result = domPizzaOptions * domPizzaQty;
+          $("#subtotal").html(result);
+          domErrorMessage.fadeOut();
+        }
+        domErrorMessage.html(domMessage).css({
+          margin: "0px 0px 20px",
+          padding: "15px 35px 15px 15px",
+          color: "#b94a48",
+          "font-size": "14px",
+          "line-height": "20px",
+          "border-color": "#eed3d7",
+          "border-radius": "4px",
+          "border-style": "solid",
+          "border-width": "1px",
+          backgroundColor: "#f2dede",
+        });
+
         parent.parent().parent().find("#id-price").text(selfOption);
         parent.parent().parent().find("#subtotal").text(result);
 
         console.log(
           `Opt: ${selfOption} | Qty: ${domPizzaQty} | Res: ${result}`
         );
+
+        // ERROR MESSAGES: Option and Quantity
+      });
+
+      // PIZZA PRICES: price calculation with product options
+      $("#card-product").on("change", "#qty", function () {
+        const parent = $(this).parent().parent();
+        const selfQty = $(this).val();
+        const domPizzaOption = parent.find("#pizza-options").val();
+
+        console.log(domPizzaOption);
+
+        let result = selfQty * domPizzaOption;
+        result = result.toFixed(2);
+
+        parent.parent().parent().find("#id-price").text(domPizzaOption);
+        parent.parent().parent().find("#subtotal").text(result);
 
         // ERROR MESSAGES: Option and Quantity
       });
