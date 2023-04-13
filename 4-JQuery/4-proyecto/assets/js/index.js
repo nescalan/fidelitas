@@ -102,23 +102,23 @@ $(document).ready(() => {
   
         <!-- RIGHT COLUMN -->
         <div class="product-right">
-        <h3 >${productsList[pizzaIndex].title}</h3>
-        <h4>Combo: No ${pizzaIndex + 1}</h4>
-          <span>
-            <b>Price</b>: $
-            <span id="id-price">${productsList[pizzaIndex].price}</span>
-          </span>
+          <h3 >${productsList[pizzaIndex].title}</h3>
+          <h4>Combo: No ${pizzaIndex + 1}</h4>
+            <span>
+              <b>Price</b>: $
+              <span id="id-price">${productsList[pizzaIndex].price}</span>
+            </span>
+            <div class="description">
+            <br>
+              <p><b>Description</b>:</p>
+              <p>
+              ${productsList[pizzaIndex].description}
+              </p>
+            </div>
+            <br>
+            <br>
     
-          
-          <div class="description">
-            <p><b>Description</b>:</p>
-            <p>
-            ${productsList[pizzaIndex].description}
-            </p>
-          </div>
-  
-          <p><b>Subtotal</b>: $ <span id="subtotal">0</span></p>
-          <button id="buy-btn" class="buy-btn">Delete</button>
+            <p><b>Subtotal</b>: $ <span id="subtotal">0</span></p>
         </div>
       </div>
       `;
