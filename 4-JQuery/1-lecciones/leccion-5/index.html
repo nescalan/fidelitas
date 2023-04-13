@@ -1,94 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery Clase 7</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="jqueryui/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="jqueryui/jquery-ui.structure.min.css">
-</head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
 
-<body>
-
+  <body>
     <h2 class="text-center m-5">jQuery User Interface (UI) Clase 7</h2>
 
     <!-- DatePicker -->
     <div class="card border-primary m-5">
-        <div class="card-header text-center">DatePicker</div>
-        <div class="card-body">
-            <div class="form-group">
-                <label class="form-label mt-4" for="fecha">Fecha:</label>
-                <input class="form-control" id="fecha" type="text" placeholder="Fecha">
-            </div>
+      <div class="card-header text-center">DatePicker</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="form-label mt-4" for="fecha">Fecha:</label>
+          <input
+            class="form-control"
+            id="fecha"
+            type="text"
+            placeholder="Fecha"
+          />
         </div>
+      </div>
     </div>
 
     <!-- Droppable -->
     <div class="card border-primary m-5">
-        <div class="card-header text-center">Droppable</div>
-        <div class="card-body">
-
-            <div class="row">
-
-                <div class="col">
-                    <div id="draggable1" value="1" class="arrastrable">
-                        <p>Arrastrame</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div id="draggable2" value="0" class="arrastrable">
-                        <p>No me arrastre</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div id="droppable" class="soltable-vacio">
-                        <p>Soltar aqui</p>
-                        <h1 id="titulo">Prueba</h1>
-                    </div>
-                </div>
-
+      <div class="card-header text-center">Droppable</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div id="draggable1" value="1" class="arrastrable">
+              <p>Arrastrame</p>
             </div>
+          </div>
 
+          <div class="col">
+            <div id="draggable" class="ui-widget-content arrastrable">
+              <p>Drag me around</p>
+            </div>
+          </div>
+
+          <div class="col">
+            <div id="droppable" class="soltable-vacio">
+              <p>Soltar aqui</p>
+              <h1 id="titulo">Prueba</h1>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Selectable -->
     <div class="card border-primary m-5">
-        <div class="card-header text-center">Selectable</div>
-        <div class="card-body">
+      <div class="card-header text-center">Selectable</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <p id="feedback">
+              <span>Seleccionados: </span>
+              <span id="select-result">Ninguno</span>.
+            </p>
 
-            <div class="row">
-                <div class="col">
-
-                    <p id="feedback">
-                        <span>Seleccionados: </span> <span id="select-result">Ninguno</span>.
-                    </p>
-
-                    <ol id="selectable">
-                        <li class="item">Naraja</li>
-                        <li class="item">Piña</li>
-                        <li class="item">Limon</li>
-                        <li class="item">Pera</li>
-                        <li class="item">Uva</li>
-                        <li class="item">Papaya</li>
-                    </ol>
-
-                </div>
-            </div>
-
-
+            <ol id="selectable">
+              <li class="item">Naraja</li>
+              <li class="item">Piña</li>
+              <li class="item">Limon</li>
+              <li class="item">Pera</li>
+              <li class="item">Uva</li>
+              <li class="item">Papaya</li>
+            </ol>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 
-<script src="js/jquery.js"></script>
-<script src="jqueryui/jquery-ui.min.js"></script>
-<script src="js/code.js"></script>
-
+  <!-- <script src="js/jquery.js"></script>
+  <script src="jqueryui/jquery-ui.min.js"></script> -->
+  <script src="./js/code.js"></script>
 </html>
