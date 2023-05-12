@@ -82,5 +82,11 @@ ALTER TABLE prestamos
 	ADD CONSTRAINT prestamos_ibfk_1 FOREIGN KEY (CodigoUsuario) REFERENCES usuarios (CodigoUsuario),
 	ADD CONSTRAINT prestamos_ibfk_2 FOREIGN KEY (CodigoLibro) REFERENCES libros (CodigoLibro);
     
+-- JOIN: tablas libros y usuarios
 SELECT nombre, autor, titulo FROM libros, usuarios
 WHERE libros.CodigoLibro = usuarios.CodigoUsuario;
+
+SELECT prestamos.CodigoPrestamo, usuarios.Nombre, usuarios.Correo, libros.Titulo, prestamos.Estado 
+FROM prestamos
+INNER JOIN usuarios ON prestamos.CodigoUsuario = usuarios.CodigoUsuario
+INNER JOIN libros ON prestamos.CodigoLibro = libros.CodigoLibro;
