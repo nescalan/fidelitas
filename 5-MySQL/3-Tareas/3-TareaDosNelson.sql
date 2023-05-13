@@ -92,3 +92,17 @@ JOIN car_models ON car_brands.id = car_models.car_brand_id
 GROUP BY car_brands.brand_name 
 ORDER BY cantidad_modelos DESC;
 
+#7: Realiza una consulta que muestre el nombre de la marca, el nombre del modelo y el precio de venta de
+	-- todos los modelos de carros que tengan un precio de venta mayor a $20,000.
+SELECT car_brands.brand_name, car_models.model, car_models.sale_price
+FROM car_brands
+INNER JOIN car_models ON car_brands.id = car_models.id
+WHERE car_models.sale_price > 20000;
+
+#8: Realiza una consulta que muestre el nombre del concesionario, el nombre del cliente y 
+	-- el nombre del modelo de carro que se pidió, para los pedidos con estado "pendiente".
+SELECT 	car_dealers.dealer_name, customers.customer_name, car_brands.brand_name
+FROM car_dealers
+INNER JOIN customers ON car_dealers.id = customers.id
+INNER JOIN car_brands ON car_dealers.id = car_brands.id
+WHERE car_brands.brand_name LIKE 'M%';
