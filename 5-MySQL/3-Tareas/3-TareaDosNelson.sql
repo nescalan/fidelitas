@@ -189,3 +189,17 @@ INNER JOIN car_models ON customer_orders.car_model_id = car_models.id
 WHERE customer_orders.order_delivery_date <= DATE_ADD(NOW(), INTERVAL -2 MONTH)
   AND customer_orders.order_state = 'pending';
 
+#10: Crea un procedimiento almacenado que inserte un nuevo pedido de un cliente a un concesionario, 
+	-- y que actualice la cantidad de modelos de ese modelo que han sido pedidos.
+DELIMITER $$
+CREATE TRIGGER new_order_after_insert
+AFTER INSERT
+ON customers_orders
+FOR EACH ROW
+BEGIN
+	INSERT INTO customer_orders (order_date, order_delivery_date, order_state, customer_id, car_model_id, car_dealer_id, car_brand_id) 
+    VALUES ('2023-05-13', '2023-06-24', 'pending', 10, 10, 10, 20);
+    
+END
+DELIMITER $$
+
