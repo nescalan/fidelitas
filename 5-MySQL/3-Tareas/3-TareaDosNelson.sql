@@ -177,3 +177,15 @@ INNER JOIN customers ON customer_orders.customer_id = customers.id
 INNER JOIN car_models ON customer_orders.car_model_id = car_models.id
 WHERE customer_orders.order_state = 'pending';
 
+#9: Realiza una consulta que muestre el nombre del cliente, el nombre del modelo de carro pedido
+	-- y la fecha de entrega estimada para los pedidos que se hicieron hace más de 2 meses 
+    -- y todavía están en estado "pendiente".
+SELECT customers.customer_name AS 'Customer',
+       car_models.model AS 'Model',
+       customer_orders.order_delivery_date
+FROM customer_orders
+INNER JOIN customers ON customer_orders.customer_id = customers.id
+INNER JOIN car_models ON customer_orders.car_model_id = car_models.id
+WHERE customer_orders.order_delivery_date <= DATE_ADD(NOW(), INTERVAL -2 MONTH)
+  AND customer_orders.order_state = 'pending';
+
