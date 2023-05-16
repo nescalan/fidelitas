@@ -124,3 +124,100 @@ WHERE id IN (SELECT customer_id FROM orders WHERE order_total > 300);
 SELECT customers.customer_name, COUNT(orders.id) AS total_orders 
 FROM customers LEFT JOIN orders ON customers.id = orders.customer_id 
 GROUP BY customers.id ORDER BY total_orders DESC;
+
+#9: Realizar 2 actualizaciones de datos. 
+-- PRIMERA ACTUALIZACION: Cambio de correo para el liente con identificador = 1.
+UPDATE customers
+SET customer_email = 'correo_cambiado@mail.com'
+WHERE id= 1;
+
+-- SEGUNDA ACTUALIZACION: Actualizar el total de una orden con id=2 en la tabla "orders".
+UPDATE orders
+SET order_total = (order_total * 1.2)
+WHERE orders.id = 2;
+
+#10: Realizar 2 eliminaciones de datos. 
+-- PRIMERA ELIMINACION: Eliminar el registro del cliente con id=5 en la tabla "customers"
+DELETE orders FROM orders 
+INNER JOIN customers ON orders.customer_id = customers.id
+WHERE customers.id = 5;
+
+DELETE FROM customers
+WHERE id = 5;
+
+-- SEGUNDA ELIMINACION: Eliminar todas las órdenes con un valor total menor a 100 en la tabla "orders"
+DELETE FROM orders
+WHERE order_total < 100;
+
+#11: Eliminar una de las dos tablas. 
+-- Primero hay que eliminar la dependencia de llave foranea.
+ALTER TABLE orders DROP FOREIGN KEY fk_customer_id;
+
+-- Una vez eliminada la dependencia, borramos la tabla.
+DROP TABLE customers;
+
+#12: Eliminar la base de datos. 
+DROP DATABASE final_project;
+
+#13: Crear un índice en una de las tablas.
+CREATE INDEX idx_email
+ON customers (customer_email);
+
+#14: Crear una vista en la base de datos. 
+CREATE VIEW customer_orders AS
+SELECT c.customer_name, c.customer_email, o.order_total
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id;
+
+#15: Realizar una consulta en la vista creada. 
+SELECT * FROM customer_orders;
+
+#16: Crear un procedimiento almacenado para insertar datos en las tablas. 
+-- PRIMER PASO: Crear el pricedimiento
+DELIMITER $$
+CREATE PROCEDURE insert_customer_order(
+    IN customer_name VARCHAR(50),
+    IN customer_email VARCHAR(50),
+    IN customer_phone VARCHAR(50),
+    IN customer_address VARCHAR(50),
+    IN customer_birth_date DATE,
+    IN order_date DATE,
+    IN order_total DECIMAL(10,2),
+    IN order_way_to_pay VARCHAR(50)
+)
+BEGIN
+    -- Insertar el cliente
+    INSERT INTO customers (customer_name, customer_email, customer_phone, customer_address, customer_birth_date)
+    VALUES (customer_name, customer_email, customer_phone, customer_address, customer_birth_date);
+    
+    -- Obtener el ID del cliente recién insertado
+    SET @customer_id = LAST_INSERT_ID();
+    
+    -- Insertar la orden relacionada con el cliente
+    INSERT INTO orders (order_date, order_total, order_way_to_pay, customer_id)
+    VALUES (order_date, order_total, order_way_to_pay, @customer_id);
+END $$
+DELIMITER ;
+
+-- SEGUNDO PASO: Ejecutamos el procedimiento con el siguiente codigo.
+CALL insert_customer_order('Juan Pérez', 'juan.perez@example.com', '1234567890', 'Calle 123', '1980-01-01', '2023-05-13', 200.50, 'Tarjeta de crédito');
+
+
+#17: Crear una función en la base de datos. 
+-- PRIMER PASO: Debemos crear la funcion. Esta funcion va a calcular el precio total de una orden a partir de la cantidad y precio unitario
+DELIMITER $$
+CREATE FUNCTION calculate_order_total (quantity INT, unit_price DECIMAL(10,2))
+RETURNS DECIMAL(10,2)
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    SET total = quantity * unit_price;
+    RETURN total;
+END$$
+DELIMITER ;
+
+-- SEGUNDO PASO: Ejecutamos la funcion con el siguiente codigo.
+SELECT calculate_order_total(5, 10.50);
+
+#18: Realizar una consulta con una función en la base de datos.
+SELECT product_name, product_price, calculate_discount(product_price) as discount
+FROM products;
