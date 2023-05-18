@@ -174,7 +174,7 @@ SELECT * FROM customer_orders;
 
 #16: Crear un procedimiento almacenado para insertar datos en las tablas. 
 -- PRIMER PASO: Crear el pricedimiento
-DELIMITER $$
+DELIMITER //
 CREATE PROCEDURE insert_customer_order(
     IN customer_name VARCHAR(50),
     IN customer_email VARCHAR(50),
@@ -187,8 +187,8 @@ CREATE PROCEDURE insert_customer_order(
 )
 BEGIN
     -- Insertar el cliente
-INSERT INTO customers (customer_name, customer_email, customer_phone, customer_address, customer_birth_date) VALUES 
-					  (customer_name, customer_email, customer_phone, customer_address, customer_birth_date);
+    INSERT INTO customers (customer_name, customer_email, customer_phone, customer_address, customer_birth_date)
+    VALUES (customer_name, customer_email, customer_phone, customer_address, customer_birth_date);
     
     -- Obtener el ID del cliente recién insertado
     SET @customer_id = LAST_INSERT_ID();
@@ -196,7 +196,7 @@ INSERT INTO customers (customer_name, customer_email, customer_phone, customer_a
     -- Insertar la orden relacionada con el cliente
     INSERT INTO orders (order_date, order_total, order_way_to_pay, customer_id)
     VALUES (order_date, order_total, order_way_to_pay, @customer_id);
-END $$
+END //
 DELIMITER ;
 
 -- SEGUNDO PASO: Ejecutamos el procedimiento con el siguiente codigo.
