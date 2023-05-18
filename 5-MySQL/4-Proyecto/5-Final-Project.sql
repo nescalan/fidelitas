@@ -256,5 +256,6 @@ ON orders
 FOR EACH ROW
 SET NEW.order_date = NOW();
 
---Llamado
+#22: Consulta con trigger
+UPDATE orders SET order_total = 250.00 WHERE id = 1;
 
