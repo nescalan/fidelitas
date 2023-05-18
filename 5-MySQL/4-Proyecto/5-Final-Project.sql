@@ -187,8 +187,8 @@ CREATE PROCEDURE insert_customer_order(
 )
 BEGIN
     -- Insertar el cliente
-    INSERT INTO customers (customer_name, customer_email, customer_phone, customer_address, customer_birth_date)
-    VALUES (customer_name, customer_email, customer_phone, customer_address, customer_birth_date);
+INSERT INTO customers (customer_name, customer_email, customer_phone, customer_address, customer_birth_date) VALUES 
+					  (customer_name, customer_email, customer_phone, customer_address, customer_birth_date);
     
     -- Obtener el ID del cliente recién insertado
     SET @customer_id = LAST_INSERT_ID();
