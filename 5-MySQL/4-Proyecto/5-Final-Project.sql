@@ -236,3 +236,10 @@ DELIMITER ;
 -- SEGUNDO PASO: Ejecutamos la funcion con el siguiente codigo.
 SELECT order_date, order_total, calculate_discount(order_total, 0.9) AS discount
 FROM orders;
+
+#19: Realizar una transaccion para actualizar datos en las tablas
+START TRANSACTION;
+UPDATE customers
+SET customer_phone = '0987654321', customer_address = 'Calle Principal 321'
+WHERE id = 1;
+COMMIT;
