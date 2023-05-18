@@ -244,7 +244,17 @@ SET customer_phone = '0987654321', customer_address = 'Calle Principal 321'
 WHERE id = 1;
 COMMIT;
 
-#20: REalizar una consulta con una subconsulta
+#20: Realizar una consulta con una subconsulta
 SELECT customer_name, customer_email, customer_address 
 FROM customers 
 WHERE id IN (SELECT customer_id FROM orders WHERE order_total > 300);
+
+#21: Crear un trigger
+CREATE TRIGGER update_order
+BEFORE UPDATE
+ON orders
+FOR EACH ROW
+SET NEW.order_date = NOW();
+
+--Llamado
+
