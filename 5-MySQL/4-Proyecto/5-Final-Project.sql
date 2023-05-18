@@ -205,19 +205,34 @@ CALL insert_customer_order('Juan Pérez', 'juan.perez@example.com', '1234567890'
 
 #17: Crear una función en la base de datos. 
 -- PRIMER PASO: Debemos crear la funcion. Esta funcion va a calcular el precio total de una orden a partir de la cantidad y precio unitario
-DELIMITER $$
+DELIMITER //
 CREATE FUNCTION calculate_order_total (quantity INT, unit_price DECIMAL(10,2))
 RETURNS DECIMAL(10,2)
+DETERMINISTIC
 BEGIN
     DECLARE total DECIMAL(10,2);
     SET total = quantity * unit_price;
     RETURN total;
-END$$
+END //
 DELIMITER ;
 
 -- SEGUNDO PASO: Ejecutamos la funcion con el siguiente codigo.
 SELECT calculate_order_total(5, 10.50);
 
 #18: Realizar una consulta con una función en la base de datos.
-SELECT product_name, product_price, calculate_discount(product_price) as discount
-FROM products;
+-- PRIMER PASO: Debemos crear la funcion. Esta funcion va a calcular el descuento total de una orden a partir de la cantidad total y el porcentaje de descuento
+DELIMITER //
+CREATE FUNCTION calculate_discount(order_total INT, discount DECIMAL(10.2))
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE total_discount DECIMAL(10,2);
+    SET total_discount = order_total * discount;
+    RETURN total_discount;
+END //
+DELIMITER ;
+
+
+-- SEGUNDO PASO: Ejecutamos la funcion con el siguiente codigo.
+SELECT order_date, order_total, calculate_discount(order_total, 0.9) AS discount
+FROM orders;
