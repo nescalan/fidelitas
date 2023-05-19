@@ -259,3 +259,11 @@ SET NEW.order_date = NOW();
 #22: Consulta con trigger
 UPDATE orders SET order_total = 250.00 WHERE id = 1;
 
+#23: Realizar una copia de seguridad de la base de datos.
+-- Hay varias formas para realizar el respaldo de una base de datos. 
+-- A continuacion presento mi respuesta que se ejecuta desde la terminal.
+	mysqldump -u root -p final_project > final_project_backup.sql
+    
+#24: Restaurar la copia de seguridad en otra base de datos
+	mysql -u root -p final_project < final_project_backup.sql
+
