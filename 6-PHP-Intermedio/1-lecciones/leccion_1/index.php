@@ -1,3 +1,9 @@
+<?php #index.php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,33 +27,33 @@
 
             <div class="col-lg-6 mb-3">
                 <label for="">Nombre</label>
-                <input type="text" value="" class="form-control" name="txtNombre" id="txtNombre">
+                <input id="txtNombre" class="form-control" type="text" value="" name="txtNombre">
             </div>
 
             <div class="col-lg-6 mb-3">
                 <label for="">Primer Apellido</label>
-                <input type="text" value="" class="form-control" name="txtApellido1" id="txtApellido1">
+                <input id="txtApellido1" class="form-control" type="text" value="" name="txtApellido1">
             </div>
 
             <div class="col-lg-6 mb-3">
                 <label for="">Segundo Apellido</label>
-                <input type="text" value="" class="form-control" name="txtApellido2" id="txtApellido2">
+                <input id="txtApellido2" class="form-control" type="text" value="" name="txtApellido2">
             </div>
 
             <div class="col-lg-6 mb-3">
                 <label for="">Correo</label>
-                <input type="mail" value="" class="form-control" name="txtCorreo" id="txtCorreo">
+                <input id="txtCorreo" class="form-control" type="mail" value="" name="txtCorreo">
             </div>
 
             <div class="col-lg-6 mb-3">
                 <label for="">Fecha Nacimiento</label>
-                <input type="date" value="" class="form-control" name="txtFechaNac" id="txtFechaNac">
+                <input id="txtFechaNac" class="form-control" type="date" value="" name="txtFechaNac">
             </div>
 
             <div class="col-lg-6 mb-3">
                 <label for="">Teléfono</label>
-                <input type="number" onkeypress="return isNumber(event)" value="" class="form-control"
-                    name="txtTelefono" id="txtTelefono">
+                <input id="txtTelefono" class="form-control" type="number" onkeypress="return isNumber(event)" value=""
+                    name="txtTelefono">
             </div>
 
             <div class="col-lg-12 mb-4">
