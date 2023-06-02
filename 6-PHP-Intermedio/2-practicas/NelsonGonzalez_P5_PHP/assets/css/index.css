@@ -61,11 +61,19 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.contact-form .error-message {
+.contact-form .error {
+  margin-top: 25px;
   padding: 10px 12px;
-  color: red;
+  margin-bottom: 20px;
   font-size: 13px;
-  border: 1px solid red;
   border-radius: 10px;
+}
+.contact-form .error-message {
+  color: red;
+  border: 1px solid red;
   background-color: rgb(255, 170, 170);
+}
+.contact-form .success-message {
+  color: white;
+  background-color: green;
 }

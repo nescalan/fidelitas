@@ -13,6 +13,8 @@ function sanitizePhrase($phrase)
     $phrase = stripslashes($phrase);
     $phrase = htmlspecialchars($phrase);
     $phrase = strtolower($phrase);
+    $phrase = filter_var($phrase, FILTER_SANITIZE_STRING);
+
     return $phrase;
 }
 
@@ -25,7 +27,7 @@ function sanitizeEmail($email)
     return $email;
 }
 
-require_once "./src/views/index.view.php";
+
 require_once "./src/msqli/db-connection.php";
 
 // VERIFICATION: verifies if submit was sent
@@ -59,7 +61,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-
+require_once "./src/views/index.view.php";
 
 
 ?>

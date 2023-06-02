@@ -44,21 +44,30 @@
 
                     <label for="birdth-day">Fecha de Nacimiento:</label>
                     <input id="birdth-day" type="date" name="birdth-day">
+
+                    <div>
+                        <?php if ($errorMessage): ?>
+                            <div class="error error-message">
+                                <p>
+                                    <?= $errorMessage; ?>
+                                </p>
+                            </div>
+                        <?php elseif ($successMessage): ?>
+                            <div class="error success-message">
+                                <p>
+                                    <?= $successMessage; ?>
+                                </p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- MENSAJE: Mensaje de error -->
-            <div>
-                <?php if ($errorMessage): ?>
-                    <div class="error-message">
-                        <p>
-                            <?= $errorMessage; ?>
-                        </p>
-                    </div>
-                <?php endif; ?>
-            </div>
-
             <button type="submit" name="submit">Submit</button>
+
+            <!-- MENSAJE: Mensaje de error -->
+
         </form>
     </div>
 
