@@ -18,19 +18,52 @@
 
     <!-- FORMULARIO: Captura los datos necesarios del cliente -->
     <div class="contact-form">
-        <span class="heading">Contact Us</span>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" required="">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required="">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required=""></textarea>
-            <button type="submit">Submit</button>
+        <span class="heading">Clientes</span>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+            <div class="flex-container">
+                <div class="left-col">
+                    <label for="id">Identificacion:</label>
+                    <input id="id" type="number" name="id" onkeypress="return isNumber(event)">
+
+                    <label for="last-name-1">Primer Apellido:</label>
+                    <input id="last-name-1" type="text" name="last-name-1">
+
+                    <label for="email">Correo:</label>
+                    <input id="email" type="text" name="email">
+
+                    <label for="phone">Telefono:</label>
+                    <input id="phone" type="text" name="phone" onkeypress="return isNumber(event)">
+                </div>
+
+                <div class="right-col">
+                    <label for="first-name">Nombre:</label>
+                    <input id="first-name" type="text" name="first-name">
+
+                    <label for="last-name-2">Segundo Apellido:</label>
+                    <input id="last-name-2" type="text" name="last-name-2">
+
+                    <label for="birdth-day">Fecha de Nacimiento:</label>
+                    <input id="birdth-day" type="date" name="birdth-day">
+                </div>
+            </div>
+
+            <!-- MENSAJE: Mensaje de error -->
+            <div>
+                <?php if ($errorMessage): ?>
+                    <div class="error-message">
+                        <p>
+                            <?= $errorMessage; ?>
+                        </p>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <button type="submit" name="submit">Submit</button>
         </form>
     </div>
 
-
+    <!-- SCRIPT: Validation of the phone input -->
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>
