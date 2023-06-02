@@ -1,37 +1,56 @@
-<?php
+<?php 
 
-require "accesoBD.php";
+include 'accesoBD.php';
 
-$errorMessage = "";
-$successMessage = "";
+$CadenaTexto = 'La prueba se realizó con éxito';
 
-if (isset($_POST['btnGuardar'])) {
-    # Display success message
-    // $successMessage = "Se presiono el boton";
+$result = strpos($CadenaTexto, 'éxito');
+echo $result;
 
-    $id = $_POST['txtIden'];
-    $nombre = $_POST['txtNombre'];
-    $apellido1 = $_POST['txtApellido1'];
-    $apellido2 = $_POST['txtApellido2'];
-    $fechaNacimiento = $_POST['txtFechaNac'];
-    $correo = $_POST['txtCorreo'];
-    $telefono = $_POST['txtTelefono'];
+function validaCedula($cedula){
 
-    $conexionAbierta = IniciarConexion();
+    $longitudCed = strlen($cedula);
 
-    $consulta = "INSERT INTO T_Clientes VALUES('".$id."', '".$nombre."', '".$apellido1."', '".$apellido2."', '".$correo."', '".$fechaNacimiento."', '".date('y-m-d')."', '".$id."', '".$telefono."' );"
-    
-    if ($conexionAbierta-> query($consulta)) {
-        # code...
-        echo 
-    } else {
-        # code...
+    if($longitudCed === 9){
+        return true;
+    }else{
+        return false;
     }
-    
-
 
 }
 
+if(isset($_POST['btnGuardar'])){
+
+    //echo '<script> alert("Se presionó el botón"); </script>';
+
+    $iden = $_POST["txtIden"];
+    $Nombre = $_POST["txtNombre"];
+    $Apellido1 = $_POST["txtApellido1"];
+    $Apellido2 = $_POST["txtApellido2"];
+    $FechaNac = $_POST["txtFechaNac"];
+    $Correo = $_POST["txtCorreo"];
+    $Telefono = $_POST["txtTelefono"];
+
+    if(validaCedula($iden)){
+
+        $conexionAbierta = IniciarConexion();
+
+        $consulta = "INSERT INTO T_Clientes VALUES('".$iden."', '".$Nombre."', '".$Apellido1."', '".$Apellido2."', '".$Correo."', '".$FechaNac."', '".date('Y-m-d')."', '".$Telefono."' )";
+    
+        if($conexionAbierta -> query($consulta)){
+            echo '<script> alert("Se ha guardado el usuario exitosamente."); </script>';
+            echo '<script> window.location.href = "listaClientes.php" </script>';
+        }else{
+            echo $conexionAbierta->error;
+        }
+    
+        Finalizar($conexionAbierta);
+
+    }else{
+        echo '<script> alert("La identificación no cumple con el número de dígitos requeridos."); </script>';
+    }
+
+}
 
 ?>
 
@@ -47,73 +66,81 @@ if (isset($_POST['btnGuardar'])) {
 
 <body>
 
-    <?php include 'menu.php'; ?>
+<?php include 'menu.php';  ?>
 
     <section>
 
-        <form action="" method="POST" autocomplete="off">
-            <div class="row m-5 p-5 border">
+<form method="post">
 
-                <div class="col-lg-12 mb-3 text-center">
-                    <h3>PHP Intermedio - 5to Periodo</h3>
-                </div>
+    <div class="row m-5 p-5 border">
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Identificacion</label>
-                    <input id="txtIden" class="form-control" type="text" name="txtIden">
-                </div>
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Primer Apellido</label>
-                    <input type="text" class="form-control" name="txtApellido1" id="txtApellido1">
-                </div>
+<div class="col-lg-12 mb-3 text-center">
+    <h3>PHP Intermedio - 5to Periodo</h3>
+</div>
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Segundo Apellido</label>
-                    <input type="text" class="form-control" name="txtApellido2" id="txtApellido2">
-                </div>
+<div class="col-lg-6 mb-3">
+    <label for="">Identificación</label>
+    <input type="text" maxlength="9" required class="form-control" name="txtIden" id="txtIden">
+</div>
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Correo</label>
-                    <input type="mail" value="" class="form-control" name="txtCorreo" id="txtCorreo">
-                </div>
+<div class="col-lg-6 mb-3">
+    <label for="">Nombre</label>
+    <input type="text" required class="form-control" name="txtNombre" id="txtNombre">
+</div>
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Fecha Nacimiento</label>
-                    <input type="date" value="" class="form-control" name="txtFechaNac" id="txtFechaNac">
-                </div>
+<div class="col-lg-6 mb-3">
+    <label for="">Primer Apellido</label>
+    <input type="text" required class="form-control" name="txtApellido1" id="txtApellido1">
+</div>
 
-                <div class="col-lg-6 mb-3">
-                    <label for="">Teléfono</label>
-                    <input type="number" onkeypress="return isNumber(event)" value="" class="form-control"
-                        name="txtTelefono" id="txtTelefono">
-                </div>
+<div class="col-lg-6 mb-3">
+    <label for="">Segundo Apellido</label>
+    <input type="text" required class="form-control" name="txtApellido2" id="txtApellido2">
+</div>
 
-                <div class="col-lg-12 mb-4">
-                    <div class="border p-3">
-                        <label for="">Anotaciones</label>
-                        <!-- <ol>
+<div class="col-lg-6 mb-3">
+    <label for="">Correo</label>
+    <input type="mail" required class="form-control" name="txtCorreo" id="txtCorreo">
+</div>
+
+<div class="col-lg-6 mb-3">
+    <label for="">Fecha Nacimiento</label>
+    <input type="date" required class="form-control" name="txtFechaNac" id="txtFechaNac">
+</div>
+
+<div class="col-lg-6 mb-3">
+    <label for="">Teléfono</label>
+    <input type="number" required onkeypress="return isNumber(event)" class="form-control"
+        name="txtTelefono" id="txtTelefono">
+</div>
+<div class="col-lg-12 text-end">
+<input type="submit" class="btn btn-success" id="btnGuardar" name="btnGuardar" value="Guardar Usuario">
+
+    </form>
+</div>
+            <!--
+            <div class="col-lg-12 mb-4">
+                <div class="border p-3">
+                    <label for="">Anotaciones</label>
+                    <ol>
                         <li>El echo imprime texto en pantalla, y pueden ser múltiples valores.</li>
                         <li>El print_r no solo retorna cadenas, ya que retorna variables de todo tipo.</li>
                         <li>El print retorna solo 1 elemento, no puede imprimir multiples valores.</li>
                         <li>El var_dump realiza impresiones de forma más detallada del elemento.</li>
-                    </ol> -->
-                    </div>
-
-                    <div class="col-lg-12 text-end">
-                        <input type="button" class="btn btn-success" value="Validar Datos">
-                    </div>
-
-                    <a href="" target="_blank">
-                    </a>
+                    </ol>
                 </div>
 
-                <div class="col-lg-12">
-                    <input id="btnGuardar" class="btn btn-success" type="submit" value="Guardar Usuario"
-                        name="btnGuardar">
+                <div class="col-lg-12 text-end">
+                    <input type="button" class="btn btn-success" value="Validar Datos">
                 </div>
-        </form>
 
+                <a href="" target="_blank">
+                </a>
+
+            </div>
+            
+-->
     </section>
 
     <script>
