@@ -1,16 +1,23 @@
-<?php
+<?php # accesoDB.php
 
-$serverName = "localhost";
-$user = "root";
-$password = "1234";
-$bdName = "NombreBD";
+// FUNCTION
+function IniciarConexion()
+{
+    $serverName = "localhost";
+    $user = "root";
+    $password = "4u3p7px6";
+    $bdName = "id_clientes";
 
-function IniciarConexion(){
 
+    // Conction to id_lcientes database on localhost
+    $conexion = mysqli_connect($serverName, $user, $password, $bdName);
+    return $conexion;
 }
 
-function cerrarConexion(){
-
+// FUNCTION: Execute connection
+function cerrarConexion($conexion)
+{
+    $conexion->close();
 }
 
 ?>
