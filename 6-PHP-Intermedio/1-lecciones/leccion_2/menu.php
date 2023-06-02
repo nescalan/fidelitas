@@ -11,7 +11,7 @@ echo '
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="lista-clientes.php">Clientes</a>
+          <a class="nav-link active" aria-current="page" href="listaClientes.php">Clientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Funciones</a>
