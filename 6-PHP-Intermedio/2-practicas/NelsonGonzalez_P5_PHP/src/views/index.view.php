@@ -18,7 +18,7 @@
 
     <!-- FORMULARIO: Captura los datos necesarios del cliente -->
     <div class="contact-form">
-        <span class="heading">Clientes</span>
+        <span class="heading">Inscripcion de Clientes</span>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <div class="flex-container">
                 <div class="left-col">
