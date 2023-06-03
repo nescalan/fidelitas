@@ -42,10 +42,12 @@ if (isset($_POST['submit'])) {
 
     // CONDITIONAL: Check if any viariable is empty
     if (empty($id) || empty($firstName) || empty($lastName1) || empty($lastName2) || empty($email) || empty($birthDay) || empty($phone)) {
+
+        // Message of error
         $errorMessage .= "Porfavor llene todos los campos.";
-        echo "Porfavor llene todos los campos."; //Borrar
 
     } else {
+
         # success message
         $successMessage .= "¡Registro guardado!";
         echo "Registro Guardado: "; //Borrar
