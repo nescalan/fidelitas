@@ -12,6 +12,9 @@ $connection = new mysqli($db_hostname, $db_username, $db_password, $db_database)
 if ($connection->connect_error) {
     # Kill page
     die("Error de conexión: No se puede establecer una conexión con la base de datos.");
+} else {
+    # Success message
+    echo "Conexión a la base de datos establecida.";
 }
 
 ?>
