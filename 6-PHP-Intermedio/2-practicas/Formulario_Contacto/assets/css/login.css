@@ -122,3 +122,18 @@
   line-height: 1rem;
   color: rgba(156, 163, 175, 1);
 }
+.alert {
+  margin-bottom: 20px;
+  padding: 1rem;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.alert.error {
+  color: #a94442;
+  border: 1px solid #a94442;
+  background-color: #f2dede;
+}
+.alert.success {
+  background-color: #4caf50;
+}
