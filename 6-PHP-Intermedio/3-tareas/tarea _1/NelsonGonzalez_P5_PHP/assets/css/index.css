@@ -1,0 +1,79 @@
+.contact-form {
+  width: 768px;
+  margin: 40px auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-form label {
+  color: black;
+}
+
+.contact-form .heading {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.contact-form form .flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-form form .left-col {
+  width: 45%;
+}
+
+.contact-form form .right-col {
+  width: 50%;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0 20px 0;
+}
+
+.contact-form input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ff6384;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-form button[type="submit"] {
+  background-color: #ff6384;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-form .error {
+  margin-top: 25px;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+.contact-form .error-message {
+  color: red;
+  border: 1px solid red;
+  background-color: rgb(255, 170, 170);
+}
+.contact-form .success-message {
+  color: white;
+  background-color: green;
+}
