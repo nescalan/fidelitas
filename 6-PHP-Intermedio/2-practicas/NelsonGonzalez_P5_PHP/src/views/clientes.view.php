@@ -27,13 +27,15 @@
         <div class="row justify-content-around">
             <?php
             while ($row = $result->fetch_assoc()) {
+                // Get the email address from the database.
+                $email_address = $row["correo"];
                 echo '
             <div class="card" style="width:250px">
                 <img class="card-img-top" src="https://www.w3schools.com/bootstrap5/img_avatar1.png" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title">  ' . $row["Nombre"] . '&nbsp;' . $row["Apellido1"] . '&nbsp;' . $row["Apellido2"] . '  </h4>
                     <p class="card-text my-2"></p>
-                    <a href="#" class="btn btn-primary"> ' . $row["correo"] . ' </a>
+                    <a href="mailto: ' . $email_address . '" class="btn btn-primary"> ' . $email_address . ' </a>
                 </div>
             </div> 
         ';
@@ -41,7 +43,6 @@
             ?>
         </div>
     </div>
-
 
 
 
@@ -59,6 +60,7 @@
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- SCRIPT: Validation of the phone input -->
+    <script src="./assets/js/clientes.script.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
 
