@@ -23,7 +23,7 @@ echo '
                         <a class="nav-link" href="./inquilinos.php">Inquilinos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Viviendas</a>
+                        <a class="nav-link" href="./viviendas.php">Viviendas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Invitados</a>
