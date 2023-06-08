@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <!-- Latest personalized and minified CSS Bootstrap  -->
     <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
+    <!-- Data Tables Bootstrap library -->
     <!-- CSS: Local stayles -->
     <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
@@ -26,7 +27,7 @@
         </div>
 
         <div class="container">
-            <table class="table">
+            <table id="inquilinos" class="table">
                 <thead>
                     <tr>
                         <th scope="col">Cédula</th>
@@ -51,18 +52,18 @@
                     ?>
                 </tbody>
             </table>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-
         </div>
+
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
 </body>
 
 </html>
