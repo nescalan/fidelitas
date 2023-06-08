@@ -1,56 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php # viviendas.php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-    <!-- Latest personalized and minified CSS Bootstrap  -->
-    <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
-    <!-- CSS: Local stayles -->
-    <link rel="stylesheet" href="./assets/css/global.css">
-    <title>Proyecto | PHP Intermedio</title>
-</head>
+require_once "./src/model/connection-db.model.php";
 
-<body>
-    <div class="container">
-        <h2>Table with Pagination</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
+$connection = openConnection();
 
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>janedoe@example.com</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Peter Smith</td>
-                    <td>petersmith@example.com</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Sarah Jones</td>
-                    <td>sarahjones@example.com</td>
-                </tr>
-            </tbody>
-        </table>
+# Check the db connection
+if ($connection->connect_errno) {
+    // The page die
+    die("Lo siento, hay un problema con el servidor.");
+} else {
+    // Select all items from table inquilinos
+    $sql = "SELECT * FROM viviendas";
 
-    </div>
+    // Executes the query connection
+    $result = $connection->query($sql);
 
-</body>
+    # Check errors on the last query
+    if (!$result) {
+        die($connection->error);
+    }
 
-</html>
+}
+closeConnection($connection);
+
+require_once "./src/views/inquilinos.view.php";
+
+?>
