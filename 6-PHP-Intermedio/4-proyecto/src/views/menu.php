@@ -1,7 +1,7 @@
 <?php # menu.php
 
 echo '
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark p-3 pl-5">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
         <div class="container ">
             
             <a class="navbar-brand" href="./">Axioma</a>
@@ -10,9 +10,8 @@ echo '
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-        
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="container navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item ">
                         <a class="nav-link active" href="./">Actividad</a>
                     </li>
@@ -30,9 +29,6 @@ echo '
                     </li>
                 </ul>
             </div>
-
-            
-
         </div>
     </nav>
     

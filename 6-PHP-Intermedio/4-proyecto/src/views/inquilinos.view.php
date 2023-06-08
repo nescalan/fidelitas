@@ -8,32 +8,52 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <!-- Latest personalized and minified CSS Bootstrap  -->
     <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
+    <!-- CSS: Local stayles -->
+    <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
 </head>
 
 <body>
-    <?php require_once "./src/views/menu.php" ?>
+    <header>
+        <?php require_once "./src/views/menu.php" ?>
+    </header>
+    <main>
 
-    <h1>Inquilinos</h1>
+        <div class="container">
+            <input class="btn btn-info" type="button" value="Agregar usuarios">
+        </div>
 
-    <table class="table table-hover">
-        <thead>
-            ...
-        </thead>
-        <tbody>
-            <tr class="table-active">
-                ...
-            </tr>
-            <tr>
-                ...
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2" class="table-active">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="container">
+            <table>
+                <thead>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Estado</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>

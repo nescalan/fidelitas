@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <!-- Latest personalized and minified CSS Bootstrap  -->
     <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
+    <!-- CSS: Local stayles -->
+    <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
 </head>
 
