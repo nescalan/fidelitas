@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+    <header class=" ">
         <?php require_once "./src/views/menu.php" ?>
     </header>
 

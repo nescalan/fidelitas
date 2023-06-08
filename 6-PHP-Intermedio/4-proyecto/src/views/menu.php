@@ -1,7 +1,7 @@
 <?php # menu.php
 
 echo '
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark shadow">
         <div class="container ">
        
             <a class="navbar-brand " href="./">
