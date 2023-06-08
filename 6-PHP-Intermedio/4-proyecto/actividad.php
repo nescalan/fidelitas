@@ -1,15 +1,30 @@
 <?php #actividad.php 
 
+// Variables declaration
+$activityNumber = "";
+
 require_once "./src/model/connection-db.model.php";
-require_once "./src/views/actividad.view.php";
 
+$connection = openConnection();
 
-
-// Check connection
-if (openConnection()) {
-    die("No podemos completar la consulta: " . $connection->connect_error);
+# Check the db connection
+if (!$connection) {
+    // The page die
+    die("Lo siento, hay un problema con el servidor");
 } else {
-    echo "Conexion Exitosa";
+    // Select al items from table visitas
+    $sql = "SELECT * FROM visitas";
+
+    // Executes the query connection
+    $result = $connection->query($sql);
+
+    # CONDITIONAL: Check errors on the last query
+    if (!$result)
+        die($connection->error);
+
+    $activityNumber = $result->num_rows;
 }
+
+require_once "./src/views/actividad.view.php";
 
 ?>

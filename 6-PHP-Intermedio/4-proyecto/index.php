@@ -1,5 +1,5 @@
 <?php #index.php
 
-require_once "./src/views/actividad.view.php";
+require_once "./actividad.php";
 
 ?>

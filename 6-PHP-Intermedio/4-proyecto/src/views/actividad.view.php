@@ -19,9 +19,18 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1>0</h1>
-            <h2>Total de registros hoy</h2>
+        <div class="container mt-5 text-center">
+            <div class="card">
+                <h5 class="card-header">Agenda del día </h5>
+                <div class="card-body">
+                    <h5 class="card-title">Total de Registros para hoy: </h5>
+                    <p class="card-text fs-1 ">
+                        <?php echo $activityNumber; ?>
+                    </p>
+                    <a href="#" class="btn btn-primary">Actualizar datos</a>
+                </div>
+            </div>
+
         </div>
 
     </main>

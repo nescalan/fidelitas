@@ -9,7 +9,8 @@ function openConnection()
     $database = "axioma";
 
     // Create MySqli connection
-    $connection = new mysqli($host, $user, $password, $database);
+    // $connection = new mysqli($host, $user, $password, $database);
+    $connection = mysqli_connect($host, $user, $password, $database);
 
     // Returns the connection
     return $connection;
@@ -19,5 +20,6 @@ function openConnection()
 # FUNCTION: Close the dB connection
 function closeConnection($connection)
 {
-    $connection->close();
+    mysqli_close($connection);
+    // $connection->close();
 }

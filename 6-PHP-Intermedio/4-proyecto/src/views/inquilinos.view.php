@@ -16,42 +16,46 @@
 <body>
     <header>
         <?php require_once "./src/views/menu.php" ?>
+
     </header>
+
     <main>
 
-        <div class="container">
-            <input class="btn btn-info" type="button" value="Agregar usuarios">
+        <div class="container mt-5 d-flex justify-content-end">
+            <button type="button" class="btn btn-info">Agregar usuarios</button>
         </div>
 
         <div class="container">
-            <table>
+            <table class="table">
                 <thead>
-                    <th>Cedula</th>
-                    <th>Nombre</th>
-                    <th>Telefono</th>
-                    <th>Estado</th>
+                    <tr>
+                        <th scope="col">Cédula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Estado</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </main>
 </body>
