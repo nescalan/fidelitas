@@ -14,10 +14,7 @@
 <body>
     <?php require_once "./src/views/menu.php" ?>
 
-    <h1>Pagina de Inicio</h1>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <h1>Condominos</h1>
 </body>
 
 </html>
