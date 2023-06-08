@@ -31,8 +31,8 @@
             <table id="inquilinos" class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Cédula</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Número de casas</th>
+                        <th scope="col">Dirección</th>
                         <th scope="col">Teléfono</th>
                         <th scope="col">Estado</th>
                     </tr>
@@ -43,8 +43,8 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '
                         <tr>
-                            <th> ' . $row['cedula'] . ' </th>
-                            <td> ' . $row['nombre'] . ' </td>
+                            <th> ' . $row['numero_casa'] . ' </th>
+                            <td> ' . $row['direccion'] . ' </td>
                             <td> ' . $row['telefono'] . ' </td>
                             <td> ' . $row['estado'] . ' </td>
                         </tr>
