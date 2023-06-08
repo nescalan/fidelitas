@@ -42,10 +42,10 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row"> ' . $row['cedula'] . ' </th>
+                            <td> ' . $row['nombre'] . ' </td>
+                            <td> ' . $row['telefono'] . ' </td>
+                            <td> ' . $row['estado'] . ' </td>
                         </tr>
                         ';
                     }
