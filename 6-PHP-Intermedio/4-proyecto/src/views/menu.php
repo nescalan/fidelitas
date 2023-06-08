@@ -1,7 +1,7 @@
 <?php # menu.php
 
 echo '
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark p-3 pl-5">
         <div class="container ">
             
             <a class="navbar-brand" href="./">Axioma</a>
@@ -14,7 +14,10 @@ echo '
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="container navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link active" href="./condominos.php">Condominos</a>
+                        <a class="nav-link active" href="./">Actividad</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./inquilinos.php">Inquilinos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Viviendas</a>

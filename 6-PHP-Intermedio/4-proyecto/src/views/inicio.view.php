@@ -12,9 +12,16 @@
 </head>
 
 <body>
-    <?php require_once "./src/views/menu.php" ?>
+    <header>
+        <?php require_once "./src/views/menu.php" ?>
+    </header>
 
-    <h1>Condominos</h1>
+    <h1>Pagina de Inicio</h1>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
