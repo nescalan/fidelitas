@@ -1,4 +1,4 @@
-<?php # inquilinos.php
+<?php # reportes.php
 
 require_once "./src/model/connection-db.model.php";
 

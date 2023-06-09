@@ -23,8 +23,11 @@
 
     <main>
 
-        <div class="container mt-5 d-flex justify-content-center">
-            <h1>En construccion</h1>
+        <div class="container mt-5 mb-2 d-flex justify-content-between">
+            <div>
+                <h2>En Construccion</h2>
+            </div>
+            <button type="button" class="btn btn-info">Agregar Viviendas</button>
         </div>
 
     </main>

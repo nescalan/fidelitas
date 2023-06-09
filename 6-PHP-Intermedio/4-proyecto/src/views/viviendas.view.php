@@ -31,7 +31,7 @@
         </div>
 
         <div class="container">
-            <table id="viviendas" class="table table-hover">
+            <table id="invitados" class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Número de Casa</th>
@@ -73,7 +73,7 @@
         window.onload = InicioDT();
 
         function InicioDT() {
-            $('#viviendas').DataTable();
+            $('#invitados').DataTable();
         }
 
     </script>

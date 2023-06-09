@@ -31,6 +31,9 @@ echo '
                     <li class="nav-item">
                         <a class="nav-link" href="./registrar-visita.php">Registrar Visita</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reportes.php">Reportes</a>
+                    </li>
                 </ul>
             </div>
         </div>
