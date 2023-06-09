@@ -27,7 +27,9 @@
             <div>
                 <h2>Inquilinos</h2>
             </div>
-            <a class="btn btn-info" type="button" href="#add-inquilinos">Agregar Inquilinos</a>
+            <button class="btn btn-info" type="button" onclick="window.location.href='#add-inquilinos'">
+                Agregar Inquilinos
+            </button>
 
         </div>
 
@@ -79,7 +81,45 @@
         </section>
 
         <section id="add-inquilinos">
-
+            <div class="d-flex align-items-star container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                    class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z" />
+                </svg>
+                <p><a href="#display-inquilinos">Regresar a usuarios</a></p>
+            </div>
+            <div class="container p-3 border">
+                <h3 class="fw-bold">Agregar usuario</h3>
+                <p>
+                    Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del rol que le
+                    asignes y estos puedes modificarlos desde la configuración avanzada.
+                </p>
+                <form>
+                    <fieldset>
+                        <h5>Datos Generales</h5>
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Disabled input</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                        </div>
+                        <div class="mb-3">
+                            <label for="disabledSelect" class="form-label">Disabled select menu</label>
+                            <select id="disabledSelect" class="form-select">
+                                <option>Disabled select</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+                                <label class="form-check-label" for="disabledFieldsetCheck">
+                                    Can't check this
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
         </section>
     </main>
 
