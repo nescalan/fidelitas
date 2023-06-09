@@ -25,19 +25,19 @@
 
         <div class="container mt-5 mb-2 d-flex justify-content-between">
             <div>
-                <h2>Viviendas</h2>
+                <h2>Invitados</h2>
             </div>
-            <button type="button" class="btn btn-info">Agregar Viviendas</button>
+            <button type="button" class="btn btn-info">Agregar Invitados</button>
         </div>
 
         <div class="container">
-            <table id="viviendas" class="table table-hover">
+            <table id="invitados" class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Número de Casa</th>
-                        <th scope="col">Dirección</th>
+                        <th scope="col">Cédula</th>
+                        <th scope="col">Nombre</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Estado</th>
+                        <th scope="col">Acceso</th>
                     </tr>
                 </thead>
 
@@ -46,10 +46,10 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '
                         <tr>
-                            <th> ' . $row['numero_casa'] . ' </th>
-                            <td> ' . $row['direccion'] . ' </td>
+                            <th> ' . $row['cedula'] . ' </th>
+                            <td> ' . $row['nombre'] . ' </td>
                             <td> ' . $row['telefono'] . ' </td>
-                            <td> ' . $row['estado'] . ' </td>
+                            <td> ' . $row['acceso'] . ' </td>
                         </tr>
                         ';
                     }
@@ -73,7 +73,7 @@
         window.onload = InicioDT();
 
         function InicioDT() {
-            $('#viviendas').DataTable();
+            $('#invitados').DataTable();
         }
 
     </script>

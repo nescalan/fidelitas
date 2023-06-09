@@ -1,4 +1,4 @@
-<?php # viviendas.php
+<?php # inquilinos.php
 
 require_once "./src/model/connection-db.model.php";
 
@@ -10,14 +10,10 @@ if ($connection->connect_errno) {
     die("Lo siento, hay un problema con el servidor.");
 } else {
     // Select all items from table inquilinos
-    $sqlHomes = "SELECT * FROM viviendas";
+    $sqlGuests = "SELECT * FROM invitados";
 
     // Executes the query connection
-    $result = $connection->query($sqlHomes);
-
-    while ($row = mysqli_fetch_assoc($result)) {
-        print_r($row);
-    }
+    $result = $connection->query($sqlGuests);
 
     # Check errors on the last query
     if (!$result) {
@@ -27,6 +23,6 @@ if ($connection->connect_errno) {
 }
 closeConnection($connection);
 
-require "./src/views/viviendas.view.php";
+require_once "./src/views/invitados.view.php";
 
 ?>

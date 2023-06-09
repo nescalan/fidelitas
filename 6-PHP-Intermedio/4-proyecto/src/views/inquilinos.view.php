@@ -23,8 +23,11 @@
 
     <main>
 
-        <div class="container mt-5 d-flex justify-content-end">
-            <button type="button" class="btn btn-info">Agregar usuarios</button>
+        <div class="container mt-5 mb-2 d-flex justify-content-between">
+            <div>
+                <h2>Inquilinos</h2>
+            </div>
+            <button type="button" class="btn btn-info">Agregar Inquilinos</button>
         </div>
 
         <div class="container">

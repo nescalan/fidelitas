@@ -23,39 +23,8 @@
 
     <main>
 
-        <div class="container mt-5 mb-2 d-flex justify-content-between">
-            <div>
-                <h2>Viviendas</h2>
-            </div>
-            <button type="button" class="btn btn-info">Agregar Viviendas</button>
-        </div>
-
-        <div class="container">
-            <table id="viviendas" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Número de Casa</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Estado</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '
-                        <tr>
-                            <th> ' . $row['numero_casa'] . ' </th>
-                            <td> ' . $row['direccion'] . ' </td>
-                            <td> ' . $row['telefono'] . ' </td>
-                            <td> ' . $row['estado'] . ' </td>
-                        </tr>
-                        ';
-                    }
-                    ?>
-                </tbody>
-            </table>
+        <div class="container mt-5 d-flex justify-content-center">
+            <h1>En construccion</h1>
         </div>
 
     </main>

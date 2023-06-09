@@ -10,10 +10,10 @@ if ($connection->connect_errno) {
     die("Lo siento, hay un problema con el servidor.");
 } else {
     // Select all items from table inquilinos
-    $sql = "SELECT * FROM inquilinos";
+    $sqlTenants = "SELECT * FROM inquilinos";
 
     // Executes the query connection
-    $result = $connection->query($sql);
+    $result = $connection->query($sqlTenants);
 
     # Check errors on the last query
     if (!$result) {

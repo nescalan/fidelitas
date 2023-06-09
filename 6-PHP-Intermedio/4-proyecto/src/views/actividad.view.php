@@ -21,9 +21,9 @@
     <main>
         <div class="container mt-5 text-center">
             <div class="card">
-                <h5 class="card-header">Agenda del día </h5>
+                <h5 class="card-header">Actividad del día </h5>
                 <div class="card-body">
-                    <h5 class="card-title">Total de Registros para hoy: </h5>
+                    <h5 class="card-title mt-5">Total de Visitas registradas para hoy: </h5>
                     <p class="card-text fs-1 ">
                         <?php echo $activityNumber; ?>
                     </p>

@@ -26,10 +26,10 @@ echo '
                         <a class="nav-link" href="./viviendas.php">Viviendas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Invitados</a>
+                        <a class="nav-link" href="./invitados.php">Invitados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Registrar Visita</a>
+                        <a class="nav-link" href="./registrar-visita.php">Registrar Visita</a>
                     </li>
                 </ul>
             </div>
