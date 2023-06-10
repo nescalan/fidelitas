@@ -80,7 +80,7 @@
             </div>
         </section>
 
-        <section id="add-inquilinos" class="container mt-5 mb-2 col-lg-8  ">
+        <section id="add-guests" class="container mt-5 mb-2 col-lg-8  ">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
