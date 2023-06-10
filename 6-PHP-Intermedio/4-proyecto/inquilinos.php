@@ -23,6 +23,9 @@ if ($connection->connect_errno) {
 }
 closeConnection($connection);
 
+
+
+
 require_once "./src/views/inquilinos.view.php";
 
 ?>

@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <!-- Latest personalized and minified CSS Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
     <!-- Data Tables Bootstrap library -->
     <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <!-- CSS: Local stayles -->
-    <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
 </head>
 
@@ -23,17 +23,18 @@
 
     <main>
 
-        <div class="container mt-5 mb-2 d-flex justify-content-between">
-            <div>
-                <h2>Inquilinos</h2>
+        <section id="display-inquilinos" class="container mt-5 mb-2">
+            <div class=" d-flex justify-content-between mb-2">
+                <div>
+                    <h2>Inquilinos</h2>
+                </div>
+                <button id="btn-guests" class="btn btn-info" type="button"
+                    onclick="window.location.href='#add-inquilinos'">
+                    Agregar Inquilinos
+                </button>
+
             </div>
-            <button class="btn btn-info" type="button" onclick="window.location.href='#add-inquilinos'">
-                Agregar Inquilinos
-            </button>
 
-        </div>
-
-        <section id="display-inquilinos">
             <div class="container">
                 <table id="inquilinos" class="table table-hover">
                     <thead>
@@ -80,46 +81,75 @@
             </div>
         </section>
 
-        <section id="add-inquilinos">
+        <section id="add-inquilinos" class="container mt-5 mb-2">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z" />
                 </svg>
-                <p><a href="#display-inquilinos">Regresar a usuarios</a></p>
+                <p><a id="btn-back" href="#display-inquilinos">Regresar a usuarios</a></p>
             </div>
-            <div class="container p-3 border">
+            <div class="container p-4 border">
                 <h3 class="fw-bold">Agregar usuario</h3>
                 <p>
                     Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del rol que le
                     asignes y estos puedes modificarlos desde la configuración avanzada.
                 </p>
-                <form>
+
+                <!-- FORM: Agregar Inquilino -->
+                <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method='POST'>
                     <fieldset>
-                        <h5>Datos Generales</h5>
-                        <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">Disabled input</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                        </div>
-                        <div class="mb-3">
-                            <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                            <select id="disabledSelect" class="form-select">
-                                <option>Disabled select</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                                <label class="form-check-label" for="disabledFieldsetCheck">
-                                    Can't check this
-                                </label>
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="id-number">Número de Cédula</label>
+                                        <input id="id-number" name="id-number" type="number"
+                                            onkeypress="return isNumber(event)" class="form-control mt-1">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="name">Nombre Completo</label>
+                                        <input id="name" name="name" type="text" class="form-control mt-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="phone">Teléfono</label>
+                                        <input id="phone" name="phone" type="text" class="form-control mt-1">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="text">Estado</label>
+                                        <input id="text" name="text" type="text" class="form-control mt-1">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <!-- Button (Double) -->
+                        <div class="form-group mb-3 d-flex justify-content-end ">
+                            <div class="col-8 col-sm-5 col-md-5 col-lg-3 d-flex justify-content-between ">
+                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Agregar
+                                    Inquilino</button>
+                                <button id="btn-cancel-guest" name="btn-cancel-guest"
+                                    class="btn btn-danger">Cancelar</button>
+                            </div>
+                        </div>
                     </fieldset>
                 </form>
             </div>
+        </section>
+
+        <section>
+
+
+
         </section>
     </main>
 
@@ -131,6 +161,8 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
+    <script src="./assets/js/inquilinos.jquery.js"></script>
+    <script src="./assets/js/numbervalidation.js"></script>
     <script>
 
         window.onload = InicioDT();
