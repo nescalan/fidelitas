@@ -1,9 +1,9 @@
 $(document).ready(function () {
   // Identify the div and button elements
-  let $secDisplayInquilinos = $("#display-inquilinos");
+  let $secDisplayInquilinos = $("#sec-display-guests");
+  let $secAddInquilinos = $("#sec-add-guests");
   let $btnGuests = $("#btn-guests");
-  let $secAddInquilinos = $("#add-inquilinos");
-  let $btnAdd = $("#add-guests");
+  let $btnBack = $("#btn-back");
 
   // Hide secion "add-inquilinos"
   $($secAddInquilinos).css("display", "none");
@@ -16,9 +16,9 @@ $(document).ready(function () {
   });
 
   // Attach an event handler to the $btnGuests element
-  $btnAdd.on("click", function () {
+  $btnBack.on("click", function () {
     // Hide the div element
-    $secDisplayInquilinos.show();
     $secAddInquilinos.hide();
+    $secDisplayInquilinos.show();
   });
 });
