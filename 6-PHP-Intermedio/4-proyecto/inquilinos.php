@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check the result
     if ($addResult === true) {
         echo "New record created successfully";
+        echo '<script> window.location.href = "inquilinos.php" </script>';
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
         echo "The data was not inserted successfully.";
