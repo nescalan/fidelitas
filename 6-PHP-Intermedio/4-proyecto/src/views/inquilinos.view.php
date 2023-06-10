@@ -23,7 +23,7 @@
 
     <main>
 
-        <section id="display-inquilinos" class="container mt-5 mb-2">
+        <section id="display-inquilinos" class="container mt-5 mb-2  col-lg-8">
             <div class=" d-flex justify-content-between mb-2">
                 <div>
                     <h2>Inquilinos</h2>
@@ -81,7 +81,7 @@
             </div>
         </section>
 
-        <section id="add-inquilinos" class="container mt-5 mb-2">
+        <section id="add-inquilinos" class="container mt-5 mb-2 col-lg-8  ">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -91,7 +91,7 @@
                 <p><a id="btn-back" href="#display-inquilinos">Regresar a usuarios</a></p>
             </div>
             <div class="container p-4 border">
-                <h3 class="fw-bold">Agregar usuario</h3>
+                <h3 class="fw-bold">Agregar Inquilino</h3>
                 <p>
                     Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del rol que le
                     asignes y estos puedes modificarlos desde la configuración avanzada.
@@ -111,8 +111,8 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
-                                        <label for="name">Nombre Completo</label>
-                                        <input id="name" name="name" type="text" class="form-control mt-1">
+                                        <label for="fullname">Nombre Completo</label>
+                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1">
                                     </div>
                                 </div>
                             </div>
@@ -120,13 +120,18 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" name="phone" type="text" class="form-control mt-1">
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
-                                        <input id="text" name="text" type="text" class="form-control mt-1">
+                                        <select id="state" class="form-control mt-1" name="state" type="text">
+                                            <option value="activo">Activo</option>
+                                            <option value="inactivo">Inactivo</option>
+                                        </select>
+                                        <span id="text1HelpBlock" class="form-text text-muted">Indicar si el inquilino
+                                            está activo o inactivo.</span>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +139,7 @@
 
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
-                            <div class="col-8 col-sm-5 col-md-5 col-lg-3 d-flex justify-content-between ">
+                            <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
                                 <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Agregar
                                     Inquilino</button>
                                 <button id="btn-cancel-guest" name="btn-cancel-guest"
@@ -146,11 +151,7 @@
             </div>
         </section>
 
-        <section>
 
-
-
-        </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

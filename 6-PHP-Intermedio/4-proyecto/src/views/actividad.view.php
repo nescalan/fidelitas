@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <!-- Latest personalized and minified CSS Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bootstrap_theme.css">
+    <!-- Data Tables Bootstrap library -->
+    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <!-- CSS: Local stayles -->
-    <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
 </head>
 
