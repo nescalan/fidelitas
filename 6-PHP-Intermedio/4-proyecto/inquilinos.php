@@ -38,26 +38,16 @@ if (isset($_POST['btn-add-guest'])) {
     $sqlAddGuest = "INSERT INTO inquilinos (cedula, nombre, telefono, estado) 
     VALUES ($idNumber, '$fullname', '$phone', '$state');";
 
-    // Check if $idNumber is empty
-    if (empty($idNumber)) {
-        $errorMessage = "Por favor, ingrese una cedula.";
-    } elseif (strlen($idNumber) < 9) {
-        $errorMessage = "La cedula debe tener 9 digitos.";
+    // Execute the SQL statement
+    $addResult = mysqli_query($connection, $sqlAddGuest);
 
-        if (empty($errorMessage)) {
-            // Execute the SQL statement
-            $addResult = mysqli_query($connection, $sqlAddGuest);
-
-            // Check the result
-            if ($addResult === true) {
-                echo "New record created successfully";
-                echo '<script> window.location.href = "inquilinos.php" </script>';
-            } else {
-                echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
-                echo "The data was not inserted successfully.";
-            }
-        }
-
+    // Check the result
+    if ($addResult === true) {
+        echo "New record created successfully";
+        echo '<script> window.location.href = "inquilinos.php" </script>';
+    } else {
+        echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
+        echo "The data was not inserted successfully.";
     }
 }
 
