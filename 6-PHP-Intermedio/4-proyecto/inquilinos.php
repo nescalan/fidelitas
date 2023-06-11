@@ -33,9 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $state = $_POST['state'];
 
-
-    // echo "Cedula: $idNumber | Nombre: $fullname | Tel: $phone | Estado: $state";
-
     // Prepare the SQL statement
     $sqlAddGuest = "INSERT INTO inquilinos (cedula, nombre, telefono, estado) 
     VALUES ($idNumber, '$fullname', '$phone', '$state');";
@@ -56,6 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 // Close database connection
-// closeConnection($connection);
+closeConnection($connection);
 require_once "./src/views/inquilinos.view.php";
 ?>
