@@ -1,5 +1,8 @@
 <?php # inquilinos.php
 
+// VARIABLES: Declaration
+$errorMessage = "";
+
 require_once "./src/model/connection-db.model.php";
 
 $connection = openConnection();
@@ -16,9 +19,6 @@ if ($connection->connect_errno) {
     $result = $connection->query($sqlTenants);
 
     # Check errors on the last query
-
-
-
     if (!$result) {
         die($connection->error);
     }
@@ -26,7 +26,8 @@ if ($connection->connect_errno) {
 }
 
 # CONDITIONAL: Check if method post was used
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['btn-add-guest'])) {
     // Read the form the "Agregar Inquilinos" form
     $idNumber = $_POST['id-number'];
     $fullname = $_POST['fullname'];
@@ -40,22 +41,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlAddGuest = "INSERT INTO inquilinos (cedula, nombre, telefono, estado) 
     VALUES ($idNumber, '$fullname', '$phone', '$state');";
 
-    // Execute the SQL statement
-    $addResult = mysqli_query($connection, $sqlAddGuest);
+    // Check if $idNumber is empty
+    if (empty($idNumber)) {
+        $errorMessage = "Por favor, ingrese una cedula.";
+    } elseif (strlen($idNumber) < 9) {
+        $errorMessage = "La cedula debe tener 9 digitos.";
 
-    // Check the result
-    if ($addResult === true) {
-        echo "New record created successfully";
-        echo '<script> window.location.href = "inquilinos.php" </script>';
-    } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
-        echo "The data was not inserted successfully.";
+        if (empty($errorMessage)) {
+            // Execute the SQL statement
+            $addResult = mysqli_query($connection, $sqlAddGuest);
+
+            // Check the result
+            if ($addResult === true) {
+                echo "New record created successfully";
+                echo '<script> window.location.href = "inquilinos.php" </script>';
+            } else {
+                echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
+                echo "The data was not inserted successfully.";
+            }
+        }
+
+
     }
-
 }
 
 
 // Close database connection
-// closeConnection($connection);
+closeConnection($connection);
 require_once "./src/views/inquilinos.view.php";
 ?>

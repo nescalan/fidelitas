@@ -13,6 +13,7 @@
     <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <!-- CSS: Local stayles -->
+    <link rel="stylesheet" href="./assets/css/global.css">
     <title>Proyecto | PHP Intermedio</title>
 </head>
 
@@ -80,7 +81,7 @@
             </div>
         </section>
 
-        <section id="sec-add-guests" class="container mt-5 mb-2 col-lg-8  ">
+        <section id="sec-add-guests" class="container mt-5 mb-2 col-lg-8 d-none">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -144,10 +145,22 @@
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
                                 <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Agregar
                                     Inquilino</button>
-                                <button id="btn-cancel-guest" name="btn-cancel-guest"
-                                    class="btn btn-danger">Cancelar</button>
+                                <!-- <a href="" id="btn-add-guest" name="btn-add-guest" class="btn btn-success">
+                                    Agregar Inquilino
+                                </a> -->
+                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger" href="">
+                                    Cancelar
+                                </a>
                             </div>
                         </div>
+
+                        <?php if (!empty($errorMessage)): ?>
+                            <div class="text-white p-3 bg-danger border border-danger  ">
+                                <?php echo $errorMessage; ?>
+                            </div>
+                        <?php endif; ?>
+
+
                     </fieldset>
                 </form>
             </div>
