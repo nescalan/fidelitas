@@ -59,14 +59,6 @@ if (isset($_POST['btn-add-guest'])) {
         }
 
     }
-    // Check the result
-    if ($addResult === true) {
-        // echo "New record created successfully";
-        echo '<script> window.location.href = "inquilinos.php" </script>';
-    } else {
-        echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
-        echo "The data was not inserted successfully.";
-    }
 }
 
 // Close database connection
