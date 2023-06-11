@@ -26,14 +26,19 @@ $(document).ready(function () {
   // Validate the ID number field
   $("#id-number").on("blur", function () {
     let idNumber = $(this).val();
+    let errorIdNumber = $(this).closest(".form-group").find(".text-danger");
+
     if (!idNumber) {
-      $(this).addClass("is-invalid");
-      // Insert an error message in the HTML
-      $(this)
-        .closest(".form-group")
-        .append(
-          "<span class='text-danger'>El campo 'Número de Cédula' es obligatorio.</span>"
-        );
+      // Insert an error message in the HTML if it doesn't already exist
+      if (!errorIdNumber.length) {
+        $(this).addClass("is-invalid");
+        // Insert an error message in the HTML
+        $(this)
+          .closest(".form-group")
+          .append(
+            "<span class='text-danger'>El campo 'Número de Cédula' es obligatorio.</span>"
+          );
+      }
     } else if (!/^[0-9]{9}$/.test(idNumber)) {
       $(this).addClass("is-invalid");
       // Insert an error message in the HTML
@@ -44,36 +49,54 @@ $(document).ready(function () {
         );
     } else {
       $(this).removeClass("is-invalid");
+      // Clear the error message if it exists
+      if (errorIdNumber.length) {
+        errorIdNumber.remove();
+      }
     }
   });
 
   // Validate the full name field
   $("#fullname").on("blur", function () {
     let fullname = $(this).val();
+    let errorFullname = $(this).closest(".form-group").find(".text-danger");
+
     if (!fullname) {
-      $(this).addClass("is-invalid");
-      // Insert an error message in the HTML
-      $(this)
-        .closest(".form-group")
-        .append(
-          "<span class='text-danger'>El campo 'Nombre Completo' es obligatorio.</span>"
-        );
+      // Insert an error message in the HTML if it doesn't already exist
+      if (!errorFullname.length) {
+        $(this).addClass("is-invalid");
+        // Insert an error message in the HTML
+        $(this)
+          .closest(".form-group")
+          .append(
+            "<span class='text-danger'>El campo 'Nombre Completo' es obligatorio.</span>"
+          );
+      }
     } else {
       $(this).removeClass("is-invalid");
+      // Clear the error message if it exsists
+      if (errorFullname.length) {
+        errorFullname.remove();
+      }
     }
   });
 
   // Validate the phone number field
   $("#phone").on("blur", function () {
     let phone = $(this).val();
+    let errorPhone = $(this).closest(".form-group").find(".text-danger");
+
     if (!phone) {
-      $(this).addClass("is-invalid");
-      // Insert an error message in the HTML
-      $(this)
-        .closest(".form-group")
-        .append(
-          "<span class='text-danger'>El campo 'Teléfono' es obligatorio.</span>"
-        );
+      // Insert an error message in the HTML if it doesn't already exist
+      if (!errorPhone.length) {
+        $(this).addClass("is-invalid");
+        // Insert an error message in the HTML
+        $(this)
+          .closest(".form-group")
+          .append(
+            "<span class='text-danger'>El campo 'Teléfono' es obligatorio.</span>"
+          );
+      }
     } else if (!/^[0-9]{8}$/.test(phone)) {
       $(this).addClass("is-invalid");
       // Insert an error message in the HTML
@@ -84,6 +107,10 @@ $(document).ready(function () {
         );
     } else {
       $(this).removeClass("is-invalid");
+      // Clear the error message if it exists
+      if (errorPhone.length) {
+        errorPhone.remove();
+      }
     }
   });
 
