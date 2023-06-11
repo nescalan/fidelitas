@@ -5,7 +5,7 @@ function openConnection()
     // Variables declaration to connect with mysqli
     $host = "localhost";
     $user = "root";
-    $password = "";
+    $password = "4u3p7px6";
     $database = "axioma";
 
     // Create MySqli connection

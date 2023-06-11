@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $state = $_POST['state'];
 
 
-    echo "Cedula: $idNumber | Nombre: $fullname | Tel: $phone | Estado: $state";
+    // echo "Cedula: $idNumber | Nombre: $fullname | Tel: $phone | Estado: $state";
 
     // Prepare the SQL statement
     $sqlAddGuest = "INSERT INTO inquilinos (cedula, nombre, telefono, estado) 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check the result
     if ($addResult === true) {
-        echo "New record created successfully";
+        // echo "New record created successfully";
         echo '<script> window.location.href = "inquilinos.php" </script>';
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
