@@ -34,9 +34,6 @@ if (isset($_POST['btn-add-guest'])) {
     $phone = $_POST['phone'];
     $state = $_POST['state'];
 
-
-    echo "Cedula: $idNumber | Nombre: $fullname | Tel: $phone | Estado: $state";
-
     // Prepare the SQL statement
     $sqlAddGuest = "INSERT INTO inquilinos (cedula, nombre, telefono, estado) 
     VALUES ($idNumber, '$fullname', '$phone', '$state');";
@@ -61,12 +58,19 @@ if (isset($_POST['btn-add-guest'])) {
             }
         }
 
-
+    }
+    // Check the result
+    if ($addResult === true) {
+        // echo "New record created successfully";
+        echo '<script> window.location.href = "inquilinos.php" </script>';
+    } else {
+        echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
+        echo "The data was not inserted successfully.";
     }
 }
 
-
 // Close database connection
-closeConnection($connection);
 require_once "./src/views/inquilinos.view.php";
+
+closeConnection($connection);
 ?>
