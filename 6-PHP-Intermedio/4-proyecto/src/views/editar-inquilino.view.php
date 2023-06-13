@@ -23,9 +23,7 @@
     </header>
 
     <main>
-        <h1>Hola soy Editar Inquilinos</h1>
-        <h2>Que putas pasa</h2>
-        <section id="sec-add-guests" class="container mt-5 mb-2 col-lg-8 d-none">
+        <section id="sec-edit-guests" class="container mt-5 mb-2 col-lg-8 ">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -36,7 +34,7 @@
                         usuarios</a></p>
             </div>
             <div class=" container p-4 border">
-                <h3 class="fw-bold">Agregar Inquilino</h3>
+                <h3 class="fw-bold">Editar Inquilino</h3>
                 <p>
                     Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del
                     rol que le
