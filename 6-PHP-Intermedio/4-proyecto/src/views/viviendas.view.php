@@ -73,7 +73,11 @@
         window.onload = InicioDT();
 
         function InicioDT() {
-            $('#invitados').DataTable();
+            var table = $('#inquilinos').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+            });
         }
 
     </script>
