@@ -1,7 +1,7 @@
 <?php
 
 // VARIABLES: Declaration
-$id = $_GET['id'];
+$tenantID = $_GET['id'];
 
 // DATABASE: Connection
 require "./src/model/connection-db.model.php";
@@ -13,50 +13,51 @@ if ($connection->connect_errno) {
     // The page die
     die("Lo siento, hay un problema con el servidor.");
 } else {
-    // Select items from table inquilinos
-    $sqlTenants = "SELECT * FROM inquilinos WHERE id = $id";
+    // Prepare the statement
+    $stmt = $connection->prepare("SELECT * FROM inquilinos WHERE id = ?");
+    $stmt->bind_param("s", $tenantID);
+    $stmt->execute();
 
-    // Executes the query connection
-    $result = $connection->query($sqlTenants);
+    // Get the result
+    $result = $stmt->get_result();
 
     // Check errors on the last query
     if (!$result) {
         die($connection->error);
     } else {
         // Check result >0
-        if (mysqli_num_rows($result) > 0) {
-            $tenantFound = mysqli_fetch_array($result);
+        if ($result->num_rows > 0) {
+            $tenantFound = $result->fetch_array(MYSQLI_ASSOC);
         } else {
             // Error message
             echo "Su consulta no puede ser realizada";
         }
     }
-
 }
 
-
-if (isset($_POST['btn-add-guest'])) {
+if (isset($_POST['btn-update-guest'])) {
     // Retrieve form data
     $idNumber = $_POST['id-number'];
     $fullname = $_POST['fullname'];
     $phone = $_POST['phone'];
     $state = $_POST['state'];
 
-    // Perform update for table inquilinos
-    $sqlTenantsUpdate = "UPDATE inquilinos SET cedula = '" . $idNumber . "', nombre = '" . $fullname . "', telefono = '" . $phone . "', estado ='" . $state . "' WHERE id = '" . $id . "' ";
+    // Prepare the statement
+    $stmt = $connection->prepare("UPDATE inquilinos SET cedula = ?, nombre = ?, telefono = ?, estado = ? WHERE id = ?");
+    $stmt->bind_param("sssss", $idNumber, $fullname, $phone, $state, $tenantID);
+    $stmt->execute();
 
-    // Executes the query connection
-    $resultUpdate = $connection->query($sqlTenantsUpdate);
-
-    if ($resultUpdate) {
+    if ($stmt->affected_rows > 0) {
         // Redirect to a success page or display a success message
         echo '<script> window.location.href = "./inquilinos.php"  </script>';
     } else {
         die($connection->error);
     }
 }
+
+$stmt->close();
 closeConnection($connection);
 
-require_once "./src/views/editar-inquilino.view.php";
+require_once "./src/views/inquilino-editar.view.php";
 
 ?>

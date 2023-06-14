@@ -71,10 +71,14 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
-                                        <select id="state" class="form-control mt-1" name="state" type="text">
-                                            <option value="<?php echo $tenantFound["estado"] ?>"> <?php echo $tenantFound["estado"] ?> </option>
-                                            <option value="activo">Activo</option>
-                                            <option value="inactivo">Inactivo</option>
+                                        <select id="state" class="form-control mt-1" name="state">
+                                            <?php if ($tenantFound["estado"] == "activo"): ?>
+                                                <option value="activo" selected>Activo</option>
+                                                <option value="inactivo">Inactivo</option>
+                                            <?php else: ?>
+                                                <option value="activo">Activo</option>
+                                                <option value="inactivo" selected>Inactivo</option>
+                                            <?php endif; ?>
                                         </select>
                                         <span id="text1HelpBlock" class="form-text text-muted">Indicar si el
                                             inquilino
@@ -87,7 +91,7 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Actualizar
+                                <button id="btn-add-guest" name="btn-update-guest" class="btn btn-success">Actualizar
                                     Inquilino</button>
                                 <!-- <a href="" id="btn-add-guest" name="btn-add-guest" class="btn btn-success">
                                     Agregar Inquilino
