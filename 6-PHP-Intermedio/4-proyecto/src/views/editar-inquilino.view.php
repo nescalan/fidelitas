@@ -30,7 +30,7 @@
                     <path fill-rule="evenodd"
                         d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z" />
                 </svg>
-                <p><a id="btn-back" href="#display-inquilinos">Regresar a
+                <p><a id="btn-back" href="./inquilinos.php">Regresar a
                         usuarios</a></p>
             </div>
             <div class=" container p-4 border">
@@ -50,13 +50,14 @@
                                     <div class="form-group mb-3">
                                         <label for="id-number">Número de Cédula</label>
                                         <input id="id-number" name="id-number" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1">
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $tenantFound["cedula"] ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="fullname">Nombre Completo</label>
-                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1">
+                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1"
+                                            value=<?php echo $tenantFound["nombre"] ?>>
                                     </div>
                                 </div>
                             </div>
@@ -64,13 +65,14 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" class="form-control mt-1" name="phone" type="text">
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $tenantFound["telefono"] ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
                                         <select id="state" class="form-control mt-1" name="state" type="text">
+                                            <option value="<?php echo $tenantFound["estado"] ?>"> <?php echo $tenantFound["estado"] ?> </option>
                                             <option value="activo">Activo</option>
                                             <option value="inactivo">Inactivo</option>
                                         </select>
@@ -85,12 +87,13 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Agregar
+                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Actualizar
                                     Inquilino</button>
                                 <!-- <a href="" id="btn-add-guest" name="btn-add-guest" class="btn btn-success">
                                     Agregar Inquilino
                                 </a> -->
-                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger" href="">
+                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger"
+                                    href="./inquilinos.php">
                                     Cancelar
                                 </a>
                             </div>
