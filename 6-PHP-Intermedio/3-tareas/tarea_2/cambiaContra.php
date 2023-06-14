@@ -1,12 +1,17 @@
 <?php #cambiaContra.php
 
+# Variables declaration
+$errorMessage = "";
+
 require_once "./accesoBD.php";
-
-// Captura del id de usuario
-$usuarioID = $_GET['id'];
-
-echo $usuarioID;
-
 require_once "./src/views/cambiaContra.view.php";
+
+if (!isset($_POST['old-password']) && !isset($_POST['new-password']) && !isset($_POST['new-password'])) {
+    $errorMessage .= "Debe llenar todos los campos";
+}
+
+
+
+
 
 ?>
