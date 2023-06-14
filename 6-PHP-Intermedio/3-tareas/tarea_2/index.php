@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'accesoBD.php';
 
@@ -6,24 +6,25 @@ $CadenaTexto = 'La prueba se realizó con éxito';
 
 $result = strpos($CadenaTexto, 'éxito');
 
-echo $result;
+// echo $result;
 
 
-var_dump($result);
+// var_dump($result);
 
-function validaCedula($cedula){
+function validaCedula($cedula)
+{
 
     $longitudCed = strlen($cedula);
 
-    if($longitudCed === 9){
+    if ($longitudCed === 9) {
         return true;
-    }else{
+    } else {
         return false;
     }
 
 }
 
-if(isset($_POST['btnGuardar'])){
+if (isset($_POST['btnGuardar'])) {
 
     //echo '<script> alert("Se presionó el botón"); </script>';
 
@@ -35,22 +36,22 @@ if(isset($_POST['btnGuardar'])){
     $Correo = $_POST["txtCorreo"];
     $Telefono = $_POST["txtTelefono"];
 
-    if(validaCedula($iden)){
+    if (validaCedula($iden)) {
 
         $conexionAbierta = IniciarConexion();
 
-        $consulta = "INSERT INTO T_Clientes VALUES('".$iden."', '".$Nombre."', '".$Apellido1."', '".$Apellido2."', '".$Correo."', '".$FechaNac."', '".date('Y-m-d')."', '".$Telefono."' )";
-    
-        if($conexionAbierta -> query($consulta)){
+        $consulta = "INSERT INTO T_Clientes VALUES('" . $iden . "', '" . $Nombre . "', '" . $Apellido1 . "', '" . $Apellido2 . "', '" . $Correo . "', '" . $FechaNac . "', '" . date('Y-m-d') . "', '" . $Telefono . "' )";
+
+        if ($conexionAbierta->query($consulta)) {
             echo '<script> alert("Se ha guardado el usuario exitosamente."); </script>';
             echo '<script> window.location.href = "listaClientes.php" </script>';
-        }else{
+        } else {
             echo $conexionAbierta->error;
         }
-    
+
         Finalizar($conexionAbierta);
 
-    }else{
+    } else {
         echo '<script> alert("La identificación no cumple con el número de dígitos requeridos."); </script>';
     }
 
@@ -70,60 +71,61 @@ if(isset($_POST['btnGuardar'])){
 
 <body>
 
-<?php include 'menu.php';  ?>
+    <?php include 'menu.php'; ?>
 
     <section>
 
-<form method="post">
+        <form method="post">
 
-    <div class="row m-5 p-5 border">
+            <div class="row m-5 p-5 border">
 
 
-<div class="col-lg-12 mb-3 text-center">
-    <h3>PHP Intermedio - 5to Periodo</h3>
-</div>
+                <div class="col-lg-12 mb-3 text-center">
+                    <h3>PHP Intermedio - 5to Periodo</h3>
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Identificación</label>
-    <input type="text" maxlength="9" required class="form-control" name="txtIden" id="txtIden">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Identificación</label>
+                    <input type="text" maxlength="9" required class="form-control" name="txtIden" id="txtIden">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Nombre</label>
-    <input type="text" required class="form-control" name="txtNombre" id="txtNombre">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Nombre</label>
+                    <input type="text" required class="form-control" name="txtNombre" id="txtNombre">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Primer Apellido</label>
-    <input type="text" required class="form-control" name="txtApellido1" id="txtApellido1">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Primer Apellido</label>
+                    <input type="text" required class="form-control" name="txtApellido1" id="txtApellido1">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Segundo Apellido</label>
-    <input type="text" required class="form-control" name="txtApellido2" id="txtApellido2">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Segundo Apellido</label>
+                    <input type="text" required class="form-control" name="txtApellido2" id="txtApellido2">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Correo</label>
-    <input type="mail" required class="form-control" name="txtCorreo" id="txtCorreo">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Correo</label>
+                    <input type="mail" required class="form-control" name="txtCorreo" id="txtCorreo">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Fecha Nacimiento</label>
-    <input type="date" required class="form-control" name="txtFechaNac" id="txtFechaNac">
-</div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Fecha Nacimiento</label>
+                    <input type="date" required class="form-control" name="txtFechaNac" id="txtFechaNac">
+                </div>
 
-<div class="col-lg-6 mb-3">
-    <label for="">Teléfono</label>
-    <input type="number" required onkeypress="return isNumber(event)" class="form-control"
-        name="txtTelefono" id="txtTelefono">
-</div>
-<div class="col-lg-12 text-end">
-<input type="submit" class="btn btn-success" id="btnGuardar" name="btnGuardar" value="Guardar Usuario">
+                <div class="col-lg-6 mb-3">
+                    <label for="">Teléfono</label>
+                    <input type="number" required onkeypress="return isNumber(event)" class="form-control"
+                        name="txtTelefono" id="txtTelefono">
+                </div>
+                <div class="col-lg-12 text-end">
+                    <input type="submit" class="btn btn-success" id="btnGuardar" name="btnGuardar"
+                        value="Guardar Usuario">
 
-    </form>
-</div>
-            <!--
+        </form>
+        </div>
+        <!--
             <div class="col-lg-12 mb-4">
                 <div class="border p-3">
                     <label for="">Anotaciones</label>
