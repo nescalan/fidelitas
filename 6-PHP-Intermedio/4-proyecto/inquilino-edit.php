@@ -35,7 +35,7 @@ if ($connection->connect_errno) {
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-add-guest'])) {
+if (isset($_POST['btn-add-guest'])) {
     // Retrieve form data
     $idNumber = $_POST['id-number'];
     $fullname = $_POST['fullname'];
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-add-guest'])) {
     $state = $_POST['state'];
 
     // Perform update for table inquilinos
-    $sqlTenantsUpdate = "UPDATE inquilinos SET cedula = '.$idNumber.', nombre = '.$fullname.', telefono = '.$phone.', estado ='.$state.' WHERE id = '.$id.' ";
+    $sqlTenantsUpdate = "UPDATE inquilinos SET cedula = '" . $idNumber . "', nombre = '" . $fullname . "', telefono = '" . $phone . "', estado ='" . $state . "' WHERE id = '" . $id . "' ";
 
     // Executes the query connection
     $resultUpdate = $connection->query($sqlTenantsUpdate);
