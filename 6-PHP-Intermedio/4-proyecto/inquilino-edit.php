@@ -32,7 +32,6 @@ if ($connection->connect_errno) {
         }
     }
 
-    closeConnection($connection);
 }
 
 
@@ -43,12 +42,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-add-guest'])) {
     $phone = $_POST['phone'];
     $state = $_POST['state'];
 
-    // Perform guest edit logic
-    // ...
+    // Perform update for table inquilinos
+    $sqlTenantsUpdate = "UPDATE inquilinos SET cedula = '.$idNumber.', nombre = '.$fullname.', telefono = '.$phone.', estado ='.$state.' WHERE id = '.$id.' ";
 
-    // Redirect to a success page or display a success message
-    // ...
+    // Executes the query connection
+    $resultUpdate = $connection->query($sqlTenantsUpdate);
+
+    if ($resultUpdate) {
+        // Redirect to a success page or display a success message
+        echo '<script> window.location.href = "./inquilinos.php"  </script>';
+    } else {
+        die($connection->error);
+    }
 }
+closeConnection($connection);
+
 require_once "./src/views/editar-inquilino.view.php";
 
 ?>
