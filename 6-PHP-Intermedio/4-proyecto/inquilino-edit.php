@@ -13,49 +13,48 @@ if ($connection->connect_errno) {
     // The page die
     die("Lo siento, hay un problema con el servidor.");
 } else {
-    // Prepare the statement
-    $stmt = $connection->prepare("SELECT * FROM inquilinos WHERE id = ?");
-    $stmt->bind_param("s", $tenantID);
-    $stmt->execute();
+    // Select items from table inquilinos
+    $sqlTenants = "SELECT * FROM inquilinos WHERE id = $tenantID";
 
-    // Get the result
-    $result = $stmt->get_result();
+    // Executes the query connection
+    $result = $connection->query($sqlTenants);
 
     // Check errors on the last query
     if (!$result) {
         die($connection->error);
     } else {
         // Check result >0
-        if ($result->num_rows > 0) {
-            $tenantFound = $result->fetch_array(MYSQLI_ASSOC);
+        if (mysqli_num_rows($result) > 0) {
+            $tenantFound = mysqli_fetch_array($result);
         } else {
             // Error message
             echo "Su consulta no puede ser realizada";
         }
     }
+
 }
 
-if (isset($_POST['btn-update-guest'])) {
+
+if (isset($_POST['btn-add-guest'])) {
     // Retrieve form data
     $idNumber = $_POST['id-number'];
     $fullname = $_POST['fullname'];
     $phone = $_POST['phone'];
     $state = $_POST['state'];
 
-    // Prepare the statement
-    $stmt = $connection->prepare("UPDATE inquilinos SET cedula = ?, nombre = ?, telefono = ?, estado = ? WHERE id = ?");
-    $stmt->bind_param("sssss", $idNumber, $fullname, $phone, $state, $tenantID);
-    $stmt->execute();
+    // Perform update for table inquilinos
+    $sqlTenantsUpdate = "UPDATE inquilinos SET cedula = '" . $idNumber . "', nombre = '" . $fullname . "', telefono = '" . $phone . "', estado ='" . $state . "' WHERE id = '" . $id . "' ";
 
-    if ($stmt->affected_rows > 0) {
+    // Executes the query connection
+    $resultUpdate = $connection->query($sqlTenantsUpdate);
+
+    if ($resultUpdate) {
         // Redirect to a success page or display a success message
         echo '<script> window.location.href = "./inquilinos.php"  </script>';
     } else {
         die($connection->error);
     }
 }
-
-$stmt->close();
 closeConnection($connection);
 
 require_once "./src/views/inquilino-editar.view.php";
