@@ -35,12 +35,14 @@ if (isset($_POST['btnGuardar'])) {
     $FechaNac = $_POST["txtFechaNac"];
     $Correo = $_POST["txtCorreo"];
     $Telefono = $_POST["txtTelefono"];
+    $password = md5($_POST["password"]);
+
 
     if (validaCedula($iden)) {
 
         $conexionAbierta = IniciarConexion();
 
-        $consulta = "INSERT INTO T_Clientes VALUES('" . $iden . "', '" . $Nombre . "', '" . $Apellido1 . "', '" . $Apellido2 . "', '" . $Correo . "', '" . $FechaNac . "', '" . date('Y-m-d') . "', '" . $Telefono . "' )";
+        $consulta = "INSERT INTO T_Clientes VALUES('" . $iden . "', '" . $Nombre . "', '" . $Apellido1 . "', '" . $Apellido2 . "', '" . $Correo . "', '" . $FechaNac . "', '" . date('Y-m-d') . "', '" . $Telefono . "', '" . $password . "' )";
 
         if ($conexionAbierta->query($consulta)) {
             echo '<script> alert("Se ha guardado el usuario exitosamente."); </script>';
@@ -49,7 +51,7 @@ if (isset($_POST['btnGuardar'])) {
             echo $conexionAbierta->error;
         }
 
-        Finalizar($conexionAbierta);
+        cerrarConexion($conexionAbierta);
 
     } else {
         echo '<script> alert("La identificación no cumple con el número de dígitos requeridos."); </script>';
@@ -119,10 +121,15 @@ if (isset($_POST['btnGuardar'])) {
                     <input type="number" required onkeypress="return isNumber(event)" class="form-control"
                         name="txtTelefono" id="txtTelefono">
                 </div>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Contraseña</label>
+                    <input type="password" required class="form-control" name="password" id="password">
+                </div>
+
                 <div class="col-lg-12 text-end">
                     <input type="submit" class="btn btn-success" id="btnGuardar" name="btnGuardar"
                         value="Guardar Usuario">
-
+                </div>
         </form>
         </div>
         <!--
