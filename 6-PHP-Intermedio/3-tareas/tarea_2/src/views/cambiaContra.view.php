@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/cambia-contra.css">
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="./assets/css/cambia-contra.css">
     <title>Document</title>
 </head>
 
@@ -42,6 +40,11 @@
             <?php if (!empty($errorMessage)): ?>
                 <div class="text-danger">
                     <?php echo $errorMessage; ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty($successMessage)): ?>
+                <div class="text-success">
+                    <?php echo $successMessage; ?>
                 </div>
             <?php endif; ?>
         </form>
