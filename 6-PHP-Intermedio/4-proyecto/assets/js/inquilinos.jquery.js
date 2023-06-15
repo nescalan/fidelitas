@@ -4,6 +4,7 @@ $(document).ready(function () {
   let $secAddInquilinos = $("#sec-add-guests");
   let $btnGuests = $("#btn-guests");
   let $btnBack = $("#btn-back");
+  let $btnAddGuest = $("btn-add-guest");
   // let $btnCancelAddGuest = $("#btn-cancel-guest");
 
   // Hide secion "add-inquilinos"
