@@ -42,7 +42,7 @@
                 </p>
 
                 <!-- FORM: Agregar Inquilino -->
-                <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method='POST'>
+                <form method='POST'>
                     <fieldset>
                         <div class="container text-center">
                             <div class="row">
@@ -50,14 +50,14 @@
                                     <div class="form-group mb-3">
                                         <label for="id-number">Número de Cédula</label>
                                         <input id="id-number" name="id-number" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $tenantFound["cedula"] ?>>
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $tenantFound["cedula"]; ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="fullname">Nombre Completo</label>
                                         <input id="fullname" name="fullname" type="text" class="form-control mt-1"
-                                            value=<?php echo $tenantFound["nombre"] ?>>
+                                            value="<?php echo $tenantFound['nombre']; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -65,16 +65,20 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $tenantFound["telefono"] ?>>
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $tenantFound["telefono"]; ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
-                                        <select id="state" class="form-control mt-1" name="state" type="text">
-                                            <option value="<?php echo $tenantFound["estado"] ?>"> <?php echo $tenantFound["estado"] ?> </option>
-                                            <option value="activo">Activo</option>
-                                            <option value="inactivo">Inactivo</option>
+                                        <select id="state" class="form-control mt-1" name="state">
+                                            <?php if ($tenantFound["estado"] == "activo"): ?>
+                                                <option value="activo" selected>Activo</option>
+                                                <option value="inactivo">Inactivo</option>
+                                            <?php else: ?>
+                                                <option value="activo">Activo</option>
+                                                <option value="inactivo" selected>Inactivo</option>
+                                            <?php endif; ?>
                                         </select>
                                         <span id="text1HelpBlock" class="form-text text-muted">Indicar si el
                                             inquilino
@@ -87,25 +91,25 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success">Actualizar
+                                <button id="btn-update" name="btn-update" class="btn btn-success">Actualizar
                                     Inquilino</button>
-                                <!-- <a href="" id="btn-add-guest" name="btn-add-guest" class="btn btn-success">
-                                    Agregar Inquilino
-                                </a> -->
-                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger"
-                                    href="./inquilinos.php">
+                                <a id="btn-cancel" name="btn-cancel" class="btn btn-danger" href="./inquilinos.php">
                                     Cancelar
                                 </a>
                             </div>
                         </div>
 
                         <?php if (!empty($errorMessage)): ?>
-                            <div class="text-white p-3 bg-danger border border-danger  ">
+                            <div class="text-danger">
                                 <?php echo $errorMessage; ?>
                             </div>
                         <?php endif; ?>
 
-
+                        <?php if (!empty($successMessage)): ?>
+                            <div class="bg-info rounded">
+                                <?php echo $successMessage; ?>
+                            </div>
+                        <?php endif; ?>
                     </fieldset>
                 </form>
             </div>
