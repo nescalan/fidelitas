@@ -182,7 +182,8 @@
         function InicioDT() {
             var table = $('#inquilinos').DataTable({
                 "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                    // "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                    "info": "Mostrando del _START_ al _END_ "
                 }
             });
         }
