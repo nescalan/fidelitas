@@ -53,6 +53,26 @@ if ($connection->connect_errno) {
             $queryUpdate = "UPDATE inquilinos SET cedula=$idNumber, nombre='$fullName', telefono='$phone', estado='$state' WHERE id = $systemID";
             $result = mysqli_query($connection, $queryUpdate);
 
+            // NEW CODE:
+            // Select items from table inquilinos
+            $sqlTenants = "SELECT * FROM inquilinos WHERE id = $tenantID";
+
+            // Executes the query connection
+            $result = $connection->query($sqlTenants);
+
+            // Check errors on the last query
+            if (!$result) {
+                die($connection->error);
+            } else {
+                // Check result > 0
+                if (mysqli_num_rows($result) > 0) {
+                    $tenantFound = mysqli_fetch_array($result);
+                } else {
+                    // Error message
+                    echo "Su consulta no puede ser realizada";
+                }
+            }
+
             // Success message
             $successMessage .= "<p class='text-center text-white p-2'>El usuario se actualizó correctamente.</p>";
         }
