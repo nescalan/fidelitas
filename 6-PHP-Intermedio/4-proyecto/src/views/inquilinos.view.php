@@ -24,7 +24,7 @@
 
     <main>
 
-        <section id="sec-display-guests" class="container mt-5 col-lg-8">
+        <section id="sec-display-guests" class="container mt-5 col-lg-9">
             <div class=" d-flex justify-content-between mb-3">
                 <div>
                     <h2>Inquilinos</h2>
@@ -182,7 +182,7 @@
         function InicioDT() {
             var table = $('#inquilinos').DataTable({
                 "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
                 }
             });
         }
