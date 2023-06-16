@@ -97,7 +97,7 @@ $(document).ready(function () {
 
     if (!phone) {
       // Insert an error message in the HTML if it doesn't already exist
-      if (!errorPhone.length) {
+      if (errorPhone.length === 0) {
         $(this).addClass("is-invalid");
         // Insert an error message in the HTML
         $(this)
@@ -107,6 +107,12 @@ $(document).ready(function () {
           );
       }
     } else if (!/^[0-9]{8}$/.test(phone)) {
+      $(this).removeClass("is-invalid");
+      // Clear the error message if it exists
+      if (errorPhone.length) {
+        errorPhone.remove();
+      }
+
       $(this).addClass("is-invalid");
       // Insert an error message in the HTML
       $(this)
