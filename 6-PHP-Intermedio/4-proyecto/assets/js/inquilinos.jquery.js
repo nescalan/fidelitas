@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     if (!idNumber) {
       // Insert an error message in the HTML if it doesn't already exist
-      if (!errorIdNumber.length) {
+      if (errorIdNumber.length === 0) {
         $(this).addClass("is-invalid");
         // Insert an error message in the HTML
         $(this)
@@ -43,6 +43,12 @@ $(document).ready(function () {
           );
       }
     } else if (!/^[0-9]{9}$/.test(idNumber)) {
+      $(this).removeClass("is-invalid");
+      // Clear the error message if it exists
+      if (errorIdNumber.length) {
+        errorIdNumber.remove();
+      }
+
       $(this).addClass("is-invalid");
       // Insert an error message in the HTML
       $(this)
