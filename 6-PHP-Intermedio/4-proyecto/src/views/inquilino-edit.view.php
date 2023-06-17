@@ -23,7 +23,7 @@
     </header>
 
     <main>
-        <section id="sec-edit-guests" class="container mt-5 mb-2 col-lg-8 ">
+        <section id="sec-edit-guests" class="container mt-5 mb-2 col-lg-7 ">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
@@ -91,9 +91,10 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-5 d-flex justify-content-between ">
-                                <button id="btn-update" name="btn-update" class="btn btn-success">Actualizar
+                                <button id="btn-update" name="btn-update" class="btn btn-info">Actualizar
                                     Inquilino</button>
-                                <a id="btn-cancel" name="btn-cancel" class="btn btn-danger" href="./inquilinos.php">
+                                <a id="btn-cancel" name="btn-cancel" class="btn btn-light border"
+                                    href="./inquilinos.php">
                                     Cancelar
                                 </a>
                             </div>
