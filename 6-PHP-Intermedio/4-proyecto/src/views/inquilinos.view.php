@@ -36,7 +36,7 @@
             </div>
 
             <div class="container">
-                <table id="inquilinos" class="table table-hover">
+                <table id="dt-tbl" class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Cédula</th>
@@ -140,9 +140,9 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success ">Agregar
+                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-info">Agregar
                                     Inquilino</button>
-                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger" href="">
+                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-light border" href="">
                                     Cancelar
                                 </a>
                             </div>
@@ -175,22 +175,13 @@
     <script src="./assets/js/numbervalidation.js"></script>
 
     <script>
-        window.onload = InicioDT();
-
-        function InicioDT() {
-            var table = $('#inquilinos').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-                }
-            });
-        }
-
         const confirmEliminar = (pId) => {
             if (confirm("¿Está seguro que desea eliminar al usuario " + pId + " ?")) {
                 window.location.href = "./inquilino-delete.php?id=" + pId;
             }
         }
     </script>
+    <script src="./assets/js/dataTableSP.js"></script>
 
 </body>
 
