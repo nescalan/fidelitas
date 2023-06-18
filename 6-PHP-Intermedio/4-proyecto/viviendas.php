@@ -10,17 +10,17 @@ if ($connection->connect_errno) {
     die("Lo siento, hay un problema con el servidor.");
 } else {
     // Select all items from table inquilinos
-    $sqlGuests = "SELECT * FROM viviendas";
+    $sqlHomes = "SELECT * FROM viviendas";
 
     // Executes the query connection
-    $result = $connection->query($sqlGuests);
+    $result = $connection->query($sqlHomes);
 
     # Check errors on the last query
     if (!$result) {
         die($connection->error);
     }
-
 }
+
 closeConnection($connection);
 
 require_once "./src/views/viviendas.view.php";

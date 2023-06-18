@@ -22,7 +22,6 @@ if ($connection->connect_errno) {
     if (!$result) {
         die($connection->error);
     }
-
 }
 
 # CONDITIONAL: Check if method post was used
