@@ -23,7 +23,6 @@
     </header>
 
     <main>
-
         <section id="sec-display-guests" class="container mt-5 col-lg-9">
             <div class=" d-flex justify-content-between mb-3">
                 <div>
@@ -119,7 +118,8 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" class="form-control mt-1" name="phone" type="text">
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text"
+                                            onkeypress="return isNumber(event)">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -140,9 +140,9 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-info">Agregar
+                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success ">Agregar
                                     Inquilino</button>
-                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-light border" href="">
+                                <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger" href="">
                                     Cancelar
                                 </a>
                             </div>
@@ -160,20 +160,9 @@
             </div>
         </section>
 
-
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
-    <script src="./assets/vendor/jquery/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-
-    <script src="./assets/js/inquilinos.jquery.js"></script>
-    <script src="./assets/js/numbervalidation.js"></script>
-
+    <!-- SCRIPT: Validations -->
     <script>
         const confirmEliminar = (pId) => {
             if (confirm("¿Está seguro que desea eliminar al usuario " + pId + " ?")) {
@@ -181,6 +170,18 @@
             }
         }
     </script>
+
+    <!-- Local Scripts -->
+    <script src="./assets/vendor/jquery/jquery.min.js"></script>
+    <script src="./assets/js/inquilinos.jquery.js"></script>
+    <script src="./assets/js/numbervalidation.js"></script>
+
+    <!-- Data Tables -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     <script src="./assets/js/dataTableSP.js"></script>
 
 </body>
