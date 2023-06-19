@@ -21,8 +21,34 @@ if ($connection->connect_errno) {
     }
 }
 
+# CONDITIONAL: Check if method post was used
+if (isset($_POST['btn-add-home'])) {
+    // Read the form the "Agregar Inquilinos" form
+    $idHome = $_POST['id-home'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $state = $_POST['state'];
+
+    // Prepare the SQL statement
+    $sqlAddHome = "INSERT INTO viviendas (numero_casa, direccion, telefono, estado) 
+        VALUES ($idHome, '$address', '$phone', '$state');";
+
+    // Execute the SQL statement
+    $addResult = mysqli_query($connection, $sqlAddHome);
+
+    // Check the result
+    if ($addResult === true) {
+        echo "New record created successfully";
+        echo '<script> window.location.href = "viviendas.php" </script>';
+    } else {
+        echo "Error: " . $sqlAddHome . "<br>" . $connection->error;
+        echo "The data was not inserted successfully.";
+    }
+}
+
+// Close database connection
 closeConnection($connection);
 
-require_once "./src/views/viviendas.view.php";
+require_once "./src/views/viviendas/viviendas.view.php";
 
 ?>

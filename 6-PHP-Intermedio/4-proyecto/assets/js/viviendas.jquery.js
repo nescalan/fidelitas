@@ -1,14 +1,10 @@
 $(document).ready(function () {
   // Identify the div and button elements
   let $secDisplayHomes = $("#sec-display-homes");
-  let $secAddHomes = $("#sec-add-homes");
+  let $secAddHomes = $("#sec-add-home");
   let $btnHomes = $("#btn-homes");
   let $btnBack = $("#btn-back");
   let $btnAddHomes = $("btn-add-homes");
-  // let $btnCancelAddGuest = $("#btn-cancel-guest");
-
-  // Hide secion "add-inquilinos"
-  $($secAddHomes).css("display", "none");
 
   // Attach an event handler to the $btnHomes element
   $btnHomes.on("click", function () {
@@ -27,7 +23,7 @@ $(document).ready(function () {
 
   // ***********
   // Validate the ID number field
-e  $("#id-home").on("blur", function () {
+  $("#id-home").on("blur", function () {
     let home = $(this).val();
     let errorHome = $(this).closest(".form-group").find(".text-danger");
 

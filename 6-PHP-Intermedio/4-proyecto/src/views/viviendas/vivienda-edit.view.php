@@ -23,41 +23,39 @@
     </header>
 
     <main>
-        <section id="sec-edit-guests" class="container mt-5 mb-2 col-lg-7 ">
+        <section id="sec-edit-homes" class="container mt-5 mb-2 col-lg-7 ">
             <div class="d-flex align-items-star container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                     class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z" />
                 </svg>
-                <p><a id="btn-back" href="./inquilinos.php">Regresar a
-                        inquilinos</a></p>
+                <p><a id="btn-back" href="./viviendas.php">Regresar a viviendas</a></p>
             </div>
             <div class=" container p-4 border">
-                <h3 class="fw-bold">Editar inquilino</h3>
+                <h3 class="fw-bold">Editar viviendas</h3>
                 <p>
-                    Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del
-                    rol que le
-                    asignes y estos puedes modificarlos desde la configuración avanzada.
+                    Ingresa los siguientes datos para crear una vivienda, los permisos otorgados dependerán del rol que
+                    le asignes y estos puedes modificarlos desde la configuración avanzada.
                 </p>
 
-                <!-- FORM: Agregar Inquilino -->
+                <!-- FORM: Editar Vivienda -->
                 <form method='POST'>
                     <fieldset>
                         <div class="container text-center">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group mb-3">
-                                        <label for="id-number">Número de Cédula</label>
-                                        <input id="id-number" name="id-number" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $tenantFound["cedula"]; ?>>
+                                        <label for="id-home">Número de Casa</label>
+                                        <input id="id-home" name="id-home" type="number"
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $homeFound[1]; ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
-                                        <label for="fullname">Nombre Completo</label>
-                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1"
-                                            value="<?php echo $tenantFound['nombre']; ?>">
+                                        <label for="address">Dirección</label>
+                                        <input id="address" name="address" type="text" class="form-control mt-1"
+                                            value="<?php echo $homeFound['direccion']; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -65,14 +63,14 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $tenantFound["telefono"]; ?>>
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $homeFound["telefono"]; ?>>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
                                         <select id="state" class="form-control mt-1" name="state">
-                                            <?php if ($tenantFound["estado"] == "activo"): ?>
+                                            <?php if ($homeFound["estado"] == "activo"): ?>
                                                 <option value="activo" selected>Activo</option>
                                                 <option value="inactivo">Inactivo</option>
                                             <?php else: ?>
@@ -94,7 +92,7 @@
                                 <button id="btn-update" name="btn-update" class="btn btn-info">Actualizar
                                     Inquilino</button>
                                 <a id="btn-cancel" name="btn-cancel" class="btn btn-light border"
-                                    href="./inquilinos.php">
+                                    href="./viviendas.php">
                                     Cancelar
                                 </a>
                             </div>

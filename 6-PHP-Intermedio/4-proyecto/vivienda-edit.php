@@ -1,7 +1,7 @@
 <?php
 
 // VARIABLES: Declaration
-$tenantID = $_GET['id'];
+$homeID = $_GET['id'];
 $errorMessage = $successMessage = "";
 
 # DATABASE: Connection
@@ -13,11 +13,11 @@ if ($connection->connect_errno) {
     // The page die
     die("Lo siento, hay un problema con el servidor.");
 } else {
-    // Select items from table inquilinos
-    $sqlTenants = "SELECT * FROM inquilinos WHERE id = $tenantID";
+    // Select items from table viviendas
+    $sqlHomes = "SELECT * FROM viviendas WHERE id = $homeID";
 
     // Executes the query connection
-    $result = $connection->query($sqlTenants);
+    $result = $connection->query($sqlHomes);
 
     // Check errors on the last query
     if (!$result) {
@@ -25,7 +25,7 @@ if ($connection->connect_errno) {
     } else {
         // Check result > 0
         if (mysqli_num_rows($result) > 0) {
-            $tenantFound = mysqli_fetch_array($result);
+            $homeFound = mysqli_fetch_array($result);
         } else {
             // Error message
             echo "Su consulta no puede ser realizada";
@@ -34,31 +34,31 @@ if ($connection->connect_errno) {
 
     // Check if btn-update isset
     if (isset($_POST["btn-update"])) {
-        // echo "Boton <Update> ha sido pulsado <br/>";
+        // echo "Boton <Update> ha sido pulsado <br/>"
 
         # Get variables
-        $systemID = $tenantFound['id'];
-        $idNumber = $_POST['id-number'];
-        $fullName = $_POST['fullname'];
+        $systemID = $homeFound['id'];
+        $idHome = $_POST['id-home'];
+        $address = $_POST['address'];
         $phone = $_POST['phone'];
         $state = $_POST['state'];
 
 
         // Check if the variables are empty
-        if (empty($systemID) || empty($idNumber) || empty($fullName) || empty($phone) || empty($state)) {
+        if (empty($systemID) || empty($idHome) || empty($address) || empty($phone) || empty($state)) {
             // Message error
             $errorMessage .= "* Debe llenar todos los campos.";
         } else {
             // Query to select user by id and password from database
-            $queryUpdate = "UPDATE inquilinos SET cedula=$idNumber, nombre='$fullName', telefono='$phone', estado='$state' WHERE id = $systemID";
+            $queryUpdate = "UPDATE viviendas SET cedula=$idHome, nombre='$address', telefono='$phone', estado='$state' WHERE id = $systemID";
             $result = mysqli_query($connection, $queryUpdate);
 
             // NEW CODE:
-            // Select items from table inquilinos
-            $sqlTenants = "SELECT * FROM inquilinos WHERE id = $tenantID";
+            // Select items from table viviendas
+            $sqlHomes = "SELECT * FROM viviendas WHERE id = $homeID";
 
             // Executes the query connection
-            $result = $connection->query($sqlTenants);
+            $result = $connection->query($sqlHomes);
 
             // Check errors on the last query
             if (!$result) {
@@ -66,7 +66,7 @@ if ($connection->connect_errno) {
             } else {
                 // Check result > 0
                 if (mysqli_num_rows($result) > 0) {
-                    $tenantFound = mysqli_fetch_array($result);
+                    $homeFound = mysqli_fetch_array($result);
                 } else {
                     // Error message
                     echo "Su consulta no puede ser realizada";
@@ -80,12 +80,13 @@ if ($connection->connect_errno) {
 
 }
 
+print_r($homeFound);
 
 // Open connnection
 closeConnection($connection);
 
 
 
-require_once "./src/views/inquilinos/inquilino-edit.view.php";
+require_once "./src/views/viviendas/vivienda-edit.view.php";
 
 ?>
