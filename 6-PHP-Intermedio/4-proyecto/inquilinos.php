@@ -51,7 +51,7 @@ if (isset($_POST['btn-add-guest'])) {
 }
 
 // Close database connection
-require_once "./src/views/inquilinos.view.php";
+require_once "./src/views/inquilinos/inquilinos.view.php";
 
 closeConnection($connection);
 ?>
