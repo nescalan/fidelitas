@@ -80,7 +80,6 @@ if ($connection->connect_errno) {
 
 }
 
-print_r($homeFound);
 
 // Open connnection
 closeConnection($connection);
