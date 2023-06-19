@@ -30,18 +30,16 @@
                     <path fill-rule="evenodd"
                         d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z" />
                 </svg>
-                <p><a id="btn-back" href="./viviendas.php">Regresar a
-                        viviendas</a></p>
+                <p><a id="btn-back" href="./viviendas.php">Regresar a viviendas</a></p>
             </div>
             <div class=" container p-4 border">
                 <h3 class="fw-bold">Editar viviendas</h3>
                 <p>
-                    Ingresa los siguientes datos para crear una vivienda, los permisos otorgados dependerán del
-                    rol que le
-                    asignes y estos puedes modificarlos desde la configuración avanzada.
+                    Ingresa los siguientes datos para crear una vivienda, los permisos otorgados dependerán del rol que
+                    le asignes y estos puedes modificarlos desde la configuración avanzada.
                 </p>
 
-                <!-- FORM: Agregar Vivienda -->
+                <!-- FORM: Editar Vivienda -->
                 <form method='POST'>
                     <fieldset>
                         <div class="container text-center">
@@ -50,7 +48,7 @@
                                     <div class="form-group mb-3">
                                         <label for="id-home">Número de Casa</label>
                                         <input id="id-home" name="id-home" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $homeFound["numero_casa"]; ?>>
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $homeFound[1]; ?>>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -94,7 +92,7 @@
                                 <button id="btn-update" name="btn-update" class="btn btn-info">Actualizar
                                     Inquilino</button>
                                 <a id="btn-cancel" name="btn-cancel" class="btn btn-light border"
-                                    href="./inquilinos.php">
+                                    href="./viviendas.php">
                                     Cancelar
                                 </a>
                             </div>

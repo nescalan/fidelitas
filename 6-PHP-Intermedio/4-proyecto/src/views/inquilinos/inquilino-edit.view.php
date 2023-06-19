@@ -41,7 +41,7 @@
                     asignes y estos puedes modificarlos desde la configuración avanzada.
                 </p>
 
-                <!-- FORM: Agregar Inquilino -->
+                <!-- FORM: Editar Inquilino -->
                 <form method='POST'>
                     <fieldset>
                         <div class="container text-center">

@@ -80,12 +80,13 @@ if ($connection->connect_errno) {
 
 }
 
+print_r($homeFound);
 
 // Open connnection
 closeConnection($connection);
 
 
 
-require_once "./src/views/vivienda-edit.view.php";
+require_once "./src/views/viviendas/vivienda-edit.view.php";
 
 ?>

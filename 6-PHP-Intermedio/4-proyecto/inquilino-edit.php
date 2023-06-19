@@ -86,6 +86,6 @@ closeConnection($connection);
 
 
 
-require_once "./src/views/inquilino-edit.view.php";
+require_once "./src/views/inquilinos/inquilino-edit.view.php";
 
 ?>
