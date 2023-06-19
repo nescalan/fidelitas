@@ -49,6 +49,6 @@ if (isset($_POST['btn-add-home'])) {
 // Close database connection
 closeConnection($connection);
 
-require_once "./src/views/viviendas.view.php";
+require_once "./src/views/viviendas/viviendas.view.php";
 
 ?>

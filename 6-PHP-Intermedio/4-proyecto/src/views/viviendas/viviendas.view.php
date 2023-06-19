@@ -129,9 +129,8 @@
                                             <option value="activo">Activo</option>
                                             <option value="inactivo">Inactivo</option>
                                         </select>
-                                        <span id="text1HelpBlock" class="form-text text-muted">Indicar si el
-                                            inquilino
-                                            está activo o inactivo.</span>
+                                        <span id="text1HelpBlock" class="form-text text-muted">Indicar si la vivienda
+                                            está activa o inactiva.</span>
                                     </div>
                                 </div>
                             </div>
