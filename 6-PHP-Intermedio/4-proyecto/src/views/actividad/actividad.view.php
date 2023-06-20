@@ -22,18 +22,136 @@
     </header>
 
     <main>
-        <div class="container mt-5 text-center">
-            <div class="card">
-                <h5 class="card-header">Actividad del día </h5>
-                <div class="card-body">
-                    <h5 class="card-title mt-5">Total de Visitas registradas para hoy: </h5>
-                    <p class="card-text fs-1 ">
-                        <?php echo $activityNumber; ?>
-                    </p>
-                    <a href="#" class="btn btn-primary">Actualizar datos</a>
-                </div>
-            </div>
+        <div id="mainContainer" class="container-fluid no-gutters">
 
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-11 mx-auto">
+                    <div class="card shadow-lg mb-3">
+                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                            Dashboard
+                        </h5>
+
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-3 p-1">
+                                    <div class="border border-secondary rounded">
+                                        <div style="height: 200px">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="checkin-chart"
+                                                style="display: block; width: 166px; height: 200px;" width="166"
+                                                height="200" class="chartjs-render-monitor">
+                                            </canvas>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-3 p-1">
+                                    <div class="border border-secondary rounded">
+                                        <div style="height: 200px">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="checkout-chart"
+                                                style="display: block; width: 166px; height: 200px;" width="166"
+                                                height="200" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-3 p-1">
+                                    <div class="border border-secondary rounded">
+                                        <div style="height: 200px">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="active-chart"
+                                                style="display: block; width: 166px; height: 200px;" width="166"
+                                                height="200" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-sm-6 col-md-3 p-1">
+                                    <div class="border border-secondary rounded">
+                                        <div style="height: 200px">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="remainvisits-chart"
+                                                style="display: block; width: 166px; height: 200px;" width="166"
+                                                height="200" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Disponibles: 20</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- Graph row-->
+
+                            <!-- second Graph -->
+                            <div class="row mt-3">
+                                <div class="col p-1">
+                                    <div class="border border-secondary rounded">
+                                        <!--div  style="height: 300px"-->
+                                        <!-- Para verticales considerar 20px por area en > 15-->
+                                        <div id="barChartContainer" style="height: 300px">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas id="areaactive-chart"
+                                                style="display: block; width: 694px; height: 300px;" width="694"
+                                                height="300" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div> <!-- card-body -->
+                    </div> <!-- card -->
+
+                </div><!-- first col -->
+
+            </div> <!-- first row -->
         </div>
 
     </main>
