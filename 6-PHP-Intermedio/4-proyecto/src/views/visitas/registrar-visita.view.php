@@ -27,7 +27,6 @@
             <div>
                 <h2>En Construccion</h2>
             </div>
-            <button type="button" class="btn btn-info">Agregar Viviendas</button>
         </div>
 
     </main>

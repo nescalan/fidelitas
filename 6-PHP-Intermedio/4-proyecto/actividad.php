@@ -13,17 +13,22 @@ if (!$connection) {
     die("Lo siento, hay un problema con el servidor");
 } else {
     // Select al items from table visitas
-    $sql = "SELECT * FROM visitas";
+    $sqlVisitas = "SELECT * FROM visitas";
 
     // Executes the query connection
-    $result = $connection->query($sql);
+    $result = mysqli_query($connection, $sqlVisitas);
+
+
 
     # CONDITIONAL: Check errors on the last query
     if (!$result)
         die($connection->error);
 
-    $activityNumber = $result->num_rows;
+    $activityNumber = mysqli_num_rows($result);
+    echo $activityNumber;
+    // $activityNumber = $result->num_rows;
 }
+print_r($activityNumber);
 
 require_once "./src/views/actividad.view.php";
 
