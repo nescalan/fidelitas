@@ -1,7 +1,7 @@
 <?php
 
 // VARIABLES: Declaration
-$homeID = $_GET['id'];
+$guestID = $_GET['id'];
 $errorMessage = $successMessage = "";
 
 # DATABASE: Connection
@@ -13,11 +13,11 @@ if ($connection->connect_errno) {
     // The page die
     die("Lo siento, hay un problema con el servidor.");
 } else {
-    // Select items from table viviendas
-    $sqlHomes = "SELECT * FROM viviendas WHERE id = $homeID";
+    // Select items from table invitados
+    $sqlGuests = "SELECT * FROM invitados WHERE id = $guestID";
 
     // Executes the query connection
-    $result = $connection->query($sqlHomes);
+    $result = $connection->query($sqlGuests);
 
     // Check errors on the last query
     if (!$result) {
@@ -25,7 +25,7 @@ if ($connection->connect_errno) {
     } else {
         // Check result > 0
         if (mysqli_num_rows($result) > 0) {
-            $homeFound = mysqli_fetch_array($result);
+            $GuestFound = mysqli_fetch_array($result);
         } else {
             // Error message
             echo "Su consulta no puede ser realizada";
@@ -34,31 +34,31 @@ if ($connection->connect_errno) {
 
     // Check if btn-update isset
     if (isset($_POST["btn-update"])) {
-        // echo "Boton <Update> ha sido pulsado <br/>"
+        // echo "Boton <Update> ha sido pulsado <br/>";
 
         # Get variables
-        $systemID = $homeFound['id'];
-        $idHome = $_POST['id-home'];
-        $address = $_POST['address'];
+        $systemID = $GuestFound['id'];
+        $idNumber = $_POST['id-number'];
+        $fullName = $_POST['fullname'];
         $phone = $_POST['phone'];
-        $state = $_POST['state'];
+        $access = $_POST['access'];
 
 
         // Check if the variables are empty
-        if (empty($systemID) || empty($idHome) || empty($address) || empty($phone) || empty($state)) {
+        if (empty($systemID) || empty($idNumber) || empty($fullName) || empty($phone) || empty($access)) {
             // Message error
             $errorMessage .= "* Debe llenar todos los campos.";
         } else {
-            // Query to select user by id and password from database
-            $queryUpdate = "UPDATE viviendas SET numero_casa='$idHome', direccion='$address', telefono='$phone', estado='$state' WHERE id = $systemID";
+            // Query to update data from invitados
+            $queryUpdate = "UPDATE invitados SET cedula='$idNumber', nombre='$fullName', telefono='$phone', acceso='$access' WHERE id = $systemID";
             $result = mysqli_query($connection, $queryUpdate);
 
             // NEW CODE:
-            // Select items from table viviendas
-            $sqlHomes = "SELECT * FROM viviendas WHERE id = $homeID";
+            // Select items from table invitados
+            $sqlGuests = "SELECT * FROM invitados WHERE id = $guestID";
 
             // Executes the query connection
-            $result = $connection->query($sqlHomes);
+            $result = $connection->query($sqlGuests);
 
             // Check errors on the last query
             if (!$result) {
@@ -66,7 +66,7 @@ if ($connection->connect_errno) {
             } else {
                 // Check result > 0
                 if (mysqli_num_rows($result) > 0) {
-                    $homeFound = mysqli_fetch_array($result);
+                    $GuestFound = mysqli_fetch_array($result);
                 } else {
                     // Error message
                     echo "Su consulta no puede ser realizada";
@@ -86,6 +86,6 @@ closeConnection($connection);
 
 
 
-require_once "./src/views/viviendas/vivienda-edit.view.php";
+require_once "./src/views/invitados/invitado-edit.view.php";
 
 ?>

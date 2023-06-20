@@ -47,15 +47,15 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="id-home">Número de Casa</label>
-                                        <input id="id-home" name="id-home" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" value=<?php echo $homeFound[1]; ?>>
+                                        <input id="id-home" name="id-home" type="text" class="form-control mt-1"
+                                            value=<?php echo $homeFound["numero_casa"]; ?> tabindex="1">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="address">Dirección</label>
                                         <input id="address" name="address" type="text" class="form-control mt-1"
-                                            value="<?php echo $homeFound['direccion']; ?>">
+                                            value="<?php echo $homeFound['direccion']; ?>" tabindex="2">
                                     </div>
                                 </div>
                             </div>
@@ -63,13 +63,13 @@
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="phone">Teléfono</label>
-                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $homeFound["telefono"]; ?>>
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text" value=<?php echo $homeFound["telefono"]; ?> tabindex="3">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="text">Estado</label>
-                                        <select id="state" class="form-control mt-1" name="state">
+                                        <select id="state" class="form-control mt-1" name="state" tabindex="4">
                                             <?php if ($homeFound["estado"] == "activo"): ?>
                                                 <option value="activo" selected>Activo</option>
                                                 <option value="inactivo">Inactivo</option>
@@ -89,8 +89,8 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-5 d-flex justify-content-between ">
-                                <button id="btn-update" name="btn-update" class="btn btn-info">Actualizar
-                                    Inquilino</button>
+                                <button id="btn-update" name="btn-update" class="btn btn-info">
+                                    Actualizar Inquilino</button>
                                 <a id="btn-cancel" name="btn-cancel" class="btn btn-light border"
                                     href="./viviendas.php">
                                     Cancelar
@@ -123,7 +123,7 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="./assets/js/inquilinos.jquery.js"></script>
+    <script src="./assets/js/viviendas.jquery.js"></script>
     <script src="./assets/js/numbervalidation.js"></script>
 
 </body>

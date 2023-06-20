@@ -30,7 +30,7 @@
                     <h2>Inquilinos</h2>
                 </div>
                 <button id="btn-guests" class="btn btn-info" type="button">
-                    Agregar Inquilinos
+                    Agregar inquilinos
                 </button>
 
             </div>

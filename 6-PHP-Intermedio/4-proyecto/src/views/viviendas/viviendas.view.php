@@ -165,7 +165,7 @@
     <script>
         const confirmEliminar = (pId) => {
             if (confirm("¿Está seguro que desea eliminar al usuario " + pId + " ?")) {
-                window.location.href = "./inquilino-delete.php?id=" + pId;
+                window.location.href = "./vivienda-delete.php?id=" + pId;
             }
         }
     </script>
