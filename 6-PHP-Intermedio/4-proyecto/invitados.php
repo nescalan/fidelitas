@@ -21,8 +21,36 @@ if ($connection->connect_errno) {
     }
 
 }
+
+# CONDITIONAL: Check if method post was used
+if (isset($_POST['btn-add-guest'])) {
+    // Read the form the "Agregar Inquilinos" form
+    $idNumber = $_POST['id-number'];
+    $fullname = $_POST['fullname'];
+    $phone = $_POST['phone'];
+    $access = $_POST['access'];
+
+    // Prepare the SQL statement
+    $sqlAddGuest = "INSERT INTO invitados (cedula, nombre, telefono, acceso) 
+        VALUES ($idNumber, '$fullname', '$phone', '$access');";
+
+    // Execute the SQL statement
+    $addResult = mysqli_query($connection, $sqlAddGuest);
+
+    // Check the result
+    if ($addResult === true) {
+        echo "New record created successfully";
+        echo '<script> window.location.href = "invitados.php" </script>';
+    } else {
+        echo "Error: " . $sqlAddGuest . "<br>" . $connection->error;
+        echo "The data was not inserted successfully.";
+    }
+}
+
+
+
 closeConnection($connection);
 
-require_once "./src/views/invitados.view.php";
+require_once "./src/views/invitados/invitados.view.php";
 
 ?>

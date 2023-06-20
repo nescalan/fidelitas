@@ -30,8 +30,7 @@ if (isset($_POST['btn-add-home'])) {
     $state = $_POST['state'];
 
     // Prepare the SQL statement
-    $sqlAddHome = "INSERT INTO viviendas (numero_casa, direccion, telefono, estado) 
-        VALUES ($idHome, '$address', '$phone', '$state');";
+    $sqlAddHome = "INSERT INTO viviendas (numero_casa, direccion, telefono, estado) VALUES ('$idHome', '$address', '$phone', '$state')";
 
     // Execute the SQL statement
     $addResult = mysqli_query($connection, $sqlAddHome);

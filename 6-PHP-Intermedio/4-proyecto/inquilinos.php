@@ -25,7 +25,6 @@ if ($connection->connect_errno) {
 }
 
 # CONDITIONAL: Check if method post was used
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_POST['btn-add-guest'])) {
     // Read the form the "Agregar Inquilinos" form
     $idNumber = $_POST['id-number'];

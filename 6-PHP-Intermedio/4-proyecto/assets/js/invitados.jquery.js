@@ -1,73 +1,91 @@
 $(document).ready(function () {
   // Identify the div and button elements
-  let $secDisplayHomes = $("#sec-display-homes");
-  let $secAddHomes = $("#sec-add-home");
-  let $btnHomes = $("#btn-homes");
+  let $secDisplayInvitados = $("#sec-display-guests");
+  let $secAddInvitados = $("#sec-add-guests");
+  let $btnGuests = $("#btn-guests");
   let $btnBack = $("#btn-back");
-  let $btnAddHomes = $("btn-add-homes");
+  let $btnAddGuest = $("btn-add-guest");
+  // let $btnCancelAddGuest = $("#btn-cancel-guest");
 
-  // Attach an event handler to the $btnHomes element
-  $btnHomes.on("click", function () {
+  // Hide secion "add-inquilinos"
+  $($secAddInvitados).css("display", "none");
+
+  // Attach an event handler to the $btnGuests element
+  $btnGuests.on("click", function () {
     // Hide the div element
-    $secDisplayHomes.hide();
-    $secAddHomes.removeClass("d-none");
-    $secAddHomes.show();
+    $secDisplayInvitados.hide();
+    $secAddInvitados.removeClass("d-none");
+    $secAddInvitados.show();
   });
 
-  // Attach an event handler to the $btnHomes element
+  // Attach an event handler to the $btnGuests element
   $btnBack.on("click", function () {
     // Hide the div element
-    $secAddHomes.hide();
-    $secDisplayHomes.show();
+    $secAddInvitados.hide();
+    $secDisplayInvitados.show();
   });
 
   // ***********
-  // Validate the home ID  field
-  $("#id-home").on("blur", function () {
-    let idHome = $(this).val();
-    let errorHome = $(this).closest(".form-group").find(".text-danger");
+  // Validate the ID number field
+  $("#id-number").on("blur", function () {
+    let idNumber = $(this).val();
+    let errorIdNumber = $(this).closest(".form-group").find(".text-danger");
 
-    if (!idHome) {
+    if (!idNumber) {
       // Insert an error message in the HTML if it doesn't already exist
-      if (!errorHome.length) {
+      if (errorIdNumber.length === 0) {
         $(this).addClass("is-invalid");
         // Insert an error message in the HTML
         $(this)
           .closest(".form-group")
           .append(
-            "<span class='text-danger'>El campo 'Número de Casa' es obligatorio.</span>"
+            "<span class='text-danger'>El campo 'Número de Cédula' es obligatorio.</span>"
           );
       }
+    } else if (!/^[0-9]{9}$/.test(idNumber)) {
+      $(this).removeClass("is-invalid");
+      // Clear the error message if it exists
+      if (errorIdNumber.length) {
+        errorIdNumber.remove();
+      }
+
+      $(this).addClass("is-invalid");
+      // Insert an error message in the HTML
+      $(this)
+        .closest(".form-group")
+        .append(
+          "<span class='text-danger'>El campo 'Número de Cédula' debe contener mínimo 9 dígitos numéricos.</span>"
+        );
     } else {
       $(this).removeClass("is-invalid");
-      // Clear the error message if it exsists
-      if (errorHome.length) {
-        errorHome.remove();
+      // Clear the error message if it exists
+      if (errorIdNumber.length) {
+        errorIdNumber.remove();
       }
     }
   });
 
-  // Validate the address field
-  $("#address").on("blur", function () {
-    let address = $(this).val();
-    let erroraddress = $(this).closest(".form-group").find(".text-danger");
+  // Validate the full name field
+  $("#fullname").on("blur", function () {
+    let fullname = $(this).val();
+    let errorFullname = $(this).closest(".form-group").find(".text-danger");
 
-    if (!address) {
+    if (!fullname) {
       // Insert an error message in the HTML if it doesn't already exist
-      if (!erroraddress.length) {
+      if (!errorFullname.length) {
         $(this).addClass("is-invalid");
         // Insert an error message in the HTML
         $(this)
           .closest(".form-group")
           .append(
-            "<span class='text-danger'>El campo 'Dirección' es obligatorio.</span>"
+            "<span class='text-danger'>El campo 'Nombre Completo' es obligatorio.</span>"
           );
       }
     } else {
       $(this).removeClass("is-invalid");
       // Clear the error message if it exsists
-      if (erroraddress.length) {
-        erroraddress.remove();
+      if (errorFullname.length) {
+        errorFullname.remove();
       }
     }
   });
