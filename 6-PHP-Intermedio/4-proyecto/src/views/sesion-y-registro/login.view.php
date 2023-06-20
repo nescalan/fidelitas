@@ -38,7 +38,7 @@
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="card">
                             <div class="card-body py-5 px-md-5">
-                                <form>
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3">Correo Electronico</label>
