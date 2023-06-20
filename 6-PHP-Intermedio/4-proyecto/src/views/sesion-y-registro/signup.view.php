@@ -41,21 +41,30 @@
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     <div class="row">
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example1" class="form-control" />
                                             <label class="form-label" for="form3Example1">Nombre Completo</label>
+                                            <input type="text" id="form3Example1" class="form-control"
+                                                name="fullname" />
                                         </div>
                                     </div>
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example3" class="form-control" />
                                         <label class="form-label" for="form3Example3">Email address</label>
+                                        <input type="email" id="form3Example3" class="form-control" name="email" />
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4" class="form-control" />
                                         <label class="form-label" for="form3Example4">Password</label>
+                                        <input type="password" id="form3Example4" class="form-control"
+                                            name="password" />
+                                    </div>
+
+                                    <!-- Confirm Password input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example4">Confirmar Contraseña</label>
+                                        <input type="password" id="form3Example4" class="form-control"
+                                            name="confirm-password" />
                                     </div>
 
                                     <!-- Submit button -->
@@ -69,6 +78,13 @@
                                             ¡Si ya tienes una cuenta Ingresa por aqui!
                                         </a>
                                     </div>
+
+                                    <!-- Error messages -->
+                                    <?php if (!empty($errorMessage)): ?>
+                                        <div class=" p-2">
+                                            <?php echo $errorMessage; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </form>
                             </div>
                         </div>
