@@ -25,6 +25,68 @@
 
     <main>
         <section id="sec-display-guests" class="container mt-5 col-lg-9">
+
+            <div id="mainContainer" class="container no-gutters mt-5">
+
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm-11 mx-auto">
+                        <div class="card shadow-lg mb-3">
+                            <h5 class="card-header d-flex justify-content-between align-items-center">
+                                Actividad
+                            </h5>
+
+                            <div class="card-body">
+                                <div class="row p-2 d-flex justify-content-between">
+                                    <!-- Primera tarjeta -->
+                                    <div class="card" style="width: 15rem;">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">Ingresos del día</p>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+
+                                    <!-- Segunda tarjeta -->
+                                    <div class="card" style="width: 15rem;">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">Ingresos del día</p>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tercera tarjeta -->
+                                    <div class="card" style="width: 15rem;">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">Salidas del día</p>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cuarta tarjeta -->
+                                    <div class="card" style="width: 15rem;">
+                                        <div class="card-body">
+                                            <p class="card-text text-center">Visitas los últimos</p>
+                                        </div>
+                                        <div class="text-center text-muted mt-1">
+                                            <h4>Total: 0</h4>
+                                        </div>
+                                    </div>
+
+                                </div> <!-- Graph row-->
+                            </div> <!-- card-body -->
+
+                        </div> <!-- card -->
+                    </div><!-- first col -->
+                </div> <!-- first row -->
+
+            </div>
+
+
             <div class=" d-flex justify-content-between mb-3">
                 <div>
                     <h2>Inquilinos</h2>
