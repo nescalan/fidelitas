@@ -74,7 +74,7 @@ if ($connection->connect_errno) {
             }
 
             // Success message
-            $successMessage .= "<p class='text-center text-white p-2'>El usuario se actualizó correctamente.</p>";
+            $successMessage .= "<p class='text-center text-white p-2'>La vivienda se actualizó correctamente.</p>";
         }
     }
 
