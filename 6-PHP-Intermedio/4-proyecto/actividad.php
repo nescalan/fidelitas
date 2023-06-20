@@ -5,6 +5,7 @@ $activityNumber = "";
 
 require_once "./src/model/connection-db.model.php";
 
+
 $connection = openConnection();
 
 # Check the db connection
@@ -16,20 +17,17 @@ if (!$connection) {
     $sqlVisitas = "SELECT * FROM visitas";
 
     // Executes the query connection
-    $result = mysqli_query($connection, $sqlVisitas);
-
-
+    // $result = mysqli_query($connection, $sqlVisitas);
+    $result = $connection->query($sqlVisitas);
 
     # CONDITIONAL: Check errors on the last query
     if (!$result)
         die($connection->error);
 
-    $activityNumber = mysqli_num_rows($result);
-    echo $activityNumber;
-    // $activityNumber = $result->num_rows;
+    // $activityNumber = mysqli_num_rows($result);
+    $activityNumber = $result->num_rows;
 }
-print_r($activityNumber);
 
-require_once "./src/views/actividad.view.php";
+require_once "./src/views/actividad/actividad.view.php";
 
 ?>

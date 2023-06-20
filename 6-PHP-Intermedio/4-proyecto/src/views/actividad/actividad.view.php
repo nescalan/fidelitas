@@ -66,10 +66,12 @@
                                 <!-- Cuarta tarjeta -->
                                 <div class="card" style="width: 15rem;">
                                     <div class="card-body">
-                                        <p class="card-text text-center">Visitas los últimos</p>
+                                        <p class="card-text text-center">Últimos 30 días</p>
                                     </div>
                                     <div class="text-center text-muted mt-1">
-                                        <h4>Total: 0</h4>
+                                        <h4>Total:
+                                            <?php echo $activityNumber; ?>
+                                        </h4>
                                     </div>
                                 </div>
 
