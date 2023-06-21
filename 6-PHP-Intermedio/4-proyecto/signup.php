@@ -11,9 +11,9 @@ $errorMessage = $successMessage = "";
 
 if (isset($_SERVER['user'])) {
     header('Location: index.php');
-}
+} 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+($_SERVER['REQUEST_METHOD'] === 'POST') {
     # Recogemos las variables del formulario
     $fullName = filter_var(strtolower($_POST["fullname"]), FILTER_SANITIZE_STRING);
     $user = $_POST["email"];
@@ -48,9 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     }
-
-
-
 }
 
 closeConnection($connection);
