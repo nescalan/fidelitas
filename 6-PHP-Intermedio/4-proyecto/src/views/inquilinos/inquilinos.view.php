@@ -147,15 +147,15 @@
                                 </a>
                             </div>
                         </div>
-
-                        <?php if (!empty($errorMessage)): ?>
-                            <div class="text-white p-3 bg-danger border border-danger  ">
-                                <?php echo $errorMessage; ?>
-                            </div>
-                        <?php endif; ?>
-
-
                     </fieldset>
+
+                    <!-- Error messages -->
+                    <?php if (!empty($errorMessage)): ?>
+                        <div class=" p-2">
+                            <?php echo $errorMessage; ?>
+                        </div>
+                    <?php endif; ?>
+
                 </form>
             </div>
         </section>

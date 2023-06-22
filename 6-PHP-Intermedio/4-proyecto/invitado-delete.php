@@ -1,19 +1,26 @@
-<?php
+<?php # invitado-delete.php
 
-require_once "./src/model/connection-db.model.php";
+session_start();
 
-$id = $_GET["id"];
+if (isset($_SESSION['user'])) {
 
-$connection = openConnection();
+    require_once "./src/model/connection-db.model.php";
 
-$sql = "DELETE FROM invitados WHERE id = $id";
+    $id = $_GET["id"];
+    $connection = openConnection();
+    $sql = "DELETE FROM invitados WHERE id = $id";
+    $connection->query($sql);
 
-$connection->query($sql);
+    header('location: invitados.php');
 
-echo "<script>alert('No se encontró un usuario con la identificación brindada.');</script>";
-header('location: invitados.php');
+    closeConnection($connection);
 
-closeConnection($connection);
+} else {
+    # Redirect to login.php
+    header('Location: login.php');
+}
+
+
 
 
 ?>

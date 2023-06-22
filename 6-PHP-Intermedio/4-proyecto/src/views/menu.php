@@ -34,8 +34,12 @@ echo '
                     <li class="nav-item">
                         <a class="nav-link" href="./reportes.php">Reportes</a>
                     </li>
+                    
                 </ul>
             </div>
+            <button type="button" class="btn btn-light btn-sm" aria-label="Close">
+                <a class="nav-link" href="./exit.php">Cerrar Sesión</a>
+            </button>
         </div>
     </nav>
     

@@ -1,6 +1,14 @@
 <?php #index.php
 
-require_once "./src/views/sesion-y-registro/login-form/login.view.php";
-// require_once "./actividad.php";
+session_start();
+
+if (isset($_SESSION['user'])) {
+    # redirect to actividad.php
+    header('Location: actividad.php');
+
+} else {
+    # Redirect to login.php
+    header('Location: login.php');
+}
 
 ?>
