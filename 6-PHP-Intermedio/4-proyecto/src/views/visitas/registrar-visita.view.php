@@ -54,7 +54,7 @@
                             echo '
                         <tr>
                             <th> ' . $row['id'] . ' </th>
-                            <th> ' . $row['cedula'] . ' </th>
+                            <th> ' . $row['invitado_id'] . ' </th>
                             <td> ' . $row['nombre'] . ' </td>
                             <td> ' . $row['telefono'] . ' </td>
                             <td> ' . $row['estado'] . ' </td>
@@ -90,27 +90,86 @@
                 <p><a id="btn-back" href="#display-inquilinos">Regresar a control de visitas</a></p>
             </div>
             <div class=" container p-4 border">
-                <h3 class="fw-bold">Agregar inquilino</h3>
+                <h3 class="fw-bold">Registrar visita</h3>
                 <p>
-                    Ingresa los siguientes datos para crear un usuario, los permisos otorgados dependerán del
-                    rol que le asignes y estos puedes modificarlos desde la configuración avanzada.
+                    Ingrese los datos solicitados para registrar correctamente la visita a uno de nuestros inquilinos,
+                    recuerde colocar las notas especiales en el campo "Observaciones".
                 </p>
 
                 <!-- FORM: Agregar Inquilino -->
                 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method='POST' autocomplete="off">
                     <fieldset>
-                        <div class="container text-center">
+                        <div class="container text-center border mb-3 p-2">
+
+                            <h5 class="fw-bold">Información del invitado</h5>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group mb-3">
-                                        <label for="id-number">Número de Cédula</label>
+                                        <label for="id-number">Número de cédula</label>
                                         <input id="id-number" name="id-number" type="number"
                                             onkeypress="return isNumber(event)" class="form-control mt-1" autofocus>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
-                                        <label for="fullname">Nombre Completo</label>
+                                        <label for="fullname">Nombre completo</label>
+                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="phone">Teléfono</label>
+                                        <input id="phone" class="form-control mt-1" name="phone" type="text"
+                                            onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="text">Acceso</label>
+                                        <select id="access" class="form-control mt-1" name="access" type="text">
+                                            <option value="conceder">Conceder</option>
+                                            <option value="denegar">Denegar</option>
+                                        </select>
+                                        <span id="text1HelpBlock" class="form-text text-muted">
+                                            Verificar si el invitado puede ingresar o no.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="license-plate">Placa del vehículo</label>
+                                        <input id="license-plate" class="form-control mt-1" name="license-plate"
+                                            type="text">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="companions">Número de acopañantes</label>
+                                        <input id="companions" class="form-control mt-1" name="companions" type="number"
+                                            onkeypress="return isNumber(event)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container text-center border mb-3 p-2">
+
+                            <h5 class="fw-bold">Información del inquilino</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="id-number">Número de cédula</label>
+                                        <input id="id-number" name="id-number" type="number"
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" autofocus>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="fullname">Nombre completo</label>
                                         <input id="fullname" name="fullname" type="text" class="form-control mt-1">
                                     </div>
                                 </div>
@@ -130,9 +189,9 @@
                                             <option value="activo">Activo</option>
                                             <option value="inactivo">Inactivo</option>
                                         </select>
-                                        <span id="text1HelpBlock" class="form-text text-muted">Indicar si el
-                                            inquilino
-                                            está activo o inactivo.</span>
+                                        <span id="text1HelpBlock" class="form-text text-muted">
+                                            Inactivo: No puede resivir visitas
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -141,8 +200,9 @@
                         <!-- Button (Double) -->
                         <div class="form-group mb-3 d-flex justify-content-end ">
                             <div class="col-8 col-sm-5 col-md-5 col-lg-4 d-flex justify-content-between ">
-                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success ">Agregar
-                                    Inquilino</button>
+                                <button id="btn-add-guest" name="btn-add-guest" class="btn btn-success ">
+                                    Agregar visita
+                                </button>
                                 <a id="btn-cancel-guest" name="btn-cancel-guest" class="btn btn-danger" href="">
                                     Cancelar
                                 </a>
@@ -159,7 +219,35 @@
 
                 </form>
             </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Launch static backdrop modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
+
 
     </main>
 
