@@ -18,16 +18,36 @@ if (isset($_SESSION['user'])) {
     } else {
         // Select all items from table visitas
         // $sqlVisitors = "SELECT * FROM visitas";
-        $sqlVisitors = "SELECT * FROM visitas ";
+        $sqlVisitors = "SELECT 
+            vis.id AS vis_id, 
+            inv.nombre AS invitado_id,
+            viv.numero_casa AS vivienda_id,
+            vis.hora_ingreso AS hora_ingreso,
+            vis.observaciones AS observaciones
+        FROM reportes rep
+        INNER JOIN visitas vis ON rep.visita_id = vis.id
+        INNER JOIN invitados inv ON rep.invitado_id = inv.id
+        INNER JOIN viviendas viv ON rep.vivienda_id = viv.id
+        WHERE vis.fecha_ingreso = '2023-05-01'; ";
 
         // Executes the query connection
         $result = mysqli_query($connection, $sqlVisitors);
 
+        // while ($fila = mysqli_fetch_assoc($result)) {
+        //     echo $fila["id"];
+        //     echo '<br> ';
+        //     echo $fila["invitado_id"];
+        //     echo '<br> ';
+        //     echo $fila["vivienda_id"];
+        //     echo '<br> ';
+        //     echo $fila["hora_ingreso"];
+        //     echo '<br> ';
+        //     echo $fila["observaciones"];
+        // }
 
 
-
-
-
+        // $resultArray = mysqli_fetch_assoc($result);
+        // print_r($resultArray);
 
         // $result = $connection->query($sqlVisitors);
 
