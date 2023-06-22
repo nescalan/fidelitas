@@ -34,15 +34,34 @@
 
             </div>
 
+            <?php
+
+
+            while ($fila = mysqli_fetch_assoc($result)) {
+                echo 'id: ' . $fila["id"] . '<br/>';
+                echo $fila["id"];
+                echo $fila["fecha_ingreso"] . '<br/>';
+                echo $fila["hora_ingreso"] . '<br/>';
+                echo $fila["fecha_salida"] . '<br/>';
+                echo $fila["hora_salida"] . '<br/>';
+                echo $fila["tipo_visita"] . '<br/>';
+                echo $fila["placa_vehiculo"] . '<br/>';
+                echo $fila["numero_acompanantes"] . '<br/>';
+                echo $fila["invitado_id"] . '<br/>';
+                echo $fila["vivienda_id"] . '<br/>';
+                echo $fila["observaciones"] . '<br/>';
+            }
+
+            ?>
+
             <div class="container">
                 <table id="dt-tbl" class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">No. Visita</th>
                             <th scope="col">Invitado</th>
-                            <th scope="col">Persona Visitada</th>
                             <th scope="col">Casa Visitada</th>
-                            <th scope="col">Hora Entrada</th>
+                            <th scope="col">Hora Ingreso</th>
                             <th scope="col">Observaciones </th>
                             <th> </th>
                         </tr>
@@ -55,9 +74,9 @@
                         <tr>
                             <th> ' . $row['id'] . ' </th>
                             <th> ' . $row['invitado_id'] . ' </th>
-                            <td> ' . $row['nombre'] . ' </td>
-                            <td> ' . $row['telefono'] . ' </td>
-                            <td> ' . $row['estado'] . ' </td>
+                            <td> ' . $row['vivienda_id'] . ' </td>
+                            <td> ' . $row['hora_ingreso'] . ' </td>
+                            <td> ' . $row['observaciones'] . ' </td>
                             <td> 
                                 <a class="btn btn-circle btn-sm mr-2" href="inquilino-edit.php?id=' . $row['id'] . '" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -78,6 +97,7 @@
                     </tbody>
                 </table>
             </div>
+
         </section>
 
         <section id="sec-add-guests" class="container mt-5 mb-2 col-lg-8 d-none">
