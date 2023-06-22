@@ -11,9 +11,9 @@ $errorMessage = $successMessage = "";
 
 if (isset($_SERVER['user'])) {
     header('Location: index.php');
-} 
+}
 
-($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # Recogemos las variables del formulario
     $fullName = filter_var(strtolower($_POST["fullname"]), FILTER_SANITIZE_STRING);
     $user = $_POST["email"];
@@ -24,14 +24,14 @@ if (isset($_SERVER['user'])) {
 
     if (empty($fullName) || empty($user) || empty($password) || empty($confirmPassword)) {
         # Error message
-        $errorMessage .= "<p class='text-white' >Todos los campos son obligatorios</p>";
+        $errorMessage .= '<div class="alert alert-danger" role="alert">Todos los campos son obligatorios.</div>';
     } else {
         # Check the db connection
         if ($connection->connect_errno) {
             // The page die
             die("Lo siento, hay un problema con el servidor.");
         } else {
-            // Select all items from table inquilinos
+            // Select all items from table usuarios
             $sqlUsers = "SELECT * FROM usuarios WHERE usuario = '$user' LIMIT 1";
 
             // Executes the query connection
@@ -42,10 +42,35 @@ if (isset($_SERVER['user'])) {
                 $errorMessage .= '<div class="alert alert-danger" role="alert">El nombre de usuario ya existe.</div>';
             }
 
-            # Password Hash
-            $password = md5($password);
-            echo $password;
+            if ($password != $confirmPassword) {
+                # Error message
+                $errorMessage .= '<div class="alert alert-danger" role="alert">Las contraseñas no son iguales.</div>';
+            }
         }
+    }
+
+    if ($errorMessage == "") {
+        # Password Hash
+        $password = md5($password);
+
+        # Insert sql into table usuarios
+        $sqlUser = "INSERT INTO usuarios (nombre, usuario, clave) VALUES ('$fullName', '$user', '$password')";
+
+        # Execute the SQL statement
+        $addResult = mysqli_query($connection, $sqlUser);
+
+        #Redirect to login.php
+        header('Location: login.php');
+
+        # Check the result
+        if ($addResult === true) {
+            echo "New record created successfully";
+            echo '<script> window.location.href = "inquilinos.php" </script>';
+        } else {
+            echo "Error: " . $sqlUser . "<br>" . $connection->error;
+            echo "The data was not inserted successfully.";
+        }
+
 
     }
 }

@@ -1,19 +1,31 @@
-<?php
+<?php #inquilino-delete.php
 
-require_once "./src/model/connection-db.model.php";
+session_start();
 
-$id = $_GET["id"];
+if (isset($_SESSION['user'])) {
 
-$connection = openConnection();
+    require_once "./src/model/connection-db.model.php";
 
-$sql = "DELETE FROM inquilinos WHERE id = $id";
+    $id = $_GET["id"];
 
-$connection->query($sql);
+    $connection = openConnection();
 
-echo "<script>alert('No se encontró un usuario con la identificación brindada.');</script>";
-header('location: inquilinos.php');
+    $sql = "DELETE FROM inquilinos WHERE id = $id";
 
-closeConnection($connection);
+    $connection->query($sql);
+
+    echo "<script>alert('No se encontró un usuario con la identificación brindada.');</script>";
+    header('location: inquilinos.php');
+
+    closeConnection($connection);
+
+
+} else {
+    # Redirect to login.php
+    header('Location: login.php');
+}
+
+
 
 
 ?>

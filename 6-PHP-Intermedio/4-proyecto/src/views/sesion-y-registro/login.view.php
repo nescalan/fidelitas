@@ -23,11 +23,11 @@
         <!-- Jumbotron -->
         <div class="px-4 py-5 px-md-5 text-center text-lg-start">
             <div class="container">
-                <div class="row gx-lg-5 align-items-center">
+                <div class="row gx-lg-5">
                     <div class="col-lg-6 mb-5 mb-lg-0">
-                        <h1 class="my-5 display-3 fw-bold ls-tight">
-                            Registra tus visitas en <br />
-                            <span class="text-primary">tiempo real!</span>
+                        <h1 class="my-5 display-5 fw-bold ls-tight">
+                            Ingresa a tu control de visitas
+                            <span class="text-primary">en tiempo real!</span>
                         </h1>
                         <p style="color: hsl(217, 10%, 50.8%)">
                             La manera más rápida y eficaz de registrar la información de tus visitantes. Un control de
@@ -38,17 +38,19 @@
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="card">
                             <div class="card-body py-5 px-md-5">
-                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-                                    <!-- Email input -->
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"
+                                    autocomplete="off">
+                                    <!-- User input -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3">Correo Electronico</label>
-                                        <input id="form3Example3" class="form-control" type="email" name="email" />
+                                        <input id="form3Example3" class="form-control" type="email" name="login-user" />
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example4">Contraseña</label>
-                                        <input id="form3Example4" class="form-control" type="password" name="email" />
+                                        <input id="form3Example4" class="form-control" type="password"
+                                            name="login-password" />
                                     </div>
 
                                     <!-- Submit button -->
@@ -62,6 +64,13 @@
                                             ¿No tienes una cuenta?
                                         </a>
                                     </div>
+
+                                    <!-- Error messages -->
+                                    <?php if (!empty($errorMessage)): ?>
+                                        <div class=" p-2">
+                                            <?php echo $errorMessage; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </form>
                             </div>
                         </div>

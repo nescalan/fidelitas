@@ -23,10 +23,10 @@
         <!-- Jumbotron -->
         <div class="px-4 py-5 px-md-5 text-center text-lg-start">
             <div class="container">
-                <div class="row gx-lg-5 align-items-center">
+                <div class="row gx-lg-5 ">
                     <div class="col-lg-6 mb-5 mb-lg-0">
-                        <h1 class="my-5 display-3 fw-bold ls-tight">
-                            Ingresa tus datos para tu <br />
+                        <h1 class="my-5 display-5 fw-bold ls-tight">
+                            Registra tus datos y crea una
                             <span class="text-primary">nueva cuenta.</span>
                         </h1>
                         <p style="color: hsl(217, 10%, 50.8%)">

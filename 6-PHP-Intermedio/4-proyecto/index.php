@@ -1,14 +1,14 @@
 <?php #index.php
 
+session_start();
 
 if (isset($_SESSION['user'])) {
+    # redirect to actividad.php
     header('Location: actividad.php');
+
 } else {
-    header('Location: signup.php');
+    # Redirect to login.php
+    header('Location: login.php');
 }
-
-
-// require_once "./login.php";
-// require_once "./actividad.php";
 
 ?>
