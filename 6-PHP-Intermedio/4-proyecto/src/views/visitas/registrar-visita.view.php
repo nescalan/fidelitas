@@ -100,21 +100,100 @@
                 <!-- FORM: Agregar Inquilino -->
                 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method='POST' autocomplete="off">
                     <fieldset>
-                        <div class="container text-center border mb-3 p-2">
+                        <div class="container text-center border mb-3 py-2">
 
-                            <h5 class="fw-bold">Información del invitado</h5>
+                            <div class=" d-flex justify-content-between bg-light py-3 ">
+                                <h5 class="fw-bold">Información del invitado</h5>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-search" viewBox="0 0 16 16" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <table id="dt-tbl" class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Cédula</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Teléfono</th>
+                                                            <th scope="col">Acceso</th>
+                                                            <th> </th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <?php
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            echo '
+                                                                <tr>
+                                                                    <th> ' . $row['cedula'] . ' </th>
+                                                                    <td> ' . $row['nombre'] . ' </td>
+                                                                    <td> ' . $row['telefono'] . ' </td>
+                                                                    <td> ' . $row['acceso'] . ' </td>
+                                                                    <td> 
+                                                                        <a class="btn btn-circle btn-sm mr-2" href="invitado-edit.php?id=' . $row['id'] . '" >
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                            </svg>
+                                                                        </a>                                
+                                                                        <a class="btn btn-circle btn-sm" onclick="confirmEliminar(' . $row['id'] . ')" >
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                                            </svg>
+                                                                        </a>                                
+                                                                    </td>
+                                                                </tr>
+                                                                ';
+                                                        }
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Understood</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Local form -->
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="id-number">Número de cédula</label>
                                         <input id="id-number" name="id-number" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" autofocus>
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" readonly>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="fullname">Nombre completo</label>
-                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1">
+                                        <input id="fullname" name="fullname" type="text" class="form-control mt-1"
+                                            disabled>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +244,7 @@
                                     <div class="form-group mb-3">
                                         <label for="id-number">Número de cédula</label>
                                         <input id="id-number" name="id-number" type="number"
-                                            onkeypress="return isNumber(event)" class="form-control mt-1" autofocus>
+                                            onkeypress="return isNumber(event)" class="form-control mt-1" disabled>
                                     </div>
                                 </div>
                                 <div class="col">
