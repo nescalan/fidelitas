@@ -104,6 +104,7 @@
 
                             <div class=" d-flex justify-content-between bg-light py-3 ">
                                 <h5 class="fw-bold">Información del invitado</h5>
+
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop">
@@ -121,7 +122,7 @@
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -143,7 +144,7 @@
 
                                                     <tbody>
                                                         <?php
-                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                        while ($row = mysqli_fetch_assoc($resultGuests)) {
                                                             echo '
                                                                 <tr>
                                                                     <th> ' . $row['cedula'] . ' </th>

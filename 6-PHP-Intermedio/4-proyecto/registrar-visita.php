@@ -16,8 +16,21 @@ if (isset($_SESSION['user'])) {
         // The page die
         die("Lo siento, hay un problema con el servidor.");
     } else {
+        // Select all items from table inquilinos
+        $sqlGuests = "SELECT * FROM invitados";
+
+        // Executes the query connection
+        $resultGuests = $connection->query($sqlGuests);
+
+        // Check errors on the last query
+        if (!$resultGuests) {
+            die($connection->error);
+        }
+
+
+
         // Select all items from table visitas
-        // $sqlVisitors = "SELECT * FROM visitas";
+        $sql = "SELECT * FROM visitas";
         $sqlVisitors = "SELECT 
             vis.id AS vis_id, 
             inv.nombre AS invitado_id,
