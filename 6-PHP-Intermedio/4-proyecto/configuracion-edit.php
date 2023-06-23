@@ -59,10 +59,8 @@ if (isset($_SESSION['user'])) {
             } else {
                 // Query to select user by id and password from database
                 $password = md5($password);
-                $queryUpdate = "UPDATE usuarios SET nombre=$fullName, clave='$password' WHERE id = $systemID";
+                $queryUpdate = "UPDATE usuarios SET nombre='$fullName', clave='$password' WHERE id = $systemID";
                 $result = mysqli_query($connection, $queryUpdate);
-
-                echo "estoy aqui";
 
                 // NEW CODE:
                 // Select items from table inquilinos
