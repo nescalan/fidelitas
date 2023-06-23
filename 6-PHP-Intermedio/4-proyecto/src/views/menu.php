@@ -32,7 +32,7 @@ echo '
                         <a class="nav-link" href="./registrar-visita.php">Registrar Visita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./reportes.php">Reportes</a>
+                        <a class="nav-link" href="./configuracion.php">Configuración</a>
                     </li>
                     
                 </ul>
