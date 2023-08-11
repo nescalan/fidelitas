@@ -39,7 +39,7 @@ function notifyMail($correo, $nombre, $body)
 
     } else {
         # Success message
-        $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
+        // $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
         echo 'Message has been sent';
 
     }
