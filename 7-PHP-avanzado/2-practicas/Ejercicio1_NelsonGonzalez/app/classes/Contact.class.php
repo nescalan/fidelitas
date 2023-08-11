@@ -12,12 +12,12 @@ class Contact
     public function __construct(
         string $pName = '',
         string $pEmail = '',
-        string $psubject = '',
+        string $pSubject = '',
         string $pMessage = ''
     ) {
         $this->name = $pName;
         $this->email = $pEmail;
-        $this->subject = $psubject;
+        $this->subject = $pSubject;
         $this->message = $pMessage;
     }
 

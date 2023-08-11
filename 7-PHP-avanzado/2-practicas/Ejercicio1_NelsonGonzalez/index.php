@@ -2,22 +2,33 @@
 
 require_once './app/classes/Contact.class.php';
 
-# Form information
+# Variables, constants and arrays
+$errorMessage = $successMessage = '';
+
+# Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     # Instance a new contact
     $contact = new Contact();
 
-    # Collect data
-    $contact->setName($_POST['name']);
-    $contact->setEmail(($_POST['email']));
-    $contact->setSubject($_POST['subject']);
-    $contact->setMessage(($_POST['message']));
+    # Collect and set data from the form
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $subject = isset($_POST['subject']) ? $_POST['subject'] : '';
+    $message = isset($_POST['message']) ? $_POST['message'] : '';
+
+    # Store data into the 'contact' object
+    $contact->setName($name);
+    $contact->setEmail($email);
+    $contact->setSubject($subject);
+    $contact->setMessage($message);
 }
 
-echo "Nombre: {$contact->getName()} <br/> ";
-echo "Correo: {$contact->getEmail()} <br/> ";
-echo "Tema: {$contact->getSubject()} <br/> ";
-echo "Mensaje: {$contact->getMessage()} <br/> ";
+if
+
+
+
+
+
 
 require_once './app/views/index.view.php';
 
