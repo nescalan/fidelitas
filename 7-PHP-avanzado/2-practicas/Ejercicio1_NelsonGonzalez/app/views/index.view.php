@@ -14,17 +14,10 @@
 
 <body class="p-4">
     <!--Section: Contact v.2-->
-    <section class="container mb-4 border shadow p-3 mb-5 bg-white rounded">
+    <section class="container w-50 border shadow p-3 mb-5 bg-white rounded">
 
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contactenos</h2>
-        <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">
-            ¿Tiene usted alguna pregunta? Por favor no dude en contactar con nosotros
-            directamente. <br />Nuestro equipo le responderá dentro de
-            unas horas para ayudarte.
-        </p>
-
         <div class="row">
 
             <!--Grid column-->
@@ -40,7 +33,8 @@
                             <div class="md-form mb-0">
                                 <label for="name" class="mb-2">Nombre</label>
                                 <input id="name" class="form-control" type="text" name="name"
-                                    placeholder="Ingrese su nombre completo" required>
+                                    placeholder="Ingrese su nombre completo"
+                                    value="<?php echo htmlspecialchars($contact->getName()); ?>" autofocus>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -50,7 +44,8 @@
                             <div class="md-form">
                                 <label for="email" class="mb-2">Correo</label>
                                 <input id="email" class="form-control" type="email" name="email"
-                                    placeholder="usuario@correo.com" required>
+                                    placeholder="usuario@correo.com"
+                                    value="<?php echo htmlspecialchars($contact->getEmail()); ?>">
                             </div>
                         </div>
                         <!--Grid column-->
@@ -64,7 +59,7 @@
                             <div class="md-form mb-0">
                                 <label for="subject" class="mb-2">Asunto</label>
                                 <input id="subject" class="form-control" type="text" name="subject" placeholder="Asunto"
-                                    required>
+                                    value="<?php echo htmlspecialchars($contact->getSubject()); ?>">
                             </div>
                         </div>
                     </div>
@@ -80,14 +75,27 @@
                                 <label for="message" class="mb-2">Mensaje</label>
                                 <textarea type="text" id="message" name="message" rows="2"
                                     class="form-control md-textarea" maxlength="400"
-                                    placeholder="Describa su observacion o consulta"></textarea>
+                                    placeholder="Describa su observacion o consulta"><?php echo htmlspecialchars(trim(nl2br($contact->getMessage()))) ?></textarea>
                             </div>
-
                         </div>
                     </div>
                     <!--Grid row-->
 
                     <button class="btn btn-primary mt-4">Enviar</button>
+
+                    <!-- Error Messages -->
+                    <?php if (!empty($errorMessage)): ?>
+                        <div class="pt-5 text-center">
+                            <?php echo $errorMessage; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Error Success -->
+                    <?php if (!empty($successMessage)): ?>
+                        <div class="pt-5 text-center">
+                            <?php echo $successMessage; ?>
+                        </div>
+                    <?php endif; ?>
 
                 </form>
 
