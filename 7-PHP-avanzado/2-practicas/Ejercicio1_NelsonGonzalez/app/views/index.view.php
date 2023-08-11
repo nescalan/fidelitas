@@ -14,7 +14,7 @@
 
 <body class="p-4">
     <!--Section: Contact v.2-->
-    <section class="container mb-4 shadow p-3 mb-5 bg-white rounded">
+    <section class="container mb-4 border shadow p-3 mb-5 bg-white rounded">
 
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contactenos</h2>
@@ -22,7 +22,7 @@
         <p class="text-center w-responsive mx-auto mb-5">
             ¿Tiene usted alguna pregunta? Por favor no dude en contactar con nosotros
             directamente. <br />Nuestro equipo le responderá dentro de
-            Cuestión de horas para ayudarte.
+            unas horas para ayudarte.
         </p>
 
         <div class="row">

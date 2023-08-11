@@ -1,6 +1,6 @@
-<?php // functions.php
+<?php // notifyMail.php
 
-function notificar($correo, $nombre, $body)
+function notifyMail($correo, $nombre, $body)
 {
     # Imports
     require './vendor/PHPMailer/src/PHPMailer.php';
