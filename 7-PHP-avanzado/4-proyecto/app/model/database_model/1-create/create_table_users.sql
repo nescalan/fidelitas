@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `blog`.`users` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_name` VARCHAR(145) NOT NULL,
+  `password` VARCHAR(145) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB

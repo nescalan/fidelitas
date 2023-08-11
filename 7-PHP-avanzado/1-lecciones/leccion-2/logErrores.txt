@@ -1,0 +1,9 @@
+---------------------
+Error: Exception: Sucedió un error provocado por el usuario. in C:\xampp\htdocs\TrabajoClasePeriodo5\TrabajoClase\metodosBD.php:8
+Stack trace:
+#0 C:\xampp\htdocs\TrabajoClasePeriodo5\TrabajoClase\editarRegistro.php(83): actualizaUsuario(Object(Usuario))
+#1 {main}
+Usuario: 303330333
+Fecha: 2023-06-19 07:48:08 PM
+Vista: /TrabajoClasePeriodo5/TrabajoClase/editarRegistro.php
+---------------------
