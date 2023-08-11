@@ -22,10 +22,10 @@ function notifyMail($correo, $nombre, $body)
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'correoElectronico';
-    $mail->Password = 'contrasenna';
-    $mail->SetFrom('correoElectronico', 'NombreEnCorreo');
-    $mail->Subject = 'Asunto del Correo';
+    $mail->Username = 'nelson-php@outlook.com';
+    $mail->Password = 'nxbwcp7h';
+    $mail->SetFrom('nelson-php@outlook.com', 'Sistema PHP Avanzado');
+    $mail->Subject = 'Registro en el Sistema';
     $mail->MsgHTML($body);
 
     $mail->AddAddress($correo, $nombre);
