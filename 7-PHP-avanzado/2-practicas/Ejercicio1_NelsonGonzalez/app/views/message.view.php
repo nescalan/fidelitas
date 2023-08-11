@@ -14,6 +14,27 @@
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
 
+        .u-image {
+            display: table;
+            white-space: nowrap;
+        }
+
+        .u-image-1 {
+            width: 80px;
+            height: 40px;
+            margin: 0 auto 0 0;
+
+        }
+
+        .u-image img {
+            display: block;
+        }
+
+        .u-image-contain {
+            object-fit: contain;
+            background-size: contain;
+        }
+
         .u-section-1 .u-sheet-1 {
             min-height: 1051px;
         }
@@ -57,11 +78,6 @@
             width: 754px;
             height: 566px;
             margin: 0 auto 60px;
-        }
-
-        .u-image {
-            display: flex;
-
         }
 
         @media (max-width: 991px) {
@@ -168,6 +184,10 @@
                 height: 255px;
             }
         }
+
+        .u-align-center {
+            text-align: center;
+        }
     </style>
     <title>Mensaje del sistema</title>
 
@@ -176,9 +196,11 @@
 <body class="u-body u-xl-mode" data-lang="en">
     <section class="u-clearfix u-section-1" id="carousel_1dd4">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h2 class="u-align-left u-text u-text-1"> ¡Bienvenido a [Nombre de la Plataforma]!</h2>
-            <p class="u-align-left u-text u-text-2"> Estimado [Nombre del Usuario],</p>
-            <p class="u-align-left u-text u-text-3">En nombre de todo el equipo de [Nombre de la Plataforma], queremos
+            <h2 class="u-align-left u-text u-text-1"> ¡Bienvenido a la Escuela Virtual de Cómputo!</h2>
+            <p class="u-align-left u-text u-text-2"> Estimado
+                <?php echo $contact->getName(); ?>,
+            </p>
+            <p class="u-align-left u-text u-text-3">En nombre de todo el equipo de EVC, queremos
                 darte una cálida bienvenida a nuestra comunidad de aprendizaje en línea. Es un placer tenerte como nuevo
                 miembro y estamos emocionados de acompañarte en tu viaje educativo.&nbsp;<br>
             </p>
@@ -189,15 +211,8 @@
                     de soporte</a>.
             </p>
             <p class="u-align-left u-text u-text-5"> ¡Bienvenido(a) a bordo y feliz aprendizaje!</p>
-            <p class="u-align-left u-text u-text-6"> Atentamente,<br>El Equipo de [Nombre de la Plataforma]
-            </p>
-            <img src="https://i.postimg.cc/2SBFLqR6/69481218-0.png" alt="programmer"
-                class="u-image u-image-contain u-image-default u-image-1" data-image-width="5616"
-                data-image-height="3482">
         </div>
     </section>
-
-
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-489f">
         <div class="u-clearfix u-sheet u-sheet-1">

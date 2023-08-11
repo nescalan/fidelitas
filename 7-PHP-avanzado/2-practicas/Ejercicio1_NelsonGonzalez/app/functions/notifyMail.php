@@ -22,9 +22,9 @@ function notifyMail($correo, $nombre, $body)
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'nelson-php@outlook.com';
+    $mail->Username = 'nelson-devops@outlook.com';
     $mail->Password = 'nxbwcp7h';
-    $mail->SetFrom('nelson-php@outlook.com', 'Sistema PHP Avanzado');
+    $mail->SetFrom('nelson-devops@outlook.com', 'Sistema PHP Avanzado');
     $mail->Subject = 'Registro en el Sistema';
     $mail->MsgHTML($body);
 
@@ -38,7 +38,8 @@ function notifyMail($correo, $nombre, $body)
         echo 'Mailer Error: ' . $mail->ErrorInfo;
 
     } else {
-
+        # Success message
+        $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
         echo 'Message has been sent';
 
     }
