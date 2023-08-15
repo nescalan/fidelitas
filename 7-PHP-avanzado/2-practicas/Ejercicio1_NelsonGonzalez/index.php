@@ -50,8 +50,15 @@ if (empty($contact->getName()) || empty($contact->getEmail()) || empty($contact-
     $body = $htmlContent;
     notifyMail($contact->getEmail(), $contact->getName(), $body);
 
-    # Success message
-    $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
+    // print_r($notification);
+
+    // if (!$notification) {
+    //     # Success message
+    //     $errorMessage .= '<div class="alert alert-success" role="alert">Lo sentimos, no se puede enviar el correo.</div>';
+    // } else {
+    //     # Success message
+    //     $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
+    // }
 
     $contact->setName('');
     $contact->setEmail('');
