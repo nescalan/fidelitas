@@ -12,12 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact->setEmail(($_POST['email']));
     $contact->setSubject($_POST['subject']);
     $contact->setMessage(($_POST['message']));
-}
 
-echo "Nombre: {$contact->getName()} <br/> ";
-echo "Correo: {$contact->getEmail()} <br/> ";
-echo "Tema: {$contact->getSubject()} <br/> ";
-echo "Mensaje: {$contact->getMessage()} <br/> ";
+    # Print info
+    echo "Nombre: {$contact->getName()} <br/> ";
+    echo "Correo: {$contact->getEmail()} <br/> ";
+    echo "Tema: {$contact->getSubject()} <br/> ";
+    echo "Mensaje: {$contact->getMessage()} <br/> ";
+}
 
 require_once './app/views/index.view.php';
 
