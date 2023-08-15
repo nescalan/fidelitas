@@ -3,8 +3,8 @@
 function notifyMail($correo, $nombre, $body)
 {
     # Imports
-    require './vendor/PHPMailer/src/PHPMailer.php';
-    require './vendor/PHPMailer/src/SMTP.php';
+    require_once './vendor/PHPMailer/src/PHPMailer.php';
+    require_once './vendor/PHPMailer/src/SMTP.php';
 
     $mail = new PHPMailer();
     $mail->CharSet = 'UTF-8';
@@ -22,11 +22,14 @@ function notifyMail($correo, $nombre, $body)
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'nelson-devops@outlook.com';
+    $mail->Username = 'nelson-php-dev@outlook.com';
     $mail->Password = 'nxbwcp7h';
-    $mail->SetFrom('nelson-devops@outlook.com', 'Sistema PHP Avanzado');
+    $mail->SetFrom('nelson-php-dev@outlook.com', 'Sistema PHP Avanzado');
     $mail->Subject = 'Registro en el Sistema';
     $mail->MsgHTML($body);
+
+    # Mail Debug
+    // $mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
 
     $mail->AddAddress($correo, $nombre);
 
@@ -39,8 +42,7 @@ function notifyMail($correo, $nombre, $body)
 
     } else {
         # Success message
-        // $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
 
     }
 

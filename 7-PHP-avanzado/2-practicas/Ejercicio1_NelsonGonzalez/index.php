@@ -37,7 +37,7 @@ if (empty($contact->getName()) || empty($contact->getEmail()) || empty($contact-
 
     # Insert into dB
     $queryContactForm =
-        "INSERT INTO `phpmailer`.`contacts` (`name`, `mail`, `subject`, `message`) VALUES 
+        "INSERT INTO `PHPMailer`.`contacts` (`name`, `mail`, `subject`, `message`) VALUES 
         ('" . $contact->getName() . "', '" . $contact->getEmail() . "', '" . $contact->getSubject() . "', '" . $contact->getMessage() . "');";
 
     # Send query
@@ -45,21 +45,21 @@ if (empty($contact->getName()) || empty($contact->getEmail()) || empty($contact-
 
     # PHPMailer notification
     ob_start();
-    include('./app/views/message.view.php');
+    include('./app/views/message2.view.php');
     $htmlContent = ob_get_clean();
     $body = $htmlContent;
     notifyMail($contact->getEmail(), $contact->getName(), $body);
 
-    # Success message
-    $successMessage .= '<div class="alert alert-success" role="alert">El correo se envió con éxito.</div>';
-
+    # Clean form variables
     $contact->setName('');
     $contact->setEmail('');
     $contact->setSubject('');
     $contact->setMessage('');
     $errorMessage = '';
-}
 
+    # set success message
+    $successMessage .= '<div class="alert alert-success" role="alert">Mensaje enviado.</div>';
+}
 require_once './app/views/index.view.php';
 
 ?>
