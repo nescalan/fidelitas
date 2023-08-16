@@ -5,7 +5,7 @@
   <!-- META -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="Inicia Sesión">
+  <meta name="keywords" content="Contact">
   <meta name="description" content="">
   <meta name="referrer" content="origin">
   <meta name="theme-color" content="#707e89">
@@ -24,7 +24,7 @@
   <link id="u-page-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
 
-  <title>Blog | Inicio Sesión</title>
+  <title>Blog | Contact Form</title>
 
   <!-- SCRIPTS -->
   <script class="u-script" type="text/javascript" src="./vendor/jquery.js" defer=""></script>
@@ -42,7 +42,7 @@
     id="sec-22f1">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
       <a href="#" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
-        <img src="../images/default-logo.png" class="u-logo-image u-logo-image-1">
+        <img src="./public/img/default-logo.png" class="u-logo-image u-logo-image-1">
       </a>
       <form action="#" method="get" class="u-border-1 u-border-grey-15 u-search u-search-right u-search-1">
         <button class="u-search-button" type="submit">
