@@ -87,7 +87,7 @@
     <?php require 'pagination.php'; ?>
   </section>
 
-  <?php require 'footer.php' ?>
+  <?php require './app/views/footer.view.php' ?>
 
 </body>
 
