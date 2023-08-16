@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-    <?php require 'pagination.php'; ?>
+    <?php require './app/views/pagination.view.php'; ?>
   </section>
 
   <?php require './app/views/footer.view.php' ?>
