@@ -3,14 +3,15 @@
 const ROUTE = 'http://localhost/GitHub/fidelitas/7-PHP-avanzado/4-proyecto';
 
 $bd_config = [
-    'basedatos' => 'PHPMailer',
-    'usuario' => 'root',
-    'pass' => '4u3p7px6'
+    'host' => 'localhost',
+    'user' => 'root',
+    'pwd' => '4u3p7px6',
+    'database' => 'blog'
 ];
 
 $blog_config = [
-    'post_por_pagina' => '2',
-    'carpeta_imagenes' => './public/img/'
+    'publication_per_page' => '2',
+    'folder_images' => './public/img/'
 ];
 
 $blog_admin = [
