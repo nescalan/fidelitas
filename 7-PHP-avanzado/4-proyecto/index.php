@@ -33,7 +33,7 @@ try {
     require_once './app/views/index.view.php';
 
     // Close the database connection when done
-    $connection->closeConnection($dbConnection);
+    $conn->closeConnection($dbConnection);
 } catch (Exception $e) {
     // Handle any exceptions here
     echo 'Error: ' . $e->getMessage();
