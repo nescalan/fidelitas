@@ -19,7 +19,7 @@ try {
     // Open the database connection
     $dbConnection = $conn->openConnection();
 
-    // Calculates the page
+    // Calculates the publications per page
     $posts = getPublications($blog_config['publication_per_page'], $dbConnection);
     // $publications = mysqli_fetch_assoc($posts);
     // var_dump($posts);
@@ -34,7 +34,9 @@ try {
 
     // Close the database connection when done
     $conn->closeConnection($dbConnection);
+
 } catch (Exception $e) {
+
     // Handle any exceptions here
     echo 'Error: ' . $e->getMessage();
     // header('Location: error.php');

@@ -16,7 +16,7 @@ function actualPage()
     return isset($_GET['p']) ? $_GET['p'] : 1;
 }
 
-# Obtain publications from dB
+# Obtains publications from dB
 function getPublications($publication_per_page, $dbConnection)
 {
     $start = (actualPage() > 1) ? actualPage() * $publication_per_page - $publication_per_page : 0;
@@ -31,6 +31,20 @@ function getPublications($publication_per_page, $dbConnection)
     $resultPublications = mysqli_query($dbConnection, $queryPublications);
 
     return $resultPublications;
+}
+
+function getPost(int $pPageID, $pDBConnection)
+{
+    // Read from dB
+    $queryPost =
+        "SELECT * 
+        FROM blog.publications
+        WHERE id = $pPageID;";
+
+    // Send query
+    $resultPost = mysqli_query($pDBConnection, $queryPost);
+
+    return $resultPost;
 }
 
 ?>
