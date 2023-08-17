@@ -48,7 +48,6 @@
     <?php
     while ($row = mysqli_fetch_assoc($posts)) {
       // Get the email address from the database.
-      $email_address = $row["correo"];
       echo '
             <div class="u-clearfix u-sheet u-sheet-1">
             <img class="u-expanded-width u-image u-image-default u-image-1" src="./public/img/' . $row["thumb"] . '" alt=""

@@ -29,12 +29,6 @@ try {
         header('Location: error.php');
     }
 
-    // foreach ($post as $post) {
-    //     foreach ($post as $value) {
-    //         echo $value . "\n";
-    //     }
-    // }
-
     // Call index view
     require_once './app/views/index.view.php';
 
