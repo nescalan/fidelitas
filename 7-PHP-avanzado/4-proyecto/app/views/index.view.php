@@ -72,7 +72,7 @@
     }
     ?>
 
-    <?php require 'paginacion.php'; ?>
+
     <?php require './app/views/pagination.view.php'; ?>
   </section>
 
