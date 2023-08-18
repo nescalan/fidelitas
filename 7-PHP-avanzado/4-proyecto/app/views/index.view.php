@@ -24,7 +24,7 @@
                   <a href="single.php?id=' . $row['id'] . ' "> ' . $row["title"] . ' </a>
                 </h2>
                 <p class="u-text u-text-3"> ' . $row["summary"] . ' </p>
-                <a href="#"
+                <a href="single.php?id=' . $row['id'] . ' "
                   class="u-active-palette-1-base u-border-3 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-palette-1-base u-btn u-button-style u-hover-palette-1-base u-none u-text-active-white u-text-hover-white u-text-palette-1-base u-btn-1">continuar
                   leyendo</a>
               </div>
