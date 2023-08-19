@@ -1,37 +1,38 @@
 <?php
 
+session_start();
+
 include 'BD/accesoBD.php';
 
 if (isset($_POST['btnIniciarSesion'])) {
-
-    $conexionAbierta = IniciarConexion();
 
     // Captura los valores del formulario
     $identificacion = $_POST['txtCedula'];
     $contrasenna = $_POST['txtClave'];
 
-    $query = "SELECT * FROM Clientes_EJ2";
-    $result = $conexionAbierta->query($query);
-    $result = mysqli_fetch_assoc($result);
-
-    print_r($result);
 
 
-    // $consulta =
-    //     "SELECT * 
-    // FROM Clientes_EJ2 
-    // WHERE identificacion = '" . $identificacion . "' AND Contrasenna = md5('" . $contrasenna . "')";
+    $conexionAbierta = IniciarConexion();
 
-    // $resultado = $conexionAbierta->query($consulta);
+    $consulta = "SELECT * FROM Clientes_EJ2 WHERE identificacion = $identificacion AND Contrasenna = md5('$contrasenna')";
 
-    print_r($resultado);
+    $resultado = $conexionAbierta->query($consulta);
+
+
+
+    echo "<br/> ID: $identificacion | pwd: $contrasenna ";
 
     if (mysqli_num_rows($resultado) === 0) {
         echo '<script> alert("Verifique sus credenciales de acceso."); </script>';
     } else {
 
         $personaEncontrada = mysqli_fetch_array($resultado);
+        $_SESSION["Nombre"] = $personaEncontrada["fullname"];
+        $_SESSION["Cedula"] = $personaEncontrada["identificacion"];
+        $_SESSION["Rol"] = $personaEncontrada["rol"];
+
         echo '<script> location.replace("Home.php"); </script>';
+
     }
 
     CerrarConexion($conexionAbierta);
