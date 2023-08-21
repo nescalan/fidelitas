@@ -13,5 +13,9 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>
 
+    <!-- STYLES -->
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+
+
     <title>Tarea Uno | PHP Avanzado</title>
 </head>

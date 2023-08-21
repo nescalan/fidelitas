@@ -28,9 +28,9 @@ if (isset($_POST['btnIniciarSesion'])) {
     } else {
 
         $personaEncontrada = mysqli_fetch_array($resultado);
-        $_SESSION["Nombre"] = $personaEncontrada["fullname"];
+        $_SESSION["Nombre"] = $personaEncontrada["Nombre"];
         $_SESSION["identificacion"] = $personaEncontrada["identificacion"];
-        $_SESSION["Rol"] = $personaEncontrada["rol"];
+        $_SESSION["Rol"] = $personaEncontrada["Rol"];
 
         echo '<script> location.replace("home.php"); </script>';
 

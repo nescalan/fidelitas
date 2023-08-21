@@ -9,5 +9,4 @@ if (!isset($_SESSION['identificacion'])) {
     require_once 'app/views/home.view.php';
 }
 
-
 ?>

@@ -1,19 +1,25 @@
-<?php
+<?php //clientes.php
 
-# Import files
-require_once 'app/model/db_connection/AccesoBD.php';
-require_once 'app/admin/config.php';
+session_start();
 
-// Database connection
-$conn = new AccesoBD($bd_config['host'], $bd_config['user'], $bd_config['pwd'], $bd_config['db']);
-$conexionAbierta = $conn->iniciarConexion();
+if (!isset($_SESSION['identificacion'])) {
+    header('Location: index.php');
+} else {
+    # Import files
+    require_once 'app/model/db_connection/AccesoBD.php';
+    require_once 'app/admin/config.php';
 
-// SQL query
-$consulta = "SELECT * FROM Clientes_EJ2";
-$resultado = $conexionAbierta->query($consulta);
+    // Database connection
+    $conn = new AccesoBD($bd_config['host'], $bd_config['user'], $bd_config['pwd'], $bd_config['db']);
+    $conexionAbierta = $conn->iniciarConexion();
 
-$conn->cerrarConexion($conexionAbierta);
+    // SQL query
+    $consulta = "SELECT * FROM Clientes_EJ2";
+    $resultado = $conexionAbierta->query($consulta);
 
-require_once 'app/views/clientes.view.php';
+    $conn->cerrarConexion($conexionAbierta);
+
+    require_once 'app/views/clientes.view.php';
+}
 
 ?>
