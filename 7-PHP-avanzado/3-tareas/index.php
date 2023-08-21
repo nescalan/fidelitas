@@ -4,6 +4,7 @@ session_start();
 
 require_once 'app/model/db_connection/accesoBD.php';
 require_once 'app/admin/config.php';
+// require_once 'app/funcs/functions.php';
 
 if (isset($_POST['btnIniciarSesion'])) {
 
@@ -28,10 +29,10 @@ if (isset($_POST['btnIniciarSesion'])) {
 
         $personaEncontrada = mysqli_fetch_array($resultado);
         $_SESSION["Nombre"] = $personaEncontrada["fullname"];
-        $_SESSION["Cedula"] = $personaEncontrada["identificacion"];
+        $_SESSION["identificacion"] = $personaEncontrada["identificacion"];
         $_SESSION["Rol"] = $personaEncontrada["rol"];
 
-        echo '<script> location.replace("Home.php"); </script>';
+        echo '<script> location.replace("home.php"); </script>';
 
     }
 
