@@ -5,7 +5,7 @@ $bd_config = [
     'host' => 'localhost',
     'user' => 'root',
     'pwd' => '4u3p7px6',
-    'database' => 'ejercicio2'
+    'db' => 'ejercicio2'
 ];
 
 ?>

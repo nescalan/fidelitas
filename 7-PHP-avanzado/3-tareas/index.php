@@ -2,7 +2,8 @@
 
 session_start();
 
-include 'app/model/db_connection/accesoBD.php';
+require_once 'app/model/db_connection/accesoBD.php';
+require_once 'app/admin/config.php';
 
 if (isset($_POST['btnIniciarSesion'])) {
 
@@ -10,9 +11,10 @@ if (isset($_POST['btnIniciarSesion'])) {
     $identificacion = $_POST['txtCedula'];
     $contrasenna = $_POST['txtClave'];
 
+    // Database connection
+    $conn = new AccesoBD($bd_config['host'], $bd_config['user'], $bd_config['pwd'], $bd_config['db'], );
 
-
-    $conexionAbierta = iniciarConexion();
+    $conexionAbierta = $conn->iniciarConexion();
 
     $consulta = "SELECT * FROM Clientes_EJ2 WHERE identificacion = $identificacion AND Contrasenna = md5('$contrasenna')";
 
@@ -35,7 +37,7 @@ if (isset($_POST['btnIniciarSesion'])) {
 
     }
 
-    cerrarConexion($conexionAbierta);
+    $conn->cerrarConexion($conexionAbierta);
 }
 
 require_once './app/views/index.view.php';
