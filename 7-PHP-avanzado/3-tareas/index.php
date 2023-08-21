@@ -12,15 +12,13 @@ if (isset($_POST['btnIniciarSesion'])) {
     $contrasenna = $_POST['txtClave'];
 
     // Database connection
-    $conn = new AccesoBD($bd_config['host'], $bd_config['user'], $bd_config['pwd'], $bd_config['db'], );
-
+    $conn = new AccesoBD($bd_config['host'], $bd_config['user'], $bd_config['pwd'], $bd_config['db']);
     $conexionAbierta = $conn->iniciarConexion();
 
+    //  SQL query
     $consulta = "SELECT * FROM Clientes_EJ2 WHERE identificacion = $identificacion AND Contrasenna = md5('$contrasenna')";
-
     $resultado = $conexionAbierta->query($consulta);
-
-
+    print_r($resultado);
 
     echo "<br/> ID: $identificacion | pwd: $contrasenna ";
 
