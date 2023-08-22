@@ -27,9 +27,8 @@ if ($sessionVar['rol'] != 1) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
 
-        <?php if ($sessionVar['rol'] != 1): ?>
-          echo "No es administrador";
-        <?php else: ?>
+        <!-- Conditional: check if the user is adminnistrator -->
+        <?php if ($sessionVar['rol'] == 1): ?>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="clientes.php">Clientes</a>
           </li>

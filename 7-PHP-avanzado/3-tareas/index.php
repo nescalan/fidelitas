@@ -4,7 +4,7 @@ session_start();
 
 require_once 'app/model/db_connection/AccesoBD.php';
 require_once 'app/admin/config.php';
-// require_once 'app/funcs/functions.php';
+
 
 if (isset($_POST['btnIniciarSesion'])) {
 

@@ -1,4 +1,4 @@
-<?php require_once 'app\views\components\head.component.php'; ?>
+<?php include_once 'app/views/components/head.component.php'; ?>
 
 <body>
     <section class="container shadow border mt-5">

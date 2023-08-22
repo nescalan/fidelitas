@@ -6,7 +6,7 @@ if (!isset($_SESSION['identificacion'])) {
 } else {
     # code...
     $nombre = ucfirst($_SESSION['Nombre']);
-    require_once 'app/views/home.view.php';
+    include_once 'app/views/home.view.php';
 }
 
 ?>
