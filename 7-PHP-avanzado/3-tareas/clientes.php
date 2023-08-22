@@ -4,6 +4,8 @@ session_start();
 
 if (!isset($_SESSION['identificacion'])) {
     header('Location: index.php');
+} elseif ($_SESSION['Rol'] != 1) {
+    header('Location: index.php');
 } else {
     # Import files
     require_once 'app/model/db_connection/AccesoBD.php';
