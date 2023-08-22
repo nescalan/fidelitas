@@ -11,7 +11,7 @@ require_once './app/funcs/functions.php';
 $pageID = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $pageID = sanitizeData($_GET["id"]);
+    $pageID = (int) sanitizeData($_GET["id"]);
 
     // New database connection, sets data from 'config' file
     $conn = new Connection(
