@@ -19,7 +19,6 @@ if (isset($_POST['btnIniciarSesion'])) {
     //  SQL query
     $consulta = "SELECT * FROM Clientes_EJ2 WHERE identificacion = $identificacion AND Contrasenna = md5('$contrasenna')";
     $resultado = $conexionAbierta->query($consulta);
-    print_r($resultado);
 
     if (mysqli_num_rows($resultado) === 0) {
         echo '<script> alert("Verifique sus credenciales de acceso."); </script>';
