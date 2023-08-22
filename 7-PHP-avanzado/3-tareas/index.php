@@ -1,4 +1,4 @@
-<?php
+<?php //index.php
 
 session_start();
 
@@ -20,8 +20,6 @@ if (isset($_POST['btnIniciarSesion'])) {
     $consulta = "SELECT * FROM Clientes_EJ2 WHERE identificacion = $identificacion AND Contrasenna = md5('$contrasenna')";
     $resultado = $conexionAbierta->query($consulta);
     print_r($resultado);
-
-    echo "<br/> ID: $identificacion | pwd: $contrasenna ";
 
     if (mysqli_num_rows($resultado) === 0) {
         echo '<script> alert("Verifique sus credenciales de acceso."); </script>';

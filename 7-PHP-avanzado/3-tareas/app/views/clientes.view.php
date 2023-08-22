@@ -2,7 +2,7 @@
 
 
 <body>
-    <?php include_once 'app\views\components\Menu.php'; ?>
+    <?php include_once 'app/views/components/Menu.php'; ?>
 
     <div class="row p-5">
 
