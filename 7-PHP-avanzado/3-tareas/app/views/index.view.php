@@ -1,7 +1,7 @@
 <?php require_once 'app\views\components\head.component.php'; ?>
 
 <body>
-    <section class="container shadow mt-5">
+    <section class="container shadow border mt-5">
         <form action="" method="post" class=" ">
             <section class=" form-register p-5 " data-aos="flip-left" data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
