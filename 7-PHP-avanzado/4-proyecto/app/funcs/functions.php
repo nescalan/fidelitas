@@ -47,4 +47,7 @@ function getPost(int $pPageID, $pDBConnection)
     return $resultPost;
 }
 
+
+
+
 ?>
