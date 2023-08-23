@@ -1,6 +1,6 @@
 <?php require_once './app/views/head.view.php' ?>
 
-<body class="u-body u-xl-mode" data-lang="en">
+<body class="u-body u-xl-mode" data-lang="es">
   <?php require 'app/views/header.view.php'; ?>
 
   <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
@@ -17,7 +17,7 @@
               class="u-align-left u-border-16 u-border-no-bottom u-border-no-right u-border-no-top u-border-palette-1-base u-container-style u-expanded-width u-group u-white u-group-1"
               data-animation-name="customAnimationIn" data-animation-duration="1500">
               <div class="u-container-layout u-valign-middle u-container-layout-1">
-                <h5 class="u-text u-text-1"> ' . $row["date"] . ' </h5>
+                <h5 class="u-text u-text-1"> ' . calculateDate($row["date"]) . ' </h5>
                 <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
                   <a href="single.php?id=' . $row['id'] . ' "> ' . $row["title"] . ' </a>
                   <a href=""></a>
@@ -30,8 +30,6 @@
         ';
     }
     ?>
-
-
   </section>
 
   <?php require './app/views/footer.view.php' ?>
