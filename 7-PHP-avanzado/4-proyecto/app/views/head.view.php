@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./public/css/nicepage.css" media="screen">
     <link rel="stylesheet" href="./public/css/blog_main.css" media="screen">
     <link rel="stylesheet" href="./public/css/pagination.css" media="screen">
-    <link rel="stylesheet" href="./public/css/error-404.css">
+
 
     <!-- FONTS -->
     <link id="u-theme-google-font" rel="stylesheet"

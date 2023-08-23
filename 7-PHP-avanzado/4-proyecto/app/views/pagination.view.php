@@ -1,3 +1,9 @@
+<?php
+
+$pagesNumber = pagesNumber($blog_config['publication_per_page'], $dbConnection);
+echo " Numero de paginas: $pagesNumber";
+
+?>
 <section class="paginacion">
     <ul>
         <li class="disabled">&laquo;</li>

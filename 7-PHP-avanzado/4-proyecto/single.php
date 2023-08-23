@@ -47,7 +47,7 @@ try {
 
     if (mysqli_num_rows($resultPost) == 0) {
         // Error page
-        header('Location: index.php');
+        header('Location: error.php');
     }
 
     // $resultPost = $resultPost[0];
