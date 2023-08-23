@@ -1,15 +1,15 @@
 <?php require './app/views/head.view.php'; ?>
 
 <body class="u-body u-xl-mode" data-lang="es">
-  <?php require 'app/views/header.view.php'; ?>
+    <?php require 'app/views/header.view.php'; ?>
 
-  <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
+    <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
 
-    <!-- Paint post into the DOM -->
-    <?php
-    while ($row = mysqli_fetch_assoc($posts)) {
-      // Get the publication from the database.
-      echo '
+        <!-- Paint post into the DOM -->
+        <?php
+        while ($row = mysqli_fetch_assoc($resultPublications)) {
+            // Get the publication from the database.
+            echo '
             <div class="u-clearfix u-sheet u-sheet-1">
               <a href="single.php?id=' . $row['id'] . ' ">
                 <img class="u-expanded-width u-image u-image-default u-image-1" src="./public/img/' . $row["thumb"] . '" alt="publication-image"
@@ -31,16 +31,16 @@
             </div>
           </div>
         ';
-    }
-    ?>
+        }
+        ?>
 
-    <!-- Import pagination component  -->
-    <?php require './app/views/pagination.view.php'; ?>
+        <!-- Import pagination component  -->
+        <?php require './app/views/pagination.view.php'; ?>
 
-  </section>
+    </section>
 
-  <!-- Imports footer component -->
-  <?php require './app/views/footer.view.php' ?>
+    <!-- Imports footer component -->
+    <?php require './app/views/footer.view.php' ?>
 
 </body>
 
