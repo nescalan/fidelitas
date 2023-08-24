@@ -16,11 +16,7 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./public/css/nicepage.css" media="screen">
-    <link rel="stylesheet" href="./public/css/blog_main.css" media="screen">
-    <link rel="stylesheet" href="./public/css/pagination.css" media="screen">
     <link rel="stylesheet" href="./public/css/error-404.css" media="screen">
-
-
 
     <!-- FONTS -->
     <link id="u-theme-google-font" rel="stylesheet"
@@ -43,7 +39,7 @@
 </head>
 
 <body class="u-body u-xl-mode" data-lang="es">
-    <?php require 'app/views/header.view.php'; ?>
+    <?php require_once 'app\views\components\header.php'; ?>
 
     <section class="u-clearfix u-section-1" id="sec-3756">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -91,7 +87,8 @@
     </section>
 
 
-    <?php require './app/views/footer.view.php' ?>
+    <?php require_once 'app\views\components\footer.php' ?>
+
 
 </body>
 
