@@ -1,7 +1,7 @@
-<?php require_once './app/views/head.view.php' ?>
+<?php require_once 'app\views\components\head.php' ?>
 
 <body class="u-body u-xl-mode" data-lang="es">
-  <?php require 'app/views/header.view.php'; ?>
+  <?php require 'app\views\components\header.php'; ?>
 
   <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
     <?php
@@ -22,7 +22,7 @@
                   <a href="single.php?id=' . $row['id'] . ' "> ' . $row["title"] . ' </a>
                   <a href=""></a>
                 </h3>
-                <p class="u-text u-text-3"> ' . $row["post_content"] . ' </p>
+                <p class="u-text u-text-3"> ' . nl2br($row["post_content"]) . ' </p>
               
               </div>
             </div>
@@ -32,7 +32,7 @@
     ?>
   </section>
 
-  <?php require './app/views/footer.view.php' ?>
+  <?php require_once 'app\views\components\footer.php' ?>
 
 </body>
 
