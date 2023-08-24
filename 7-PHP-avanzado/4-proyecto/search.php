@@ -37,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['search'])) {
         $queryPublications =
             "SELECT *
             FROM publications 
-            WHERE title LIKE '%$search%' or summary LIKE '%$search%'";
+            WHERE title LIKE '%$search%' or post_content LIKE '%$search%'";
 
         // Send query
         $resultPublications = mysqli_query($dbConnection, $queryPublications);
-        print_r($resultPublications);
+        // print_r($resultPublications);
 
         // $resultado = mysqli_fetch_array($resultPublications);
         // echo "El resultado es: $resultado";
