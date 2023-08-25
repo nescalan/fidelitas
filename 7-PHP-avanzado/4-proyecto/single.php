@@ -22,9 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 try {
-    // Open the database connection
-    $dbConnection = $conn->openConnection();
-
     # Open the database connection
     $dbConnection = $conn->openConnection();
 
