@@ -1,0 +1,14 @@
+.imgFondo{
+    background-image: url('../Img/fondoBG.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.imgFondo h1{
+    color: #fff;
+    font-weight: 400;
+}
+
+.justCenter{
+    justify-content: center;
+}

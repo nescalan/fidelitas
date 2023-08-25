@@ -1,7 +1,7 @@
-<?php require_once 'app\views\components\head.php' ?>
+<?php require_once 'app/views/components/head.php' ?>
 
 <body class="u-body u-xl-mode" data-lang="es">
-  <?php require 'app\views\components\header.php'; ?>
+  <?php require 'app/views/components/header.php'; ?>
 
   <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
 
@@ -35,12 +35,12 @@
     ?>
 
     <!-- Import pagination component  -->
-    <?php require 'app\views\components\pagination.php'; ?>
+    <?php require 'app/views/components/pagination.php'; ?>
 
   </section>
 
   <!-- Imports footer component -->
-  <?php require 'app\views\components\footer.php' ?>
+  <?php require 'app/views/components/footer.php' ?>
 
 </body>
 

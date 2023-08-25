@@ -40,7 +40,7 @@
 
 <body class="u-body u-xl-mode" data-lang="es">
 
-  <?php include_once 'app\views\components\header.php'; ?>
+  <?php include_once 'app/views/components/header.php'; ?>
 
   <section class="u-clearfix u-image u-section-1" id="carousel_3db2" data-image-width="1645" data-image-height="1080">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -135,7 +135,7 @@
     </div>
   </section>
 
-  <?php require_once 'app\views\components\footer.php' ?>
+  <?php require_once 'app/views/components/footer.php' ?>
 
 </body>
 
