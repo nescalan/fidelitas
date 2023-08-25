@@ -38,8 +38,8 @@ try {
 } catch (Exception $e) {
 
     // Handle any exceptions here
-    echo 'Error: ' . $e->getMessage();
-    // header('Location: error.php');
+    // echo 'Error: ' . $e->getMessage();
+    header('Location: error.php');
 }
 
 ?>

@@ -7,10 +7,9 @@ require_once './app/admin/config.php';
 # Functions file
 require_once './app/funcs/functions.php';
 
-# define variables and set to empty values
-$pageID = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+    // Get the page ID from the URL and parse it to a number
     $pageID = (int) sanitizeData($_GET["id"]);
 
     // New database connection, sets data from 'config' file
@@ -26,15 +25,32 @@ try {
     // Open the database connection
     $dbConnection = $conn->openConnection();
 
-    // Gets the respective publication using the id
-    $resultPost = getPost($pageID, $dbConnection);
-    // $resultPost = mysqli_fetch_all($resultPost);
-    // print_r($resultPost);
+    # Open the database connection
+    $dbConnection = $conn->openConnection();
 
-    if (!$resultPost) {
+    # Validates connection
+    if (!$dbConnection) {
         // Error page
         header('Location: error.php');
     }
+
+    # Check if the page's ID is empty
+    if (empty($pageID)) {
+        header('Location: index.php');
+    }
+
+    // Gets the respective publication using the id
+    $resultPost = getPost($pageID, $dbConnection);
+    // $resultPost = mysqli_fetch_all($resultPost);
+    // print_r(mysqli_num_rows($resultPost));
+
+
+    if (mysqli_num_rows($resultPost) == 0) {
+        // Error page
+        header('Location: error.php');
+    }
+
+    // $resultPost = $resultPost[0];
 
     // Call index view
     require_once './app/views/single.view.php';
