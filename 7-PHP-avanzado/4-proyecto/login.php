@@ -1,34 +1,28 @@
 <?php // login.php
 
+
 # Database Connections file
-require_once './app/model/db_connection/Connection.model.php';
+include_once './app/model/db_connection/Connection.model.php';
 # Configuration file
-require_once './app/admin/config.php';
+include_once './app/admin/config.php';
 # Functions file
-require_once './app/funcs/functions.php';
+include_once './app/funcs/functions.php';
 
-
-
-// define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
+$errorMessage = " ";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = test_input($_POST["name"]);
-    $email = test_input($_POST["email"]);
-    // $website = test_input($_POST["website"]);
-    // $comment = test_input($_POST["comment"]);
-    // $gender = test_input($_POST["gender"]);
-}
+    // Get the data form
+    $user = test_input($_POST["user"]);
+    $password = test_input($_POST["password"]);
 
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+    echo "$user | $password";
 
-# Login file
+echo "Usr: $user | Psd: $pwd";
+
+echo "<br/> Paso directo";
+
+# Login view file
 require_once './app/views/login.view.php';
+
 
 ?>

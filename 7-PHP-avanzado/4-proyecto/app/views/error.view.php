@@ -39,7 +39,7 @@
 </head>
 
 <body class="u-body u-xl-mode" data-lang="es">
-    <?php require_once 'app\views\components\header.php'; ?>
+    <?php require_once 'app/views/components/header.php'; ?>
 
     <section class="u-clearfix u-section-1" id="sec-3756">
         <div class="u-clearfix u-sheet u-sheet-1">
@@ -87,7 +87,7 @@
     </section>
 
 
-    <?php require_once 'app\views\components\footer.php' ?>
+    <?php require_once 'app/views/components/footer.php' ?>
 
 
 </body>
