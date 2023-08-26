@@ -1,15 +1,24 @@
-<?php
+<?php session_start();
 
-include 'BD/accesoBD.php';
+if (!isset($_SESSION['ID'])) {
 
-$conexionAbierta = IniciarConexion();
+    header('Location: index.php');
 
-$consulta = "SELECT * FROM Clientes_EJ3";
+} elseif ($_SESSION['Rol'] != 1) {
+    header('Location: Home.php');
+} else {
 
-$resultado = $conexionAbierta->query($consulta);
+    include 'BD/accesoBD.php';
 
-cerrarConexion($conexionAbierta);
+    $conexionAbierta = IniciarConexion();
 
-require_once 'App/Views/clientes.view.php';
+    $consulta = "SELECT * FROM Clientes_EJ3";
+
+    $resultado = $conexionAbierta->query($consulta);
+
+    cerrarConexion($conexionAbierta);
+
+    require_once 'App/Views/clientes.view.php';
+}
 
 ?>
