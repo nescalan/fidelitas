@@ -1,5 +1,6 @@
 <?php // login.php
 
+session_start();
 
 # Database Connections file
 include_once './app/model/db_connection/Connection.model.php';
@@ -8,18 +9,27 @@ include_once './app/admin/config.php';
 # Functions file
 include_once './app/funcs/functions.php';
 
-$errorMessage = " ";
+// Define variables and set to empty values
+$user = $pwd = $userError = $pwdError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the data form
-    $user = test_input($_POST["user"]);
-    $password = test_input($_POST["password"]);
 
-    echo "$user | $password";
+    // Required Fields
+    if (empty($_POST["user"])) {
+        $userError = "* Campo es obligatorio";
+    } else {
+        $user = sanitizeData($_POST['user']);
+    }
 
-echo "Usr: $user | Psd: $pwd";
+    if (empty($_POST["password"])) {
+        $pwdError = "* Campo es obligatorio";
+    } else {
+        $pwd = sanitizeData($_POST['password']);
+    }
 
-echo "<br/> Paso directo";
+    echo "user: $user | Pwd: $pwd";
+
+}
 
 # Login view file
 require_once './app/views/login.view.php';
