@@ -9,8 +9,9 @@ include_once './app/admin/config.php';
 # Functions file
 include_once './app/funcs/functions.php';
 
+
 // Define variables and set to empty values
-$user = $pwd = $userError = $pwdError = "";
+$user = $pwd = $userError = $pwdError = $loginError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -19,6 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userError = "* Campo es obligatorio";
     } else {
         $user = sanitizeData($_POST['user']);
+        $user = filter_var($user, FILTER_SANITIZE_EMAIL);
+        // Check if e-mail address is well-formed
+        if (!filter_var($user, FILTER_VALIDATE_EMAIL)) {
+            $userError = "** Invalid email format **";
+        }
     }
 
     if (empty($_POST["password"])) {
@@ -27,7 +33,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pwd = sanitizeData($_POST['password']);
     }
 
-    echo "user: $user | Pwd: $pwd";
+    # New database connection, sets data from 'config' file
+    $conn = new Connection(
+        $bd_config['host'],
+        $bd_config['user'],
+        $bd_config['pwd'],
+        $bd_config['database']
+    );
+
+    try {
+        // Open the database connection
+        $dbConnection = $conn->openConnection();
+
+        // Check connection
+        if ($dbConnection->connect_error) {
+            die($dbConnection->connect_error);
+        }
+
+        // Query the user and password
+        $queryLogin =
+            "SELECT * 
+            FROM blog.users
+            WHERE user_name = '$user'
+            AND password = md5('$pwd')";
+
+        $resultLogin = mysqli_query($dbConnection, $queryLogin);
+
+        if (empty($resultLogin)) {
+            // Error page
+            header('Location: error.php');
+        }
+
+        // Check if user was found
+        if (mysqli_num_rows($resultLogin) == 0) {
+            $loginError = "** Verifique sus credenciales de acceso **";
+        } else {
+            $userFound = mysqli_fetch_array($resultLogin);
+
+            $_SESSION['admin'] = $userFound['user_name'];
+            header('Location: app/admin ');
+
+            // Check username and password
+            if ($usrFound == $user && ($pwdFound == $pwd)) {
+                $admin = $userFound['user_name'];
+
+                echo '<script> location.replace("app/admin.php"); </script>';
+            }
+        }
+
+        // Close the database connection when done
+        $conn->closeConnection($dbConnection);
+
+    } catch (Exception $e) {
+
+        // Handle any exceptions here
+        header('Location: error.php');
+    }
 
 }
 

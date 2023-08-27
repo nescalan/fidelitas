@@ -4,6 +4,9 @@
   <?php require 'app/views/components/header.php'; ?>
 
   <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="carousel_9e24">
+    <h3>
+      <?php echo $titulo ?>
+    </h3>
 
     <!-- Paint post into the DOM -->
     <?php
