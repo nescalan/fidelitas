@@ -48,6 +48,7 @@
         <div class="u-container-layout u-container-layout-1">
           <h2 class="u-text u-text-default u-text-1">Contactenos</h2>
           <div class="u-align-left u-expanded-width-xs u-form u-form-1">
+
             <form action="https://forms.nicepagesrv.com/v2/form/process"
               class="u-clearfix u-form-spacing-28 u-form-vertical u-inner-form" style="padding: 10px" source="email"
               name="form">
@@ -81,6 +82,7 @@
               <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true">
               <input type="hidden" name="formServices" value="1fa0696b-9cbf-50df-50f1-d1ddfe40230a">
             </form>
+
           </div>
         </div>
       </div>

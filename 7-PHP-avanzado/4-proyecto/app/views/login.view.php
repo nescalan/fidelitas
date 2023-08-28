@@ -45,7 +45,8 @@
                     <div class="u-form-group u-form-name u-label-top">
                         <label for="name-6797" class="u-label">Usuario</label>
                         <input type="email" placeholder="usuario@correo.com" id="name-6797" name="user"
-                            class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle">
+                            class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
+                            autofocus>
                         <span class="error">
                             <?php echo $userError; ?>
                         </span>
@@ -63,28 +64,9 @@
                     <div class="u-align-right u-form-group u-form-submit u-label-top">
                         <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value="Submit">
                     </div>
-                    <span class="error">
-                        <?php echo "$loginError"; ?>
-                    </span>
                 </form>
             </div>
         </div>
-    </section>
-
-    <section class="u-align-center u-clearfix u-section-1">
-        <h3>Usuario:
-            <?php echo $user ?>
-        </h3>
-        <h3>Password:
-            <?php echo $pwd ?>
-        </h3>
-        <h3>userFound[]:
-            <?php echo " {$userFound['user_name']} | {$userFound['password']} | {$_SESSION['admin']} " ?>
-        </h3>
-        <h3>
-            Result Login:
-            <?php print_r($resultLogin) ?>
-        </h3>
     </section>
 
     <!-- Imports footer component -->

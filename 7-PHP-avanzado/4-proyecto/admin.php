@@ -36,7 +36,7 @@ try {
 
 
 
-    include_once 'app/views/admin_index.view.php';
+    include_once 'app/views/admin.view.php';
 
 } catch (\Throwable $th) {
     //throw $th;

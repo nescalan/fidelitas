@@ -11,7 +11,7 @@ $bd_config = [
 
 $blog_config = [
     'publication_per_page' => '2',
-    'folder_images' => './public/img/'
+    'folder_images' => 'public/img/'
 ];
 
 $blog_admin = [

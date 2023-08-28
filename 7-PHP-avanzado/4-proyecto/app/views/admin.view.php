@@ -10,7 +10,7 @@
             <div class="u-flex">
                 <a class="u-btn-1 u-border-3 
                 3u-border-active-palette-1-base u-border-hover-palette-1-base u-border-palette-1-base  u-button-style u-hover-palette-1-base u-none u-text-active-white u-text-hover-white u-text-palette-1-base "
-                    href="newPos.php">Nuevo Post</a>
+                    href="./newpost.php">Nuevo Post</a>
                 <a class="u-btn-1 u-border-3 
                 3u-border-active-palette-1-base u-border-hover-palette-1-base u-border-palette-1-base  u-button-style u-hover-palette-1-base u-none u-text-active-white u-text-hover-white u-text-palette-1-base "
                     href="logout.php">Cerrar Sesion</a>
@@ -21,19 +21,36 @@
         <?php
         while ($row = mysqli_fetch_assoc($posts)) {
 
-            // Get the publication from the database.
             echo '
             <div class="u-clearfix u-sheet u-sheet-1">
-                <article>
-                    <h4 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
-                     ' . $row['id'] . ' . ' . $row["title"] . ' 
-                    </h4>
-                    <a href="edit.php?id=' . $row['id'] . ' ">Editar</a>
-                    <a href="single.php?id=' . $row['id'] . ' ">Ver</a>
-                    <a href="delete.php?id=' . $row['id'] . ' ">Borrar</a>
-                </article>
+           
+            <div
+              class="u-align-left u-border-16 u-border-no-bottom u-border-no-right u-border-no-top u-border-palette-1-base u-container-style u-expanded-width u-group u-white u-group-1"
+              data-animation-name="customAnimationIn" data-animation-duration="1500">
+              
+                <div class="u-container-layout u-valign-middle u-container-layout-1">
+
+                      
+                      <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
+                      Nuevo Artículo
+                      </h2>
+
+                      <article  >
+                          <h4 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
+                          ' . $row['id'] . ' . ' . $row["title"] . ' 
+                          </h4>
+                          <a href="edit.php?id=' . $row['id'] . ' ">Editar</a>
+                          <a href="single.php?id=' . $row['id'] . ' ">Ver</a>
+                          <a href="delete.php?id=' . $row['id'] . ' ">Borrar</a>
+                      </article>
+                    
+                </div>
+
             </div>
-            ';
+
+        </div>
+        <br/>
+        ';
         }
         ?>
 
