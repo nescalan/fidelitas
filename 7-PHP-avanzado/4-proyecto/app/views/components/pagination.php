@@ -3,7 +3,6 @@
         <!-- Set the number of pages -->
         <?php
         $pagesNumber = pagesNumber($blog_config['publication_per_page'], $dbConnection);
-        echo " Numero de paginas: $pagesNumber";
         ?>
         <!-- Show the button to go back one page -->
         <?php if (actualPage() === 1): ?>
