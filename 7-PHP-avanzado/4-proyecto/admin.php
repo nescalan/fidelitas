@@ -1,4 +1,6 @@
-<?php //index.php
+<?php // index.php
+
+session_start();
 
 # Database Connections file
 require_once './app/model/db_connection/Connection.model.php';
@@ -15,7 +17,11 @@ $conn = new Connection(
     $bd_config['database']
 );
 
+validateSession();
+
 try {
+    // Comprobar session
+
     // Open the database connection
     $dbConnection = $conn->openConnection();
 
@@ -27,17 +33,13 @@ try {
     // Calculates the publications per page
     $posts = getPublications($blog_config['publication_per_page'], $dbConnection);
 
-    // Call index view
-    require_once './app/views/index.view.php';
 
-    // Close the database connection when done
-    $conn->closeConnection($dbConnection);
 
-} catch (Exception $e) {
 
-    // Handle any exceptions here
-    // echo 'Error: ' . $e->getMessage();
-    header('Location: error.php');
+    include_once 'app/views/admin_index.view.php';
+
+} catch (\Throwable $th) {
+    //throw $th;
 }
 
 ?>

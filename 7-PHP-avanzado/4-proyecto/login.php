@@ -71,14 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userFound = mysqli_fetch_array($resultLogin);
 
             $_SESSION['admin'] = $userFound['user_name'];
-            header('Location: app/admin ');
 
-            // Check username and password
-            if ($usrFound == $user && ($pwdFound == $pwd)) {
-                $admin = $userFound['user_name'];
+            // Heads the user to the admin page
+            header('Location: admin.php');
 
-                echo '<script> location.replace("app/admin.php"); </script>';
-            }
         }
 
         // Close the database connection when done

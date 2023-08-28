@@ -97,4 +97,11 @@ function calculateDate($pDate)
     return $resultDate;
 }
 
+function validateSession()
+{
+    if (!isset($_SESSION['admin']))
+        header('Location: index.php');
+
+}
+
 ?>
