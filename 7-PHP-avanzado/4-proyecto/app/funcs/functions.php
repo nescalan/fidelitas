@@ -104,4 +104,9 @@ function validateSession()
 
 }
 
+function id_article($id)
+{
+    return (int) sanitizeData($id);
+}
+
 ?>

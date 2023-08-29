@@ -43,40 +43,49 @@
                 <!-- FORM -->
                 <form class="u-clearfix u-form-spacing-15 u-inner-form" style="padding: 20px;" method="POST"
                     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
-                    <h2 class="u-form-group u-form-text u-text u-text-1"> Nuevo Artículo</h2>
+                    <h2 class="u-form-group u-form-text u-text u-text-1"> Editar Artículo</h2>
+
+                    <input type="hidden" name="id" value="<?php echo $post['id'] ?>">
+
                     <div class="u-form-group u-form-name u-label-top">
                         <label for="name-6797" class="u-label">Título:</label>
-                        <input type="text" placeholder="Ingrese el titulo" id="name-6797" name="title"
+                        <input type="text" id="name-6797" name="title"
                             class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
-                            autofocus>
+                            value="<?php echo $post['title'] ?>" autofocus>
                         <span class="error">
                             <?php echo $titleError; ?>
                         </span>
                     </div>
+
                     <div class="u-form-group u-label-top">
                         <label for="email-6797" class="u-label">Extracto:</label>
-                        <input placeholder="Ingrese un extracto del tema" id="email-6797" name="summary"
+                        <input
                             class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
-                            type="text">
+                            id="email-6797" name="summary" type="text" value="<?php echo $post['summary'] ?>">
                         <span class="error">
                             <?php echo "$summaryError"; ?>
                         </span>
                     </div>
+
                     <div class="u-form-group u-label-top">
                         <label for="email-6797" class="u-label">Publicación:</label>
-                        <textarea placeholder="Ingrese la publicación" id="email-6797" name="post"
-                            class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"></textarea>
+                        <textarea
+                            class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
+                            id="email-6797" name="post"><?php echo $post['post_content'] ?></textarea>
+
                         <span class="error">
                             <?php echo "$postError"; ?>
                         </span>
                     </div>
+
                     <div class="u-form-group u-label-top">
                         </br>
-                        <input placeholder="Ingrese un extracto del tema" id="email-6797" name="thumb" type="file">
+                        <input name="thumb" type="file">
+                        <input name="thumb-guardada" type="hyden" value="<?php echo $post['thumb'] ?>">
                     </div>
 
                     <div class="u-align-right u-form-group u-form-submit u-label-top">
-                        <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value="Crear Artículo">
+                        <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value=" Guardar ">
                     </div>
 
                 </form>
@@ -87,6 +96,7 @@
     <!-- Imports footer component -->
     <?php include_once 'app/views/components/footer.php' ?>
 
+    <?php print_r($post); ?>
 </body>
 
 </html>

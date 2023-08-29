@@ -12,7 +12,8 @@ require_once './app/funcs/functions.php';
 validateSession();
 
 // Define variables and set to empty values
-$title = $summary = $post = $titleError = $summaryError = $postError = "";
+$title = $summary = $post = $titleError = "";
+$summaryError = $postError = $thumbImage = "";
 
 
 # New database connection, sets data from 'config' file
@@ -54,18 +55,23 @@ try {
             $post = sanitizeData($_POST['post']);
         }
 
-        // Thumbnails
+        // // Thumbnails
         $thumb = $_FILES['thumb']['tmp_name'];
         $uploadedFile = $blog_config['folder_images'] . $_FILES['thumb']['name'];
         move_uploaded_file($thumb, $uploadedFile);
 
-        $image = $_FILES['thumb']['name'];
+        // Capture the thumb name
+        $thumbImage = $_FILES['thumb']['name'];
         $userID = $_SESSION['id'];
 
         // Query into database
         $queryNewPost =
-            "INSERT INTO publications (`title`, `summary`, `date`, `post_content`, `thumb`, `user_id`) VALUES ( $title, $summary, <{date: }>, $post, $image, $userID)";
+            "INSERT INTO `blog`.`publications` (`title`, `summary`, `post_content`, `thumb`, `user_id`) 
+            VALUES ('$title', '$summary', '$post', '$thumbImage', '$userID')";
 
+
+        // Execute query        
+        $resultLogin = mysqli_query($dbConnection, $queryNewPost);
 
         header('Location:admin.php');
 

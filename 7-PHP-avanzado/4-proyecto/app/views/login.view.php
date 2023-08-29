@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="sp">
+<html style="font-size: 16px;" lang="es">
 
 <head>
     <!-- META -->
