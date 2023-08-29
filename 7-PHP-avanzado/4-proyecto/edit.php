@@ -32,6 +32,11 @@ if ($dbConnection->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = sanitizeData($_POST['title']);
+    $summary = sanitizeData($_POST['summary']);
+    $post_content = sanitizeData($_POST['post_content']);
+    $thumb = sanitizeData($_POST['thumb']);
+    $title = sanitizeData($_POST['title']);
+    $title = sanitizeData($_POST['title']);
 
 } else {
     // Assuming id_article() and getPost() are defined functions
