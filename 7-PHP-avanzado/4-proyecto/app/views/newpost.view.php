@@ -58,7 +58,7 @@
                                 class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
                                 autofocus>
                             <span class="error">
-                                <?php echo $userError; ?>
+                                <?php echo $titleError; ?>
                             </span>
                         </div>
                         <div class="u-form-email u-form-group u-label-top">
@@ -66,7 +66,7 @@
                             <input type="text" placeholder="Extracto del artículo" id="email-5a14" name="summary"
                                 class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle">
                             <span class="error">
-                                <?php echo $userError; ?>
+                                <?php echo $summaryError; ?>
                             </span>
                         </div>
                         <div class="u-form-group u-form-message u-label-top">
@@ -75,7 +75,7 @@
                                 name="post"
                                 class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"></textarea>
                             <span class="error">
-                                <?php echo $userError; ?>
+                                <?php echo $postError; ?>
                             </span>
                         </div>
                         <div class="u-align-right u-form-group u-form-submit u-label-top">
