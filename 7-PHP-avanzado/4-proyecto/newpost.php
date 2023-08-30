@@ -64,10 +64,13 @@ try {
         $thumbImage = $_FILES['thumb']['name'];
         $userID = $_SESSION['id'];
 
+        // Get the current local date
+        $currentDate = date('Y-m-d');
+
         // Query into database
         $queryNewPost =
-            "INSERT INTO `blog`.`publications` (`title`, `summary`, `post_content`, `thumb`, `user_id`) 
-            VALUES ('$title', '$summary', '$post', '$thumbImage', '$userID')";
+            "INSERT INTO `blog`.`publications` (`title`, `summary`, `date`, `post_content`,  `user_id`) 
+            VALUES ('$title', '$summary', '$currentDate', '$post', '$userID')";
 
 
         // Execute query        
@@ -88,9 +91,7 @@ try {
 } catch (Exception $e) {
 
     // Handle any exceptions here
-    // echo 'Error: ' . $e->getMessage();
     header('Location: error.php');
 }
 
-// require_once 'app/views/newpost.view.php';
 ?>
