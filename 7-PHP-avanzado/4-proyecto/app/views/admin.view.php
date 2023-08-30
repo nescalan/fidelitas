@@ -16,10 +16,11 @@
                     href="logout.php">Cerrar Sesion</a>
             </div>
         </div>
+        <br>
 
         <!-- Paint post into the DOM -->
         <?php
-        while ($row = mysqli_fetch_assoc($posts)) {
+        while ($post = mysqli_fetch_assoc($posts)) {
 
             echo '
             <div class="u-clearfix u-sheet u-sheet-1">
@@ -31,22 +32,25 @@
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
 
                       
-                      <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
-                      Nuevo Artículo
-                      </h2>
+                    <h4 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
+                    ' . $post['id'] . ' . ' . $post["title"] . ' 
+                    </h4>
 
                       <article  >
-                          <h4 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2">
-                          ' . $row['id'] . ' . ' . $row["title"] . ' 
-                          </h4>
-                          <a href="edit.php?id=' . $row['id'] . ' ">Editar</a>
-                          <a href="single.php?id=' . $row['id'] . ' ">Ver</a>
-                          <a href="delete.php?id=' . $row['id'] . ' ">Borrar</a>
+                          <div>
+                            <a href="#">  | </a>
+                            <a href="edit.php?id=' . $post['id'] . ' ">Editar |</a>
+                            <a href="single.php?id=' . $post['id'] . ' ">Ver |</a>
+                            <a href="delete.php?id=' . $post['id'] . ' ">Borrar |</a>
+                          </div>
+                          <br>
                       </article>
                     
                 </div>
 
             </div>
+
+            <br>
 
         </div>
         <br/>

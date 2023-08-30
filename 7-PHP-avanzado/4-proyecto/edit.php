@@ -33,10 +33,46 @@ if ($dbConnection->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = sanitizeData($_POST['title']);
     $summary = sanitizeData($_POST['summary']);
-    $post_content = sanitizeData($_POST['post_content']);
-    $thumb = sanitizeData($_POST['thumb']);
-    $title = sanitizeData($_POST['title']);
-    $title = sanitizeData($_POST['title']);
+    $post = sanitizeData($_POST['post']);
+    $id = sanitizeData($_POST['id']);
+    $thumbGuardada = $_POST['thumb-guardada'];
+    $thumb = $_FILES['thumb'];
+    $user_id = $_SESSION['id'];
+
+
+
+    //Check if thumb is empty
+    if (empty($thumb['name'])) {
+        $thumb = $thumbGuardada;
+    } else {
+        // Else upload new thumb
+        $uploadedFile = './' . $blog_config['folder_images'] . $_FILES['thumb']['name'];
+
+        move_uploaded_file($_FILES['thumb']['tmp_name'], $uploadedFile);
+        $thumb = $_FILES['thumb']['name'];
+
+    }
+
+    // Send everything to the dB
+    $queryEditPost =
+        "UPDATE `blog`.`publications`
+            SET
+            `title` = '$title',
+            `summary` = '$summary',
+            `post_content` = '$post',
+           
+            `user_id` = $user_id
+            WHERE `id` = $id;
+            ";
+
+    $resultEditPost = mysqli_query($dbConnection, $queryEditPost);
+
+    if (empty($resultEditPost)) {
+        // Error page
+        header('Location: error.php');
+    }
+
+    header('Location:admin.php');
 
 } else {
     // Assuming id_article() and getPost() are defined functions
