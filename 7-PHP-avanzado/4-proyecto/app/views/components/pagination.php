@@ -4,6 +4,7 @@
         <?php
         $pagesNumber = pagesNumber($blog_config['publication_per_page'], $dbConnection);
         ?>
+
         <!-- Show the button to go back one page -->
         <?php if (actualPage() === 1): ?>
             <li class="disabled">&laquo;</li>

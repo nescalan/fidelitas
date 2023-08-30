@@ -81,7 +81,7 @@
                     <div class="u-form-group u-label-top">
                         </br>
                         <input name="thumb" type="file">
-                        <input name="thumb-guardada" type="hyden" value="<?php echo $post['thumb'] ?>">
+                        <input name="thumb-guardada" type="hidden" value="<?php echo $post['thumb'] ?>">
                     </div>
 
                     <div class="u-align-right u-form-group u-form-submit u-label-top">

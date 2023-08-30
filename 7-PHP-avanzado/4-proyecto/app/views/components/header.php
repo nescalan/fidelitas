@@ -74,7 +74,7 @@
                 <ul class="u-nav u-spacing-30 u-unstyled u-nav-1">
                     <li class="u-nav-item"><a
                             class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-black u-text-white"
-                            href="Blog_main.html" style="padding: 6px 0px;">Blog</a>
+                            href="login.php" style="padding: 6px 0px;">Login</a>
                     </li>
                     <li class="u-nav-item"><a
                             class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-black u-text-white"
