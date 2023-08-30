@@ -1,5 +1,14 @@
 <?php // login.php
 
+// Verifica si la cookie existe
+if (isset($_COOKIE['usuario_recordado'])) {
+    // Inicia la sesión
+    session_id($_COOKIE['usuario_recordado']);
+    session_start();
+    // Puedes realizar otras verificaciones de seguridad aquí si es necesario
+}
+
+
 session_start();
 
 # Database Connections file
@@ -80,6 +89,22 @@ if (isset($_SESSION['admin'])) {
                 header('Location: admin.php');
 
             }
+
+            // Cookie
+            if (isset($_POST['recordarSesion']) && $_POST['recordarSesion'] == 'on') {
+                $identificacion = $userFound['id'];
+                // Define un nombre único para la cookie
+                $cookie_name = "usuario_recordado";
+                // Define el tiempo de expiración de la cookie (por ejemplo, 30 días)
+                $cookie_expiration = 30 * 24 * 60 * 60; // 30 días en segundos
+                // Crea la cookie
+                setcookie($cookie_name, $identificacion, time() + $cookie_expiration, "/");
+
+                // Redirige al usuario a admin.php
+                header('Location: admin.php');
+                exit(); // Asegura que el script se detenga después de la redirección
+            }
+
 
             // Close the database connection when done
             $conn->closeConnection($dbConnection);

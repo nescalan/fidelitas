@@ -42,6 +42,7 @@
                 <form class="u-clearfix u-form-spacing-15 u-inner-form" style="padding: 20px;" method="post"
                     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <h2 class="u-form-group u-form-text u-text u-text-1"> Inicia Sesión</h2>
+                    <br>
                     <div class="u-form-group u-form-name u-label-top">
                         <label for="name-6797" class="u-label">Usuario</label>
                         <input type="email" placeholder="usuario@correo.com" id="name-6797" name="user"
@@ -50,6 +51,7 @@
                         <span class="error">
                             <?php echo $userError; ?>
                         </span>
+                        <br>
                     </div>
                     <div class="u-form-group u-label-top">
                         <label for="email-6797" class="u-label">Contraseña</label>
@@ -59,8 +61,12 @@
                         <span class="error">
                             <?php echo "$pwdError"; ?>
                         </span>
+                        <br>
                     </div>
 
+                    <div class="u-form-group u-label-top">
+                        <input type="checkbox" name="recordarSesion"> Recordar sesión
+                    </div>
                     <div class="u-align-right u-form-group u-form-submit u-label-top">
                         <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value="Submit">
                     </div>

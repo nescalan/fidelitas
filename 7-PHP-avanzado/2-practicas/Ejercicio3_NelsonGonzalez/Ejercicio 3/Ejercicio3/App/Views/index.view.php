@@ -44,6 +44,12 @@
                                 value="Iniciar Sesión" class="btn btn-success btn-block mt-3">
                             <br>
 
+                            <?php if (!empty($errorMessage)): ?>
+                                <p>
+                                    <?php echo $errorMessage ?>
+                                </p>
+
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -51,12 +57,6 @@
         </form>
     </section>
 
-    <section>
-        Identificacion:
-        <?php echo $_GET["name"]; ?><br>
-        Contraseña:
-        <?php echo $_GET["email"]; ?>
-    </section>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
