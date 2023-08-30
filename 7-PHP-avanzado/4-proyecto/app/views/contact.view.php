@@ -94,7 +94,7 @@
 
           <span class="error">
             <?php if (isset($successMessage)): ?>
-              <?php echo "** $successMessage **"; ?>
+              <?php echo "$successMessage"; ?>
             <?php endif; ?>
           </span>
 

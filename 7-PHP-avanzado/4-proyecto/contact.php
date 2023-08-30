@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errorMessage = '';
 
     # set success message
-    $successMessage .= '<div class="alert alert-success" role="alert">Mensaje enviado.</div>';
+    $successMessage .= '<div class="alert alert-success" role="alert">*** Mensaje enviado ***</div>';
 
 }
 require_once 'app/views/contact.view.php';
