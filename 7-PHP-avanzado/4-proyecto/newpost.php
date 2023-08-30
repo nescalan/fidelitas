@@ -57,7 +57,7 @@ try {
 
         // // Thumbnails
         $thumb = $_FILES['thumb']['tmp_name'];
-        $uploadedFile = $blog_config['folder_images'] . $_FILES['thumb']['name'];
+        $uploadedFile = './' . $blog_config['folder_images'] . $_FILES['thumb']['name'];
         move_uploaded_file($thumb, $uploadedFile);
 
         // Capture the thumb name

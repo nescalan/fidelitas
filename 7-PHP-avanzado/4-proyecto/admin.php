@@ -17,29 +17,21 @@ $conn = new Connection(
     $bd_config['database']
 );
 
+// Check session
 validateSession();
 
-try {
-    // Comprobar session
+// Open the database connection
+$dbConnection = $conn->openConnection();
 
-    // Open the database connection
-    $dbConnection = $conn->openConnection();
-
-    // Check connection
-    if ($dbConnection->connect_error) {
-        die($dbConnection->connect_error);
-    }
-
-    // Calculates the publications per page
-    $posts = getPublications($blog_config['publication_per_page'], $dbConnection);
-
-
-
-
-    include_once 'app/views/admin.view.php';
-
-} catch (\Throwable $th) {
-    //throw $th;
+// Check connection
+if ($dbConnection->connect_error) {
+    die($dbConnection->connect_error);
 }
+
+// Calculates the publications per page
+$posts = getPublications($blog_config['publication_per_page'], $dbConnection);
+
+
+include_once 'app/views/admin.view.php';
 
 ?>
