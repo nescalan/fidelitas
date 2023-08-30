@@ -2,6 +2,8 @@
 
 include 'BD/accesoBD.php';
 
+$errorMessage = "";
+
 if (isset($_POST['btnIniciarSesion'])) {
 
     $identificacion = $_POST['txtCedula'];
@@ -13,8 +15,6 @@ if (isset($_POST['btnIniciarSesion'])) {
     if ($conexionAbierta->connect_error) {
         echo "Error de conexion";
         die("Connection failed: " . $conexionAbierta->connect_error);
-    } else {
-        echo "Conexion exitosa <br/>";
     }
 
     $consulta =
@@ -24,12 +24,16 @@ if (isset($_POST['btnIniciarSesion'])) {
 
 
     $resultado = $conexionAbierta->query($consulta);
-    echo "Print resultado: <br/>";
-    var_dump($resultado);
-    echo "<br/> Consulta: $identificacion | $contrasenna <br/>";
+
+
+    if (!$resultado) {
+        header('Location:index.php');
+    }
 
     if (mysqli_num_rows($resultado) === 0) {
         echo '<script> alert("Verifique sus credenciales de acceso."); </script>';
+        $errorMessage = "Datos no encontrados";
+
     } else {
 
         $personaEncontrada = mysqli_fetch_array($resultado);

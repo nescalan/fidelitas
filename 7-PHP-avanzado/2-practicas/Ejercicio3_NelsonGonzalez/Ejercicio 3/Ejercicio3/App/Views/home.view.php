@@ -18,7 +18,7 @@
         <section class="form-register p-5 imgFondo text-center">
 
             <h1 class="p-5"> Bienvenido/a,
-                <?php $_SESSION["Nombre"]; ?>
+                <?php echo $_SESSION["Nombre"]; ?>
             </h1>
 
         </section>
@@ -35,10 +35,10 @@
                     echo '
             <div class="col-lg-4 mb-5 d-flex text-center justCenter">
             <div class="card" style="width: 18rem;">
-            <img src="Assets/Img/Dispositivos/' . $fila2["Imagen"] . '" class="card-img-top" alt="' . $fila2["Imagen"] . '">
+            <img src="Assets/Img/Dispositivos/' . $fila2["Imagen"] . '" class="card-img-top" alt="' . $fila2["Descripcion"] . '">
             <div class="card-body">
                 <h5 class="card-title"> ' . $fila2["Nombre"] . ' </h5>
-                <p class="card-text"> ' . $fila["Descripcion"] . ' </p>
+                <p class="card-text"> ' . $fila2["Descripcion"] . ' </p>
                 <a href="#" class="btn btn-success">Comprar</a>
             </div>
             </div>
