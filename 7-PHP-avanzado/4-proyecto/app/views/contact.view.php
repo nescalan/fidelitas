@@ -46,13 +46,11 @@
           <h2 class="u-form-group u-form-text u-text u-text-1"> Contactenos </h2>
           <br>
 
-          <input type="hidden" name="id" value="<?php echo $post['id'] ?>">
-
           <div class="u-form-group u-form-name u-label-top">
             <label for="name-6797" class="u-label">Nombre:</label>
             <input type="text" id="name-6797" name="name"
               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
-              value="<?php echo $post['title'] ?>" autofocus>
+              placeholder="Ingrese su nombre completo" autofocus>
             <br>
             <span class="error">
               <?php echo $titleError; ?>
@@ -60,10 +58,10 @@
           </div>
 
           <div class="u-form-group u-label-top">
-            <label for="email-6797" class="u-label">Correo:</label>
+            <label for="email-6797" class="u-label">Tema:</label>
             <input
               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
-              id="email-6797" name="summary" type="email" value="<?php echo $post['summary'] ?>">
+              id="email-6797" name="subject" type="text" placeholder="nombre@correo.com" required>
             <span class="error">
               <br>
               <?php echo "$summaryError"; ?>
@@ -71,35 +69,44 @@
           </div>
 
           <div class="u-form-group u-label-top">
-            <label for="email-6797" class="u-label">Publicación:</label>
-            <textarea
+            <label for="email-6797" class="u-label">Correo:</label>
+            <input
               class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
-              id="email-6797" name="post"><?php echo $post['post_content'] ?></textarea>
-
+              id="email-6797" name="email" type="email" placeholder="nombre@correo.com" required>
             <span class="error">
-              <?php echo "$postError"; ?>
+              <br>
+              <?php echo "$summaryError"; ?>
             </span>
           </div>
 
           <div class="u-form-group u-label-top">
-            </br>
-            <input name="thumb" type="file">
-            <input name="thumb-guardada" type="hyden" value="<?php echo $post['thumb'] ?>">
+            <label for="email-6797" class="u-label">Mensaje:</label>
+            <textarea
+              class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
+              id="email-6797" name="message" placeholder="Por favor, ingrese su comentario" required></textarea>
+
+
           </div>
 
           <div class="u-align-right u-form-group u-form-submit u-label-top">
             <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value=" Enviar ">
           </div>
 
+          <span class="error">
+            <?php if (isset($successMessage)): ?>
+              <?php echo "** $successMessage **"; ?>
+            <?php endif; ?>
+          </span>
+
         </form>
       </div>
     </div>
+    <br>
   </section>
 
   <!-- Imports footer component -->
   <?php include_once 'app/views/components/footer.php' ?>
 
-  <?php print_r($post); ?>
 </body>
 
 </html>
