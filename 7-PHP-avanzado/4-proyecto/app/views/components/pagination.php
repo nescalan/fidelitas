@@ -1,10 +1,3 @@
-<?php // pagination.php
-
-# Functions file
-require_once './app/funcs/functions.php';
-
-?>
-
 <section class="paginacion">
     <ul>
         <!-- Set the number of pages -->
