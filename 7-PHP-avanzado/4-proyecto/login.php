@@ -18,7 +18,7 @@ include_once './app/funcs/functions.php';
 
 
 // Define variables and set to empty values
-$user = $pwd = $userError = $pwdError = $loginError = "";
+$user = $pwd = $loginError = "";
 
 if (isset($_SESSION['admin'])) {
     header('Location:admin.php');

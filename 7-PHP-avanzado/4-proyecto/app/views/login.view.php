@@ -48,9 +48,6 @@
                         <input type="email" placeholder="usuario@correo.com" id="name-6797" name="user"
                             class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
                             autofocus>
-                        <span class="error">
-                            <?php echo $userError; ?>
-                        </span>
                         <br>
                     </div>
                     <div class="u-form-group u-label-top">
@@ -58,9 +55,7 @@
                         <input placeholder="Ingrese la contraseña" id="email-6797" name="password"
                             class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle"
                             type="password">
-                        <span class="error">
-                            <?php echo "$pwdError"; ?>
-                        </span>
+
                         <br>
                     </div>
 
@@ -75,6 +70,10 @@
                 </form>
             </div>
         </div>
+        <?php if (isset($loginError)): ?>
+            <?php echo $loginError ?>
+        <?php endif; ?>
+
     </section>
 
     <!-- Imports footer component -->
