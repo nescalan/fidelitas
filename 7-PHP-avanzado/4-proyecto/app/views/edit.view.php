@@ -44,6 +44,7 @@
                 <form class="u-clearfix u-form-spacing-15 u-inner-form" style="padding: 20px;" method="POST"
                     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
                     <h2 class="u-form-group u-form-text u-text u-text-1"> Editar Artículo</h2>
+                    <br>
 
                     <input type="hidden" name="id" value="<?php echo $post['id'] ?>">
 
@@ -55,6 +56,7 @@
                         <span class="error">
                             <?php echo $titleError; ?>
                         </span>
+                        <br>
                     </div>
 
                     <div class="u-form-group u-label-top">
@@ -65,6 +67,7 @@
                         <span class="error">
                             <?php echo "$summaryError"; ?>
                         </span>
+                        <br>
                     </div>
 
                     <div class="u-form-group u-label-top">
@@ -76,6 +79,7 @@
                         <span class="error">
                             <?php echo "$postError"; ?>
                         </span>
+                        <br>
                     </div>
 
                     <div class="u-form-group u-label-top">
@@ -92,11 +96,11 @@
             </div>
         </div>
     </section>
+    <br>
 
     <!-- Imports footer component -->
     <?php include_once 'app/views/components/footer.php' ?>
 
-    <?php print_r($post); ?>
 </body>
 
 </html>
