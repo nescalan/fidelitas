@@ -7,8 +7,6 @@ if (isset($_COOKIE['usuario_recordado'])) {
     session_start();
 }
 
-
-
 # Database Connections file
 include_once './app/model/db_connection/Connection.model.php';
 # Configuration file
@@ -16,12 +14,11 @@ include_once './app/admin/config.php';
 # Functions file
 include_once './app/funcs/functions.php';
 
-
 // Define variables and set to empty values
 $user = $pwd = $loginError = "";
 
 if (isset($_SESSION['admin'])) {
-    header('Location:admin.php');
+    header('Location: admin.php');
 } else {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -69,15 +66,11 @@ if (isset($_SESSION['admin'])) {
 
             $resultLogin = mysqli_query($dbConnection, $queryLogin);
 
-            if (empty($resultLogin)) {
-                // Error page
-                header('Location: error.php');
-            }
-
             // Check if user was found
             if (mysqli_num_rows($resultLogin) == 0) {
                 $loginError = "** Verifique sus credenciales de acceso **";
             } else {
+
                 $userFound = mysqli_fetch_array($resultLogin);
 
                 $_SESSION['admin'] = $userFound['user_name'];
@@ -85,22 +78,22 @@ if (isset($_SESSION['admin'])) {
 
                 // Heads the user to the admin page
                 header('Location: admin.php');
-            }
 
-            // Cookie
-            if (isset($_POST['recordarSesion']) && $_POST['recordarSesion'] === 'on') {
-                $identificacion = $userFound['id'];
-                // Define a unique name for the cookie
-                $cookie_name = "usuario_recordado";
-                // Define the cookie expiration time (30 days)
-                $cookie_expiration = 30 * 24 * 60 * 60; // 30 days in seconds
-                // Create the cookie
-                setcookie($cookie_name, $identificacion, time() + $cookie_expiration, "/");
-            } else {
-                // Si la casilla no está marcada, asegúrate de que la cookie se elimine
-                if (isset($_COOKIE['usuario_recordado'])) {
-                    unset($_COOKIE['usuario_recordado']);
-                    setcookie('usuario_recordado', null, -1, '/');
+                // Cookie
+                if (isset($_POST['recordarSesion']) && $_POST['recordarSesion'] === 'on') {
+                    $identificacion = $userFound['id'];
+                    // Define a unique name for the cookie
+                    $cookie_name = "usuario_recordado";
+                    // Define the cookie expiration time (30 days)
+                    $cookie_expiration = 30 * 24 * 60 * 60; // 30 days in seconds
+                    // Create the cookie
+                    setcookie($cookie_name, $identificacion, time() + $cookie_expiration, "/");
+                } else {
+                    // If the checkbox is not checked, ensure the cookie is deleted
+                    if (isset($_COOKIE['usuario_recordado'])) {
+                        unset($_COOKIE['usuario_recordado']);
+                        setcookie('usuario_recordado', null, -1, '/');
+                    }
                 }
             }
 
@@ -115,9 +108,6 @@ if (isset($_SESSION['admin'])) {
     }
 }
 
-
 # Login view file
 require_once './app/views/login.view.php';
-
-
 ?>

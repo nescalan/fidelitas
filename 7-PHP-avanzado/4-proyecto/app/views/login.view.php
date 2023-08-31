@@ -67,14 +67,19 @@
                     <div class="u-align-right u-form-group u-form-submit u-label-top">
                         <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value="Submit">
                     </div>
+
+                    <?php if (isset($loginError)): ?>
+                        <?php echo $loginError ?>
+                    <?php endif; ?>
+
                 </form>
+
             </div>
         </div>
-        <?php if (isset($loginError)): ?>
-            <?php echo $loginError ?>
-        <?php endif; ?>
 
     </section>
+
+
 
     <!-- Imports footer component -->
     <?php include_once 'app/views/components/footer.php' ?>
