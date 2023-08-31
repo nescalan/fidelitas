@@ -65,7 +65,8 @@
                     </div>
 
                     <div class="u-form-group u-label-top">
-                        <input type="checkbox" name="recordarSesion"> Recordar sesión
+                        <input type="checkbox" name="recordarSesion">
+                        Recordar sesión
                     </div>
                     <div class="u-align-right u-form-group u-form-submit u-label-top">
                         <input class="u-btn u-button-style u-btn-1" type="submit" name="submit" value="Submit">

@@ -1,11 +1,10 @@
 <?php // login.php
 
-// Verifica si la cookie existe
+// Check if the cookie exists
 if (isset($_COOKIE['usuario_recordado'])) {
-    // Inicia la sesión
+    // Login
     session_id($_COOKIE['usuario_recordado']);
     session_start();
-    // Puedes realizar otras verificaciones de seguridad aquí si es necesario
 }
 
 
@@ -91,7 +90,7 @@ if (isset($_SESSION['admin'])) {
             }
 
             // Cookie
-            if (isset($_POST['recordarSesion']) && $_POST['recordarSesion'] == 'on') {
+            if (isset($_POST['recordarSesion'])) {
                 $identificacion = $userFound['id'];
                 // Define un nombre único para la cookie
                 $cookie_name = "usuario_recordado";

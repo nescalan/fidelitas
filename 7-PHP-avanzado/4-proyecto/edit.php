@@ -39,8 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $thumb = $_FILES['thumb'];
     $user_id = $_SESSION['id'];
 
-
-
     //Check if thumb is empty
     if (empty($thumb['name'])) {
         $thumb = $thumbGuardada;
