@@ -44,6 +44,7 @@
                 <form class="u-clearfix u-form-spacing-15 u-inner-form" style="padding: 20px;" method="POST"
                     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
                     <h2 class="u-form-group u-form-text u-text u-text-1"> Nuevo Artículo</h2>
+                    <br>
                     <div class="u-form-group u-form-name u-label-top">
                         <label for="name-6797" class="u-label">Título:</label>
                         <input type="text" placeholder="Ingrese el titulo" id="name-6797" name="title"
@@ -52,6 +53,7 @@
                         <span class="error">
                             <?php echo $titleError; ?>
                         </span>
+                        <br>
                     </div>
                     <div class="u-form-group u-label-top">
                         <label for="email-6797" class="u-label">Extracto:</label>
@@ -61,6 +63,7 @@
                         <span class="error">
                             <?php echo "$summaryError"; ?>
                         </span>
+                        <br>
                     </div>
                     <div class="u-form-group u-label-top">
                         <label for="email-6797" class="u-label">Publicación:</label>
@@ -69,6 +72,7 @@
                         <span class="error">
                             <?php echo "$postError"; ?>
                         </span>
+                        <br>
                     </div>
                     <div class="u-form-group u-label-top">
                         </br>
@@ -83,6 +87,7 @@
             </div>
         </div>
     </section>
+    <br>
 
     <!-- Imports footer component -->
     <?php include_once 'app/views/components/footer.php' ?>
