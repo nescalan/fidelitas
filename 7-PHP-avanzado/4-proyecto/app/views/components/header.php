@@ -1,7 +1,7 @@
 <header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-custom-color-1 u-header u-header"
     id="sec-22f1">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="<?php echo ROUTE ?>" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+        <a href="./" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
             <img src="./public/img/default-logo.png" class="u-logo-image u-logo-image-1">
         </a>
         <form action="<?php echo ROUTE; ?>/search.php" method="get"
