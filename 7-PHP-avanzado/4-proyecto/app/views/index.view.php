@@ -43,6 +43,7 @@
     <!-- Import pagination component  -->
     <?php include_once 'app/views/components/pagination.php'; ?>
 
+
   </section>
 
   <!-- Imports footer component -->

@@ -33,11 +33,13 @@ try {
     // Close the database connection when done
     $conn->closeConnection($dbConnection);
 
+    $counter = contar_usuarios();
+
 } catch (Exception $e) {
 
     // Handle any exceptions here
-    // echo 'Error: ' . $e->getMessage();
     header('Location: error.php');
 }
+
 
 ?>

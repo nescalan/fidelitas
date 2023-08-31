@@ -109,5 +109,40 @@ function id_article($id)
     return (int) sanitizeData($id);
 }
 
+function contar_usuarios()
+{
+    $archivo = 'contador.txt';
+
+    if (file_exists($archivo)) {
+        $cuenta = file_get_contents($archivo) + 1;
+        file_put_contents($archivo, $cuenta);
+
+        return $cuenta;
+    } else {
+        file_put_contents($archivo, 1);
+        return 1;
+    }
+}
+
+function visitCounter()
+{
+    // Visitor counter
+    $counterfile = "./counter.txt";
+
+    if (!file_exists($counterfile)) {
+        file_put_contents($counterfile, "0");
+    }
+
+    // Read the current value of the counter
+    $counter = intval(file_get_contents($counterfile));
+
+    // Increase the counter by 1
+    $counter++;
+
+    // Save updated counter to file
+    file_put_contents($counterfile, $counter);
+
+    return $counter;
+}
 
 ?>
