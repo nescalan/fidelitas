@@ -8,7 +8,6 @@ if (isset($_COOKIE['usuario_recordado'])) {
 }
 
 
-session_start();
 
 # Database Connections file
 include_once './app/model/db_connection/Connection.model.php';
@@ -86,24 +85,24 @@ if (isset($_SESSION['admin'])) {
 
                 // Heads the user to the admin page
                 header('Location: admin.php');
-
             }
 
             // Cookie
-            if (isset($_POST['recordarSesion'])) {
+            if (isset($_POST['recordarSesion']) && $_POST['recordarSesion'] === 'on') {
                 $identificacion = $userFound['id'];
-                // Define un nombre único para la cookie
+                // Define a unique name for the cookie
                 $cookie_name = "usuario_recordado";
-                // Define el tiempo de expiración de la cookie (por ejemplo, 30 días)
-                $cookie_expiration = 30 * 24 * 60 * 60; // 30 días en segundos
-                // Crea la cookie
+                // Define the cookie expiration time (30 days)
+                $cookie_expiration = 30 * 24 * 60 * 60; // 30 days in seconds
+                // Create the cookie
                 setcookie($cookie_name, $identificacion, time() + $cookie_expiration, "/");
-
-                // Redirige al usuario a admin.php
-                header('Location: admin.php');
-                exit(); // Asegura que el script se detenga después de la redirección
+            } else {
+                // Si la casilla no está marcada, asegúrate de que la cookie se elimine
+                if (isset($_COOKIE['usuario_recordado'])) {
+                    unset($_COOKIE['usuario_recordado']);
+                    setcookie('usuario_recordado', null, -1, '/');
+                }
             }
-
 
             // Close the database connection when done
             $conn->closeConnection($dbConnection);
@@ -113,7 +112,6 @@ if (isset($_SESSION['admin'])) {
             // Handle any exceptions here
             header('Location: error.php');
         }
-
     }
 }
 
