@@ -34,7 +34,13 @@
             <div class="col-sm-6 col-lg-5 col-card mb-3">
               <div class="card">
                 <div class="card-body">
-                  <img style="width: 100%; margin-bottom: 30px" />
+                  <div id="img-left">
+                    <img
+                      src="./assets/img/team/team.jpg"
+                      style="width: 100%; margin-bottom: 30px"
+                      alt="Equipo"
+                    />
+                  </div>
                   <h4 class="card-title">Nuestro Equipo</h4>
                   <h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
                   <p class="card-text">
@@ -43,21 +49,34 @@
                     Donec id elit non mi porta gravida at eget metus.
                   </p>
                   <div class="d-flex justify-content-between btn-container">
-                    <a class="btn btn-primary" onclick="test('Marco')" href="#"
-                      >Marco</a
-                    >
-                    <a class="btn btn-primary" onclick="test('Isaac')" href="#"
-                      >Isaac</a
-                    >
-                    <a
+                    <button
                       class="btn btn-primary"
-                      onclick="test('Luis André')"
-                      href="#"
-                      >Luis André</a
+                      type="button"
+                      onclick="cargarPersonero('marco')"
                     >
-                    <a class="btn btn-primary" onclick="test('Mateo')" href="#"
-                      >Mateo</a
+                      Marco
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarPersonero('isaac')"
                     >
+                      Isaac
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarPersonero('luis')"
+                    >
+                      Luis
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarPersonero('matias')"
+                    >
+                      Matias
+                    </button>
                   </div>
                 </div>
               </div>
@@ -65,7 +84,13 @@
             <div class="col-sm-6 col-lg-5 col-card">
               <div class="card">
                 <div class="card-body">
-                  <img style="width: 100%; margin-bottom: 30px" />
+                  <div id="img-right">
+                    <img
+                      src="./assets/img/tennis/store.jpg"
+                      style="width: 100%; margin-bottom: 30px"
+                      alt="Equipo"
+                    />
+                  </div>
                   <h4 class="card-title">Nike</h4>
                   <h6 class="text-muted card-subtitle mb-2">
                     Tennis para hombre
@@ -76,10 +101,34 @@
                     Donec id elit non mi porta gravida at eget metus.
                   </p>
                   <div class="d-flex justify-content-between btn-container">
-                    <a class="btn btn-primary" href="#">Negro</a>
-                    <a class="btn btn-primary" href="#">Amarillo 1</a>
-                    <a class="btn btn-primary" href="#">Amarillo 2</a>
-                    <a class="btn btn-primary" href="#">Gris</a>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarTennis('negro')"
+                    >
+                      Negro
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarTennis('amarillo')"
+                    >
+                      Amarillo
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarTennis('limon')"
+                    >
+                      Limón
+                    </button>
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      onclick="cargarTennis('gris')"
+                    >
+                      Gris
+                    </button>
                   </div>
                 </div>
               </div>

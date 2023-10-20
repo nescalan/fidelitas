@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 1 AJAX</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="ajax.js"></script>
+  </head>
+
+  <body class="container">
+    <div class="card mt-3">
+      <h3 class="card-header">Prueba de AJAX</h3>
+
+      <div class="card-body" id="img"></div>
+
+      <input id="txtCed" name="txtCed" type="text" />
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <button class="btn btn-primary" onclick="cargarApi()">Prueba</button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-primary" onclick="cargar('mañana')">
+            Mañana
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-primary" onclick="cargar('noche')">
+            Noche
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-primary" onclick="cargar('atardecer')">
+            Atardecer
+          </button>
+        </li>
+
+        <li class="list-group-item">
+          <button class="btn btn-primary" onclick="cargar('tarde')">
+            Tarde
+          </button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

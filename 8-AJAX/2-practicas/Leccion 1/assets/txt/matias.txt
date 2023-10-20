@@ -1,0 +1,1 @@
+<img src="assets/img/team/profile-4_s3fort.jpg" style="width: 100%; margin-bottom: 30px" alt="Matias"/>
