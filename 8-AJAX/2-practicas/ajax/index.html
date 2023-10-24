@@ -1,25 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>XMLHttpRequest - Práctica</title>
+    <title>pokemon</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/aos.min.css" />
+    <link rel="stylesheet" href="assets/css/Article-Cards.css" />
+    <link rel="stylesheet" href="assets/css/dh-card-image-left-dark.css" />
+    <link
+      rel="stylesheet"
+      href="assets/css/Navbar---Logo-Middle---Phone-Logo-Middle.css"
+    />
   </head>
+
   <body>
-    <div class="container mt-3">
-      <h1>Hello, world!</h1>
+    <div>
+      <img
+        id="logoimageonphone"
+        src="assets/img/Drills4You%20logo%20fini.png"
+      />
+      <nav
+        class="navbar navbar-expand-md sticky-top bg-body navbar-light"
+        style="margin: 20px 0 0 0"
+      >
+        <div class="container-fluid">
+          <button
+            data-bs-toggle="collapse"
+            data-bs-target="#navcol-3"
+            class="navbar-toggler"
+          >
+            <span class="visually-hidden">Toggle navigation</span
+            ><span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navcol-2">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item navigationitemsleft">
+                <a class="nav-link active" href="index.html">Pokémon</a>
+              </li>
+              <li class="nav-item navigationitemsleft">
+                <a class="nav-link active" href="pages/especies.html"
+                  >Especies</a
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            data-aos="fade"
+            data-aos-duration="3000"
+            id="logoimage"
+            src="assets/img/pokemon.png"
+          />
+          <div class="collapse navbar-collapse" id="navcol-3">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item navigationitemsright">
+                <a class="nav-link active" href="#">Tipos</a>
+              </li>
+              <li class="nav-item navigationitemsright">
+                <a class="nav-link active" href="#">Habilidades</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+    <section>
+      <div class="container">
+        <div class="photo-card">
+          <div
+            class="photo-background"
+            style="background-image: url('assets/img/product-aeon-feature.jpg')"
+          ></div>
+          <div class="photo-details">
+            <h1>Lorem ipsum</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+              sodales elementum mi non hendrerit. Proin tempor facilisis felis
+              nec ultrices. Duis nec ultrices neque. Proin semper ultricies
+              turpis, vel faucibus velit sodales vitae. Class aptent taciti
+              sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos.&nbsp;
+            </p>
+            <div class="photo-tags">
+              <ul>
+                <li>Item 1<a href="#">ver mais</a></li>
+                <li>Item 1<a href="#">Comprar </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/xmlhttprequest.js"></script>
   </body>
 </html>
