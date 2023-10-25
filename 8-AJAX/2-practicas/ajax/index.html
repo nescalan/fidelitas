@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <div>
+    <div class="mb-3">
       <img
         id="logoimageonphone"
         src="assets/img/Drills4You%20logo%20fini.png"
@@ -67,8 +67,21 @@
         </div>
       </nav>
     </div>
-    <section>
-      <div class="container">
+    <div class="container mb-5">
+      <h4 class="text-center mb-3">Busque su Pokémon por nombre</h4>
+      <div class="row">
+        <div class="col-md-6 d-md-flex justify-content-md-end">
+          <input type="text" id="nombre" name="nombre" autofocus="" required />
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary" id="btn-buscar" type="button">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <section>
         <div class="photo-card">
           <div
             class="photo-background"
@@ -92,11 +105,10 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/xmlhttprequest.js"></script>
   </body>
 </html>

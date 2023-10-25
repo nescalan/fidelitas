@@ -6,6 +6,8 @@ function cargarApi() {
     console.log(this.responseText);
 
     const inputElement = document.getElementById("txtCed").value;
+
+    // CONDITIONAL: Check empty input
     if (!inputElement) {
       const errorMessage = `
         <div class="alert alert-danger" role="alert">
@@ -41,6 +43,7 @@ function cargarApi() {
       document.getElementById("nombre").value = response.nombre;
       document.getElementById("moroso").value = response.situacion.moroso;
 
+      // CONDITIONAL: VAlidates if query is empty
       if (response.actividades.length === 0) {
         console.log("El arreglo está vacío");
         const actividades = "No hay datos disponibles";
