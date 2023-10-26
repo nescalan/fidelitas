@@ -1,0 +1,17 @@
+.card-image {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.pill {
+  padding: 5px 32px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.card-footer {
+  background: var(--bs-white);
+  border-style: none;
+}
+
