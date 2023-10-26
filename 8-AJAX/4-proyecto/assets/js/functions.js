@@ -1,4 +1,4 @@
-// FUNCION: Se utiliza para buscar un pokémon en la API
+// Función: Se utiliza para buscar un pokémon en la API
 const callApi = (pokemon) => {
   // Captura el "id" del mensaje de error
   const mensaje = document.getElementById("mensaje");
@@ -19,5 +19,3 @@ const callApi = (pokemon) => {
     mensaje.innerHTML = message;
   }
 };
-
-//FUNCION: Activa y detiene al Loader
