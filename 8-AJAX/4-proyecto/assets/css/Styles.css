@@ -1,3 +1,20 @@
+.header-font {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .header-font {
+    font-size: 1.9rem;
+    line-height: 2rem;
+  }
+}
+
+#mensaje {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
 .card-image {
   width: 90%;
   margin: auto;
@@ -10,8 +27,54 @@
   font-size: 11px;
 }
 
+.pill-fs {
+  font-size: 1rem;
+}
+
+.bg-1 {
+  background-color: var(--bs-info);
+}
+
+.bg-2 {
+  background-color: var(--bs-warning);
+}
+
+.bg-3 {
+  background-color: #fb7c24;
+}
+
 .card-footer {
   background: var(--bs-white);
   border-style: none;
+}
+
+.bg-card {
+  background: #30a7d7;
+}
+
+.card-span {
+  width: 155px;
+  height: 35px;
+  padding: 6px 0;
+  text-align: center;
+  display: block;
+}
+
+.d-100vh {
+  height: 60vh;
+}
+
+@media (min-width: 1200px) {
+  .d-100vh {
+    height: 65vh;
+  }
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.brand-img {
+  width: 2rem;
 }
 
