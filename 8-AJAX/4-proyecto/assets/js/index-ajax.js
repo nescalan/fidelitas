@@ -1,34 +1,44 @@
+// Espera a que el documento HTML se cargue completamente antes de ejecutar el código.
 document.addEventListener("DOMContentLoaded", function () {
-  // Captura del boton "buscar"
+  // Captura del botón "buscar" y el elemento de entrada.
   const btnBuscar = document.getElementById("btn-buscar");
   const inputElement = document.getElementById("buscar");
 
-  // Captura el momento en que pulsan la tecla "enter"
+  // Agrega un evento para detectar cuando se presiona una tecla en el elemento de entrada.
   inputElement.addEventListener("keydown", function (event) {
+    // Comprueba si la tecla presionada es "Enter" o su código es 13.
     if (event.key === "Enter" || event.keyCode === 13) {
-      let txtPokemon = document.getElementById("buscar").value;
-      txtPokemon = txtPokemon.toLowerCase();
+      // Obtiene el valor del elemento de entrada y lo convierte a minúsculas.
+      let txtPokemon = inputElement.value.toLowerCase();
 
+      // Valida el texto de entrada utilizando una función llamada validateInputText.
       const validatedInputText = validateInputText(txtPokemon);
+
+      // Limpia el valor del elemento de entrada.
       inputElement.value = "";
 
-      // CONDICIONAL:
+      // Verifica si el texto de entrada es válido antes de realizar una acción.
       if (validatedInputText) {
+        // Llama a una función llamada callApi con el texto de entrada.
         callApi(txtPokemon);
       }
     }
   });
 
-  // Captura la acción del botón buscar
+  // Agrega un evento para detectar cuando se hace clic en el botón "buscar".
   btnBuscar.addEventListener("click", function () {
-    let txtPokemon = document.getElementById("buscar").value;
-    txtPokemon = txtPokemon.toLowerCase();
+    // Obtiene el valor del elemento de entrada y lo convierte a minúsculas.
+    let txtPokemon = inputElement.value.toLowerCase();
 
+    // Valida el texto de entrada utilizando una función llamada validateInputText.
     const validatedInputText = validateInputText(txtPokemon);
+
+    // Limpia el valor del elemento de entrada.
     inputElement.value = "";
 
-    // CONDICIONAL:
+    // Verifica si el texto de entrada es válido antes de realizar una acción.
     if (validatedInputText) {
+      // Llama a una función llamada callApi con el texto de entrada.
       callApi(txtPokemon);
     }
   });
