@@ -13,7 +13,7 @@ const validateInputText = (txtPokemon) => {
     console.log("");
     const message = `
     <div class="alert alert-danger mt-3 text-center" role="alert">
-      <strong>Error!</strong> Por favor, ingresar el nombre válido de un Pokémon.
+      <strong>Error!</strong> <br /> Por favor, ingresar el nombre de un Pokémon.
     </div>`;
     mensaje.innerHTML = message;
     return false;
@@ -46,7 +46,7 @@ const callApi = (txtPokemon) => {
 
       const message = `
       <div class="alert alert-danger mt-3 text-center" role="alert">
-        <strong>Error!</strong> El nombre ingresado no existe o está mal escrito.
+        <strong>Error!</strong> <br /> El nombre ingresado no existe o está mal escrito.
       </div>`;
       mensaje.innerHTML = message;
       //   const actividades = "No hay datos disponibles";
@@ -72,6 +72,13 @@ const callApi = (txtPokemon) => {
       document.getElementById("card-image").src = pokeImagen;
       document.getElementById("pill-left").innerHTML = pokeType;
       document.getElementById("pill-right").innerHTML = pokeAbility;
+
+      // Mensaje: Pokémon encontrado
+      const message = `
+        <div class="alert alert-success mt-3 text-center" role="alert">
+            ¡La consulta se realizó <strong>correctamente!</strong>.
+        </div>`;
+      mensaje.innerHTML = message;
     } else {
       // Handle other error cases
       console.log("An error occurred:", xhttp.status);
