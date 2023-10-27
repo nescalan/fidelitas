@@ -5,8 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Captura la acción del botón buscar
   btnBuscar.addEventListener("click", function () {
     let txtPokemon = document.getElementById("buscar").value;
+    txtPokemon = txtPokemon.toLowerCase();
 
-    // Consultamos a la API
-    callApi(txtPokemon);
+    const validatedInputText = validateInputText(txtPokemon);
+
+    // CONDICIONAL:
+    if (validatedInputText) {
+      callApi(txtPokemon);
+    }
   });
 });
