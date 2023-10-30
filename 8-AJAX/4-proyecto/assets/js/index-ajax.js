@@ -1,8 +1,9 @@
 // Espera a que el documento HTML se cargue completamente antes de ejecutar el código.
 document.addEventListener("DOMContentLoaded", function () {
-  // Captura del botón "buscar" y el elemento de entrada.
+  // Cargando valores del DOM en variables
   const btnBuscar = document.getElementById("btn-buscar");
   const inputElement = document.getElementById("buscar");
+  const imgNewCard = document.getElementById("card-image");
 
   // Agrega un evento para detectar cuando se presiona una tecla en el elemento de entrada.
   inputElement.addEventListener("keydown", function (event) {
@@ -41,5 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // Llama a una función llamada callApi con el texto de entrada.
       callApi(txtPokemon);
     }
+  });
+
+  // Agrega un evento para detectar cuando queremos mostrar el detalle del Pokémon
+  imgNewCard.addEventListener("click", function () {
+    getDetail;
   });
 });

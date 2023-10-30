@@ -39,9 +39,14 @@ const callApi = (txtPokemon) => {
 
   xhttp.onload = function () {
     if (xhttp.status === 404) {
-      // Handle the "not found" condition
-      console.log("Resource not found");
+      // Cargando valores en variables
+      const secFirstCard = document.getElementById("sec-firstCard");
 
+      // Mostrar First Card
+      secFirstCard.classList.add("d-none");
+
+      //Impresion de valores por consola
+      console.log("Resource not found");
       console.log(response);
 
       const message = `
@@ -49,17 +54,20 @@ const callApi = (txtPokemon) => {
         <strong>Error!</strong> <br /> El nombre ingresado no existe o está mal escrito.
       </div>`;
       mensaje.innerHTML = message;
-      //   const actividades = "No hay datos disponibles";
-      //   document.getElementById("descripcion").value = actividades;
     } else if (xhttp.status >= 200 && xhttp.status < 300) {
-      // Handle a successful response
+      // Cargando valores en variables
       var response = JSON.parse(xhttp.responseText);
+      const secFirstCard = document.getElementById("sec-firstCard");
+
+      // Mostrar First Card
+      secFirstCard.classList.remove("d-none");
+
+      //Impresion de valores por consola
       console.log("Data:", response);
-
       console.log("El arreglo no está vacío");
-
       console.log(response);
       console.log(response.forms[0].name);
+
       const pokeNombre = capitalizeFirstLetter(response.forms[0].name);
       const pokeImagen = response.sprites.other.dream_world.front_default;
       const pokeType = capitalizeFirstLetter(response.types[0].type.name);
@@ -76,7 +84,7 @@ const callApi = (txtPokemon) => {
       // Mensaje: Pokémon encontrado
       const message = `
         <div class="alert alert-success mt-3 text-center" role="alert">
-            ¡La consulta se realizó <strong>correctamente!</strong>.
+        ¡La consulta se realizó <strong>correctamente!</strong>.
         </div>`;
       mensaje.innerHTML = message;
     } else {
@@ -91,6 +99,24 @@ const callApi = (txtPokemon) => {
   };
 
   xhttp.send();
+};
+
+// FUNCION: Muestra el detalle del Pokemón seleccionado
+const getDetail = () => {
+  console.log("Imagen pulsada");
+  // Cargando valores del DOM en variables
+  const secFirstCard = document.getElementById("sec-firstCard");
+  const secSecondCard = document.getElementById("sec-secondCard");
+  const pokemonName = document.getElementById("pokemon-name");
+
+  // Oculta First Card
+  secFirstCard.classList.add("d-none");
+  // Muestra Second Card
+  secSecondCard.classList.remove("d-none");
+
+  // Cargamos los datos en la tarjeta de los pokémon
+  pokemonName.innerHTML = pokeNombre;
+  document.getElementById("pokemon-name").src = pokeImagen;
 };
 
 //FUNCION: Activa y detiene al Loader

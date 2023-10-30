@@ -82,7 +82,7 @@
       <!-- End: Navbar -->
     </header>
     <main class="mb-5 d-100vh">
-      <!-- Start: Newsletter Subscription Centered -->
+      <!-- Start: Pokémon Search -->
       <section class="newsletter-subscribe py-4 py-xl-5">
         <div class="container">
           <div class="row mb-2">
@@ -124,10 +124,9 @@
           <div id="mensaje" class="message"></div>
         </div>
       </section>
-      <!-- End: Newsletter Subscription Centered -->
 
       <!-- Start: First Card -->
-      <section>
+      <section id="sec-firstCard" class="d-none">
         <!-- Start: Pokemon Card -->
         <div class="container">
           <div class="row">
@@ -138,11 +137,12 @@
                 <!-- Start: Card Header -->
                 <div class="col card-header" id="card-header">
                   <img
-                    data-bss-hover-animate="rubberBand"
                     id="card-image"
+                    data-bss-hover-animate="rubberBand"
                     class="card-image"
                     src="assets/img/pokeball.png"
                     loading="lazy"
+                    onclick="getDetail()"
                   />
                 </div>
                 <!-- End: Card Header -->
@@ -176,10 +176,9 @@
         </div>
         <!-- End: Pokemon Card -->
       </section>
-      <!-- End: First Card -->
 
       <!-- Start: Second Card -->
-      <section>
+      <section id="sec-secondCard" class="d-none">
         <div class="container">
           <div class="row">
             <!-- Start: Detailed Card -->
@@ -284,8 +283,9 @@
                                 <path
                                   fill-rule="evenodd"
                                   d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
-                                ></path></svg
-                              ><svg
+                                ></path>
+                              </svg>
+                              <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="1em"
                                 height="1em"
