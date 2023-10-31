@@ -1,3 +1,24 @@
+// Captura el "id" en el DOM del mensaje de error
+const mensaje = document.getElementById("mensaje");
+
+//FUNCION: Activa y detiene al Loader
+const spinner = (action) => {
+  // Cargando valores del DOM en variables
+  const spinner = document.getElementById("spinner");
+
+  console.log(action);
+
+  switch (action) {
+    case "on":
+      spinner.classList.add("spinner-border");
+      break;
+
+    case "off":
+      spinner.classList.remove("spinner-border");
+      break;
+  }
+};
+
 // FUNCION: Recibe un string y devuelve una nueva cadena con la primera letra en mayúscula
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -5,12 +26,9 @@ function capitalizeFirstLetter(string) {
 
 // FUNCION: Valida si el texto ingresado está vacío
 const validateInputText = (txtPokemon) => {
-  // Captura el "id" del mensaje de error
-  const mensaje = document.getElementById("mensaje");
-
   // CONDICIONAL: Revisamos si la consulta está vacia
   if (!txtPokemon) {
-    console.log("");
+    // MENSAJE: Consulta con error
     const message = `
     <div class="alert alert-danger mt-3 text-center" role="alert">
       <strong>Error!</strong> <br /> Por favor, ingresar el nombre de un Pokémon.
@@ -18,6 +36,7 @@ const validateInputText = (txtPokemon) => {
     mensaje.innerHTML = message;
     return false;
   } else {
+    // MENSAJE: Consulta exitosa
     const message = `
     <div class="alert alert-success mt-3 text-center" role="alert">
     ¡La consulta se realizó <strong>correctamente!</strong>.
@@ -27,9 +46,32 @@ const validateInputText = (txtPokemon) => {
   }
 };
 
+// FUNCION: Esta función se ocupará de obtener los datos de la API de Pokémon
+const obtenerDatosApi = () => {
+  // Cargando valores de DOM en variables
+  const inputElement = document.getElementById("buscar");
+
+  // Obtiene el valor del elemento de entrada y lo convierte a minúsculas.
+  let txtPokemon = inputElement.value.toLowerCase();
+
+  // Valida el texto de entrada utilizando una función llamada validateInputText.
+  const validatedInputText = validateInputText(txtPokemon);
+  console.log(validatedInputText);
+
+  // Limpia el valor del elemento de entrada.
+  inputElement.value = "";
+
+  // Verifica si el texto de entrada es válido antes de realizar una acción.
+  if (validatedInputText) {
+    // Llama a una función llamada callApi con el texto de entrada y activa el spinner.
+    spinner("on");
+    callApi(txtPokemon);
+  }
+};
+
 // FUNCION: Se utiliza para buscar un pokémon en la API
 const callApi = (txtPokemon) => {
-  // Cargando valores en variables
+  // Cargando valores del DOM en variables
   const URL = `https://pokeapi.co/api/v2/pokemon/${txtPokemon}`;
   const xhttp = new XMLHttpRequest();
   let response;
@@ -50,11 +92,15 @@ const callApi = (txtPokemon) => {
       console.log("Resource not found");
       console.log(response);
 
+      // MENSAJE: Consulta con error
       const message = `
       <div class="alert alert-danger mt-3 text-center" role="alert">
         <strong>Error!</strong> <br /> El nombre ingresado no existe o está mal escrito.
       </div>`;
       mensaje.innerHTML = message;
+
+      // Apaga el spinner
+      spinner("off");
     } else if (xhttp.status >= 200 && xhttp.status < 300) {
       // Cargando valores en variables
       var response = JSON.parse(xhttp.responseText);
@@ -82,12 +128,15 @@ const callApi = (txtPokemon) => {
       document.getElementById("pill-left").innerHTML = pokeType;
       document.getElementById("pill-right").innerHTML = pokeAbility;
 
-      // Mensaje: Pokémon encontrado
+      // MENSAJE: Consulta exitosa
       const message = `
         <div class="alert alert-success mt-3 text-center" role="alert">
         ¡La consulta se realizó <strong>correctamente!</strong>.
         </div>`;
       mensaje.innerHTML = message;
+
+      // Apaga el spinner
+      spinner("off");
     } else {
       // Handle other error cases
       console.log("An error occurred:", xhttp.status);
@@ -104,6 +153,12 @@ const callApi = (txtPokemon) => {
 
 // FUNCION: Muestra el detalle del Pokemón seleccionado
 const getDetail = () => {
+  // MENSAJE: Limpia el mensaje
+  const message = `
+    <div >
+      
+    </div>`;
+  mensaje.innerHTML = message;
   console.log("Imagen pulsada");
   // Cargando valores del DOM en variables
   const secFirstCard = document.getElementById("sec-firstCard");
@@ -118,10 +173,4 @@ const getDetail = () => {
   // Cargamos los datos en la tarjeta de los pokémon
   pokemonName.innerHTML = pokeNombre;
   document.getElementById("pokemon-name").src = pokeImagen;
-};
-
-//FUNCION: Activa y detiene al Loader
-const loader = (action) => {
-  if (action == "active") {
-  }
 };
