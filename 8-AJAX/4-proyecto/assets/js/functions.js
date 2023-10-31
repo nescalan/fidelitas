@@ -29,6 +29,7 @@ const validateInputText = (txtPokemon) => {
 
 // FUNCION: Se utiliza para buscar un pokémon en la API
 const callApi = (txtPokemon) => {
+  // Cargando valores en variables
   const URL = `https://pokeapi.co/api/v2/pokemon/${txtPokemon}`;
   const xhttp = new XMLHttpRequest();
   let response;
@@ -120,4 +121,7 @@ const getDetail = () => {
 };
 
 //FUNCION: Activa y detiene al Loader
-const loader = () => {};
+const loader = (action) => {
+  if (action == "active") {
+  }
+};

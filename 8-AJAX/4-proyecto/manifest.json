@@ -1,1 +1,17 @@
-{"short_name":"Rotom","name":"Rotom enciclopedia Pokémon","icons":[{"src":"/assets/img/pokeball.png","type":"image/png","sizes":"512x512"},{"src":"/assets/img/pokeball.png","type":"image/png","sizes":"512x512"}],"display":"fullscreen"}
+{
+  "short_name": "Rotom",
+  "name": "Rotom enciclopedia Pokémon",
+  "icons": [
+    {
+      "src": "/assets/img/pokeball.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/assets/img/pokeball.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "fullscreen"
+}
