@@ -108,7 +108,6 @@
                 placeholder="Ingresar nombre"
                 autofocus=""
                 maxlength="20"
-                title="Ingrese el nombre del Pokémon que desea buscar"
               />
             </div>
             <div class="mb-3">
@@ -122,6 +121,11 @@
             </div>
           </div>
           <div id="mensaje" class="message"></div>
+          <div class="d-flex justify-content-center">
+            <div id="spinner" class="" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -175,7 +179,7 @@
           </div>
         </div>
         <!-- End: Pokemon Card -->
-      </section>
+      </section mb-5>
 
       <!-- Start: Second Card -->
       <section id="sec-secondCard" class="d-none">
@@ -338,8 +342,10 @@
             <!-- End: Detailed Card -->
           </div>
         </div>
-      </section>
+      </section mb-5>
       <!-- End: Second Card -->
+
+      <footer></footer>
     </main>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
