@@ -1,5 +1,6 @@
 // VARIABLES: Declaración de variables
 let pokeNombre, pokeImagen, pokeId, pokeType, pokeAbility;
+let response = null;
 
 //FUNCION: Activa y detiene al Loader
 const spinner = (action) => {
@@ -69,11 +70,9 @@ const callApi = (txtPokemon) => {
   // Cargando valores del DOM en variables
   const URL = `https://pokeapi.co/api/v2/pokemon/${txtPokemon}`;
   const xhttp = new XMLHttpRequest();
-  let response;
-
-  xhttp.open("GET", URL);
 
   // Preparamos los datos para realizar la consulta a la API
+  xhttp.open("GET", URL);
 
   xhttp.onload = function () {
     if (xhttp.status === 404) {
@@ -82,7 +81,7 @@ const callApi = (txtPokemon) => {
       handleApiError(message);
     } else if (xhttp.status >= 200 && xhttp.status < 300) {
       // Cargando valores en variables
-      var response = JSON.parse(xhttp.responseText);
+      response = JSON.parse(xhttp.responseText);
       const secFirstCard = document.getElementById("sec-firstCard");
 
       // CONDICIONAL: Comprueba si el contenido interno del elemento 'mensaje' está vacío.
@@ -93,9 +92,9 @@ const callApi = (txtPokemon) => {
       // Mostrar First Card
       secFirstCard.classList.remove("d-none");
 
-      //Impresion de valores por consola
-      console.log("API Data:", response);
-      console.log(response.forms[0].name);
+      //Impresion de valores por consola *****************
+      // console.log("API Data:", response);
+      // console.log(response.forms[0].name);
 
       // Asignamos los datos obtenidos del JSON al DOM
       pokeImagen = response.sprites.other.dream_world.front_default;
@@ -148,10 +147,13 @@ const handleApiError = (message) => {
 
 // FUNCION: Muestra el detalle del Pokemón seleccionado
 const getDetail = () => {
+  // Cargando valores del DOM en variables
+  const card = document.getElementById("stats-titles");
+
   // MENSAJE: Limpia el mensaje
   const message = `<div ></div>`;
   mensaje.innerHTML = message;
-  console.log("Imagen pulsada");
+  // console.log("Imagen pulsada"); *********************
 
   // Oculta First Card
   document.getElementById("sec-firstCard").classList.add("d-none");
@@ -159,14 +161,44 @@ const getDetail = () => {
   // Muestra Second Card
   document.getElementById("sec-secondCard").classList.remove("d-none");
 
+  // Asignamos los datos obtenidos del JSON al DOM
+  // statusHp = response.sprites.other.dream_world.front_default;
+  // pokeNombre = capitalizeFirstLetter(response.name);
+  // stats[0].stat.name
+  // stats
+
   // Cargamos los datos en la tarjeta de los pokémon Left-Column
   document.getElementById("pokemon-name").innerHTML = pokeNombre;
   document.getElementById("img-left-col").src = pokeImagen;
 
-  document.getElementById("card-title").innerHTML = pokeNombre;
-  document.getElementById("card-subtitle").innerHTML = pokeId;
-  document.getElementById("pill-left").innerHTML = pokeType;
-  document.getElementById("pill-right").innerHTML = pokeAbility;
+  //Impresion de valores por consola ***********
+  console.log("API Data:", response);
+  console.log(response.forms[0].name);
+  // console.log(response.stats.length);
 
-  document.getElementById("pokemon-name").src = pokeImagen;
+  for (let i = 0; i < response.stats.length; i++) {
+    let tarjeta = document.createElement("div");
+    tarjeta.className = "col-sm-2 text-center"; // Agregar una clase para aplicar estilos a la tarjeta
+
+    console.log(response.stats[i].stat.name);
+    console.log(response.stats[i].base_stat);
+
+    tarjeta.innerHTML = `
+    <span id="stats-hp" >
+    <strong clas="fs-48 text-white">${response.stats[i].base_stat}</strong>
+    <br/>
+    <strong class="fs-12">${response.stats[i].stat.name}</strong>
+    </span>
+    
+    `;
+    card.innerHTML = "";
+    card.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
+  }
+
+  // document.getElementById("stats-hp").innerHTML = pokeNombre;
+  // document.getElementById("card-subtitle").innerHTML = pokeId;
+  // document.getElementById("pill-left").innerHTML = pokeType;
+  // document.getElementById("pill-right").innerHTML = pokeAbility;
+
+  // document.getElementById("pokemon-name").src = pokeImagen;
 };
