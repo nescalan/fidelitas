@@ -1,6 +1,3 @@
-// Captura el "id" en el DOM del mensaje de error
-const mensaje = document.getElementById("mensaje");
-
 //FUNCION: Activa y detiene al Loader
 const spinner = (action) => {
   // Cargando valores del DOM en variables
@@ -80,29 +77,18 @@ const callApi = (txtPokemon) => {
 
   xhttp.onload = function () {
     if (xhttp.status === 404) {
-      // Cargando valores en variables
-      const secFirstCard = document.getElementById("sec-firstCard");
-
-      // Mostrar First Card
-      secFirstCard.classList.add("d-none");
-
-      //Impresion de valores por consola
-      console.log("Resource not found");
-      console.log(response);
-
-      // MENSAJE: Consulta con error
-      const message = `
-      <div class="alert alert-danger mt-3 text-center" role="alert">
-        <strong>Error!</strong> <br /> El nombre ingresado no existe o está mal escrito.
-      </div>`;
-      mensaje.innerHTML = message;
-
-      // Apaga el spinner
-      spinner("off");
+      // Prepara el mensaje de error
+      const message = "El nombre ingresado no existe o está mal escrito.";
+      handleApiError(message);
     } else if (xhttp.status >= 200 && xhttp.status < 300) {
       // Cargando valores en variables
       var response = JSON.parse(xhttp.responseText);
       const secFirstCard = document.getElementById("sec-firstCard");
+
+      // CONDICIONAL: Comprueba si el contenido interno del elemento 'mensaje' está vacío.
+      if (mensaje.innerHTML.trim() !== "") {
+        mensaje.innerHTML = "";
+      }
 
       // Mostrar First Card
       secFirstCard.classList.remove("d-none");
@@ -143,6 +129,28 @@ const callApi = (txtPokemon) => {
   };
 
   xhttp.send();
+};
+
+// FUNCION: Muestra mensaje de error cuando no encuentra un pokemon
+const handleApiError = (message) => {
+  // Captura el "id" en el DOM del mensaje de error
+  const mensaje = document.getElementById("mensaje");
+
+  // Cargando valores en variables
+  const secFirstCard = document.getElementById("sec-firstCard");
+
+  // Mostrar First Card
+  secFirstCard.classList.add("d-none");
+
+  // MENSAJE: Consulta con error
+  const errorMessage = `
+      <div class="alert alert-danger mt-3 text-center" role="alert">
+        <strong>Error!</strong> <br /> ${message}
+      </div>`;
+  mensaje.innerHTML = errorMessage;
+
+  // Apaga el spinner
+  spinner("off");
 };
 
 // FUNCION: Muestra el detalle del Pokemón seleccionado
