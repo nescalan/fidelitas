@@ -36,12 +36,6 @@ const validateInputText = (txtPokemon) => {
     mensaje.innerHTML = message;
     return false;
   } else {
-    // MENSAJE: Consulta exitosa
-    const message = `
-    <div class="alert alert-success mt-3 text-center" role="alert">
-    ¡La consulta se realizó <strong>correctamente!</strong>.
-    </div>`;
-    mensaje.innerHTML = message;
     return true;
   }
 };
@@ -50,6 +44,7 @@ const validateInputText = (txtPokemon) => {
 const obtenerDatosApi = () => {
   // Cargando valores de DOM en variables
   const inputElement = document.getElementById("buscar");
+  const secSecondCard = document.getElementById("sec-secondCard");
 
   // Obtiene el valor del elemento de entrada y lo convierte a minúsculas.
   let txtPokemon = inputElement.value.toLowerCase();
@@ -60,6 +55,9 @@ const obtenerDatosApi = () => {
 
   // Limpia el valor del elemento de entrada.
   inputElement.value = "";
+
+  // Oculta Second Card
+  secSecondCard.classList.add("d-none");
 
   // Verifica si el texto de entrada es válido antes de realizar una acción.
   if (validatedInputText) {
@@ -128,13 +126,6 @@ const callApi = (txtPokemon) => {
       document.getElementById("pill-left").innerHTML = pokeType;
       document.getElementById("pill-right").innerHTML = pokeAbility;
 
-      // MENSAJE: Consulta exitosa
-      const message = `
-        <div class="alert alert-success mt-3 text-center" role="alert">
-        ¡La consulta se realizó <strong>correctamente!</strong>.
-        </div>`;
-      mensaje.innerHTML = message;
-
       // Apaga el spinner
       spinner("off");
     } else {
@@ -154,12 +145,10 @@ const callApi = (txtPokemon) => {
 // FUNCION: Muestra el detalle del Pokemón seleccionado
 const getDetail = () => {
   // MENSAJE: Limpia el mensaje
-  const message = `
-    <div >
-      
-    </div>`;
+  const message = `<div ></div>`;
   mensaje.innerHTML = message;
   console.log("Imagen pulsada");
+
   // Cargando valores del DOM en variables
   const secFirstCard = document.getElementById("sec-firstCard");
   const secSecondCard = document.getElementById("sec-secondCard");
