@@ -153,22 +153,17 @@ const getDetail = () => {
   mensaje.innerHTML = message;
   console.log("Imagen pulsada");
 
-  // Cargando valores del DOM en variables
-  const secFirstCard = document.getElementById("sec-firstCard");
-  const secSecondCard = document.getElementById("sec-secondCard");
-  const pokemonName = document.getElementById("pokemon-name");
-  const pokemonImage = document.getElementById("");
-
   // Oculta First Card
-  secFirstCard.classList.add("d-none");
-  // Muestra Second Card
-  secSecondCard.classList.remove("d-none");
+  document.getElementById("sec-firstCard").classList.add("d-none");
 
-  // Cargamos los datos en la tarjeta de los pokémon
-  pokemonName.innerHTML = pokeNombre;
+  // Muestra Second Card
+  document.getElementById("sec-secondCard").classList.remove("d-none");
+
+  // Cargamos los datos en la tarjeta de los pokémon Left-Column
+  document.getElementById("pokemon-name").innerHTML = pokeNombre;
+  document.getElementById("img-left-col").src = pokeImagen;
 
   document.getElementById("card-title").innerHTML = pokeNombre;
-  document.getElementById("img-left-col").src = pokeImagen;
   document.getElementById("card-subtitle").innerHTML = pokeId;
   document.getElementById("pill-left").innerHTML = pokeType;
   document.getElementById("pill-right").innerHTML = pokeAbility;

@@ -15,6 +15,10 @@
   margin: 0 auto;
 }
 
+.card-center {
+  margin: 0 auto;
+}
+
 .card-image {
   width: 90%;
   margin: auto;
@@ -70,11 +74,13 @@
   }
 }
 
+.fs-12 {
+  font-size: 0.75rem;
+}
 .fs-14 {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .brand-img {
   width: 2rem;
 }
-
