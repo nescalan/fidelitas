@@ -1,9 +1,10 @@
+// VARIABLES: Declaración de variables
+let pokeNombre, pokeImagen, pokeId, pokeType, pokeAbility;
+
 //FUNCION: Activa y detiene al Loader
 const spinner = (action) => {
   // Cargando valores del DOM en variables
   const spinner = document.getElementById("spinner");
-
-  console.log(action);
 
   switch (action) {
     case "on":
@@ -48,7 +49,6 @@ const obtenerDatosApi = () => {
 
   // Valida el texto de entrada utilizando una función llamada validateInputText.
   const validatedInputText = validateInputText(txtPokemon);
-  console.log(validatedInputText);
 
   // Limpia el valor del elemento de entrada.
   inputElement.value = "";
@@ -94,19 +94,15 @@ const callApi = (txtPokemon) => {
       secFirstCard.classList.remove("d-none");
 
       //Impresion de valores por consola
-      console.log("Data:", response);
-      console.log("El arreglo no está vacío");
-      console.log(response);
+      console.log("API Data:", response);
       console.log(response.forms[0].name);
 
       // Asignamos los datos obtenidos del JSON al DOM
-      const pokeImagen = response.sprites.other.dream_world.front_default;
-      const pokeNombre = capitalizeFirstLetter(response.name);
-      const pokeId = response.id;
-      const pokeType = capitalizeFirstLetter(response.types[0].type.name);
-      const pokeAbility = capitalizeFirstLetter(
-        response.abilities[0].ability.name
-      );
+      pokeImagen = response.sprites.other.dream_world.front_default;
+      pokeNombre = capitalizeFirstLetter(response.name);
+      pokeId = response.id;
+      pokeType = capitalizeFirstLetter(response.types[0].type.name);
+      pokeAbility = capitalizeFirstLetter(response.abilities[0].ability.name);
 
       // Cargamos los datos en la tarjeta de los pokémon
       document.getElementById("card-image").src = pokeImagen;
@@ -117,9 +113,6 @@ const callApi = (txtPokemon) => {
 
       // Apaga el spinner
       spinner("off");
-    } else {
-      // Handle other error cases
-      console.log("An error occurred:", xhttp.status);
     }
   };
 
@@ -164,6 +157,7 @@ const getDetail = () => {
   const secFirstCard = document.getElementById("sec-firstCard");
   const secSecondCard = document.getElementById("sec-secondCard");
   const pokemonName = document.getElementById("pokemon-name");
+  const pokemonImage = document.getElementById("");
 
   // Oculta First Card
   secFirstCard.classList.add("d-none");
@@ -172,5 +166,12 @@ const getDetail = () => {
 
   // Cargamos los datos en la tarjeta de los pokémon
   pokemonName.innerHTML = pokeNombre;
+
+  document.getElementById("card-title").innerHTML = pokeNombre;
+  document.getElementById("img-left-col").src = pokeImagen;
+  document.getElementById("card-subtitle").innerHTML = pokeId;
+  document.getElementById("pill-left").innerHTML = pokeType;
+  document.getElementById("pill-right").innerHTML = pokeAbility;
+
   document.getElementById("pokemon-name").src = pokeImagen;
 };
