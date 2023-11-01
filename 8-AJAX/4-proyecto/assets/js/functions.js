@@ -116,15 +116,16 @@ const callApi = (txtPokemon) => {
       // Asignamos los datos obtenidos del JSON al DOM
       const pokeImagen = response.sprites.other.dream_world.front_default;
       const pokeNombre = capitalizeFirstLetter(response.name);
+      const pokeId = response.id;
       const pokeType = capitalizeFirstLetter(response.types[0].type.name);
       const pokeAbility = capitalizeFirstLetter(
-        response.abilities[1].ability.name
+        response.abilities[0].ability.name
       );
 
       // Cargamos los datos en la tarjeta de los pokémon
       document.getElementById("card-image").src = pokeImagen;
       document.getElementById("card-title").innerHTML = pokeNombre;
-      document.getElementById("card-subtitle").innerHTML = pokeNombre;
+      document.getElementById("card-subtitle").innerHTML = pokeId;
       document.getElementById("pill-left").innerHTML = pokeType;
       document.getElementById("pill-right").innerHTML = pokeAbility;
 
