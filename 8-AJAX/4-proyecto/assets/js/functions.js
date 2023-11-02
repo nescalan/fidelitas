@@ -149,6 +149,7 @@ const handleApiError = (message) => {
 const getDetail = () => {
   // Cargando valores del DOM en variables
   const card = document.getElementById("stats-titles");
+  card.innerHTML = "";
 
   // MENSAJE: Limpia el mensaje
   const message = `<div ></div>`;
@@ -161,12 +162,6 @@ const getDetail = () => {
   // Muestra Second Card
   document.getElementById("sec-secondCard").classList.remove("d-none");
 
-  // Asignamos los datos obtenidos del JSON al DOM
-  // statusHp = response.sprites.other.dream_world.front_default;
-  // pokeNombre = capitalizeFirstLetter(response.name);
-  // stats[0].stat.name
-  // stats
-
   // Cargamos los datos en la tarjeta de los pokémon Left-Column
   document.getElementById("pokemon-name").innerHTML = pokeNombre;
   document.getElementById("img-left-col").src = pokeImagen;
@@ -176,9 +171,10 @@ const getDetail = () => {
   console.log(response.forms[0].name);
   // console.log(response.stats.length);
 
+  // Asignamos las estadísticas obtenidas del JSON al DOM
   for (let i = 0; i < response.stats.length; i++) {
     let tarjeta = document.createElement("div");
-    tarjeta.className = "col-sm-2 text-center"; // Agregar una clase para aplicar estilos a la tarjeta
+    tarjeta.className = "col text-center"; // Agregar una clase para aplicar estilos a la tarjeta
 
     console.log(response.stats[i].stat.name);
     console.log(response.stats[i].base_stat);
@@ -191,7 +187,6 @@ const getDetail = () => {
     </span>
     
     `;
-    card.innerHTML = "";
     card.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
   }
 
