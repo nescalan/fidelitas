@@ -1,5 +1,6 @@
 // VARIABLES: Declaración de variables
 let pokeNombre, pokeImagen, pokeId, pokeType, pokeAbility;
+let height, weight, category, abilities;
 let response = null;
 
 //FUNCION: Activa y detiene al Loader
@@ -92,16 +93,14 @@ const callApi = (txtPokemon) => {
       // Mostrar First Card
       secFirstCard.classList.remove("d-none");
 
-      //Impresion de valores por consola *****************
-      // console.log("API Data:", response);
-      // console.log(response.forms[0].name);
-
       // Asignamos los datos obtenidos del JSON al DOM
       pokeImagen = response.sprites.other.dream_world.front_default;
       pokeNombre = capitalizeFirstLetter(response.name);
       pokeId = response.id;
       pokeType = capitalizeFirstLetter(response.types[0].type.name);
       pokeAbility = capitalizeFirstLetter(response.abilities[0].ability.name);
+      height = response.height;
+      weight = response.weight;
 
       // Cargamos los datos en la tarjeta de los pokémon
       document.getElementById("card-image").src = pokeImagen;
@@ -147,14 +146,9 @@ const handleApiError = (message) => {
 
 // FUNCION: Muestra el detalle del Pokemón seleccionado
 const getDetail = () => {
-  // Cargando valores del DOM en variables
-  const card = document.getElementById("stats-titles");
-  card.innerHTML = "";
-
   // MENSAJE: Limpia el mensaje
   const message = `<div ></div>`;
   mensaje.innerHTML = message;
-  // console.log("Imagen pulsada"); *********************
 
   // Oculta First Card
   document.getElementById("sec-firstCard").classList.add("d-none");
@@ -162,16 +156,30 @@ const getDetail = () => {
   // Muestra Second Card
   document.getElementById("sec-secondCard").classList.remove("d-none");
 
-  // Cargamos los datos en la tarjeta de los pokémon Left-Column
-  document.getElementById("pokemon-name").innerHTML = pokeNombre;
-  document.getElementById("img-left-col").src = pokeImagen;
-
   //Impresion de valores por consola ***********
   console.log("API Data:", response);
   console.log(response.forms[0].name);
   // console.log(response.stats.length);
 
-  // Asignamos las estadísticas obtenidas del JSON al DOM
+  // Asignamos los valores obtenidos del JSON al DOM
+  assignImageToDom();
+  assignStatsToDOM();
+  assignDescriptionToDOM();
+  assignAbilitiesToDOM();
+};
+
+// FUNCION: Asigna imágen en la tarjeta de los Pokémon Left-Column
+const assignImageToDom = () => {
+  document.getElementById("pokemon-name").innerHTML = pokeNombre;
+  document.getElementById("img-left-col").src = pokeImagen;
+};
+
+// FUNCION: Asigna las estadísticas a la tarjeta del Pokémon
+const assignStatsToDOM = () => {
+  // Cargando valores del DOM en variables
+  const cardStats = document.getElementById("stats-titles");
+  cardStats.innerHTML = "";
+
   for (let i = 0; i < response.stats.length; i++) {
     let tarjeta = document.createElement("div");
     tarjeta.className = "col text-center"; // Agregar una clase para aplicar estilos a la tarjeta
@@ -181,19 +189,42 @@ const getDetail = () => {
 
     tarjeta.innerHTML = `
     <span id="stats-hp" >
-    <strong clas="fs-48 text-white">${response.stats[i].base_stat}</strong>
-    <br/>
-    <strong class="fs-12">${response.stats[i].stat.name}</strong>
-    </span>
-    
+      <strong clas="fs-48 text-white">${response.stats[i].base_stat}</strong>
+      <br/>
+      <strong class="fs-12">${response.stats[i].stat.name}</strong>
+    </span>    
     `;
-    card.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
+    cardStats.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
   }
+};
+// FUNCION: Asigna las estadísticas a la tarjeta del Pokémon
+const assignDescriptionToDOM = () => {
+  // Cargando valores del DOM en variables
+  document.getElementById("desc-height").innerHTML = height;
+  document.getElementById("desc-wight").innerHTML = weight;
+  document.getElementById("desc-category").innerHTML = category;
+};
 
-  // document.getElementById("stats-hp").innerHTML = pokeNombre;
-  // document.getElementById("card-subtitle").innerHTML = pokeId;
-  // document.getElementById("pill-left").innerHTML = pokeType;
-  // document.getElementById("pill-right").innerHTML = pokeAbility;
+// FUNCION: Asigna las estadísticas a la tarjeta del Pokémon
+const assignAbilitiesToDOM = () => {
+  // Cargando valores del DOM en variables
+  const abilites = document.getElementById("desc-abilities");
+  abilites.innerHTML = "";
 
-  // document.getElementById("pokemon-name").src = pokeImagen;
+  for (let i = 0; i < response.abilities.length; i++) {
+    let tarjeta = document.createElement("strong");
+    // tarjeta.className = "col text-center"; // Agregar una clase para aplicar estilos a la tarjeta
+
+    console.log("Abilities:");
+    console.log(response.abilities[i].ability.name);
+
+    // tarjeta.innerHTML = `
+    // <span id="stats-hp" >
+    //   <strong clas="fs-48 text-white">${response.stats[i].base_stat}</strong>
+    //   <br/>
+    //   <strong class="fs-12">${response.stats[i].stat.name}</strong>
+    // </span>
+    // `;
+    // abilites.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
+  }
 };
