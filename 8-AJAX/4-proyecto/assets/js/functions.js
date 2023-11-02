@@ -1,6 +1,6 @@
 // VARIABLES: Declaración de variables
 let pokeNombre, pokeImagen, pokeId, pokeType, pokeAbility;
-let height, weight, category, abilities;
+let height, weight, category, abilities, experience;
 let response = null;
 
 //FUNCION: Activa y detiene al Loader
@@ -101,6 +101,7 @@ const callApi = (txtPokemon) => {
       pokeAbility = capitalizeFirstLetter(response.abilities[0].ability.name);
       height = response.height;
       weight = response.weight;
+      experience = response.base_experience;
 
       // Cargamos los datos en la tarjeta de los pokémon
       document.getElementById("card-image").src = pokeImagen;
@@ -197,34 +198,38 @@ const assignStatsToDOM = () => {
     cardStats.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
   }
 };
-// FUNCION: Asigna las estadísticas a la tarjeta del Pokémon
+// FUNCION: Asigna la descripcion a la tarjeta del Pokémon 'Altura, Peso y Categoraia'
 const assignDescriptionToDOM = () => {
   // Cargando valores del DOM en variables
   document.getElementById("desc-height").innerHTML = height;
   document.getElementById("desc-wight").innerHTML = weight;
-  document.getElementById("desc-category").innerHTML = category;
+  document.getElementById("desc-experience").innerHTML = experience;
 };
 
 // FUNCION: Asigna las estadísticas a la tarjeta del Pokémon
 const assignAbilitiesToDOM = () => {
+  let abilitiesFromApi = "";
   // Cargando valores del DOM en variables
   const abilites = document.getElementById("desc-abilities");
   abilites.innerHTML = "";
 
   for (let i = 0; i < response.abilities.length; i++) {
-    let tarjeta = document.createElement("strong");
-    // tarjeta.className = "col text-center"; // Agregar una clase para aplicar estilos a la tarjeta
-
-    console.log("Abilities:");
-    console.log(response.abilities[i].ability.name);
-
-    // tarjeta.innerHTML = `
-    // <span id="stats-hp" >
-    //   <strong clas="fs-48 text-white">${response.stats[i].base_stat}</strong>
-    //   <br/>
-    //   <strong class="fs-12">${response.stats[i].stat.name}</strong>
-    // </span>
-    // `;
-    // abilites.appendChild(tarjeta); // Usar "tarjeta" en lugar de "elemento"
+    abilitiesFromApi += response.abilities[i].ability.name;
+    // Agregar una coma si no es el último elemento
+    if (i < response.abilities.length - 1) {
+      abilitiesFromApi += ", ";
+    }
   }
+
+  // Declaración de variables
+  const tarjeta = document.createElement("div");
+
+  tarjeta.innerHTML = `
+    <span class="fs-5">${abilitiesFromApi}</span>
+    `;
+  abilites.appendChild(tarjeta);
+
+  // Imprimir el resultado final fuera del bucle
+  console.log("Abilities:");
+  console.log(abilitiesFromApi);
 };
