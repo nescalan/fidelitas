@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Clase 6</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
+</head>
+
+<body class="container">
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="id">Id:</label>
+                    <input type="number" class="form-control" placeholder="Ingrese un id" id="id">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="Ingrese un nombre" id="nombre">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="correo">Correo:</label>
+                    <input type="text" class="form-control" placeholder="Ingrese un correo" id="correo">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="telefono">Teléfono:</label>
+                    <input type="number" class="form-control" placeholder="Ingrese un número de teléfono" id="telefono">
+                </div>
+            </div>
+        </div>
+
+        <button id="crear" class="btn btn-info mt-3">Crear</button>
+    </div>
+
+    <p id="resultado" class="text-info"></p>
+
+</body>
+
+</html>
