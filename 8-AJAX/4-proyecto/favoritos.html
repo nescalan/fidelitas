@@ -78,15 +78,21 @@
     </header>
     <section class="newsletter-subscribe py-4 py-xl-5">
       <div class="container">
+        <!-- LOADER -->
+        <div class="d-flex justify-content-center">
+          <div id="spinner" class="" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
         <table class="table text-center">
           <thead>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Ability</th>
-              <th scope="col">Atack</th>
-              <th scope="col">Speed</th>
+              <th id="tbl-id" scope="col">Id</th>
+              <th id="tbl-name" scope="col">Name</th>
+              <th id="tbl-type" scope="col">Type</th>
+              <th id="tbl-ability" scope="col">Ability</th>
+              <th id="tbl-attack" scope="col">Attack</th>
+              <th id="tbl-speed" scope="col">Speed</th>
             </tr>
           </thead>
           <tbody>
@@ -105,6 +111,7 @@
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/functions.js"></script>
     <script src="assets/js/favoritos-ajax.js"></script>
   </body>
 </html>
