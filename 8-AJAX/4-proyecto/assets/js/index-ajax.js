@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnBuscar = document.getElementById("btn-buscar");
   const imgNewCard = document.getElementById("card-image");
   const inputElement = document.getElementById("buscar");
+  const btnFavorites = document.getElementById("btn-favoritos");
 
   // Agrega un evento para detectar cuando se presiona una tecla en el elemento de entrada.
   inputElement.addEventListener("keydown", function (event) {
@@ -19,5 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Agrega un evento para detectar cuando queremos mostrar el detalle del Pokémon
   imgNewCard.addEventListener("click", function () {
     getDetail;
+  });
+
+  btnFavorites.addEventListener("click", function () {
+    console.log("Simulación de agregado a favoritos");
   });
 });

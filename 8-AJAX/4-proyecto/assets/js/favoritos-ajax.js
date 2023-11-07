@@ -3,15 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Obteniendo elementos del DOM
   let tblBody = document.getElementById("tbl-body");
   let xhttp = new XMLHttpRequest();
+
+  spinner("on");
+
   xhttp.open("GET", "assets/php/stringToJson.php");
 
   // Definición de la función que se ejecuta cuando la solicitud se completa
   xhttp.onload = function () {
-    if (xhttp.status === 200) {
-      // Verificar que la solicitud se realizó con éxito
+    // Parsear la respuesta como un objeto JSON
+    const response = JSON.parse(this.responseText);
 
-      // Parsear la respuesta como un objeto JSON
-      const response = JSON.parse(this.responseText);
+    // Verificar que la solicitud se realizó con éxito
+    if (xhttp.status === 200) {
       let newRow = "";
 
       // Iterar sobre los objetos en la respuesta JSON
@@ -31,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Agregar las filas a la tabla en el DOM
       tblBody.innerHTML = newRow;
+      spinner("off");
+    } else {
+      // Si la solicitud no se completó correctamente, manejar el error
+      handleApiError("Se ha producido un error");
     }
   };
 
