@@ -233,23 +233,3 @@ const assignAbilitiesToDOM = () => {
   console.log("Abilities:");
   console.log(abilitiesFromApi);
 };
-
-const setFavorites = (e) => {
-  // Cargando valores del DOM en variables
-  let faviId = document.getElementById("card-subtitle").textContent,
-    faviName = document.getElementById("card-title").textContent,
-    faviType = document.getElementById("pill-left").textContent,
-    faviAbility = document.getElementById("pill-right").textContent,
-    faviAttack = document.getElementById("stats-attack").textContent,
-    faviSpeed = document.getElementById("stats-speed").textContent;
-
-  let parametros = `id=${faviId}&name=${faviName}&type=${faviType}&ability=${faviAbility}&attack=${faviAttack}&speed=${faviSpeed}`;
-  console.log(
-    `${faviId} | ${faviName} | ${faviType} | ${faviAbility} | ${faviAttack} | ${faviSpeed} | `
-  );
-
-  e.preventDefault();
-
-  let peticion = new XMLHttpRequest();
-  peticion.open("POST", "assets/php/insertFavorites.php");
-};

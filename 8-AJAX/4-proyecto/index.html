@@ -35,6 +35,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Exo:400,600,700,800&amp;display=swap"
     />
+
     <link rel="stylesheet" href="assets/css/bs-theme-overrides.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
     <link rel="stylesheet" href="assets/css/Navbar.css" />
@@ -263,32 +264,35 @@
                         <div id="stats-titles" class="row"></div>
                       </div>
                       <!-- End: Graphic Right Col -->
-                      <div class="text-end">
-                        <button
-                          id="btn-favoritos"
-                          class="btn btn-primary mt-3"
-                          type="submit"
-                        >
-                          Add to Favorites
-                        </button>
-                      </div>
                     </div>
-                    <!-- End: Right Column -->
+                    <div class="text-end">
+                      <button
+                        id="btn-favoritos"
+                        class="btn btn-primary mt-3"
+                        type="button"
+                      >
+                        Add to Favorites
+                      </button>
+                    </div>
                   </div>
+                  <!-- End: Right Column -->
                 </div>
               </div>
             </div>
-            <!-- End: Detailed Card -->
           </div>
+          <!-- End: Detailed Card -->
+          <p id="resultado" class="text-info"></p>
         </div>
       </section>
       <!-- End: Second Card -->
 
       <footer>.</footer>
     </main>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/functions.js"></script>
-    <script src="assets/js/index-ajax.js"></script>
+    <script src="assets/js/main-ajax.js"></script>
+    <script src="assets/js/setFavorites.js"></script>
   </body>
 </html>

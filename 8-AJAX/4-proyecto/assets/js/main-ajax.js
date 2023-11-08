@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     getDetail;
   });
 
-  btnFavorites.addEventListener("click", function (e) {
-    setFavorites(e);
-  });
+  // Se encarga de todo el proceso para agregar un favorito
+  // btnFavorites.addEventListener("click", function (event) {
+  //   setFavorites(event);
+  // });
 });
