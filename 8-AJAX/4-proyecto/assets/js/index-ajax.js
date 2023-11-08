@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     getDetail;
   });
 
-  btnFavorites.addEventListener("click", function () {
-    console.log("Simulación de agregado a favoritos");
+  btnFavorites.addEventListener("click", function (e) {
+    setFavorites(e);
   });
 });
